@@ -47,6 +47,8 @@ import asyncio
 import subprocess
 import argparse
 import random
+import shutil
+import signal
 from pathlib import Path
 
 try:
@@ -97,6 +99,27 @@ RATE_LIMIT_SIGNALS = [
 
 # Parallel browser contexts used during Stage 3 URL resolution.
 DEFAULT_CONCURRENCY = 2
+
+# ── aria2c configuration ─────────────────────────────────────────────────────────
+ARIA2_CONCURRENT = 3
+ARIA2_SPLIT = 1
+ARIA2_MIN_SPLIT = "1M"
+ARIA2_FILE_ALLOCATION = "none"
+ARIA2_RETRY_WAIT = 5
+ARIA2_MAX_TRIES = 6
+ARIA2_TIMEOUT = 60
+ARIA2_CONNECT_TIMEOUT = 15
+
+
+# ── Signal handling ──────────────────────────────────────────────────────────────
+
+def _signal_handler(sig, frame):
+    print("\n\n  ════════════════════════════════════════╗")
+    print("  ║  Interrupted — re-run to resume        ║")
+    print("  ════════════════════════════════════════╝\n")
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, _signal_handler)
 
 
 # ── Utilities ──────────────────────────────────────────────────────────────────
@@ -415,6 +438,11 @@ def aria2c_download(direct_urls: list[str], dest_dir: Path):
     fast enough to saturate a typical connection without triggering throttling.
     --continue=true means re-running fitgrab safely resumes partial downloads.
     """
+    if not shutil.which("aria2c"):
+        print("\n  ✗ aria2c not found.")
+        print("  Install: sudo apt install aria2\n")
+        sys.exit(1)
+
     dest_dir.mkdir(parents=True, exist_ok=True)
 
     input_path = dest_dir / ".fitgrab_queue.txt"
@@ -428,16 +456,16 @@ def aria2c_download(direct_urls: list[str], dest_dir: Path):
     cmd = [
         "aria2c",
         f"--input-file={input_path}",
-        "--max-concurrent-downloads=3",
-        "--max-connection-per-server=4",
-        "--split=4",
-        "--min-split-size=1M",
-        "--file-allocation=none",
+        f"--max-concurrent-downloads={ARIA2_CONCURRENT}",
+        f"--max-connection-per-server={ARIA2_SPLIT}",
+        f"--split={ARIA2_SPLIT}",
+        f"--min-split-size={ARIA2_MIN_SPLIT}",
+        f"--file-allocation={ARIA2_FILE_ALLOCATION}",
         "--continue=true",
-        "--retry-wait=5",
-        "--max-tries=6",
-        "--timeout=60",
-        "--connect-timeout=15",
+        f"--retry-wait={ARIA2_RETRY_WAIT}",
+        f"--max-tries={ARIA2_MAX_TRIES}",
+        f"--timeout={ARIA2_TIMEOUT}",
+        f"--connect-timeout={ARIA2_CONNECT_TIMEOUT}",
         f"--user-agent={DEFAULT_USER_AGENT}",
         "--console-log-level=notice",
         "--summary-interval=15",
@@ -447,7 +475,7 @@ def aria2c_download(direct_urls: list[str], dest_dir: Path):
     ]
 
     print(f"\n  → aria2c  [{len(direct_urls)} files → {dest_dir}]")
-    print(f"     3 concurrent × 4 connections/file  |  resume: yes")
+    print(f"     {ARIA2_CONCURRENT} concurrent × {ARIA2_SPLIT} connection/file  |  resume: yes")
     print(f"     log: {log_path}\n")
     print("  " + "─" * 60)
 
