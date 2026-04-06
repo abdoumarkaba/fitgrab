@@ -1,8 +1,62 @@
-import random
-import asyncio
-from playwright.async_api import TimeoutError as PWTimeout
+#!/usr/bin/env python3
+"""
+fitgrab — FitGirl Repacks downloader via FuckingFast mirrors.
 
-# ── Rotating UA pool ──────────────────────────────────────────────────────────
+Usage:
+    fitgrab <url> --dir ~/Games
+    fitgrab <url> --dry-run
+
+Full pipeline (all stages run headless Chromium — no requests/BS4 needed):
+
+  Stage 1 — fitgirl game page
+      Load the page, find the anchor labelled "Filehoster: FuckingFast",
+      grab its href (a PrivateBin paste URL).
+
+  Stage 2 — PrivateBin paste page  ← WHY Playwright is required here
+      The paste URL is:  https://paste.fitgirl-repacks.site/?<id>#<key>
+      The #fragment is a client-side AES key. The server returns encrypted
+      JSON; the page's own JS decrypts it using the key and renders the links.
+      requests gets back ciphertext. Playwright runs the JS, waits for the
+      decrypted <a> tags to appear, then reads them.
+
+  Stage 3 — FuckingFast per-file pages  ← WHY page.expect_download() here
+      Click 1: JS opens an ad popup + sets a local "visited" flag.
+               We close the popup immediately.
+      Click 2: Flag is set → JS triggers a file download (stays on same page).
+      The download URL has NO .rar extension — it's an opaque CDN path.
+      Route-based interception on file extensions therefore misses it.
+      page.expect_download() fires on *any* download regardless of URL shape.
+      We capture the URL from the download object, then cancel it.
+      aria2c handles the actual bytes.
+
+  Stage 4 — aria2c
+      3 concurrent files × 4 connections each. Resume-safe.
+"""
+
+import sys
+import re
+import asyncio
+import subprocess
+import argparse
+import random
+from pathlib import Path
+
+try:
+    from playwright.async_api import async_playwright, TimeoutError as PWTimeout
+except ImportError:
+    print("\n  ✗ pip install playwright --break-system-packages")
+    print("  ✗ playwright install chromium\n")
+    sys.exit(1)
+
+# Optional: playwright-stealth for anti-detection
+try:
+    from playwright_stealth import stealth_async
+    STEALTH_AVAILABLE = True
+except ImportError:
+    STEALTH_AVAILABLE = False
+    stealth_async = None
+
+# ── Rotating User-Agent Pool ─────────────────────────────────────────────────
 
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0",
@@ -12,44 +66,134 @@ USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0",
 ]
 
-# ── Backoff helper ────────────────────────────────────────────────────────────
+# ── Retry and Backoff Settings ───────────────────────────────────────────────
+
+MAX_ATTEMPTS = 5
+COOLDOWN_AFTER_429 = 20
+RATE_LIMIT_SIGNALS = ["rate limit", "too many requests", "429", "please slow down", "try again later"]
 
 def jittered_backoff(attempt: int, base: float = 3.0, cap: float = 60.0) -> float:
-    """
-    Full-jitter exponential backoff.
-    attempt=0 → 0–3s, attempt=1 → 0–6s, attempt=2 → 0–12s … capped at 60s.
-    Full jitter (random in [0, exponential_ceiling]) is empirically better
-    than equal jitter at distributing load spikes.
-    """
+    """Full-jitter exponential backoff: 0-3s, 0-6s, 0-12s ... capped at 60s."""
     ceiling = min(base * (2 ** attempt), cap)
     return random.uniform(0, ceiling)
 
+# Parallel browser tabs used during Stage 3 URL resolution.
+DEFAULT_CONCURRENCY = 2
 
-# ── Revised Stage 3 ───────────────────────────────────────────────────────────
 
-MAX_ATTEMPTS = 5          # per URL across the retry queue
-COOLDOWN_AFTER_429 = 20  # seconds to pause the whole worker on hard rate-limit
+# ── Utilities ─────────────────────────────────────────────────────────────────
 
-RATE_LIMIT_SIGNALS = [
-    "rate limit", "too many requests", "429",
-    "please slow down", "try again later",
-]
+def slugify(title: str) -> str:
+    """Turn a game title into a safe directory name."""
+    title = re.sub(r'[\[({][^\])}]*[\])}]', '', title)   # strip [bracketed] bits
+    title = re.sub(r"[^\w\s\-]", "", title)
+    title = re.sub(r'\s+', '_', title.strip())
+    return title[:80]
 
+
+# ── Stage 1+2: fitgirl page → PrivateBin paste → FF link list ─────────────────
+
+async def get_ff_links(game_url: str, context, paste_url: str | None = None) -> tuple[str, list[str]]:
+    """
+    Opens the fitgirl game page, finds the FuckingFast paste URL, then loads
+    that paste page and waits for PrivateBin's JS to decrypt and render the
+    list of fuckingfast.co links.
+
+    If paste_url is provided directly, skip game page loading and use it instead.
+    """
+    page = await context.new_page()
+    try:
+        # If paste_url provided directly, skip game page
+        if paste_url:
+            title = "fitgirl_download"  # placeholder, will extract from ff_links
+        else:
+            print("  → Loading game page…")
+            await page.goto(game_url, wait_until="domcontentloaded", timeout=30_000)
+
+            # Game title for folder naming
+            title_el = await page.query_selector("h1.entry-title") or await page.query_selector("h1")
+            title = await title_el.inner_text() if title_el else (
+                Path(game_url).stem.replace("-", " ").title()
+            )
+
+            # Find the anchor whose text contains "FuckingFast" and whose href
+            # points at the paste subdomain.
+            paste_url = await page.eval_on_selector_all(
+                "a[href*='paste.fitgirl-repacks.site']",
+                """els => {
+                    // Prefer the one closest to text containing "FuckingFast"
+                    for (const el of els) {
+                        if (el.closest('li') &&
+                            el.closest('li').textContent.includes('FuckingFast')) {
+                            return el.href;
+                        }
+                    }
+                    // Fallback: first match
+                    return els.length ? els[0].href : null;
+                }"""
+            )
+
+            if not paste_url:
+                print("  ✗  No paste.fitgirl-repacks.site link found on game page.")
+                return title, []
+
+        # ── Stage 2: load the PrivateBin paste ───────────────────────────────
+        # The paste URL must include the #fragment (decryption key).
+        # Playwright navigates to the full URL including fragment, runs the
+        # PrivateBin JS, which decrypts and inserts the link list into the DOM.
+        print(f"  → Loading paste (PrivateBin, decrypting via JS)…")
+        print(f"    {paste_url}")
+        await page.goto(paste_url, wait_until="domcontentloaded", timeout=30_000)
+
+        # Wait until at least one fuckingfast.co link appears in the DOM.
+        # PrivateBin renders into various element IDs depending on version;
+        # waiting on the link selector itself is version-agnostic.
+        try:
+            await page.wait_for_selector(
+                "a[href*='fuckingfast.co']", timeout=15_000
+            )
+        except PWTimeout:
+            print("  ✗  Paste page did not render FF links within 15s.")
+            print("     Possible causes: wrong paste URL, PrivateBin JS failed,")
+            print("     or the paste requires a password.")
+            return title, []
+
+        ff_links: list[str] = await page.eval_on_selector_all(
+            "a[href*='fuckingfast.co']",
+            "els => [...new Set(els.map(e => e.href))]"  # deduplicate
+        )
+
+        # Extract title from first ff_link if we skipped game page
+        if title == "fitgirl_download" and ff_links:
+            # Parse game name from link like https://fuckingfast.co/.../Stellar_Blade___...
+            first_link = ff_links[0]
+            match = re.search(r'fuckingfast\.co/[^/]+/([^/]+?)(?:___|_part\d+)', first_link)
+            if match:
+                title = match.group(1).replace('_', ' ').title()
+            else:
+                # Fallback: use URL fragment or generic name
+                title = "fitgirl_download"
+
+        return title, ff_links
+
+    finally:
+        await page.close()
+
+
+# ── Stage 3: resolve each FF page → real download URL ─────────────────────────
 
 async def resolve_ff_url(page, ff_url: str, idx: int, total: int,
                          attempt: int = 0) -> str | None:
     """
     Single-tab URL resolution with per-attempt jittered backoff.
-    `attempt` is carried in from the retry queue so backoff widens globally,
-    not just within a single tab's local loop.
+    Returns URL, or sentinel strings __RATE_LIMITED__ / __RETRY__.
     """
     label = f"[{idx:02d}/{total:02d}]"
 
     # Pre-request delay — widens with each retry
     if attempt > 0:
         wait = jittered_backoff(attempt - 1)
-        print(f"  {label}  ↻  attempt {attempt + 1}/{MAX_ATTEMPTS}  "
-              f"(waiting {wait:.1f}s…)")
+        print(f"  {label}  ↻  attempt {attempt + 1}/{MAX_ATTEMPTS}  (waiting {wait:.1f}s…)")
         await asyncio.sleep(wait)
 
     try:
@@ -58,9 +202,9 @@ async def resolve_ff_url(page, ff_url: str, idx: int, total: int,
         html = await page.content()
         if any(sig in html.lower() for sig in RATE_LIMIT_SIGNALS):
             print(f"  {label}  ⚠  Rate-limited — backing off…")
-            return "__RATE_LIMITED__"   # sentinel; caller re-queues
+            return "__RATE_LIMITED__"  # sentinel; caller re-queues
 
-        # Give Alpine.js time to render — varies with server load
+        # Random Alpine.js wait 2.5-4.5s
         await page.wait_for_timeout(random.randint(2500, 4500))
 
         async with page.expect_download(timeout=18_000) as dl_info:
@@ -74,9 +218,9 @@ async def resolve_ff_url(page, ff_url: str, idx: int, total: int,
                 return {found: false};
             }""")
 
-        if not clicked.get("found"):
-            print(f"  {label}  ✗  Download button not found")
-            return None
+            if not clicked.get("found"):
+                print(f"  {label}  ✗  Download button not found")
+                return None
 
         dl = await dl_info.value
         url = dl.url
@@ -118,6 +262,7 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
                 "--disable-dev-shm-usage",
                 "--disable-blink-features=AutomationControlled",
                 "--disable-web-security",
+                "--disable-features=IsolateOrigins,site-per-process",
             ],
         )
 
@@ -177,3 +322,146 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
         await browser.close()
 
     return [r for r in results if r]
+
+
+# ── Stage 4: aria2c ───────────────────────────────────────────────────────────
+
+def aria2c_download(direct_urls: list[str], dest_dir: Path):
+    """
+    Writes an aria2c input file and launches aria2c.
+
+    3 concurrent downloads × 4 connections per file strikes the right balance:
+    fast enough to saturate a typical connection without triggering throttling.
+    --continue=true means re-running fitgrab safely resumes partial downloads.
+    """
+    dest_dir.mkdir(parents=True, exist_ok=True)
+
+    input_path = dest_dir / ".fitgrab_queue.txt"
+    with open(input_path, "w") as f:
+        for url in direct_urls:
+            f.write(url + "\n")
+            f.write(f" dir={dest_dir}\n")
+
+    log_path = dest_dir / ".fitgrab_aria2.log"
+
+    cmd = [
+        "aria2c",
+        f"--input-file={input_path}",
+        "--max-concurrent-downloads=3",
+        "--max-connection-per-server=4",
+        "--split=4",
+        "--min-split-size=1M",
+        "--file-allocation=none",
+        "--continue=true",
+        "--retry-wait=5",
+        "--max-tries=6",
+        "--timeout=60",
+        "--connect-timeout=15",
+        f"--user-agent={USER_AGENTS[0]}",
+        "--console-log-level=notice",
+        "--summary-interval=15",
+        "--download-result=full",
+        f"--log={log_path}",
+        "--log-level=warn",
+    ]
+
+    print(f"\n  → aria2c  [{len(direct_urls)} files → {dest_dir}]")
+    print(f"     3 concurrent × 4 connections/file  |  resume: yes")
+    print(f"     log: {log_path}\n")
+    print("  " + "─" * 60)
+
+    result = subprocess.run(cmd)
+    if result.returncode == 0:
+        input_path.unlink(missing_ok=True)
+    else:
+        print(f"\n  ⚠  aria2c exited {result.returncode} — re-run fitgrab to resume.")
+
+
+# ── Main ──────────────────────────────────────────────────────────────────────
+
+async def run(args):
+    print("\n  ╔═══════════════════════════════════════╗")
+    print("  ║   fitgrab  —  FitGirl speed loader    ║")
+    print("  ╚═══════════════════════════════════════╝\n")
+
+    # Detect if URL is a direct paste link
+    input_url = args.url
+    direct_paste_url = None
+    if "paste.fitgirl-repacks.site" in input_url:
+        direct_paste_url = input_url
+        print("  → Detected direct paste URL, skipping game page…")
+
+    # Stage 1+2: one browser context just for scraping
+    async with async_playwright() as pw:
+        browser = await pw.chromium.launch(
+            headless=True,
+            args=["--no-sandbox", "--disable-gpu"],
+        )
+        context = await browser.new_context(user_agent=USER_AGENTS[0])
+        title, ff_links = await get_ff_links(input_url, context, paste_url=direct_paste_url)
+        await context.close()
+        await browser.close()
+
+    if not ff_links:
+        print("\n  ✗  No FuckingFast links found. Check the game URL.\n")
+        sys.exit(1)
+
+    folder_name = slugify(title)
+    dest_dir = Path(args.dir).expanduser() / folder_name
+
+    print(f"\n  ✓  Game  : {title}")
+    print(f"  ✓  Parts : {len(ff_links)}")
+    print(f"  ✓  Dest  : {dest_dir}")
+
+    # Stage 3: resolve FF URLs
+    print(f"\n  → Resolving {len(ff_links)} URLs "
+          f"({args.concurrency} tabs parallel)…\n")
+
+    direct_urls = await resolve_all(ff_links, args.concurrency)
+
+    print(f"\n  ✓  Resolved : {len(direct_urls)}/{len(ff_links)}")
+    failed = len(ff_links) - len(direct_urls)
+    if failed:
+        print(f"  ✗  Failed   : {failed}  (re-run fitgrab to retry)")
+
+    if not direct_urls:
+        print("\n  ✗  Nothing to download.\n")
+        sys.exit(1)
+
+    if args.dry_run:
+        print("\n  [DRY RUN]\n")
+        for u in direct_urls:
+            print(f"    {u}")
+        print()
+        return
+
+    # Stage 4: download
+    aria2c_download(direct_urls, dest_dir)
+
+    print(f"\n  ✓  Done!  →  {dest_dir}")
+    print(f"  Extract: cd '{dest_dir}' && unrar x *.part01.rar\n")
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        prog="fitgrab",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "Examples:\n"
+            "  fitgrab https://fitgirl-repacks.site/god-of-war-ragnarok/\n"
+            "  fitgrab https://fitgirl-repacks.site/stellar-blade/ --dir ~/Games\n"
+            "  fitgrab https://paste.fitgirl-repacks.site/?<id>#<key> --dir ~/Games\n"
+            "  fitgrab <url> --dry-run"
+        ),
+    )
+    parser.add_argument("url")
+    parser.add_argument("--dir", default=str(Path.home()), help="Parent dir (default: ~)")
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--concurrency", type=int, default=DEFAULT_CONCURRENCY,
+                        help=f"Parallel tabs for URL resolution (default: {DEFAULT_CONCURRENCY})")
+    args = parser.parse_args()
+    asyncio.run(run(args))
+
+
+if __name__ == "__main__":
+    main()
