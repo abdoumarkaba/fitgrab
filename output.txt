@@ -1,35 +1,22 @@
-
-  ╔═══════════════════════════════════════╗
-  ║   fitgrab  —  FitGirl speed loader    ║
-  ╚═══════════════════════════════════════╝
-
-  → Detected direct paste URL, skipping game page…
-  → Loading paste (PrivateBin, decrypting via JS)…
-    https://paste.fitgirl-repacks.site/?35ba415fc06d7446#kkewW4EV4n7yifWSQC1f4CSmiMxz76kveEEZWZkeX4y
-
-  ✓  Game  : fitgirl_download
-  ✓  Parts : 97
-  ✓  Dest  : /home/abdoufoundit/Games/fitgirl_download
-
-  → Resolving 97 URLs (5 tabs parallel)…
-
-  [01/97]  ✗  DOWNLOAD button not found
-  [03/97]  ✗  DOWNLOAD button not found
-  [05/97]  ✗  DOWNLOAD button not found
-  [02/97]  ✗  DOWNLOAD button not found
-  [04/97]  ✗  DOWNLOAD button not found
-  [06/97]  ✗  DOWNLOAD button not found
-  [07/97]  ✗  DOWNLOAD button not found
-  [08/97]  ✗  DOWNLOAD button not found
-  [10/97]  ✗  DOWNLOAD button not found
-  [09/97]  ✗  DOWNLOAD button not found
-  [11/97]  ✗  DOWNLOAD button not found
-  [12/97]  ✗  DOWNLOAD button not found
-  [13/97]  ✗  DOWNLOAD button not found
-  [14/97]  ✗  DOWNLOAD button not found
-  [15/97]  ✗  DOWNLOAD button not found
-  [17/97]  ✗  DOWNLOAD button not found
-  [16/97]  ✗  DOWNLOAD button not found
-  [18/97]  ✗  DOWNLOAD button not found
-  [19/97]  ✗  DOWNLOAD button not found
-  [20/97]  ✗  DOWNLOAD button not found
+Traceback (most recent call last):
+  File "/home/abdoufoundit/.local/bin/fitgrab", line 59, in <module>
+    from seleniumwire import webdriver as wire_webdriver
+  File "/home/abdoufoundit/.pyenv/versions/3.11.14/lib/python3.11/site-packages/seleniumwire/webdriver.py", line 28, in <module>
+    from seleniumwire import backend, utils
+  File "/home/abdoufoundit/.pyenv/versions/3.11.14/lib/python3.11/site-packages/seleniumwire/backend.py", line 4, in <module>
+    from seleniumwire.server import MitmProxy
+  File "/home/abdoufoundit/.pyenv/versions/3.11.14/lib/python3.11/site-packages/seleniumwire/server.py", line 5, in <module>
+    from seleniumwire.handler import InterceptRequestHandler
+  File "/home/abdoufoundit/.pyenv/versions/3.11.14/lib/python3.11/site-packages/seleniumwire/handler.py", line 5, in <module>
+    from seleniumwire import har
+  File "/home/abdoufoundit/.pyenv/versions/3.11.14/lib/python3.11/site-packages/seleniumwire/har.py", line 11, in <module>
+    from seleniumwire.thirdparty.mitmproxy import connections
+  File "/home/abdoufoundit/.pyenv/versions/3.11.14/lib/python3.11/site-packages/seleniumwire/thirdparty/mitmproxy/connections.py", line 10, in <module>
+    from seleniumwire.thirdparty.mitmproxy.net import tls, tcp
+  File "/home/abdoufoundit/.pyenv/versions/3.11.14/lib/python3.11/site-packages/seleniumwire/thirdparty/mitmproxy/net/tls.py", line 15, in <module>
+    import seleniumwire.thirdparty.mitmproxy.options
+  File "/home/abdoufoundit/.pyenv/versions/3.11.14/lib/python3.11/site-packages/seleniumwire/thirdparty/mitmproxy/options.py", line 5, in <module>
+    from seleniumwire.thirdparty.mitmproxy import optmanager
+  File "/home/abdoufoundit/.pyenv/versions/3.11.14/lib/python3.11/site-packages/seleniumwire/thirdparty/mitmproxy/optmanager.py", line 9, in <module>
+    import blinker._saferef
+ModuleNotFoundError: No module named 'blinker._saferef'

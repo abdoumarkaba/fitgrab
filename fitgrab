@@ -6,28 +6,26 @@ Usage:
     fitgrab <url> --dir ~/Games
     fitgrab <url> --dry-run
 
-Full pipeline (all stages run headless Chromium — no requests/BS4 needed):
+Full pipeline (all stages run headless Firefox — no requests/BS4 needed):
 
   Stage 1 — fitgirl game page
       Load the page, find the anchor labelled "Filehoster: FuckingFast",
       grab its href (a PrivateBin paste URL).
 
-  Stage 2 — PrivateBin paste page  ← WHY Playwright is required here
+  Stage 2 — PrivateBin paste page  ← WHY Selenium is required here
       The paste URL is:  https://paste.fitgirl-repacks.site/?<id>#<key>
       The #fragment is a client-side AES key. The server returns encrypted
       JSON; the page's own JS decrypts it using the key and renders the links.
-      requests gets back ciphertext. Playwright runs the JS, waits for the
+      requests gets back ciphertext. Selenium runs the JS, waits for the
       decrypted <a> tags to appear, then reads them.
 
-  Stage 3 — FuckingFast per-file pages  ← WHY page.expect_download() here
+  Stage 3 — FuckingFast per-file pages  ← WHY network interception here
       Click 1: JS opens an ad popup + sets a local "visited" flag.
                We close the popup immediately.
       Click 2: Flag is set → JS triggers a file download (stays on same page).
       The download URL has NO .rar extension — it's an opaque CDN path.
-      Route-based interception on file extensions therefore misses it.
-      page.expect_download() fires on *any* download regardless of URL shape.
-      We capture the URL from the download object, then cancel it.
-      aria2c handles the actual bytes.
+      selenium-wire intercepts the network request to capture the URL,
+      then we cancel the download. aria2c handles the actual bytes.
 
   Stage 4 — aria2c
       3 concurrent files × 4 connections each. Resume-safe.
@@ -47,21 +45,18 @@ import asyncio
 import subprocess
 import argparse
 import random
+import functools
 from pathlib import Path
 
-try:
-    from playwright.async_api import async_playwright, TimeoutError as PWTimeout
-except ImportError:
-    print("\n  ✗ pip install playwright --break-system-packages")
-    print("  ✗ playwright install chromium\n")
-    sys.exit(1)
-
-try:
-    from playwright_stealth import stealth_async
-    STEALTH_AVAILABLE = True
-except ImportError:
-    STEALTH_AVAILABLE = False
-    stealth_async = None
+from selenium import webdriver
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException as SeleniumTimeout
+from webdriver_manager.firefox import GeckoDriverManager
+from seleniumwire import webdriver as wire_webdriver
 
 # ── User-agent pool ────────────────────────────────────────────────────────────
 # Rotated per browser context so each tab presents a distinct fingerprint.
@@ -120,11 +115,17 @@ def jittered_backoff(attempt: int) -> float:
     return random.uniform(0, ceiling)
 
 
+async def run_sync(func, *args, **kwargs):
+    """Run synchronous Selenium functions in async context via thread pool."""
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(None, functools.partial(func, *args, **kwargs))
+
+
 # ── Stage 1+2: fitgirl page → PrivateBin paste → FF link list ─────────────────
 
 async def get_ff_links(
     game_url: str,
-    context,
+    driver: webdriver.Firefox,
     paste_url: str | None = None,
 ) -> tuple[str, list[str]]:
     """
@@ -134,36 +135,42 @@ async def get_ff_links(
 
     If paste_url is provided directly, the game page load is skipped.
     """
-    page = await context.new_page()
     try:
         if paste_url:
             title = "fitgirl_download"
         else:
             print("  → Loading game page…")
-            await page.goto(game_url, wait_until="domcontentloaded", timeout=30_000)
+            await run_sync(driver.get, game_url)
+            # Wait for page to load
+            await asyncio.sleep(2)
 
-            title_el = (
-                await page.query_selector("h1.entry-title")
-                or await page.query_selector("h1")
-            )
-            title = (
-                await title_el.inner_text()
-                if title_el
-                else Path(game_url).stem.replace("-", " ").title()
-            )
+            # Get title
+            title_el = await run_sync(
+                driver.find_element, By.CSS_SELECTOR, "h1.entry-title"
+            ) or await run_sync(driver.find_element, By.CSS_SELECTOR, "h1")
+            if title_el:
+                title = await run_sync(lambda: title_el.text)
+            else:
+                title = Path(game_url).stem.replace("-", " ").title()
 
-            paste_url = await page.eval_on_selector_all(
-                "a[href*='paste.fitgirl-repacks.site']",
-                """els => {
-                    for (const el of els) {
-                        if (el.closest('li') &&
-                            el.closest('li').textContent.includes('FuckingFast')) {
-                            return el.href;
-                        }
-                    }
-                    return els.length ? els[0].href : null;
-                }"""
+            # Find paste URL
+            links = await run_sync(
+                driver.find_elements, By.CSS_SELECTOR, "a[href*='paste.fitgirl-repacks.site']"
             )
+            paste_url = None
+            for link in links:
+                href = await run_sync(lambda: link.get_attribute("href"))
+                # Check if parent li contains "FuckingFast"
+                try:
+                    parent_li = await run_sync(link.find_element, By.XPATH, "./..")
+                    parent_text = await run_sync(lambda: parent_li.text)
+                    if "FuckingFast" in parent_text:
+                        paste_url = href
+                        break
+                except:
+                    continue
+            if not paste_url and links:
+                paste_url = await run_sync(lambda: links[0].get_attribute("href"))
 
             if not paste_url:
                 print("  ✗  No paste.fitgirl-repacks.site link found on game page.")
@@ -172,22 +179,32 @@ async def get_ff_links(
         # ── Stage 2: load the PrivateBin paste ───────────────────────────────
         print(f"  → Loading paste (PrivateBin, decrypting via JS)…")
         print(f"    {paste_url}")
-        await page.goto(paste_url, wait_until="domcontentloaded", timeout=30_000)
-
+        await run_sync(driver.get, paste_url)
+        
+        # Wait for FF links to appear (PrivateBin JS decryption)
         try:
-            await page.wait_for_selector(
-                "a[href*='fuckingfast.co']", timeout=15_000
+            wait = WebDriverWait(driver, 15)
+            await run_sync(
+                wait.until,
+                EC.presence_of_element_located((By.CSS_SELECTOR, "a[href*='fuckingfast.co']"))
             )
-        except PWTimeout:
+        except SeleniumTimeout:
             print("  ✗  Paste page did not render FF links within 15s.")
             print("     Possible causes: wrong paste URL, PrivateBin JS failed,")
             print("     or the paste requires a password.")
             return title, []
 
-        ff_links: list[str] = await page.eval_on_selector_all(
-            "a[href*='fuckingfast.co']",
-            "els => [...new Set(els.map(e => e.href))]"
+        # Get all FF links
+        ff_elements = await run_sync(
+            driver.find_elements, By.CSS_SELECTOR, "a[href*='fuckingfast.co']"
         )
+        ff_links = []
+        seen = set()
+        for el in ff_elements:
+            href = await run_sync(lambda: el.get_attribute("href"))
+            if href and href not in seen:
+                seen.add(href)
+                ff_links.append(href)
 
         if title == "fitgirl_download" and ff_links:
             first_link = ff_links[0]
@@ -203,13 +220,13 @@ async def get_ff_links(
         return title, ff_links
 
     finally:
-        await page.close()
+        pass  # Driver managed by caller
 
 
 # ── Stage 3: resolve each FF page → real download URL ─────────────────────────
 
 async def resolve_ff_url(
-    page,
+    driver: wire_webdriver.Firefox,
     ff_url: str,
     idx: int,
     total: int,
@@ -217,6 +234,8 @@ async def resolve_ff_url(
 ) -> str | None:
     """
     Navigates to one FuckingFast page and clicks the download button.
+    Uses selenium-wire to intercept the download URL from network requests.
+    
     Returns:
       - A direct download URL string on success.
       - "__RATE_LIMITED__" sentinel when a soft block is detected.
@@ -235,38 +254,48 @@ async def resolve_ff_url(
         await asyncio.sleep(wait)
 
     try:
-        await page.goto(ff_url, wait_until="networkidle", timeout=25_000)
+        # Clear previous requests
+        del driver.requests
+        
+        await run_sync(driver.get, ff_url)
+        
+        # Wait for page load
+        await asyncio.sleep(2)
 
-        html = await page.content()
+        html = await run_sync(lambda: driver.page_source)
         if any(sig in html.lower() for sig in RATE_LIMIT_SIGNALS):
             print(f"  {label}  ⚠  Rate-limit signal detected")
             return "__RATE_LIMITED__"
 
         # Wait for Alpine.js to render — randomised to avoid rhythmic patterns
-        await page.wait_for_timeout(random.randint(2500, 4500))
+        await asyncio.sleep(random.uniform(2.5, 4.5))
 
         # Debug: surface button state on first attempt only
         if attempt == 0:
-            debug_info = await page.evaluate("""() => {
-                const buttons = Array.from(document.querySelectorAll('button'));
-                return {
-                    count: buttons.length,
-                    sample: buttons.slice(0, 6).map(b => ({
-                        text: b.textContent.trim().slice(0, 50),
-                        classes: b.className,
-                        visible: b.offsetParent !== null
-                    }))
-                };
-            }""")
+            debug_info = await run_sync(
+                driver.execute_script,
+                """() => {
+                    const buttons = Array.from(document.querySelectorAll('button'));
+                    return {
+                        count: buttons.length,
+                        sample: buttons.slice(0, 6).map(b => ({
+                            text: b.textContent.trim().slice(0, 50),
+                            classes: b.className,
+                            visible: b.offsetParent !== null
+                        }))
+                    };
+                }"""
+            )
             if debug_info["count"] == 0:
                 print(f"  {label}  DEBUG: No buttons found; saving HTML snapshot…")
-                html = await page.content()
                 snap = Path(f"/tmp/fitgrab_debug_{idx}.html")
-                snap.write_text(html)
+                await run_sync(lambda: snap.write_text(driver.page_source))
                 print(f"  {label}  DEBUG: {snap}")
 
-        async with page.expect_download(timeout=18_000) as dl_info:
-            clicked = await page.evaluate("""() => {
+        # Click download button and intercept network request
+        clicked = await run_sync(
+            driver.execute_script,
+            """() => {
                 const btn = Array.from(document.querySelectorAll('button')).find(b =>
                     b.textContent.toUpperCase().includes('DOWNLOAD') ||
                     b.classList.contains('link-button') ||
@@ -277,22 +306,34 @@ async def resolve_ff_url(
                     return {found: true, text: btn.textContent.trim().slice(0, 30)};
                 }
                 return {found: false, count: document.querySelectorAll('button').length};
-            }""")
+            }"""
+        )
 
         if not clicked.get("found"):
             print(f"  {label}  ✗  Download button not found "
                   f"({clicked.get('count', 0)} buttons on page)")
             return None
 
-        dl = await dl_info.value
-        url = dl.url
-        await dl.cancel()
+        # Wait for download request to be intercepted
+        download_url = None
+        for _ in range(30):  # Wait up to 6 seconds (30 * 0.2s)
+            await asyncio.sleep(0.2)
+            for request in driver.requests:
+                if request.response and 'fuckingfast.co/dl/' in request.url:
+                    download_url = request.url
+                    break
+            if download_url:
+                break
 
-        fname = url.split("/")[-1].split("?")[0] or ff_url.split("#")[-1][:40]
+        if not download_url:
+            print(f"  {label}  ✗  Download URL not intercepted within timeout")
+            return "__RETRY__"
+
+        fname = download_url.split("/")[-1].split("?")[0] or ff_url.split("#")[-1][:40]
         print(f"  {label}  ✓  {fname}")
-        return url
+        return download_url
 
-    except PWTimeout:
+    except SeleniumTimeout:
         print(f"  {label}  ✗  Timeout (attempt {attempt + 1})")
         return "__RETRY__"
     except Exception as e:
@@ -302,12 +343,12 @@ async def resolve_ff_url(
 
 async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
     """
-    Resolves all FF links via a persistent retry queue.
+    Resolves all FF links via a persistent retry queue using Selenium+Firefox.
 
     Architecture:
       - Each item in the queue carries (original_index, url, attempt_number).
-      - Each resolution attempt spawns its own browser context with a randomly
-        selected user-agent and viewport — contexts never share fingerprints.
+      - Each resolution attempt creates a fresh Firefox driver with a randomly
+        selected user-agent and viewport — drivers never share fingerprints.
       - On rate-limit detection, the worker cools down before re-queuing the URL.
       - On timeout/transient error, the URL is re-queued immediately (backoff
         is applied at the start of the next resolve_ff_url call instead).
@@ -321,86 +362,72 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
     total = len(ff_links)
     sem = asyncio.Semaphore(concurrency)
 
-    async with async_playwright() as pw:
-        browser = await pw.chromium.launch(
-            headless=True,
-            args=[
-                "--no-sandbox",
-                "--disable-gpu",
-                "--disable-dev-shm-usage",
-                "--disable-blink-features=AutomationControlled",
-                "--disable-web-security",
-                "--disable-features=IsolateOrigins,site-per-process",
-            ],
-        )
+    async def worker(worker_id: int):
+        while True:
+            try:
+                idx, url, attempt = queue.get_nowait()
+            except asyncio.QueueEmpty:
+                break
 
-        async def worker(worker_id: int):
-            while True:
+            async with sem:
+                driver = None
                 try:
-                    idx, url, attempt = queue.get_nowait()
-                except asyncio.QueueEmpty:
-                    break
-
-                async with sem:
-                    # Distinct context per attempt: different UA, viewport, cookies
+                    # Distinct driver per attempt: different UA, viewport
                     ua = random.choice(USER_AGENTS)
-                    context = await browser.new_context(
-                        user_agent=ua,
-                        accept_downloads=True,
-                        viewport={
-                            "width": random.randint(1280, 1920),
-                            "height": random.randint(720, 1080),
-                        },
-                    )
-                    # Block media to speed up page loads; we only need the DOM
-                    await context.route(
-                        re.compile(
-                            r"\.(png|jpg|jpeg|gif|webp|svg|woff2?|ttf|mp4)(\?.*)?$"
-                        ),
-                        lambda r: r.abort(),
-                    )
-                    page = await context.new_page()
+                    width = random.randint(1280, 1920)
+                    height = random.randint(720, 1080)
+                    
+                    opts = FirefoxOptions()
+                    opts.add_argument("--headless")
+                    opts.add_argument(f"--width={width}")
+                    opts.add_argument(f"--height={height}")
+                    opts.set_preference("general.useragent.override", ua)
+                    # Block images to speed up loads
+                    opts.set_preference("permissions.default.image", 2)
+                    
+                    # Use selenium-wire for network interception
+                    driver = wire_webdriver.Firefox(options=opts)
+                    
+                    result = await resolve_ff_url(driver, url, idx + 1, total, attempt)
+                    
+                except Exception as e:
+                    print(f"  [worker-{worker_id}]  ✗  Driver error: {e}")
+                    result = "__RETRY__"
+                finally:
+                    if driver:
+                        await run_sync(driver.quit)
 
-                    if STEALTH_AVAILABLE and stealth_async:
-                        await stealth_async(page)
+                if result == "__RATE_LIMITED__":
+                    if attempt < MAX_ATTEMPTS - 1:
+                        cooldown = COOLDOWN_AFTER_429 + random.uniform(0, 10)
+                        print(
+                            f"  [worker-{worker_id}]  ❄  "
+                            f"Cooling {cooldown:.0f}s before retry…"
+                        )
+                        await asyncio.sleep(cooldown)
+                        await queue.put((idx, url, attempt + 1))
+                    else:
+                        print(
+                            f"  [{idx+1:02d}/{total:02d}]  ✗  "
+                            f"Gave up after {MAX_ATTEMPTS} attempts (rate limit)"
+                        )
 
-                    result = await resolve_ff_url(page, url, idx + 1, total, attempt)
+                elif result == "__RETRY__":
+                    if attempt < MAX_ATTEMPTS - 1:
+                        await queue.put((idx, url, attempt + 1))
+                    else:
+                        print(
+                            f"  [{idx+1:02d}/{total:02d}]  ✗  "
+                            f"Gave up after {MAX_ATTEMPTS} attempts"
+                        )
 
-                    await page.close()
-                    await context.close()
+                elif result:
+                    results[idx] = result
 
-                    if result == "__RATE_LIMITED__":
-                        if attempt < MAX_ATTEMPTS - 1:
-                            cooldown = COOLDOWN_AFTER_429 + random.uniform(0, 10)
-                            print(
-                                f"  [worker-{worker_id}]  ❄  "
-                                f"Cooling {cooldown:.0f}s before retry…"
-                            )
-                            await asyncio.sleep(cooldown)
-                            await queue.put((idx, url, attempt + 1))
-                        else:
-                            print(
-                                f"  [{idx+1:02d}/{total:02d}]  ✗  "
-                                f"Gave up after {MAX_ATTEMPTS} attempts (rate limit)"
-                            )
+            queue.task_done()
 
-                    elif result == "__RETRY__":
-                        if attempt < MAX_ATTEMPTS - 1:
-                            await queue.put((idx, url, attempt + 1))
-                        else:
-                            print(
-                                f"  [{idx+1:02d}/{total:02d}]  ✗  "
-                                f"Gave up after {MAX_ATTEMPTS} attempts"
-                            )
-
-                    elif result:
-                        results[idx] = result
-
-                queue.task_done()
-
-        workers = [asyncio.create_task(worker(i)) for i in range(concurrency)]
-        await asyncio.gather(*workers)
-        await browser.close()
+    workers = [asyncio.create_task(worker(i)) for i in range(concurrency)]
+    await asyncio.gather(*workers)
 
     return [r for r in results if r]
 
@@ -471,18 +498,21 @@ async def run(args):
         direct_paste_url = input_url
         print("  → Detected direct paste URL, skipping game page…")
 
-    # Stage 1+2: one lightweight context just for scraping
-    async with async_playwright() as pw:
-        browser = await pw.chromium.launch(
-            headless=True,
-            args=["--no-sandbox", "--disable-gpu"],
-        )
-        context = await browser.new_context(user_agent=DEFAULT_USER_AGENT)
+    # Stage 1+2: one lightweight Firefox driver just for scraping
+    driver = None
+    try:
+        opts = FirefoxOptions()
+        opts.add_argument("--headless")
+        opts.set_preference("general.useragent.override", DEFAULT_USER_AGENT)
+        opts.set_preference("permissions.default.image", 2)  # block images
+        
+        driver = webdriver.Firefox(options=opts)
         title, ff_links = await get_ff_links(
-            input_url, context, paste_url=direct_paste_url
+            input_url, driver, paste_url=direct_paste_url
         )
-        await context.close()
-        await browser.close()
+    finally:
+        if driver:
+            await run_sync(driver.quit)
 
     if not ff_links:
         print("\n  ✗  No FuckingFast links found. Check the game URL.\n")
