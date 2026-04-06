@@ -1,1 +1,1 @@
-fitgrab "https://paste.fitgirl-repacks.site/?23ac8afba4a8d449#HPuJg56m8sxrc5mUjbRshCXjrJw3H22aAQUpFr6rUyv3" --dir ~/Games
+fitgrab "https://paste.fitgirl-repacks.site/?35ba415fc06d7446#kkewW4EV4n7yifWSQC1f4CSmiMxz76kveEEZWZkeX4y" --dir ~/Games
