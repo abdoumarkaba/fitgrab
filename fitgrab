@@ -48,8 +48,8 @@ except ImportError:
     sys.exit(1)
 
 USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 Edg/132.0.0.0"
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) "
+    "Gecko/20100101 Firefox/128.0"
 )
 
 # Parallel browser tabs used during Stage 3 URL resolution.
@@ -165,29 +165,49 @@ async def resolve_ff_url(page, ff_url: str, idx: int, total: int) -> str | None:
     """
 
     try:
-        await page.goto(ff_url, wait_until="domcontentloaded", timeout=20_000)
+        await page.goto(ff_url, wait_until="networkidle", timeout=20_000)
 
         # Wait for Alpine.js to render the button
-        await page.wait_for_timeout(2000)
+        await page.wait_for_timeout(3000)
+
+        # Debug: Log what buttons exist on the page
+        debug_info = await page.evaluate("""() => {
+            const buttons = Array.from(document.querySelectorAll('button'));
+            return {
+                buttonCount: buttons.length,
+                buttons: buttons.slice(0, 10).map(b => ({
+                    text: b.textContent.trim().slice(0, 50),
+                    classes: b.className,
+                    visible: b.offsetParent !== null
+                }))
+            };
+        }""")
+        if debug_info['buttonCount'] == 0:
+            print(f"  [{idx:02d}/{total:02d}]  DEBUG: No buttons found on page")
+            # Save HTML for debugging
+            html = await page.content()
+            debug_file = Path(f'/tmp/fitgrab_debug_{idx}.html')
+            debug_file.write_text(html)
+            print(f"  [{idx:02d}/{total:02d}]  DEBUG: Saved HTML to {debug_file}")
 
         # Click button and capture the download URL
         try:
-            async with page.expect_download(timeout=10_000) as dl_info:
+            async with page.expect_download(timeout=15_000) as dl_info:
                 clicked = await page.evaluate("""() => {
                     const buttons = Array.from(document.querySelectorAll('button'));
                     const btn = buttons.find(b =>
-                        b.textContent.includes('DOWNLOAD') ||
+                        b.textContent.toUpperCase().includes('DOWNLOAD') ||
                         b.classList.contains('link-button') ||
                         b.classList.contains('gay-button')
                     );
                     if (btn) {
                         btn.click();
-                        return true;
+                        return {found: true, text: btn.textContent.trim().slice(0, 30)};
                     }
-                    return false;
+                    return {found: false, count: buttons.length};
                 }""")
-                if not clicked:
-                    print(f"  [{idx:02d}/{total:02d}]  ✗  DOWNLOAD button not found")
+                if not clicked.get('found'):
+                    print(f"  [{idx:02d}/{total:02d}]  ✗  DOWNLOAD button not found (found {clicked.get('count', 0)} buttons)")
                     return None
 
             dl = await dl_info.value
@@ -199,7 +219,7 @@ async def resolve_ff_url(page, ff_url: str, idx: int, total: int) -> str | None:
             return url
 
         except PWTimeout:
-            print(f"  [{idx:02d}/{total:02d}]  ✗  Download did not fire within 10s")
+            print(f"  [{idx:02d}/{total:02d}]  ✗  Download did not fire within 15s")
             return None
 
     except PWTimeout:
