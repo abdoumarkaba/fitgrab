@@ -160,19 +160,9 @@ async def get_ff_links(game_url: str, context, paste_url: str | None = None) -> 
 async def resolve_ff_url(page, ff_url: str, idx: int, total: int) -> str | None:
     """
     Navigates to one FuckingFast page and clicks the download button.
-    The download button triggers window.open() with the direct download URL.
-    We capture the URL from the popup instead of expecting a browser download event.
+    The download button triggers a browser download event (Content-Disposition).
+    We capture the URL from the download object using page.expect_download().
     """
-
-    # Store the download URL captured from popup
-    download_url = None
-
-    async def handle_popup(popup):
-        nonlocal download_url
-        download_url = popup.url
-        await popup.close()
-
-    page.on("popup", lambda popup: asyncio.ensure_future(handle_popup(popup)))
 
     try:
         await page.goto(ff_url, wait_until="domcontentloaded", timeout=20_000)
@@ -180,34 +170,36 @@ async def resolve_ff_url(page, ff_url: str, idx: int, total: int) -> str | None:
         # Wait for Alpine.js to render the button
         await page.wait_for_timeout(2000)
 
-        # Use JavaScript to find and click the button (CSS selectors fail with Alpine.js)
-        clicked = await page.evaluate("""() => {
-            const buttons = Array.from(document.querySelectorAll('button'));
-            const btn = buttons.find(b =>
-                b.textContent.includes('DOWNLOAD') ||
-                b.classList.contains('link-button') ||
-                b.classList.contains('gay-button')
-            );
-            if (btn) {
-                btn.click();
-                return true;
-            }
-            return false;
-        }""")
+        # Click button and capture the download URL
+        try:
+            async with page.expect_download(timeout=10_000) as dl_info:
+                clicked = await page.evaluate("""() => {
+                    const buttons = Array.from(document.querySelectorAll('button'));
+                    const btn = buttons.find(b =>
+                        b.textContent.includes('DOWNLOAD') ||
+                        b.classList.contains('link-button') ||
+                        b.classList.contains('gay-button')
+                    );
+                    if (btn) {
+                        btn.click();
+                        return true;
+                    }
+                    return false;
+                }""")
+                if not clicked:
+                    print(f"  [{idx:02d}/{total:02d}]  ✗  DOWNLOAD button not found")
+                    return None
 
-        if not clicked:
-            print(f"  [{idx:02d}/{total:02d}]  ✗  DOWNLOAD button not found")
-            return None
+            dl = await dl_info.value
+            url = dl.url
+            await dl.cancel()  # we don't want the bytes, just the URL
 
-        # Wait for popup to open and capture URL
-        await page.wait_for_timeout(2000)
-
-        if download_url and download_url.startswith("https://fuckingfast.co/dl/"):
-            fname = download_url.split("/")[-1].split("?")[0][:50] or ff_url.split("#")[-1][:40]
+            fname = url.split("/")[-1].split("?")[0] or ff_url.split("#")[-1][:40]
             print(f"  [{idx:02d}/{total:02d}]  ✓  {fname}")
-            return download_url
-        else:
-            print(f"  [{idx:02d}/{total:02d}]  ✗  No download URL captured")
+            return url
+
+        except PWTimeout:
+            print(f"  [{idx:02d}/{total:02d}]  ✗  Download did not fire within 10s")
             return None
 
     except PWTimeout:
