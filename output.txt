@@ -1,0 +1,35 @@
+
+  ╔═══════════════════════════════════════╗
+  ║   fitgrab  —  FitGirl speed loader    ║
+  ╚═══════════════════════════════════════╝
+
+  → Detected direct paste URL, skipping game page…
+  → Loading paste (PrivateBin, decrypting via JS)…
+    https://paste.fitgirl-repacks.site/?35ba415fc06d7446#kkewW4EV4n7yifWSQC1f4CSmiMxz76kveEEZWZkeX4y
+
+  ✓  Game  : fitgirl_download
+  ✓  Parts : 97
+  ✓  Dest  : /home/abdoufoundit/Games/fitgirl_download
+
+  → Resolving 97 URLs (5 tabs parallel)…
+
+  [01/97]  ✗  DOWNLOAD button not found
+  [03/97]  ✗  DOWNLOAD button not found
+  [05/97]  ✗  DOWNLOAD button not found
+  [02/97]  ✗  DOWNLOAD button not found
+  [04/97]  ✗  DOWNLOAD button not found
+  [06/97]  ✗  DOWNLOAD button not found
+  [07/97]  ✗  DOWNLOAD button not found
+  [08/97]  ✗  DOWNLOAD button not found
+  [10/97]  ✗  DOWNLOAD button not found
+  [09/97]  ✗  DOWNLOAD button not found
+  [11/97]  ✗  DOWNLOAD button not found
+  [12/97]  ✗  DOWNLOAD button not found
+  [13/97]  ✗  DOWNLOAD button not found
+  [14/97]  ✗  DOWNLOAD button not found
+  [15/97]  ✗  DOWNLOAD button not found
+  [17/97]  ✗  DOWNLOAD button not found
+  [16/97]  ✗  DOWNLOAD button not found
+  [18/97]  ✗  DOWNLOAD button not found
+  [19/97]  ✗  DOWNLOAD button not found
+  [20/97]  ✗  DOWNLOAD button not found
