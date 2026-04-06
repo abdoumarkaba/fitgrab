@@ -534,6 +534,8 @@ async def run(args):
     if failed:
         print(f"  ✗  Failed   : {failed}  (re-run fitgrab to retry)")
 
+    sys.stdout.flush()
+
     if not direct_urls:
         print("\n  ✗  Nothing to download.\n")
         sys.exit(1)
