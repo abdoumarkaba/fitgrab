@@ -67,6 +67,8 @@ except ImportError:
 
 # ── User-agent pool ────────────────────────────────────────────────────────────
 # Rotated per browser context so each tab presents a distinct fingerprint.
+# This helps avoid detection when scraping FuckingFast's anti-bot measures.
+# Each worker picks a random UA on each attempt to appear as different visitors.
 
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0",
@@ -82,12 +84,15 @@ USER_AGENTS = [
 DEFAULT_USER_AGENT = USER_AGENTS[0]
 
 # ── Rate-limit bypass constants ────────────────────────────────────────────────
+# These values tune the backoff strategy when FuckingFast throttles requests.
+# The CDN uses a sliding window - we back off to let it clear before retrying.
 
 MAX_ATTEMPTS        = 5     # maximum total attempts per URL across the retry queue
 COOLDOWN_AFTER_429  = 20    # base seconds a worker pauses after detecting a hard limit
 BACKOFF_BASE        = 3.0   # seconds; doubles each attempt
 BACKOFF_CAP         = 60.0  # maximum ceiling for a single backoff draw
 
+# HTML substrings that indicate we've hit a rate limit (case-insensitive checked)
 RATE_LIMIT_SIGNALS = [
     "rate limit",
     "too many requests",
@@ -101,6 +106,12 @@ RATE_LIMIT_SIGNALS = [
 DEFAULT_CONCURRENCY = 2
 
 # ── aria2c configuration ─────────────────────────────────────────────────────────
+# aria2c handles the actual file downloads. These settings are tuned for:
+# - Single connection per file (ARIA2_SPLIT=1) to avoid HTTP Range header issues
+#   with FuckingFast's CDN which doesn't properly support partial content.
+# - Resume support (--continue=true) so re-running picks up where it left off.
+# - Reasonable timeouts to detect stalled connections quickly.
+
 ARIA2_CONCURRENT = 3
 ARIA2_SPLIT = 1
 ARIA2_MIN_SPLIT = "1M"
@@ -112,6 +123,8 @@ ARIA2_CONNECT_TIMEOUT = 15
 
 
 # ── Signal handling ──────────────────────────────────────────────────────────────
+# Graceful Ctrl+C handling - important because downloads can be long-running.
+# We want a clean exit (code 0) rather than a crash, with a helpful message.
 
 def _signal_handler(sig, frame):
     print("\n\n  ════════════════════════════════════════╗")
@@ -125,22 +138,45 @@ signal.signal(signal.SIGINT, _signal_handler)
 # ── Utilities ──────────────────────────────────────────────────────────────────
 
 def slugify(title: str) -> str:
-    """Turn a game title into a safe directory name."""
-    title = re.sub(r'[\[({][^\])}]*[\])}]', '', title)
+    """Turn a game title into a safe directory name.
+    
+    Removes brackets/parentheses content (like [Update] or (DLC), strips special
+    chars, replaces spaces with underscores, truncates to 80 chars.
+    """
+    title = re.sub(r'[\[({][^\])})]*[\])})]', '', title)
     title = re.sub(r"[^\w\s\-]", "", title)
     title = re.sub(r'\s+', '_', title.strip())
     return title[:80]
 
 
 def jittered_backoff(attempt: int) -> float:
-    """
-    Full-jitter exponential backoff.
-    attempt=0 → 0–3s, attempt=1 → 0–6s, attempt=2 → 0–12s … capped at 60s.
-    Full jitter (uniform draw in [0, ceiling]) distributes retries across
-    time rather than synchronising them into a new spike.
+    """Full-jitter exponential backoff for distributed retry timing.
+    
+    Why full jitter? If all failed requests retry at the same time, they create
+    a new spike that triggers more rate limits. Randomizing across the full
+    [0, ceiling] range spreads load and improves success rate.
+    
+    Timing: attempt=0 → 0-3s, attempt=1 → 0-6s, attempt=2 → 0-12s ... capped at 60s.
     """
     ceiling = min(BACKOFF_BASE * (2 ** attempt), BACKOFF_CAP)
     return random.uniform(0, ceiling)
+
+
+def extract_game_name(direct_urls: list[str]) -> str | None:
+    """Extract game name from first resolved URL.
+    
+    Filename format: <GameName>_--_fitgirl-repacks.site_--_.partNN.rar
+    Extract everything before '_--_' to get the game name.
+    """
+    if not direct_urls:
+        return None
+    
+    fname = direct_urls[0].split("/")[-1].split("?")[0]
+    match = re.match(r'^(.+?)_--_', fname)
+    if match:
+        return match.group(1).replace('_', ' ')
+    
+    return None
 
 
 # ── Stage 1+2: fitgirl page → PrivateBin paste → FF link list ─────────────────
@@ -150,12 +186,17 @@ async def get_ff_links(
     context,
     paste_url: str | None = None,
 ) -> tuple[str, list[str]]:
-    """
-    Opens the fitgirl game page, finds the FuckingFast paste URL, then loads
-    that paste page and waits for PrivateBin's JS to decrypt and render the
-    list of fuckingfast.co links.
-
-    If paste_url is provided directly, the game page load is skipped.
+    """Extract download links from FitGirl repack page.
+    
+    Two-stage process:
+    1. If no paste_url given: load game page, find PrivateBin link for FuckingFast
+    2. Load the PrivateBin paste, wait for JS decryption, extract FF download URLs
+    
+    Returns tuple of (game_title, list_of_fuckingfast_urls)
+    
+    Note: PrivateBin uses client-side AES encryption - the #fragment in the URL
+    contains the key. Server only sees encrypted blob, so we must use Playwright
+    to execute the decryption JS and render the actual download links.
     """
     page = await context.new_page()
     try:
@@ -238,16 +279,21 @@ async def resolve_ff_url(
     total: int,
     attempt: int = 0,
 ) -> str | None:
-    """
-    Navigates to one FuckingFast page and clicks the download button.
+    """Get direct CDN URL from a FuckingFast download page.
+    
+    The FF page has a flow: initial page → click download → ad popup appears → 
+    close popup → click again → actual download starts. We use expect_download()
+    to capture the final URL, then cancel the download (aria2c will handle it).
+    
     Returns:
-      - A direct download URL string on success.
-      - "__RATE_LIMITED__" sentinel when a soft block is detected.
-      - "__RETRY__" sentinel on timeout or other transient errors.
-      - None on hard failures (button not found, exhausted attempts).
-
-    The `attempt` parameter is carried in from the retry queue so backoff
-    widens globally across re-queues, not just within a single tab.
+      - Direct download URL string on success
+      - "__RATE_LIMITED__" sentinel when HTML contains rate-limit messages
+      - "__RETRY__" sentinel on timeout or transient errors (retry may help)
+      - None on hard failures (button not found, max attempts exhausted)
+    
+    The attempt counter is passed through so backoff widens globally - if we
+    retry the same URL multiple times across different workers, each retry
+    gets a longer wait than the last.
     """
     label = f"[{idx:02d}/{total:02d}]"
 
@@ -324,17 +370,19 @@ async def resolve_ff_url(
 
 
 async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
-    """
-    Resolves all FF links via a persistent retry queue.
-
+    """Resolve all FuckingFast URLs to direct CDN links using parallel workers.
+    
     Architecture:
-      - Each item in the queue carries (original_index, url, attempt_number).
-      - Each resolution attempt spawns its own browser context with a randomly
-        selected user-agent and viewport — contexts never share fingerprints.
-      - On rate-limit detection, the worker cools down before re-queuing the URL.
-      - On timeout/transient error, the URL is re-queued immediately (backoff
-        is applied at the start of the next resolve_ff_url call instead).
-      - URLs exceeding MAX_ATTEMPTS are silently dropped with a log line.
+    - Queue-based: each item is (original_index, url, attempt_number)
+    - Worker pool: N concurrent browser contexts (controlled by concurrency param)
+    - Per-attempt isolation: each attempt gets fresh UA, viewport, cookies
+    - Retry logic: rate-limited URLs get cooldown before re-queue, timeouts
+      retry immediately with backoff applied on next attempt
+    - Result filtering: None values (failed after MAX_ATTEMPTS) are filtered out
+    
+    The retry queue is persistent in memory - if the process crashes mid-way,
+    re-running will re-resolve everything. For true crash recovery, we'd need
+    to persist the queue to disk (future enhancement).
     """
     queue: asyncio.Queue = asyncio.Queue()
     for i, url in enumerate(ff_links):
@@ -431,12 +479,21 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
 # ── Stage 4: aria2c ────────────────────────────────────────────────────────────
 
 def aria2c_download(direct_urls: list[str], dest_dir: Path):
-    """
-    Writes an aria2c input file and launches aria2c.
-
-    3 concurrent downloads × 4 connections per file strikes the right balance:
-    fast enough to saturate a typical connection without triggering throttling.
-    --continue=true means re-running fitgrab safely resumes partial downloads.
+    """Download files using aria2c with resume support.
+    
+    Writes an aria2c input file (URL + dir per line) and spawns aria2c as a
+    subprocess. The --continue=true flag enables resuming partial downloads
+    if the process is interrupted or fails.
+    
+    Key aria2c settings:
+    - split=1: Single connection per file (required for FuckingFast CDN which
+      doesn't properly support HTTP Range headers -会导致下载失败)
+    - max-concurrent-downloads=3: Parallel file downloads
+    - file-allocation=none: Skip pre-allocation (faster on SSD, avoids issues
+      with sparse files)
+    
+    On success (returncode 0), cleans up the queue file. On failure, leaves
+    the queue file so re-running can resume.
     """
     if not shutil.which("aria2c"):
         print("\n  ✗ aria2c not found.")
@@ -489,6 +546,17 @@ def aria2c_download(direct_urls: list[str], dest_dir: Path):
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 async def run(args):
+    """Main entry point - orchestrates the 4-stage download pipeline.
+    
+    Stage 1+2: Load FitGirl page or use provided paste URL, extract FF links
+    Stage 3: Resolve each FF page to get direct CDN URLs (parallel workers)
+    Stage 4: Pass URLs to aria2c for actual file download
+    
+    The flow is intentionally sequential: we must have all CDN URLs before
+    starting aria2c because we need to write the input file. For very large
+    repacks (100+ parts), this means waiting for all resolutions to complete
+    before any download starts.
+    """
     print("\n  ╔═══════════════════════════════════════╗")
     print("  ║   fitgrab  —  FitGirl speed loader    ║")
     print("  ╚═══════════════════════════════════════╝\n")
@@ -516,12 +584,8 @@ async def run(args):
         print("\n  ✗  No FuckingFast links found. Check the game URL.\n")
         sys.exit(1)
 
-    folder_name = slugify(title)
-    dest_dir = Path(args.dir).expanduser() / folder_name
-
     print(f"\n  ✓  Game  : {title}")
     print(f"  ✓  Parts : {len(ff_links)}")
-    print(f"  ✓  Dest  : {dest_dir}")
 
     # Stage 3: resolve FF pages → direct CDN URLs
     print(f"\n  → Resolving {len(ff_links)} URLs "
@@ -533,6 +597,23 @@ async def run(args):
     failed = len(ff_links) - len(direct_urls)
     if failed:
         print(f"  ✗  Failed   : {failed}  (re-run fitgrab to retry)")
+
+    # Determine download directory
+    # Auto-detect from filename if --dir not explicitly provided
+    if args.dir:
+        # User explicitly provided --dir
+        dest_dir = Path(args.dir).expanduser()
+    else:
+        # Auto-detect from resolved URLs
+        game_name = extract_game_name(direct_urls)
+        if game_name:
+            folder_name = slugify(game_name)
+            dest_dir = Path.home() / "Games" / folder_name
+        else:
+            # Fallback: use current directory
+            dest_dir = Path.cwd()
+
+    print(f"  ✓  Dest  : {dest_dir}")
 
     sys.stdout.flush()
 
@@ -569,8 +650,8 @@ def main():
     parser.add_argument("url")
     parser.add_argument(
         "--dir",
-        default=str(Path.home()),
-        help="Parent directory for downloads (default: ~)",
+        default=None,
+        help="Download directory (default: auto-detect from filename → ~/Games/<game>/)",
     )
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument(

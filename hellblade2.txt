@@ -2349,3 +2349,2302 @@ FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitg
 [DL:11MiB][#f6e0e1 421MiB/500MiB(84%)][#ba8129 499MiB/500MiB(99%)][#11383b 4.2MiB/500MiB(0%)]
 
 04/06 20:15:00 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part24.rar
+[DL:11MiB][#f6e0e1 423MiB/500MiB(84%)][#11383b 10MiB/500MiB(2%)][#2014a3 1.2MiB/500MiB(0%)]
+[DL:10MiB][#f6e0e1 425MiB/500MiB(85%)][#11383b 15MiB/500MiB(3%)][#2014a3 4.4MiB/500MiB(0%)]
+[DL:10MiB][#f6e0e1 428MiB/500MiB(85%)][#11383b 21MiB/500MiB(4%)][#2014a3 7.0MiB/500MiB(1%)]
+[DL:10MiB][#f6e0e1 430MiB/500MiB(86%)][#11383b 28MiB/500MiB(5%)][#2014a3 9.1MiB/500MiB(1%)]
+[DL:11MiB][#f6e0e1 431MiB/500MiB(86%)][#11383b 36MiB/500MiB(7%)][#2014a3 11MiB/500MiB(2%)]
+[DL:11MiB][#f6e0e1 433MiB/500MiB(86%)][#11383b 43MiB/500MiB(8%)][#2014a3 12MiB/500MiB(2%)]
+[DL:10MiB][#f6e0e1 435MiB/500MiB(87%)][#11383b 51MiB/500MiB(10%)][#2014a3 14MiB/500MiB(2%)]
+[DL:10MiB][#f6e0e1 436MiB/500MiB(87%)][#11383b 60MiB/500MiB(12%)][#2014a3 15MiB/500MiB(3%)]
+[DL:11MiB][#f6e0e1 437MiB/500MiB(87%)][#11383b 68MiB/500MiB(13%)][#2014a3 17MiB/500MiB(3%)]
+[DL:11MiB][#f6e0e1 439MiB/500MiB(87%)][#11383b 76MiB/500MiB(15%)][#2014a3 18MiB/500MiB(3%)]
+[DL:11MiB][#f6e0e1 440MiB/500MiB(88%)][#11383b 85MiB/500MiB(17%)][#2014a3 20MiB/500MiB(4%)]
+[DL:10MiB][#f6e0e1 442MiB/500MiB(88%)][#11383b 91MiB/500MiB(18%)][#2014a3 21MiB/500MiB(4%)]
+[DL:10MiB][#f6e0e1 443MiB/500MiB(88%)][#11383b 98MiB/500MiB(19%)][#2014a3 22MiB/500MiB(4%)]
+[DL:10MiB][#f6e0e1 445MiB/500MiB(89%)][#11383b 107MiB/500MiB(21%)][#2014a3 24MiB/500MiB(4%)]
+ *** Download Progress Summary as of Mon Apr  6 20:15:14 2026 *** 
+===============================================================================
+[#f6e0e1 446MiB/500MiB(89%) CN:1 DL:1.4MiB ETA:35s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part23.rar
+-------------------------------------------------------------------------------
+[#11383b 115MiB/500MiB(23%) CN:1 DL:8.0MiB ETA:47s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part29.rar
+-------------------------------------------------------------------------------
+[#2014a3 25MiB/500MiB(5%) CN:1 DL:1.4MiB ETA:5m24s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#f6e0e1 446MiB/500MiB(89%)][#11383b 115MiB/500MiB(23%)][#2014a3 25MiB/500MiB(5%)]
+[DL:10MiB][#f6e0e1 448MiB/500MiB(89%)][#11383b 123MiB/500MiB(24%)][#2014a3 27MiB/500MiB(5%)]
+[DL:10MiB][#f6e0e1 449MiB/500MiB(89%)][#11383b 132MiB/500MiB(26%)][#2014a3 28MiB/500MiB(5%)]
+[DL:10MiB][#f6e0e1 450MiB/500MiB(90%)][#11383b 140MiB/500MiB(28%)][#2014a3 29MiB/500MiB(5%)]
+[DL:10MiB][#f6e0e1 452MiB/500MiB(90%)][#11383b 148MiB/500MiB(29%)][#2014a3 30MiB/500MiB(6%)]
+[DL:10MiB][#f6e0e1 453MiB/500MiB(90%)][#11383b 157MiB/500MiB(31%)][#2014a3 32MiB/500MiB(6%)]
+[DL:10MiB][#f6e0e1 455MiB/500MiB(91%)][#11383b 165MiB/500MiB(33%)][#2014a3 33MiB/500MiB(6%)]
+[DL:10MiB][#f6e0e1 456MiB/500MiB(91%)][#11383b 171MiB/500MiB(34%)][#2014a3 34MiB/500MiB(6%)]
+[DL:10MiB][#f6e0e1 457MiB/500MiB(91%)][#11383b 179MiB/500MiB(35%)][#2014a3 36MiB/500MiB(7%)]
+[DL:10MiB][#f6e0e1 459MiB/500MiB(91%)][#11383b 187MiB/500MiB(37%)][#2014a3 38MiB/500MiB(7%)]
+[DL:10MiB][#f6e0e1 460MiB/500MiB(92%)][#11383b 195MiB/500MiB(39%)][#2014a3 39MiB/500MiB(7%)]
+[DL:10MiB][#f6e0e1 462MiB/500MiB(92%)][#11383b 204MiB/500MiB(40%)][#2014a3 41MiB/500MiB(8%)]
+[DL:10MiB][#f6e0e1 463MiB/500MiB(92%)][#11383b 212MiB/500MiB(42%)][#2014a3 42MiB/500MiB(8%)]
+[DL:10MiB][#f6e0e1 464MiB/500MiB(92%)][#11383b 221MiB/500MiB(44%)][#2014a3 43MiB/500MiB(8%)]
+[DL:10MiB][#f6e0e1 466MiB/500MiB(93%)][#11383b 229MiB/500MiB(45%)][#2014a3 45MiB/500MiB(9%)]
+[DL:10MiB][#f6e0e1 467MiB/500MiB(93%)][#11383b 237MiB/500MiB(47%)][#2014a3 46MiB/500MiB(9%)]
+ *** Download Progress Summary as of Mon Apr  6 20:15:30 2026 *** 
+===============================================================================
+[#f6e0e1 468MiB/500MiB(93%) CN:1 DL:1.3MiB ETA:22s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part23.rar
+-------------------------------------------------------------------------------
+[#11383b 246MiB/500MiB(49%) CN:1 DL:8.3MiB ETA:30s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part29.rar
+-------------------------------------------------------------------------------
+[#2014a3 47MiB/500MiB(9%) CN:1 DL:1.4MiB ETA:5m13s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#f6e0e1 468MiB/500MiB(93%)][#11383b 246MiB/500MiB(49%)][#2014a3 47MiB/500MiB(9%)]
+[DL:11MiB][#f6e0e1 470MiB/500MiB(94%)][#11383b 253MiB/500MiB(50%)][#2014a3 48MiB/500MiB(9%)]
+[DL:10MiB][#f6e0e1 471MiB/500MiB(94%)][#11383b 260MiB/500MiB(52%)][#2014a3 50MiB/500MiB(10%)]
+[DL:10MiB][#f6e0e1 473MiB/500MiB(94%)][#11383b 268MiB/500MiB(53%)][#2014a3 51MiB/500MiB(10%)]
+[DL:10MiB][#f6e0e1 474MiB/500MiB(94%)][#11383b 276MiB/500MiB(55%)][#2014a3 53MiB/500MiB(10%)]
+[DL:10MiB][#f6e0e1 476MiB/500MiB(95%)][#11383b 285MiB/500MiB(57%)][#2014a3 54MiB/500MiB(10%)]
+[DL:10MiB][#f6e0e1 477MiB/500MiB(95%)][#11383b 293MiB/500MiB(58%)][#2014a3 55MiB/500MiB(11%)]
+[DL:10MiB][#f6e0e1 479MiB/500MiB(95%)][#11383b 301MiB/500MiB(60%)][#2014a3 57MiB/500MiB(11%)]
+[DL:10MiB][#f6e0e1 480MiB/500MiB(96%)][#11383b 309MiB/500MiB(61%)][#2014a3 58MiB/500MiB(11%)]
+[DL:10MiB][#f6e0e1 482MiB/500MiB(96%)][#11383b 318MiB/500MiB(63%)][#2014a3 59MiB/500MiB(11%)]
+[DL:10MiB][#f6e0e1 483MiB/500MiB(96%)][#11383b 326MiB/500MiB(65%)][#2014a3 61MiB/500MiB(12%)]
+[DL:11MiB][#f6e0e1 484MiB/500MiB(96%)][#11383b 334MiB/500MiB(66%)][#2014a3 62MiB/500MiB(12%)]
+[DL:10MiB][#f6e0e1 486MiB/500MiB(97%)][#11383b 338MiB/500MiB(67%)][#2014a3 66MiB/500MiB(13%)]
+[DL:10MiB][#f6e0e1 487MiB/500MiB(97%)][#11383b 344MiB/500MiB(68%)][#2014a3 70MiB/500MiB(14%)]
+[DL:10MiB][#f6e0e1 489MiB/500MiB(97%)][#11383b 351MiB/500MiB(70%)][#2014a3 73MiB/500MiB(14%)]
+[DL:10MiB][#f6e0e1 490MiB/500MiB(98%)][#11383b 358MiB/500MiB(71%)][#2014a3 75MiB/500MiB(15%)]
+ *** Download Progress Summary as of Mon Apr  6 20:15:46 2026 *** 
+===============================================================================
+[#f6e0e1 492MiB/500MiB(98%) CN:1 DL:1.4MiB ETA:5s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part23.rar
+-------------------------------------------------------------------------------
+[#11383b 366MiB/500MiB(73%) CN:1 DL:7.2MiB ETA:18s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part29.rar
+-------------------------------------------------------------------------------
+[#2014a3 77MiB/500MiB(15%) CN:1 DL:2.1MiB ETA:3m16s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#f6e0e1 492MiB/500MiB(98%)][#11383b 366MiB/500MiB(73%)][#2014a3 77MiB/500MiB(15%)]
+[DL:10MiB][#f6e0e1 493MiB/500MiB(98%)][#11383b 374MiB/500MiB(74%)][#2014a3 78MiB/500MiB(15%)]
+[DL:10MiB][#f6e0e1 495MiB/500MiB(99%)][#11383b 382MiB/500MiB(76%)][#2014a3 80MiB/500MiB(16%)]
+[DL:10MiB][#f6e0e1 496MiB/500MiB(99%)][#11383b 390MiB/500MiB(78%)][#2014a3 81MiB/500MiB(16%)]
+[DL:10MiB][#f6e0e1 498MiB/500MiB(99%)][#11383b 399MiB/500MiB(79%)][#2014a3 82MiB/500MiB(16%)]
+[DL:11MiB][#f6e0e1 499MiB/500MiB(99%)][#11383b 407MiB/500MiB(81%)][#2014a3 84MiB/500MiB(16%)]
+
+04/06 20:15:51 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part23.rar
+[DL:10MiB][#11383b 413MiB/500MiB(82%)][#2014a3 85MiB/500MiB(17%)][#1b3542 592KiB/500MiB(0%)]
+[DL:10MiB][#11383b 421MiB/500MiB(84%)][#2014a3 87MiB/500MiB(17%)][#1b3542 2.1MiB/500MiB(0%)]
+[DL:10MiB][#11383b 429MiB/500MiB(85%)][#2014a3 89MiB/500MiB(17%)][#1b3542 3.6MiB/500MiB(0%)]
+[DL:10MiB][#11383b 436MiB/500MiB(87%)][#2014a3 90MiB/500MiB(18%)][#1b3542 5.4MiB/500MiB(1%)]
+[DL:10MiB][#11383b 443MiB/500MiB(88%)][#2014a3 92MiB/500MiB(18%)][#1b3542 7.0MiB/500MiB(1%)]
+[DL:10MiB][#11383b 452MiB/500MiB(90%)][#2014a3 94MiB/500MiB(18%)][#1b3542 8.5MiB/500MiB(1%)]
+[DL:10MiB][#11383b 460MiB/500MiB(92%)][#2014a3 95MiB/500MiB(19%)][#1b3542 10MiB/500MiB(2%)]
+[DL:10MiB][#11383b 468MiB/500MiB(93%)][#2014a3 96MiB/500MiB(19%)][#1b3542 11MiB/500MiB(2%)]
+[DL:10MiB][#11383b 477MiB/500MiB(95%)][#2014a3 98MiB/500MiB(19%)][#1b3542 12MiB/500MiB(2%)]
+[DL:10MiB][#11383b 485MiB/500MiB(97%)][#2014a3 99MiB/500MiB(19%)][#1b3542 14MiB/500MiB(2%)]
+ *** Download Progress Summary as of Mon Apr  6 20:16:02 2026 *** 
+===============================================================================
+[#11383b 494MiB/500MiB(98%) CN:1 DL:8.0MiB]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part29.rar
+-------------------------------------------------------------------------------
+[#2014a3 100MiB/500MiB(20%) CN:1 DL:1.5MiB ETA:4m20s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 15MiB/500MiB(3%) CN:1 DL:1.4MiB ETA:5m23s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#11383b 494MiB/500MiB(98%)][#2014a3 100MiB/500MiB(20%)][#1b3542 15MiB/500MiB(3%)]
+[DL:10MiB][#11383b 498MiB/500MiB(99%)][#2014a3 105MiB/500MiB(21%)][#1b3542 16MiB/500MiB(3%)]
+
+04/06 20:16:03 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part29.rar
+[DL:10MiB][#2014a3 108MiB/500MiB(21%)][#1b3542 17MiB/500MiB(3%)][#21137d 3.5MiB/500MiB(0%)]
+[DL:10MiB][#2014a3 112MiB/500MiB(22%)][#1b3542 18MiB/500MiB(3%)][#21137d 10MiB/500MiB(2%)]
+[DL:10MiB][#2014a3 114MiB/500MiB(22%)][#1b3542 20MiB/500MiB(4%)][#21137d 17MiB/500MiB(3%)]
+[DL:10MiB][#2014a3 116MiB/500MiB(23%)][#1b3542 21MiB/500MiB(4%)][#21137d 25MiB/500MiB(5%)]
+[DL:10MiB][#2014a3 118MiB/500MiB(23%)][#1b3542 23MiB/500MiB(4%)][#21137d 33MiB/500MiB(6%)]
+[DL:10MiB][#2014a3 119MiB/500MiB(23%)][#1b3542 24MiB/500MiB(4%)][#21137d 42MiB/500MiB(8%)]
+[DL:10MiB][#2014a3 121MiB/500MiB(24%)][#1b3542 25MiB/500MiB(5%)][#21137d 50MiB/500MiB(10%)]
+[DL:10MiB][#2014a3 122MiB/500MiB(24%)][#1b3542 27MiB/500MiB(5%)][#21137d 58MiB/500MiB(11%)]
+[DL:11MiB][#2014a3 124MiB/500MiB(24%)][#1b3542 28MiB/500MiB(5%)][#21137d 66MiB/500MiB(13%)]
+[DL:11MiB][#2014a3 125MiB/500MiB(25%)][#1b3542 31MiB/500MiB(6%)][#21137d 72MiB/500MiB(14%)]
+[DL:11MiB][#2014a3 126MiB/500MiB(25%)][#1b3542 34MiB/500MiB(6%)][#21137d 79MiB/500MiB(15%)]
+[DL:11MiB][#2014a3 127MiB/500MiB(25%)][#1b3542 36MiB/500MiB(7%)][#21137d 87MiB/500MiB(17%)]
+[DL:11MiB][#2014a3 128MiB/500MiB(25%)][#1b3542 37MiB/500MiB(7%)][#21137d 95MiB/500MiB(19%)]
+[DL:11MiB][#2014a3 130MiB/500MiB(26%)][#1b3542 39MiB/500MiB(7%)][#21137d 103MiB/500MiB(20%)]
+ *** Download Progress Summary as of Mon Apr  6 20:16:18 2026 *** 
+===============================================================================
+[#2014a3 131MiB/500MiB(26%) CN:1 DL:1.3MiB ETA:4m30s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 40MiB/500MiB(8%) CN:1 DL:1.8MiB ETA:4m9s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#21137d 111MiB/500MiB(22%) CN:1 DL:7.8MiB ETA:49s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part32.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#2014a3 131MiB/500MiB(26%)][#1b3542 40MiB/500MiB(8%)][#21137d 111MiB/500MiB(22%)]
+[DL:11MiB][#2014a3 132MiB/500MiB(26%)][#1b3542 42MiB/500MiB(8%)][#21137d 119MiB/500MiB(23%)]
+[DL:11MiB][#2014a3 134MiB/500MiB(26%)][#1b3542 43MiB/500MiB(8%)][#21137d 128MiB/500MiB(25%)]
+[DL:11MiB][#2014a3 135MiB/500MiB(27%)][#1b3542 45MiB/500MiB(9%)][#21137d 136MiB/500MiB(27%)]
+[DL:11MiB][#2014a3 137MiB/500MiB(27%)][#1b3542 46MiB/500MiB(9%)][#21137d 144MiB/500MiB(28%)]
+[DL:10MiB][#2014a3 138MiB/500MiB(27%)][#1b3542 47MiB/500MiB(9%)][#21137d 151MiB/500MiB(30%)]
+[DL:10MiB][#2014a3 139MiB/500MiB(27%)][#1b3542 48MiB/500MiB(9%)][#21137d 159MiB/500MiB(31%)]
+[DL:10MiB][#2014a3 141MiB/500MiB(28%)][#1b3542 50MiB/500MiB(10%)][#21137d 167MiB/500MiB(33%)]
+[DL:10MiB][#2014a3 142MiB/500MiB(28%)][#1b3542 51MiB/500MiB(10%)][#21137d 176MiB/500MiB(35%)]
+[DL:10MiB][#2014a3 143MiB/500MiB(28%)][#1b3542 53MiB/500MiB(10%)][#21137d 184MiB/500MiB(36%)]
+[DL:10MiB][#2014a3 145MiB/500MiB(29%)][#1b3542 54MiB/500MiB(10%)][#21137d 192MiB/500MiB(38%)]
+[DL:10MiB][#2014a3 146MiB/500MiB(29%)][#1b3542 55MiB/500MiB(11%)][#21137d 201MiB/500MiB(40%)]
+[DL:10MiB][#2014a3 147MiB/500MiB(29%)][#1b3542 57MiB/500MiB(11%)][#21137d 209MiB/500MiB(41%)]
+[DL:10MiB][#2014a3 149MiB/500MiB(29%)][#1b3542 58MiB/500MiB(11%)][#21137d 217MiB/500MiB(43%)]
+[DL:10MiB][#2014a3 150MiB/500MiB(30%)][#1b3542 60MiB/500MiB(12%)][#21137d 226MiB/500MiB(45%)]
+[DL:11MiB][#2014a3 151MiB/500MiB(30%)][#1b3542 61MiB/500MiB(12%)][#21137d 234MiB/500MiB(46%)]
+ *** Download Progress Summary as of Mon Apr  6 20:16:34 2026 *** 
+===============================================================================
+[#2014a3 153MiB/500MiB(30%) CN:1 DL:1.3MiB ETA:4m13s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 62MiB/500MiB(12%) CN:1 DL:1.3MiB ETA:5m19s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#21137d 240MiB/500MiB(48%) CN:1 DL:8.2MiB ETA:31s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part32.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#2014a3 153MiB/500MiB(30%)][#1b3542 62MiB/500MiB(12%)][#21137d 240MiB/500MiB(48%)]
+[DL:10MiB][#2014a3 154MiB/500MiB(30%)][#1b3542 64MiB/500MiB(12%)][#21137d 248MiB/500MiB(49%)]
+[DL:10MiB][#2014a3 156MiB/500MiB(31%)][#1b3542 65MiB/500MiB(13%)][#21137d 256MiB/500MiB(51%)]
+[DL:10MiB][#2014a3 157MiB/500MiB(31%)][#1b3542 66MiB/500MiB(13%)][#21137d 265MiB/500MiB(53%)]
+[DL:10MiB][#2014a3 159MiB/500MiB(31%)][#1b3542 68MiB/500MiB(13%)][#21137d 273MiB/500MiB(54%)]
+[DL:10MiB][#2014a3 160MiB/500MiB(32%)][#1b3542 69MiB/500MiB(13%)][#21137d 281MiB/500MiB(56%)]
+[DL:10MiB][#2014a3 162MiB/500MiB(32%)][#1b3542 71MiB/500MiB(14%)][#21137d 290MiB/500MiB(58%)]
+[DL:10MiB][#2014a3 163MiB/500MiB(32%)][#1b3542 72MiB/500MiB(14%)][#21137d 298MiB/500MiB(59%)]
+[DL:10MiB][#2014a3 164MiB/500MiB(32%)][#1b3542 73MiB/500MiB(14%)][#21137d 306MiB/500MiB(61%)]
+[DL:11MiB][#2014a3 166MiB/500MiB(33%)][#1b3542 75MiB/500MiB(15%)][#21137d 315MiB/500MiB(63%)]
+[DL:10MiB][#2014a3 167MiB/500MiB(33%)][#1b3542 76MiB/500MiB(15%)][#21137d 321MiB/500MiB(64%)]
+[DL:10MiB][#2014a3 168MiB/500MiB(33%)][#1b3542 78MiB/500MiB(15%)][#21137d 329MiB/500MiB(65%)]
+[DL:10MiB][#2014a3 170MiB/500MiB(34%)][#1b3542 80MiB/500MiB(16%)][#21137d 337MiB/500MiB(67%)]
+[DL:10MiB][#2014a3 171MiB/500MiB(34%)][#1b3542 81MiB/500MiB(16%)][#21137d 345MiB/500MiB(69%)]
+[DL:10MiB][#2014a3 172MiB/500MiB(34%)][#1b3542 83MiB/500MiB(16%)][#21137d 353MiB/500MiB(70%)]
+[DL:10MiB][#2014a3 174MiB/500MiB(34%)][#1b3542 84MiB/500MiB(16%)][#21137d 361MiB/500MiB(72%)]
+ *** Download Progress Summary as of Mon Apr  6 20:16:50 2026 *** 
+===============================================================================
+[#2014a3 175MiB/500MiB(35%) CN:1 DL:1.3MiB ETA:3m53s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 85MiB/500MiB(17%) CN:1 DL:1.5MiB ETA:4m34s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#21137d 369MiB/500MiB(73%) CN:1 DL:8.0MiB ETA:16s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part32.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#2014a3 175MiB/500MiB(35%)][#1b3542 85MiB/500MiB(17%)][#21137d 369MiB/500MiB(73%)]
+[DL:10MiB][#2014a3 177MiB/500MiB(35%)][#1b3542 87MiB/500MiB(17%)][#21137d 378MiB/500MiB(75%)]
+[DL:10MiB][#2014a3 178MiB/500MiB(35%)][#1b3542 88MiB/500MiB(17%)][#21137d 386MiB/500MiB(77%)]
+[DL:11MiB][#2014a3 179MiB/500MiB(35%)][#1b3542 90MiB/500MiB(18%)][#21137d 394MiB/500MiB(78%)]
+[DL:11MiB][#2014a3 181MiB/500MiB(36%)][#1b3542 91MiB/500MiB(18%)][#21137d 402MiB/500MiB(80%)]
+[DL:10MiB][#2014a3 182MiB/500MiB(36%)][#1b3542 92MiB/500MiB(18%)][#21137d 409MiB/500MiB(81%)]
+[DL:10MiB][#2014a3 184MiB/500MiB(36%)][#1b3542 94MiB/500MiB(18%)][#21137d 417MiB/500MiB(83%)]
+[DL:10MiB][#2014a3 185MiB/500MiB(37%)][#1b3542 95MiB/500MiB(19%)][#21137d 425MiB/500MiB(85%)]
+[DL:10MiB][#2014a3 186MiB/500MiB(37%)][#1b3542 97MiB/500MiB(19%)][#21137d 433MiB/500MiB(86%)]
+[DL:10MiB][#2014a3 188MiB/500MiB(37%)][#1b3542 98MiB/500MiB(19%)][#21137d 442MiB/500MiB(88%)]
+[DL:10MiB][#2014a3 189MiB/500MiB(37%)][#1b3542 99MiB/500MiB(19%)][#21137d 450MiB/500MiB(90%)]
+[DL:10MiB][#2014a3 191MiB/500MiB(38%)][#1b3542 101MiB/500MiB(20%)][#21137d 459MiB/500MiB(91%)]
+[DL:10MiB][#2014a3 192MiB/500MiB(38%)][#1b3542 102MiB/500MiB(20%)][#21137d 467MiB/500MiB(93%)]
+[DL:10MiB][#2014a3 193MiB/500MiB(38%)][#1b3542 103MiB/500MiB(20%)][#21137d 475MiB/500MiB(95%)]
+[DL:10MiB][#2014a3 195MiB/500MiB(39%)][#1b3542 105MiB/500MiB(21%)][#21137d 484MiB/500MiB(96%)]
+[DL:10MiB][#2014a3 196MiB/500MiB(39%)][#1b3542 106MiB/500MiB(21%)][#21137d 490MiB/500MiB(98%)]
+ *** Download Progress Summary as of Mon Apr  6 20:17:05 2026 *** 
+===============================================================================
+[#2014a3 197MiB/500MiB(39%) CN:1 DL:1.3MiB ETA:3m40s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 108MiB/500MiB(21%) CN:1 DL:1.4MiB ETA:4m33s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#21137d 497MiB/500MiB(99%) CN:1 DL:8.1MiB]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part32.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#2014a3 197MiB/500MiB(39%)][#1b3542 108MiB/500MiB(21%)][#21137d 497MiB/500MiB(99%)]
+
+04/06 20:17:06 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part32.rar
+[DL:10MiB][#2014a3 199MiB/500MiB(39%)][#1b3542 110MiB/500MiB(22%)][#39c653 4.5MiB/500MiB(0%)]
+[DL:10MiB][#2014a3 200MiB/500MiB(40%)][#1b3542 112MiB/500MiB(22%)][#39c653 12MiB/500MiB(2%)]
+[DL:10MiB][#2014a3 202MiB/500MiB(40%)][#1b3542 113MiB/500MiB(22%)][#39c653 20MiB/500MiB(4%)]
+[DL:10MiB][#2014a3 203MiB/500MiB(40%)][#1b3542 115MiB/500MiB(23%)][#39c653 28MiB/500MiB(5%)]
+[DL:10MiB][#2014a3 204MiB/500MiB(40%)][#1b3542 116MiB/500MiB(23%)][#39c653 37MiB/500MiB(7%)]
+[DL:10MiB][#2014a3 206MiB/500MiB(41%)][#1b3542 117MiB/500MiB(23%)][#39c653 45MiB/500MiB(9%)]
+[DL:10MiB][#2014a3 207MiB/500MiB(41%)][#1b3542 119MiB/500MiB(23%)][#39c653 53MiB/500MiB(10%)]
+[DL:10MiB][#2014a3 209MiB/500MiB(41%)][#1b3542 120MiB/500MiB(24%)][#39c653 62MiB/500MiB(12%)]
+[DL:10MiB][#2014a3 210MiB/500MiB(42%)][#1b3542 122MiB/500MiB(24%)][#39c653 68MiB/500MiB(13%)]
+[DL:10MiB][#2014a3 211MiB/500MiB(42%)][#1b3542 126MiB/500MiB(25%)][#39c653 74MiB/500MiB(14%)]
+[DL:11MiB][#2014a3 212MiB/500MiB(42%)][#1b3542 129MiB/500MiB(25%)][#39c653 81MiB/500MiB(16%)]
+[DL:11MiB][#2014a3 213MiB/500MiB(42%)][#1b3542 131MiB/500MiB(26%)][#39c653 89MiB/500MiB(17%)]
+[DL:11MiB][#2014a3 215MiB/500MiB(43%)][#1b3542 133MiB/500MiB(26%)][#39c653 97MiB/500MiB(19%)]
+[DL:11MiB][#2014a3 216MiB/500MiB(43%)][#1b3542 134MiB/500MiB(26%)][#39c653 105MiB/500MiB(21%)]
+[DL:11MiB][#2014a3 218MiB/500MiB(43%)][#1b3542 136MiB/500MiB(27%)][#39c653 113MiB/500MiB(22%)]
+ *** Download Progress Summary as of Mon Apr  6 20:17:21 2026 *** 
+===============================================================================
+[#2014a3 219MiB/500MiB(43%) CN:1 DL:1.3MiB ETA:3m29s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 137MiB/500MiB(27%) CN:1 DL:2.0MiB ETA:2m59s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#39c653 121MiB/500MiB(24%) CN:1 DL:7.6MiB ETA:49s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part33.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#2014a3 219MiB/500MiB(43%)][#1b3542 137MiB/500MiB(27%)][#39c653 121MiB/500MiB(24%)]
+[DL:11MiB][#2014a3 220MiB/500MiB(44%)][#1b3542 138MiB/500MiB(27%)][#39c653 130MiB/500MiB(26%)]
+[DL:11MiB][#2014a3 222MiB/500MiB(44%)][#1b3542 140MiB/500MiB(28%)][#39c653 138MiB/500MiB(27%)]
+[DL:11MiB][#2014a3 223MiB/500MiB(44%)][#1b3542 141MiB/500MiB(28%)][#39c653 147MiB/500MiB(29%)]
+[DL:11MiB][#2014a3 224MiB/500MiB(44%)][#1b3542 145MiB/500MiB(29%)][#39c653 151MiB/500MiB(30%)]
+[DL:11MiB][#2014a3 225MiB/500MiB(45%)][#1b3542 148MiB/500MiB(29%)][#39c653 158MiB/500MiB(31%)]
+[DL:11MiB][#2014a3 227MiB/500MiB(45%)][#1b3542 150MiB/500MiB(30%)][#39c653 166MiB/500MiB(33%)]
+[DL:11MiB][#2014a3 228MiB/500MiB(45%)][#1b3542 152MiB/500MiB(30%)][#39c653 174MiB/500MiB(34%)]
+[DL:11MiB][#2014a3 229MiB/500MiB(45%)][#1b3542 153MiB/500MiB(30%)][#39c653 182MiB/500MiB(36%)]
+[DL:11MiB][#2014a3 231MiB/500MiB(46%)][#1b3542 155MiB/500MiB(31%)][#39c653 190MiB/500MiB(38%)]
+[DL:11MiB][#2014a3 232MiB/500MiB(46%)][#1b3542 156MiB/500MiB(31%)][#39c653 198MiB/500MiB(39%)]
+[DL:11MiB][#2014a3 233MiB/500MiB(46%)][#1b3542 158MiB/500MiB(31%)][#39c653 207MiB/500MiB(41%)]
+[DL:11MiB][#2014a3 235MiB/500MiB(47%)][#1b3542 159MiB/500MiB(31%)][#39c653 215MiB/500MiB(43%)]
+[DL:11MiB][#2014a3 236MiB/500MiB(47%)][#1b3542 160MiB/500MiB(32%)][#39c653 223MiB/500MiB(44%)]
+[DL:10MiB][#2014a3 237MiB/500MiB(47%)][#1b3542 162MiB/500MiB(32%)][#39c653 229MiB/500MiB(45%)]
+[DL:10MiB][#2014a3 239MiB/500MiB(47%)][#1b3542 163MiB/500MiB(32%)][#39c653 237MiB/500MiB(47%)]
+ *** Download Progress Summary as of Mon Apr  6 20:17:37 2026 *** 
+===============================================================================
+[#2014a3 240MiB/500MiB(48%) CN:1 DL:1.4MiB ETA:3m3s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 165MiB/500MiB(33%) CN:1 DL:1.4MiB ETA:3m44s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#39c653 245MiB/500MiB(49%) CN:1 DL:8.0MiB ETA:31s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part33.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#2014a3 240MiB/500MiB(48%)][#1b3542 165MiB/500MiB(33%)][#39c653 245MiB/500MiB(49%)]
+[DL:10MiB][#2014a3 242MiB/500MiB(48%)][#1b3542 166MiB/500MiB(33%)][#39c653 254MiB/500MiB(50%)]
+[DL:10MiB][#2014a3 243MiB/500MiB(48%)][#1b3542 168MiB/500MiB(33%)][#39c653 262MiB/500MiB(52%)]
+[DL:10MiB][#2014a3 245MiB/500MiB(49%)][#1b3542 169MiB/500MiB(33%)][#39c653 270MiB/500MiB(54%)]
+[DL:10MiB][#2014a3 246MiB/500MiB(49%)][#1b3542 170MiB/500MiB(34%)][#39c653 279MiB/500MiB(55%)]
+[DL:10MiB][#2014a3 248MiB/500MiB(49%)][#1b3542 172MiB/500MiB(34%)][#39c653 287MiB/500MiB(57%)]
+[DL:10MiB][#2014a3 249MiB/500MiB(49%)][#1b3542 173MiB/500MiB(34%)][#39c653 296MiB/500MiB(59%)]
+[DL:10MiB][#2014a3 250MiB/500MiB(50%)][#1b3542 174MiB/500MiB(34%)][#39c653 304MiB/500MiB(60%)]
+[DL:10MiB][#2014a3 251MiB/500MiB(50%)][#1b3542 175MiB/500MiB(35%)][#39c653 311MiB/500MiB(62%)]
+[DL:10MiB][#2014a3 252MiB/500MiB(50%)][#1b3542 178MiB/500MiB(35%)][#39c653 319MiB/500MiB(63%)]
+[DL:10MiB][#2014a3 254MiB/500MiB(50%)][#1b3542 179MiB/500MiB(35%)][#39c653 327MiB/500MiB(65%)]
+[DL:10MiB][#2014a3 255MiB/500MiB(51%)][#1b3542 181MiB/500MiB(36%)][#39c653 335MiB/500MiB(67%)]
+[DL:10MiB][#2014a3 257MiB/500MiB(51%)][#1b3542 182MiB/500MiB(36%)][#39c653 343MiB/500MiB(68%)]
+[DL:10MiB][#2014a3 258MiB/500MiB(51%)][#1b3542 184MiB/500MiB(36%)][#39c653 351MiB/500MiB(70%)]
+[DL:10MiB][#2014a3 260MiB/500MiB(52%)][#1b3542 185MiB/500MiB(37%)][#39c653 359MiB/500MiB(71%)]
+[DL:10MiB][#2014a3 261MiB/500MiB(52%)][#1b3542 186MiB/500MiB(37%)][#39c653 368MiB/500MiB(73%)]
+ *** Download Progress Summary as of Mon Apr  6 20:17:53 2026 *** 
+===============================================================================
+[#2014a3 263MiB/500MiB(52%) CN:1 DL:1.4MiB ETA:2m45s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 188MiB/500MiB(37%) CN:1 DL:1.5MiB ETA:3m22s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#39c653 375MiB/500MiB(75%) CN:1 DL:7.9MiB ETA:15s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part33.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#2014a3 263MiB/500MiB(52%)][#1b3542 188MiB/500MiB(37%)][#39c653 375MiB/500MiB(75%)]
+[DL:10MiB][#2014a3 265MiB/500MiB(53%)][#1b3542 190MiB/500MiB(38%)][#39c653 383MiB/500MiB(76%)]
+[DL:11MiB][#2014a3 266MiB/500MiB(53%)][#1b3542 191MiB/500MiB(38%)][#39c653 391MiB/500MiB(78%)]
+[DL:10MiB][#2014a3 269MiB/500MiB(53%)][#1b3542 193MiB/500MiB(38%)][#39c653 395MiB/500MiB(79%)]
+[DL:10MiB][#2014a3 271MiB/500MiB(54%)][#1b3542 195MiB/500MiB(39%)][#39c653 402MiB/500MiB(80%)]
+[DL:10MiB][#2014a3 273MiB/500MiB(54%)][#1b3542 197MiB/500MiB(39%)][#39c653 409MiB/500MiB(81%)]
+[DL:10MiB][#2014a3 275MiB/500MiB(55%)][#1b3542 199MiB/500MiB(39%)][#39c653 417MiB/500MiB(83%)]
+[DL:10MiB][#2014a3 276MiB/500MiB(55%)][#1b3542 200MiB/500MiB(40%)][#39c653 425MiB/500MiB(85%)]
+[DL:10MiB][#2014a3 278MiB/500MiB(55%)][#1b3542 202MiB/500MiB(40%)][#39c653 434MiB/500MiB(86%)]
+[DL:10MiB][#2014a3 279MiB/500MiB(55%)][#1b3542 203MiB/500MiB(40%)][#39c653 442MiB/500MiB(88%)]
+[DL:11MiB][#2014a3 280MiB/500MiB(56%)][#1b3542 204MiB/500MiB(40%)][#39c653 450MiB/500MiB(90%)]
+[DL:11MiB][#2014a3 282MiB/500MiB(56%)][#1b3542 206MiB/500MiB(41%)][#39c653 459MiB/500MiB(91%)]
+[DL:11MiB][#2014a3 283MiB/500MiB(56%)][#1b3542 207MiB/500MiB(41%)][#39c653 467MiB/500MiB(93%)]
+[DL:10MiB][#2014a3 284MiB/500MiB(56%)][#1b3542 209MiB/500MiB(41%)][#39c653 473MiB/500MiB(94%)]
+[DL:10MiB][#2014a3 286MiB/500MiB(57%)][#1b3542 211MiB/500MiB(42%)][#39c653 481MiB/500MiB(96%)]
+[DL:10MiB][#2014a3 287MiB/500MiB(57%)][#1b3542 212MiB/500MiB(42%)][#39c653 489MiB/500MiB(97%)]
+ *** Download Progress Summary as of Mon Apr  6 20:18:09 2026 *** 
+===============================================================================
+[#2014a3 288MiB/500MiB(57%) CN:1 DL:1.3MiB ETA:2m34s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 214MiB/500MiB(42%) CN:1 DL:1.5MiB ETA:3m8s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#39c653 497MiB/500MiB(99%) CN:1 DL:8.0MiB]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part33.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#2014a3 288MiB/500MiB(57%)][#1b3542 214MiB/500MiB(42%)][#39c653 497MiB/500MiB(99%)]
+
+04/06 20:18:09 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part33.rar
+[DL:10MiB][#2014a3 290MiB/500MiB(58%)][#1b3542 215MiB/500MiB(43%)][#f4f055 4.8MiB/500MiB(0%)]
+[DL:10MiB][#2014a3 292MiB/500MiB(58%)][#1b3542 216MiB/500MiB(43%)][#f4f055 13MiB/500MiB(2%)]
+[DL:10MiB][#2014a3 293MiB/500MiB(58%)][#1b3542 218MiB/500MiB(43%)][#f4f055 21MiB/500MiB(4%)]
+[DL:10MiB][#2014a3 294MiB/500MiB(58%)][#1b3542 219MiB/500MiB(43%)][#f4f055 29MiB/500MiB(5%)]
+[DL:10MiB][#2014a3 296MiB/500MiB(59%)][#1b3542 221MiB/500MiB(44%)][#f4f055 38MiB/500MiB(7%)]
+[DL:11MiB][#2014a3 297MiB/500MiB(59%)][#1b3542 222MiB/500MiB(44%)][#f4f055 46MiB/500MiB(9%)]
+[DL:10MiB][#2014a3 298MiB/500MiB(59%)][#1b3542 223MiB/500MiB(44%)][#f4f055 53MiB/500MiB(10%)]
+[DL:10MiB][#2014a3 301MiB/500MiB(60%)][#1b3542 226MiB/500MiB(45%)][#f4f055 59MiB/500MiB(11%)]
+[DL:10MiB][#2014a3 303MiB/500MiB(60%)][#1b3542 228MiB/500MiB(45%)][#f4f055 65MiB/500MiB(13%)]
+[DL:10MiB][#2014a3 305MiB/500MiB(61%)][#1b3542 230MiB/500MiB(46%)][#f4f055 71MiB/500MiB(14%)]
+[DL:10MiB][#2014a3 307MiB/500MiB(61%)][#1b3542 232MiB/500MiB(46%)][#f4f055 79MiB/500MiB(15%)]
+[DL:10MiB][#2014a3 310MiB/500MiB(62%)][#1b3542 232MiB/500MiB(46%)][#f4f055 87MiB/500MiB(17%)]
+[DL:10MiB][#2014a3 312MiB/500MiB(62%)][#1b3542 232MiB/500MiB(46%)][#f4f055 96MiB/500MiB(19%)]
+[DL:10MiB][#2014a3 313MiB/500MiB(62%)][#1b3542 234MiB/500MiB(46%)][#f4f055 104MiB/500MiB(20%)]
+[DL:10MiB][#2014a3 315MiB/500MiB(63%)][#1b3542 235MiB/500MiB(47%)][#f4f055 112MiB/500MiB(22%)]
+ *** Download Progress Summary as of Mon Apr  6 20:18:25 2026 *** 
+===============================================================================
+[#2014a3 316MiB/500MiB(63%) CN:1 DL:1.9MiB ETA:1m32s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 237MiB/500MiB(47%) CN:1 DL:1.4MiB ETA:2m55s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#f4f055 120MiB/500MiB(24%) CN:1 DL:7.4MiB ETA:50s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part34.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#2014a3 316MiB/500MiB(63%)][#1b3542 237MiB/500MiB(47%)][#f4f055 120MiB/500MiB(24%)]
+[DL:11MiB][#2014a3 318MiB/500MiB(63%)][#1b3542 238MiB/500MiB(47%)][#f4f055 129MiB/500MiB(25%)]
+[DL:10MiB][#2014a3 320MiB/500MiB(64%)][#1b3542 239MiB/500MiB(47%)][#f4f055 134MiB/500MiB(26%)]
+[DL:11MiB][#2014a3 323MiB/500MiB(64%)][#1b3542 241MiB/500MiB(48%)][#f4f055 141MiB/500MiB(28%)]
+[DL:10MiB][#2014a3 325MiB/500MiB(65%)][#1b3542 242MiB/500MiB(48%)][#f4f055 149MiB/500MiB(29%)]
+[DL:10MiB][#2014a3 327MiB/500MiB(65%)][#1b3542 243MiB/500MiB(48%)][#f4f055 157MiB/500MiB(31%)]
+[DL:11MiB][#2014a3 329MiB/500MiB(65%)][#1b3542 244MiB/500MiB(48%)][#f4f055 164MiB/500MiB(32%)]
+[DL:11MiB][#2014a3 333MiB/500MiB(66%)][#1b3542 245MiB/500MiB(49%)][#f4f055 171MiB/500MiB(34%)]
+[DL:11MiB][#2014a3 337MiB/500MiB(67%)][#1b3542 246MiB/500MiB(49%)][#f4f055 177MiB/500MiB(35%)]
+[DL:11MiB][#2014a3 342MiB/500MiB(68%)][#1b3542 247MiB/500MiB(49%)][#f4f055 182MiB/500MiB(36%)]
+[DL:11MiB][#2014a3 347MiB/500MiB(69%)][#1b3542 248MiB/500MiB(49%)][#f4f055 188MiB/500MiB(37%)]
+[DL:11MiB][#2014a3 353MiB/500MiB(70%)][#1b3542 248MiB/500MiB(49%)][#f4f055 192MiB/500MiB(38%)]
+[DL:11MiB][#2014a3 360MiB/500MiB(72%)][#1b3542 249MiB/500MiB(49%)][#f4f055 195MiB/500MiB(39%)]
+[DL:11MiB][#2014a3 366MiB/500MiB(73%)][#1b3542 250MiB/500MiB(50%)][#f4f055 199MiB/500MiB(39%)]
+[DL:11MiB][#2014a3 371MiB/500MiB(74%)][#1b3542 251MiB/500MiB(50%)][#f4f055 204MiB/500MiB(40%)]
+[DL:11MiB][#2014a3 374MiB/500MiB(74%)][#1b3542 252MiB/500MiB(50%)][#f4f055 211MiB/500MiB(42%)]
+ *** Download Progress Summary as of Mon Apr  6 20:18:40 2026 *** 
+===============================================================================
+[#2014a3 376MiB/500MiB(75%) CN:1 DL:4.8MiB ETA:25s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 254MiB/500MiB(50%) CN:1 DL:0.9MiB ETA:4m14s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#f4f055 218MiB/500MiB(43%) CN:1 DL:5.3MiB ETA:52s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part34.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#2014a3 376MiB/500MiB(75%)][#1b3542 254MiB/500MiB(50%)][#f4f055 218MiB/500MiB(43%)]
+[DL:11MiB][#2014a3 378MiB/500MiB(75%)][#1b3542 255MiB/500MiB(51%)][#f4f055 226MiB/500MiB(45%)]
+[DL:11MiB][#2014a3 380MiB/500MiB(76%)][#1b3542 257MiB/500MiB(51%)][#f4f055 234MiB/500MiB(46%)]
+[DL:11MiB][#2014a3 381MiB/500MiB(76%)][#1b3542 258MiB/500MiB(51%)][#f4f055 242MiB/500MiB(48%)]
+[DL:11MiB][#2014a3 383MiB/500MiB(76%)][#1b3542 260MiB/500MiB(52%)][#f4f055 250MiB/500MiB(50%)]
+[DL:11MiB][#2014a3 384MiB/500MiB(76%)][#1b3542 262MiB/500MiB(52%)][#f4f055 258MiB/500MiB(51%)]
+[DL:11MiB][#2014a3 385MiB/500MiB(77%)][#1b3542 263MiB/500MiB(52%)][#f4f055 266MiB/500MiB(53%)]
+[DL:10MiB][#2014a3 388MiB/500MiB(77%)][#1b3542 264MiB/500MiB(52%)][#f4f055 272MiB/500MiB(54%)]
+[DL:10MiB][#2014a3 389MiB/500MiB(77%)][#1b3542 266MiB/500MiB(53%)][#f4f055 280MiB/500MiB(56%)]
+[DL:10MiB][#2014a3 391MiB/500MiB(78%)][#1b3542 267MiB/500MiB(53%)][#f4f055 288MiB/500MiB(57%)]
+[DL:10MiB][#2014a3 393MiB/500MiB(78%)][#1b3542 268MiB/500MiB(53%)][#f4f055 296MiB/500MiB(59%)]
+[DL:10MiB][#2014a3 394MiB/500MiB(78%)][#1b3542 270MiB/500MiB(54%)][#f4f055 305MiB/500MiB(61%)]
+[DL:10MiB][#2014a3 395MiB/500MiB(79%)][#1b3542 271MiB/500MiB(54%)][#f4f055 313MiB/500MiB(62%)]
+[DL:10MiB][#2014a3 397MiB/500MiB(79%)][#1b3542 273MiB/500MiB(54%)][#f4f055 321MiB/500MiB(64%)]
+[DL:10MiB][#2014a3 398MiB/500MiB(79%)][#1b3542 274MiB/500MiB(54%)][#f4f055 330MiB/500MiB(66%)]
+[DL:10MiB][#2014a3 399MiB/500MiB(79%)][#1b3542 275MiB/500MiB(55%)][#f4f055 338MiB/500MiB(67%)]
+ *** Download Progress Summary as of Mon Apr  6 20:18:56 2026 *** 
+===============================================================================
+[#2014a3 401MiB/500MiB(80%) CN:1 DL:1.5MiB ETA:1m3s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 277MiB/500MiB(55%) CN:1 DL:1.3MiB ETA:2m41s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#f4f055 346MiB/500MiB(69%) CN:1 DL:8.3MiB ETA:18s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part34.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#2014a3 401MiB/500MiB(80%)][#1b3542 277MiB/500MiB(55%)][#f4f055 346MiB/500MiB(69%)]
+[DL:10MiB][#2014a3 402MiB/500MiB(80%)][#1b3542 278MiB/500MiB(55%)][#f4f055 353MiB/500MiB(70%)]
+[DL:10MiB][#2014a3 404MiB/500MiB(80%)][#1b3542 279MiB/500MiB(55%)][#f4f055 360MiB/500MiB(72%)]
+[DL:10MiB][#2014a3 406MiB/500MiB(81%)][#1b3542 280MiB/500MiB(56%)][#f4f055 369MiB/500MiB(73%)]
+[DL:10MiB][#2014a3 408MiB/500MiB(81%)][#1b3542 281MiB/500MiB(56%)][#f4f055 377MiB/500MiB(75%)]
+[DL:10MiB][#2014a3 409MiB/500MiB(81%)][#1b3542 283MiB/500MiB(56%)][#f4f055 385MiB/500MiB(77%)]
+[DL:10MiB][#2014a3 410MiB/500MiB(82%)][#1b3542 284MiB/500MiB(56%)][#f4f055 393MiB/500MiB(78%)]
+[DL:10MiB][#2014a3 412MiB/500MiB(82%)][#1b3542 286MiB/500MiB(57%)][#f4f055 402MiB/500MiB(80%)]
+[DL:10MiB][#2014a3 413MiB/500MiB(82%)][#1b3542 287MiB/500MiB(57%)][#f4f055 410MiB/500MiB(82%)]
+[DL:10MiB][#2014a3 414MiB/500MiB(82%)][#1b3542 288MiB/500MiB(57%)][#f4f055 419MiB/500MiB(83%)]
+[DL:10MiB][#2014a3 416MiB/500MiB(83%)][#1b3542 290MiB/500MiB(58%)][#f4f055 427MiB/500MiB(85%)]
+[DL:10MiB][#2014a3 417MiB/500MiB(83%)][#1b3542 291MiB/500MiB(58%)][#f4f055 434MiB/500MiB(86%)]
+[DL:10MiB][#2014a3 418MiB/500MiB(83%)][#1b3542 292MiB/500MiB(58%)][#f4f055 442MiB/500MiB(88%)]
+[DL:10MiB][#2014a3 420MiB/500MiB(84%)][#1b3542 294MiB/500MiB(58%)][#f4f055 450MiB/500MiB(90%)]
+[DL:10MiB][#2014a3 421MiB/500MiB(84%)][#1b3542 295MiB/500MiB(59%)][#f4f055 458MiB/500MiB(91%)]
+[DL:10MiB][#2014a3 423MiB/500MiB(84%)][#1b3542 297MiB/500MiB(59%)][#f4f055 466MiB/500MiB(93%)]
+ *** Download Progress Summary as of Mon Apr  6 20:19:12 2026 *** 
+===============================================================================
+[#2014a3 424MiB/500MiB(84%) CN:1 DL:1.3MiB ETA:54s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 299MiB/500MiB(59%) CN:1 DL:1.4MiB ETA:2m17s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#f4f055 474MiB/500MiB(94%) CN:1 DL:8.1MiB ETA:3s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part34.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#2014a3 424MiB/500MiB(84%)][#1b3542 299MiB/500MiB(59%)][#f4f055 474MiB/500MiB(94%)]
+[DL:10MiB][#2014a3 426MiB/500MiB(85%)][#1b3542 300MiB/500MiB(60%)][#f4f055 482MiB/500MiB(96%)]
+[DL:10MiB][#2014a3 427MiB/500MiB(85%)][#1b3542 302MiB/500MiB(60%)][#f4f055 490MiB/500MiB(98%)]
+[DL:10MiB][#2014a3 428MiB/500MiB(85%)][#1b3542 303MiB/500MiB(60%)][#f4f055 499MiB/500MiB(99%)]
+
+04/06 20:19:15 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part34.rar
+[DL:10MiB][#2014a3 430MiB/500MiB(86%)][#1b3542 304MiB/500MiB(60%)][#c0c227 6.3MiB/500MiB(1%)]
+[DL:11MiB][#2014a3 431MiB/500MiB(86%)][#1b3542 306MiB/500MiB(61%)][#c0c227 14MiB/500MiB(2%)]
+[DL:10MiB][#2014a3 432MiB/500MiB(86%)][#1b3542 310MiB/500MiB(62%)][#c0c227 19MiB/500MiB(3%)]
+[DL:10MiB][#2014a3 433MiB/500MiB(86%)][#1b3542 313MiB/500MiB(62%)][#c0c227 25MiB/500MiB(5%)]
+[DL:10MiB][#2014a3 435MiB/500MiB(87%)][#1b3542 316MiB/500MiB(63%)][#c0c227 33MiB/500MiB(6%)]
+[DL:10MiB][#2014a3 436MiB/500MiB(87%)][#1b3542 317MiB/500MiB(63%)][#c0c227 40MiB/500MiB(8%)]
+[DL:10MiB][#2014a3 437MiB/500MiB(87%)][#1b3542 319MiB/500MiB(63%)][#c0c227 49MiB/500MiB(9%)]
+[DL:10MiB][#2014a3 439MiB/500MiB(87%)][#1b3542 320MiB/500MiB(64%)][#c0c227 57MiB/500MiB(11%)]
+[DL:10MiB][#2014a3 440MiB/500MiB(88%)][#1b3542 322MiB/500MiB(64%)][#c0c227 65MiB/500MiB(13%)]
+[DL:11MiB][#2014a3 441MiB/500MiB(88%)][#1b3542 323MiB/500MiB(64%)][#c0c227 74MiB/500MiB(14%)]
+[DL:11MiB][#2014a3 443MiB/500MiB(88%)][#1b3542 325MiB/500MiB(65%)][#c0c227 82MiB/500MiB(16%)]
+[DL:11MiB][#2014a3 444MiB/500MiB(88%)][#1b3542 326MiB/500MiB(65%)][#c0c227 91MiB/500MiB(18%)]
+ *** Download Progress Summary as of Mon Apr  6 20:19:28 2026 *** 
+===============================================================================
+[#2014a3 445MiB/500MiB(89%) CN:1 DL:1.2MiB ETA:42s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 327MiB/500MiB(65%) CN:1 DL:1.7MiB ETA:1m39s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#c0c227 97MiB/500MiB(19%) CN:1 DL:7.9MiB ETA:50s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part35.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#2014a3 445MiB/500MiB(89%)][#1b3542 327MiB/500MiB(65%)][#c0c227 97MiB/500MiB(19%)]
+[DL:10MiB][#2014a3 447MiB/500MiB(89%)][#1b3542 329MiB/500MiB(65%)][#c0c227 105MiB/500MiB(21%)]
+[DL:10MiB][#2014a3 448MiB/500MiB(89%)][#1b3542 331MiB/500MiB(66%)][#c0c227 113MiB/500MiB(22%)]
+[DL:10MiB][#2014a3 449MiB/500MiB(89%)][#1b3542 332MiB/500MiB(66%)][#c0c227 121MiB/500MiB(24%)]
+[DL:10MiB][#2014a3 451MiB/500MiB(90%)][#1b3542 333MiB/500MiB(66%)][#c0c227 129MiB/500MiB(25%)]
+[DL:10MiB][#2014a3 452MiB/500MiB(90%)][#1b3542 335MiB/500MiB(67%)][#c0c227 138MiB/500MiB(27%)]
+[DL:10MiB][#2014a3 454MiB/500MiB(90%)][#1b3542 336MiB/500MiB(67%)][#c0c227 146MiB/500MiB(29%)]
+[DL:10MiB][#2014a3 455MiB/500MiB(91%)][#1b3542 337MiB/500MiB(67%)][#c0c227 154MiB/500MiB(30%)]
+[DL:10MiB][#2014a3 457MiB/500MiB(91%)][#1b3542 339MiB/500MiB(67%)][#c0c227 163MiB/500MiB(32%)]
+[DL:10MiB][#2014a3 458MiB/500MiB(91%)][#1b3542 340MiB/500MiB(68%)][#c0c227 171MiB/500MiB(34%)]
+[DL:11MiB][#2014a3 459MiB/500MiB(91%)][#1b3542 341MiB/500MiB(68%)][#c0c227 178MiB/500MiB(35%)]
+[DL:10MiB][#2014a3 460MiB/500MiB(92%)][#1b3542 343MiB/500MiB(68%)][#c0c227 186MiB/500MiB(37%)]
+[DL:10MiB][#2014a3 462MiB/500MiB(92%)][#1b3542 345MiB/500MiB(69%)][#c0c227 194MiB/500MiB(38%)]
+[DL:10MiB][#2014a3 463MiB/500MiB(92%)][#1b3542 346MiB/500MiB(69%)][#c0c227 202MiB/500MiB(40%)]
+[DL:10MiB][#2014a3 465MiB/500MiB(93%)][#1b3542 347MiB/500MiB(69%)][#c0c227 210MiB/500MiB(42%)]
+[DL:10MiB][#2014a3 466MiB/500MiB(93%)][#1b3542 349MiB/500MiB(69%)][#c0c227 218MiB/500MiB(43%)]
+ *** Download Progress Summary as of Mon Apr  6 20:19:44 2026 *** 
+===============================================================================
+[#2014a3 468MiB/500MiB(93%) CN:1 DL:1.3MiB ETA:23s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+-------------------------------------------------------------------------------
+[#1b3542 350MiB/500MiB(70%) CN:1 DL:1.4MiB ETA:1m44s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#c0c227 227MiB/500MiB(45%) CN:1 DL:8.1MiB ETA:33s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part35.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#2014a3 468MiB/500MiB(93%)][#1b3542 350MiB/500MiB(70%)][#c0c227 227MiB/500MiB(45%)]
+[DL:10MiB][#2014a3 469MiB/500MiB(93%)][#1b3542 352MiB/500MiB(70%)][#c0c227 235MiB/500MiB(47%)]
+[DL:10MiB][#2014a3 470MiB/500MiB(94%)][#1b3542 353MiB/500MiB(70%)][#c0c227 243MiB/500MiB(48%)]
+[DL:10MiB][#2014a3 472MiB/500MiB(94%)][#1b3542 354MiB/500MiB(70%)][#c0c227 250MiB/500MiB(50%)]
+[DL:11MiB][#2014a3 475MiB/500MiB(95%)][#1b3542 356MiB/500MiB(71%)][#c0c227 257MiB/500MiB(51%)]
+[DL:10MiB][#2014a3 478MiB/500MiB(95%)][#1b3542 359MiB/500MiB(71%)][#c0c227 261MiB/500MiB(52%)]
+[DL:10MiB][#2014a3 482MiB/500MiB(96%)][#1b3542 361MiB/500MiB(72%)][#c0c227 266MiB/500MiB(53%)]
+[DL:10MiB][#2014a3 485MiB/500MiB(97%)][#1b3542 363MiB/500MiB(72%)][#c0c227 272MiB/500MiB(54%)]
+[DL:10MiB][#2014a3 487MiB/500MiB(97%)][#1b3542 365MiB/500MiB(73%)][#c0c227 279MiB/500MiB(55%)]
+[DL:10MiB][#2014a3 489MiB/500MiB(97%)][#1b3542 366MiB/500MiB(73%)][#c0c227 287MiB/500MiB(57%)]
+[DL:10MiB][#2014a3 490MiB/500MiB(98%)][#1b3542 368MiB/500MiB(73%)][#c0c227 295MiB/500MiB(59%)]
+[DL:10MiB][#2014a3 492MiB/500MiB(98%)][#1b3542 369MiB/500MiB(73%)][#c0c227 303MiB/500MiB(60%)]
+[DL:10MiB][#2014a3 493MiB/500MiB(98%)][#1b3542 370MiB/500MiB(74%)][#c0c227 312MiB/500MiB(62%)]
+[DL:11MiB][#2014a3 494MiB/500MiB(98%)][#1b3542 372MiB/500MiB(74%)][#c0c227 320MiB/500MiB(64%)]
+[DL:11MiB][#2014a3 496MiB/500MiB(99%)][#1b3542 373MiB/500MiB(74%)][#c0c227 329MiB/500MiB(65%)]
+[DL:11MiB][#2014a3 498MiB/500MiB(99%)][#1b3542 374MiB/500MiB(74%)][#c0c227 335MiB/500MiB(67%)]
+
+04/06 20:19:59 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part30.rar
+ *** Download Progress Summary as of Mon Apr  6 20:20:00 2026 *** 
+===============================================================================
+[#1b3542 376MiB/500MiB(75%) CN:1 DL:1.4MiB ETA:1m22s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#c0c227 342MiB/500MiB(68%) CN:1 DL:7.7MiB ETA:20s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part35.rar
+-------------------------------------------------------------------------------
+[#d665b7 576KiB/500MiB(0%) CN:1 DL:2.1MiB ETA:3m55s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#1b3542 376MiB/500MiB(75%)][#c0c227 342MiB/500MiB(68%)][#d665b7 576KiB/500MiB(0%)]
+[DL:11MiB][#1b3542 378MiB/500MiB(75%)][#c0c227 350MiB/500MiB(70%)][#d665b7 2.2MiB/500MiB(0%)]
+[DL:11MiB][#1b3542 379MiB/500MiB(75%)][#c0c227 358MiB/500MiB(71%)][#d665b7 3.7MiB/500MiB(0%)]
+[DL:11MiB][#1b3542 381MiB/500MiB(76%)][#c0c227 366MiB/500MiB(73%)][#d665b7 5.2MiB/500MiB(1%)]
+[DL:11MiB][#1b3542 382MiB/500MiB(76%)][#c0c227 374MiB/500MiB(74%)][#d665b7 6.6MiB/500MiB(1%)]
+[DL:11MiB][#1b3542 384MiB/500MiB(76%)][#c0c227 382MiB/500MiB(76%)][#d665b7 8.1MiB/500MiB(1%)]
+[DL:11MiB][#1b3542 385MiB/500MiB(77%)][#c0c227 391MiB/500MiB(78%)][#d665b7 9.6MiB/500MiB(1%)]
+[DL:11MiB][#1b3542 386MiB/500MiB(77%)][#c0c227 399MiB/500MiB(79%)][#d665b7 11MiB/500MiB(2%)]
+[DL:11MiB][#1b3542 388MiB/500MiB(77%)][#c0c227 407MiB/500MiB(81%)][#d665b7 12MiB/500MiB(2%)]
+[DL:11MiB][#1b3542 389MiB/500MiB(77%)][#c0c227 416MiB/500MiB(83%)][#d665b7 13MiB/500MiB(2%)]
+[DL:11MiB][#1b3542 390MiB/500MiB(78%)][#c0c227 424MiB/500MiB(84%)][#d665b7 14MiB/500MiB(2%)]
+[DL:11MiB][#1b3542 392MiB/500MiB(78%)][#c0c227 429MiB/500MiB(85%)][#d665b7 17MiB/500MiB(3%)]
+[DL:11MiB][#1b3542 394MiB/500MiB(78%)][#c0c227 436MiB/500MiB(87%)][#d665b7 19MiB/500MiB(3%)]
+[DL:11MiB][#1b3542 396MiB/500MiB(79%)][#c0c227 443MiB/500MiB(88%)][#d665b7 21MiB/500MiB(4%)]
+[DL:11MiB][#1b3542 398MiB/500MiB(79%)][#c0c227 451MiB/500MiB(90%)][#d665b7 23MiB/500MiB(4%)]
+[DL:11MiB][#1b3542 399MiB/500MiB(79%)][#c0c227 460MiB/500MiB(92%)][#d665b7 24MiB/500MiB(4%)]
+ *** Download Progress Summary as of Mon Apr  6 20:20:16 2026 *** 
+===============================================================================
+[#1b3542 400MiB/500MiB(80%) CN:1 DL:1.5MiB ETA:1m2s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#c0c227 468MiB/500MiB(93%) CN:1 DL:7.7MiB ETA:4s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part35.rar
+-------------------------------------------------------------------------------
+[#d665b7 26MiB/500MiB(5%) CN:1 DL:1.7MiB ETA:4m37s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#1b3542 400MiB/500MiB(80%)][#c0c227 468MiB/500MiB(93%)][#d665b7 26MiB/500MiB(5%)]
+[DL:11MiB][#1b3542 402MiB/500MiB(80%)][#c0c227 476MiB/500MiB(95%)][#d665b7 27MiB/500MiB(5%)]
+[DL:11MiB][#1b3542 403MiB/500MiB(80%)][#c0c227 484MiB/500MiB(96%)][#d665b7 29MiB/500MiB(5%)]
+[DL:11MiB][#1b3542 405MiB/500MiB(81%)][#c0c227 493MiB/500MiB(98%)][#d665b7 30MiB/500MiB(6%)]
+
+04/06 20:20:19 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part35.rar
+[DL:11MiB][#1b3542 406MiB/500MiB(81%)][#d665b7 31MiB/500MiB(6%)][#3310bb 640KiB/500MiB(0%)]
+[DL:10MiB][#1b3542 409MiB/500MiB(81%)][#d665b7 34MiB/500MiB(6%)][#3310bb 4.6MiB/500MiB(0%)]
+[DL:10MiB][#1b3542 412MiB/500MiB(82%)][#d665b7 37MiB/500MiB(7%)][#3310bb 10MiB/500MiB(2%)]
+[DL:10MiB][#1b3542 414MiB/500MiB(82%)][#d665b7 39MiB/500MiB(7%)][#3310bb 17MiB/500MiB(3%)]
+[DL:10MiB][#1b3542 416MiB/500MiB(83%)][#d665b7 41MiB/500MiB(8%)][#3310bb 25MiB/500MiB(5%)]
+[DL:11MiB][#1b3542 417MiB/500MiB(83%)][#d665b7 42MiB/500MiB(8%)][#3310bb 33MiB/500MiB(6%)]
+[DL:11MiB][#1b3542 419MiB/500MiB(83%)][#d665b7 44MiB/500MiB(8%)][#3310bb 41MiB/500MiB(8%)]
+[DL:11MiB][#1b3542 420MiB/500MiB(84%)][#d665b7 45MiB/500MiB(9%)][#3310bb 49MiB/500MiB(9%)]
+[DL:11MiB][#1b3542 422MiB/500MiB(84%)][#d665b7 47MiB/500MiB(9%)][#3310bb 57MiB/500MiB(11%)]
+[DL:11MiB][#1b3542 423MiB/500MiB(84%)][#d665b7 48MiB/500MiB(9%)][#3310bb 66MiB/500MiB(13%)]
+[DL:11MiB][#1b3542 424MiB/500MiB(84%)][#d665b7 49MiB/500MiB(9%)][#3310bb 74MiB/500MiB(14%)]
+[DL:11MiB][#1b3542 426MiB/500MiB(85%)][#d665b7 50MiB/500MiB(10%)][#3310bb 80MiB/500MiB(16%)]
+ *** Download Progress Summary as of Mon Apr  6 20:20:31 2026 *** 
+===============================================================================
+[#1b3542 427MiB/500MiB(85%) CN:1 DL:1.5MiB ETA:48s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#d665b7 52MiB/500MiB(10%) CN:1 DL:1.5MiB ETA:4m57s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#3310bb 89MiB/500MiB(17%) CN:1 DL:7.8MiB ETA:52s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part37.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#1b3542 427MiB/500MiB(85%)][#d665b7 52MiB/500MiB(10%)][#3310bb 89MiB/500MiB(17%)]
+[DL:10MiB][#1b3542 429MiB/500MiB(85%)][#d665b7 53MiB/500MiB(10%)][#3310bb 97MiB/500MiB(19%)]
+[DL:10MiB][#1b3542 430MiB/500MiB(86%)][#d665b7 54MiB/500MiB(10%)][#3310bb 105MiB/500MiB(21%)]
+[DL:10MiB][#1b3542 431MiB/500MiB(86%)][#d665b7 56MiB/500MiB(11%)][#3310bb 114MiB/500MiB(22%)]
+[DL:10MiB][#1b3542 433MiB/500MiB(86%)][#d665b7 57MiB/500MiB(11%)][#3310bb 122MiB/500MiB(24%)]
+[DL:10MiB][#1b3542 434MiB/500MiB(86%)][#d665b7 59MiB/500MiB(11%)][#3310bb 130MiB/500MiB(26%)]
+[DL:10MiB][#1b3542 435MiB/500MiB(87%)][#d665b7 60MiB/500MiB(12%)][#3310bb 139MiB/500MiB(27%)]
+[DL:10MiB][#1b3542 437MiB/500MiB(87%)][#d665b7 61MiB/500MiB(12%)][#3310bb 147MiB/500MiB(29%)]
+[DL:10MiB][#1b3542 438MiB/500MiB(87%)][#d665b7 63MiB/500MiB(12%)][#3310bb 156MiB/500MiB(31%)]
+[DL:11MiB][#1b3542 439MiB/500MiB(87%)][#d665b7 64MiB/500MiB(12%)][#3310bb 164MiB/500MiB(32%)]
+[DL:10MiB][#1b3542 441MiB/500MiB(88%)][#d665b7 65MiB/500MiB(13%)][#3310bb 170MiB/500MiB(34%)]
+[DL:10MiB][#1b3542 442MiB/500MiB(88%)][#d665b7 67MiB/500MiB(13%)][#3310bb 178MiB/500MiB(35%)]
+[DL:10MiB][#1b3542 444MiB/500MiB(88%)][#d665b7 68MiB/500MiB(13%)][#3310bb 186MiB/500MiB(37%)]
+[DL:10MiB][#1b3542 445MiB/500MiB(89%)][#d665b7 70MiB/500MiB(14%)][#3310bb 194MiB/500MiB(38%)]
+[DL:10MiB][#1b3542 447MiB/500MiB(89%)][#d665b7 71MiB/500MiB(14%)][#3310bb 202MiB/500MiB(40%)]
+[DL:10MiB][#1b3542 448MiB/500MiB(89%)][#d665b7 73MiB/500MiB(14%)][#3310bb 211MiB/500MiB(42%)]
+ *** Download Progress Summary as of Mon Apr  6 20:20:47 2026 *** 
+===============================================================================
+[#1b3542 449MiB/500MiB(89%) CN:1 DL:1.4MiB ETA:35s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#d665b7 74MiB/500MiB(14%) CN:1 DL:1.4MiB ETA:4m58s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#3310bb 219MiB/500MiB(43%) CN:1 DL:8.1MiB ETA:34s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part37.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#1b3542 449MiB/500MiB(89%)][#d665b7 74MiB/500MiB(14%)][#3310bb 219MiB/500MiB(43%)]
+[DL:10MiB][#1b3542 451MiB/500MiB(90%)][#d665b7 75MiB/500MiB(15%)][#3310bb 228MiB/500MiB(45%)]
+[DL:10MiB][#1b3542 452MiB/500MiB(90%)][#d665b7 77MiB/500MiB(15%)][#3310bb 236MiB/500MiB(47%)]
+[DL:11MiB][#1b3542 453MiB/500MiB(90%)][#d665b7 78MiB/500MiB(15%)][#3310bb 245MiB/500MiB(49%)]
+[DL:10MiB][#1b3542 454MiB/500MiB(90%)][#d665b7 79MiB/500MiB(15%)][#3310bb 251MiB/500MiB(50%)]
+[DL:10MiB][#1b3542 456MiB/500MiB(91%)][#d665b7 81MiB/500MiB(16%)][#3310bb 259MiB/500MiB(51%)]
+[DL:10MiB][#1b3542 457MiB/500MiB(91%)][#d665b7 82MiB/500MiB(16%)][#3310bb 268MiB/500MiB(53%)]
+[DL:10MiB][#1b3542 458MiB/500MiB(91%)][#d665b7 84MiB/500MiB(16%)][#3310bb 276MiB/500MiB(55%)]
+[DL:10MiB][#1b3542 460MiB/500MiB(92%)][#d665b7 85MiB/500MiB(17%)][#3310bb 284MiB/500MiB(56%)]
+[DL:10MiB][#1b3542 461MiB/500MiB(92%)][#d665b7 86MiB/500MiB(17%)][#3310bb 293MiB/500MiB(58%)]
+[DL:10MiB][#1b3542 462MiB/500MiB(92%)][#d665b7 88MiB/500MiB(17%)][#3310bb 301MiB/500MiB(60%)]
+[DL:10MiB][#1b3542 464MiB/500MiB(92%)][#d665b7 89MiB/500MiB(17%)][#3310bb 310MiB/500MiB(62%)]
+[DL:10MiB][#1b3542 465MiB/500MiB(93%)][#d665b7 90MiB/500MiB(18%)][#3310bb 318MiB/500MiB(63%)]
+[DL:10MiB][#1b3542 466MiB/500MiB(93%)][#d665b7 91MiB/500MiB(18%)][#3310bb 326MiB/500MiB(65%)]
+[DL:10MiB][#1b3542 468MiB/500MiB(93%)][#d665b7 93MiB/500MiB(18%)][#3310bb 333MiB/500MiB(66%)]
+[DL:10MiB][#1b3542 471MiB/500MiB(94%)][#d665b7 97MiB/500MiB(19%)][#3310bb 335MiB/500MiB(67%)]
+ *** Download Progress Summary as of Mon Apr  6 20:21:03 2026 *** 
+===============================================================================
+[#1b3542 477MiB/500MiB(95%) CN:1 DL:2.0MiB ETA:11s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+-------------------------------------------------------------------------------
+[#d665b7 102MiB/500MiB(20%) CN:1 DL:2.0MiB ETA:3m12s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#3310bb 335MiB/500MiB(67%) CN:1 DL:6.7MiB ETA:24s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part37.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#1b3542 477MiB/500MiB(95%)][#d665b7 102MiB/500MiB(20%)][#3310bb 335MiB/500MiB(67%)]
+[DL:10MiB][#1b3542 480MiB/500MiB(96%)][#d665b7 106MiB/500MiB(21%)][#3310bb 339MiB/500MiB(67%)]
+[DL:10MiB][#1b3542 483MiB/500MiB(96%)][#d665b7 109MiB/500MiB(21%)][#3310bb 344MiB/500MiB(68%)]
+[DL:10MiB][#1b3542 485MiB/500MiB(97%)][#d665b7 111MiB/500MiB(22%)][#3310bb 351MiB/500MiB(70%)]
+[DL:10MiB][#1b3542 487MiB/500MiB(97%)][#d665b7 113MiB/500MiB(22%)][#3310bb 359MiB/500MiB(71%)]
+[DL:10MiB][#1b3542 488MiB/500MiB(97%)][#d665b7 114MiB/500MiB(22%)][#3310bb 367MiB/500MiB(73%)]
+[DL:10MiB][#1b3542 490MiB/500MiB(98%)][#d665b7 116MiB/500MiB(23%)][#3310bb 375MiB/500MiB(75%)]
+[DL:10MiB][#1b3542 491MiB/500MiB(98%)][#d665b7 117MiB/500MiB(23%)][#3310bb 384MiB/500MiB(76%)]
+[DL:11MiB][#1b3542 492MiB/500MiB(98%)][#d665b7 119MiB/500MiB(23%)][#3310bb 391MiB/500MiB(78%)]
+[DL:11MiB][#1b3542 495MiB/500MiB(99%)][#d665b7 121MiB/500MiB(24%)][#3310bb 397MiB/500MiB(79%)]
+[DL:11MiB][#1b3542 497MiB/500MiB(99%)][#d665b7 125MiB/500MiB(25%)][#3310bb 402MiB/500MiB(80%)]
+[DL:11MiB][#1b3542 499MiB/500MiB(99%)][#d665b7 129MiB/500MiB(25%)][#3310bb 407MiB/500MiB(81%)]
+
+04/06 20:21:15 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part31.rar
+[DL:11MiB][#d665b7 135MiB/500MiB(27%)][#3310bb 411MiB/500MiB(82%)][#f7ff94 176KiB/500MiB(0%)]
+[DL:11MiB][#d665b7 142MiB/500MiB(28%)][#3310bb 415MiB/500MiB(83%)][#f7ff94 800KiB/500MiB(0%)]
+[DL:11MiB][#d665b7 149MiB/500MiB(29%)][#3310bb 418MiB/500MiB(83%)][#f7ff94 1.2MiB/500MiB(0%)]
+[DL:11MiB][#d665b7 157MiB/500MiB(31%)][#3310bb 421MiB/500MiB(84%)][#f7ff94 1.7MiB/500MiB(0%)]
+ *** Download Progress Summary as of Mon Apr  6 20:21:19 2026 *** 
+===============================================================================
+[#d665b7 165MiB/500MiB(33%) CN:1 DL:5.1MiB ETA:1m5s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#3310bb 424MiB/500MiB(84%) CN:1 DL:4.8MiB ETA:15s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part37.rar
+-------------------------------------------------------------------------------
+[#f7ff94 2.2MiB/500MiB(0%) CN:1 DL:569KiB ETA:14m55s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#d665b7 165MiB/500MiB(33%)][#3310bb 424MiB/500MiB(84%)][#f7ff94 2.2MiB/500MiB(0%)]
+[DL:11MiB][#d665b7 173MiB/500MiB(34%)][#3310bb 426MiB/500MiB(85%)][#f7ff94 2.7MiB/500MiB(0%)]
+[DL:11MiB][#d665b7 182MiB/500MiB(36%)][#3310bb 428MiB/500MiB(85%)][#f7ff94 3.2MiB/500MiB(0%)]
+[DL:11MiB][#d665b7 191MiB/500MiB(38%)][#3310bb 429MiB/500MiB(85%)][#f7ff94 3.7MiB/500MiB(0%)]
+[DL:10MiB][#d665b7 197MiB/500MiB(39%)][#3310bb 431MiB/500MiB(86%)][#f7ff94 4.8MiB/500MiB(0%)]
+[DL:11MiB][#d665b7 204MiB/500MiB(40%)][#3310bb 434MiB/500MiB(86%)][#f7ff94 6.4MiB/500MiB(1%)]
+[DL:10MiB][#d665b7 209MiB/500MiB(41%)][#3310bb 438MiB/500MiB(87%)][#f7ff94 8.2MiB/500MiB(1%)]
+[DL:11MiB][#d665b7 213MiB/500MiB(42%)][#3310bb 443MiB/500MiB(88%)][#f7ff94 9.9MiB/500MiB(1%)]
+[DL:10MiB][#d665b7 216MiB/500MiB(43%)][#3310bb 450MiB/500MiB(90%)][#f7ff94 11MiB/500MiB(2%)]
+[DL:10MiB][#d665b7 218MiB/500MiB(43%)][#3310bb 457MiB/500MiB(91%)][#f7ff94 12MiB/500MiB(2%)]
+[DL:10MiB][#d665b7 220MiB/500MiB(44%)][#3310bb 465MiB/500MiB(93%)][#f7ff94 14MiB/500MiB(2%)]
+[DL:11MiB][#d665b7 222MiB/500MiB(44%)][#3310bb 473MiB/500MiB(94%)][#f7ff94 15MiB/500MiB(3%)]
+[DL:11MiB][#d665b7 223MiB/500MiB(44%)][#3310bb 481MiB/500MiB(96%)][#f7ff94 17MiB/500MiB(3%)]
+[DL:11MiB][#d665b7 225MiB/500MiB(45%)][#3310bb 490MiB/500MiB(98%)][#f7ff94 18MiB/500MiB(3%)]
+[DL:10MiB][#d665b7 228MiB/500MiB(45%)][#3310bb 495MiB/500MiB(99%)][#f7ff94 19MiB/500MiB(3%)]
+
+04/06 20:21:34 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part37.rar
+[DL:10MiB][#d665b7 232MiB/500MiB(46%)][#f7ff94 20MiB/500MiB(4%)][#75c024 800KiB/500MiB(0%)]
+ *** Download Progress Summary as of Mon Apr  6 20:21:35 2026 *** 
+===============================================================================
+[#d665b7 235MiB/500MiB(47%) CN:1 DL:2.5MiB ETA:1m45s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#f7ff94 21MiB/500MiB(4%) CN:1 DL:1.3MiB ETA:5m43s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#75c024 7.1MiB/500MiB(1%) CN:1 DL:6.3MiB ETA:1m17s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part39.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#d665b7 235MiB/500MiB(47%)][#f7ff94 21MiB/500MiB(4%)][#75c024 7.1MiB/500MiB(1%)]
+[DL:10MiB][#d665b7 238MiB/500MiB(47%)][#f7ff94 23MiB/500MiB(4%)][#75c024 13MiB/500MiB(2%)]
+[DL:10MiB][#d665b7 240MiB/500MiB(48%)][#f7ff94 25MiB/500MiB(5%)][#75c024 21MiB/500MiB(4%)]
+[DL:10MiB][#d665b7 241MiB/500MiB(48%)][#f7ff94 26MiB/500MiB(5%)][#75c024 29MiB/500MiB(5%)]
+[DL:10MiB][#d665b7 243MiB/500MiB(48%)][#f7ff94 27MiB/500MiB(5%)][#75c024 37MiB/500MiB(7%)]
+[DL:10MiB][#d665b7 244MiB/500MiB(48%)][#f7ff94 29MiB/500MiB(5%)][#75c024 46MiB/500MiB(9%)]
+[DL:10MiB][#d665b7 246MiB/500MiB(49%)][#f7ff94 30MiB/500MiB(6%)][#75c024 54MiB/500MiB(10%)]
+[DL:11MiB][#d665b7 247MiB/500MiB(49%)][#f7ff94 31MiB/500MiB(6%)][#75c024 62MiB/500MiB(12%)]
+[DL:10MiB][#d665b7 248MiB/500MiB(49%)][#f7ff94 33MiB/500MiB(6%)][#75c024 69MiB/500MiB(13%)]
+[DL:10MiB][#d665b7 250MiB/500MiB(50%)][#f7ff94 36MiB/500MiB(7%)][#75c024 76MiB/500MiB(15%)]
+[DL:10MiB][#d665b7 251MiB/500MiB(50%)][#f7ff94 38MiB/500MiB(7%)][#75c024 83MiB/500MiB(16%)]
+[DL:10MiB][#d665b7 253MiB/500MiB(50%)][#f7ff94 39MiB/500MiB(7%)][#75c024 91MiB/500MiB(18%)]
+[DL:10MiB][#d665b7 254MiB/500MiB(50%)][#f7ff94 41MiB/500MiB(8%)][#75c024 99MiB/500MiB(19%)]
+[DL:10MiB][#d665b7 255MiB/500MiB(51%)][#f7ff94 43MiB/500MiB(8%)][#75c024 107MiB/500MiB(21%)]
+[DL:10MiB][#d665b7 257MiB/500MiB(51%)][#f7ff94 44MiB/500MiB(8%)][#75c024 115MiB/500MiB(23%)]
+[DL:10MiB][#d665b7 258MiB/500MiB(51%)][#f7ff94 46MiB/500MiB(9%)][#75c024 124MiB/500MiB(24%)]
+ *** Download Progress Summary as of Mon Apr  6 20:21:51 2026 *** 
+===============================================================================
+[#d665b7 260MiB/500MiB(52%) CN:1 DL:1.4MiB ETA:2m49s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#f7ff94 47MiB/500MiB(9%) CN:1 DL:1.7MiB ETA:4m24s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#75c024 132MiB/500MiB(26%) CN:1 DL:7.8MiB ETA:46s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part39.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#d665b7 260MiB/500MiB(52%)][#f7ff94 47MiB/500MiB(9%)][#75c024 132MiB/500MiB(26%)]
+[DL:11MiB][#d665b7 261MiB/500MiB(52%)][#f7ff94 48MiB/500MiB(9%)][#75c024 140MiB/500MiB(28%)]
+[DL:11MiB][#d665b7 262MiB/500MiB(52%)][#f7ff94 50MiB/500MiB(10%)][#75c024 149MiB/500MiB(29%)]
+[DL:10MiB][#d665b7 263MiB/500MiB(52%)][#f7ff94 51MiB/500MiB(10%)][#75c024 155MiB/500MiB(31%)]
+[DL:10MiB][#d665b7 265MiB/500MiB(53%)][#f7ff94 53MiB/500MiB(10%)][#75c024 163MiB/500MiB(32%)]
+[DL:10MiB][#d665b7 266MiB/500MiB(53%)][#f7ff94 55MiB/500MiB(11%)][#75c024 171MiB/500MiB(34%)]
+[DL:10MiB][#d665b7 268MiB/500MiB(53%)][#f7ff94 56MiB/500MiB(11%)][#75c024 179MiB/500MiB(35%)]
+[DL:10MiB][#d665b7 269MiB/500MiB(53%)][#f7ff94 58MiB/500MiB(11%)][#75c024 187MiB/500MiB(37%)]
+[DL:10MiB][#d665b7 271MiB/500MiB(54%)][#f7ff94 59MiB/500MiB(11%)][#75c024 195MiB/500MiB(39%)]
+[DL:10MiB][#d665b7 272MiB/500MiB(54%)][#f7ff94 61MiB/500MiB(12%)][#75c024 203MiB/500MiB(40%)]
+[DL:10MiB][#d665b7 273MiB/500MiB(54%)][#f7ff94 62MiB/500MiB(12%)][#75c024 212MiB/500MiB(42%)]
+[DL:10MiB][#d665b7 275MiB/500MiB(55%)][#f7ff94 63MiB/500MiB(12%)][#75c024 220MiB/500MiB(44%)]
+[DL:10MiB][#d665b7 276MiB/500MiB(55%)][#f7ff94 65MiB/500MiB(13%)][#75c024 228MiB/500MiB(45%)]
+[DL:10MiB][#d665b7 277MiB/500MiB(55%)][#f7ff94 66MiB/500MiB(13%)][#75c024 235MiB/500MiB(47%)]
+[DL:10MiB][#d665b7 279MiB/500MiB(55%)][#f7ff94 68MiB/500MiB(13%)][#75c024 243MiB/500MiB(48%)]
+[DL:10MiB][#d665b7 280MiB/500MiB(56%)][#f7ff94 69MiB/500MiB(13%)][#75c024 251MiB/500MiB(50%)]
+ *** Download Progress Summary as of Mon Apr  6 20:22:06 2026 *** 
+===============================================================================
+[#d665b7 282MiB/500MiB(56%) CN:1 DL:1.4MiB ETA:2m33s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#f7ff94 71MiB/500MiB(14%) CN:1 DL:1.4MiB ETA:4m57s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#75c024 259MiB/500MiB(51%) CN:1 DL:8.0MiB ETA:29s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part39.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#d665b7 282MiB/500MiB(56%)][#f7ff94 71MiB/500MiB(14%)][#75c024 259MiB/500MiB(51%)]
+[DL:10MiB][#d665b7 283MiB/500MiB(56%)][#f7ff94 72MiB/500MiB(14%)][#75c024 267MiB/500MiB(53%)]
+[DL:10MiB][#d665b7 285MiB/500MiB(57%)][#f7ff94 74MiB/500MiB(14%)][#75c024 275MiB/500MiB(55%)]
+[DL:10MiB][#d665b7 286MiB/500MiB(57%)][#f7ff94 75MiB/500MiB(15%)][#75c024 284MiB/500MiB(56%)]
+[DL:10MiB][#d665b7 288MiB/500MiB(57%)][#f7ff94 77MiB/500MiB(15%)][#75c024 292MiB/500MiB(58%)]
+[DL:10MiB][#d665b7 289MiB/500MiB(57%)][#f7ff94 78MiB/500MiB(15%)][#75c024 300MiB/500MiB(60%)]
+[DL:10MiB][#d665b7 290MiB/500MiB(58%)][#f7ff94 79MiB/500MiB(15%)][#75c024 309MiB/500MiB(61%)]
+[DL:10MiB][#d665b7 291MiB/500MiB(58%)][#f7ff94 80MiB/500MiB(16%)][#75c024 315MiB/500MiB(63%)]
+[DL:10MiB][#d665b7 293MiB/500MiB(58%)][#f7ff94 82MiB/500MiB(16%)][#75c024 323MiB/500MiB(64%)]
+[DL:10MiB][#d665b7 295MiB/500MiB(59%)][#f7ff94 83MiB/500MiB(16%)][#75c024 331MiB/500MiB(66%)]
+[DL:10MiB][#d665b7 296MiB/500MiB(59%)][#f7ff94 85MiB/500MiB(17%)][#75c024 340MiB/500MiB(68%)]
+[DL:10MiB][#d665b7 297MiB/500MiB(59%)][#f7ff94 86MiB/500MiB(17%)][#75c024 348MiB/500MiB(69%)]
+[DL:10MiB][#d665b7 299MiB/500MiB(59%)][#f7ff94 87MiB/500MiB(17%)][#75c024 356MiB/500MiB(71%)]
+[DL:10MiB][#d665b7 300MiB/500MiB(60%)][#f7ff94 89MiB/500MiB(17%)][#75c024 365MiB/500MiB(73%)]
+[DL:10MiB][#d665b7 301MiB/500MiB(60%)][#f7ff94 90MiB/500MiB(18%)][#75c024 374MiB/500MiB(74%)]
+[DL:10MiB][#d665b7 302MiB/500MiB(60%)][#f7ff94 91MiB/500MiB(18%)][#75c024 382MiB/500MiB(76%)]
+ *** Download Progress Summary as of Mon Apr  6 20:22:22 2026 *** 
+===============================================================================
+[#d665b7 304MiB/500MiB(60%) CN:1 DL:1.3MiB ETA:2m24s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#f7ff94 92MiB/500MiB(18%) CN:1 DL:1.3MiB ETA:5m6s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#75c024 391MiB/500MiB(78%) CN:1 DL:8.2MiB ETA:13s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part39.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#d665b7 304MiB/500MiB(60%)][#f7ff94 92MiB/500MiB(18%)][#75c024 391MiB/500MiB(78%)]
+[DL:11MiB][#d665b7 305MiB/500MiB(61%)][#f7ff94 94MiB/500MiB(18%)][#75c024 399MiB/500MiB(79%)]
+[DL:10MiB][#d665b7 306MiB/500MiB(61%)][#f7ff94 95MiB/500MiB(19%)][#75c024 405MiB/500MiB(81%)]
+[DL:10MiB][#d665b7 308MiB/500MiB(61%)][#f7ff94 96MiB/500MiB(19%)][#75c024 414MiB/500MiB(82%)]
+[DL:10MiB][#d665b7 309MiB/500MiB(61%)][#f7ff94 97MiB/500MiB(19%)][#75c024 422MiB/500MiB(84%)]
+[DL:10MiB][#d665b7 311MiB/500MiB(62%)][#f7ff94 99MiB/500MiB(19%)][#75c024 430MiB/500MiB(86%)]
+[DL:10MiB][#d665b7 312MiB/500MiB(62%)][#f7ff94 100MiB/500MiB(20%)][#75c024 438MiB/500MiB(87%)]
+[DL:10MiB][#d665b7 314MiB/500MiB(62%)][#f7ff94 102MiB/500MiB(20%)][#75c024 447MiB/500MiB(89%)]
+[DL:10MiB][#d665b7 315MiB/500MiB(63%)][#f7ff94 103MiB/500MiB(20%)][#75c024 455MiB/500MiB(91%)]
+[DL:10MiB][#d665b7 316MiB/500MiB(63%)][#f7ff94 104MiB/500MiB(20%)][#75c024 463MiB/500MiB(92%)]
+[DL:10MiB][#d665b7 318MiB/500MiB(63%)][#f7ff94 106MiB/500MiB(21%)][#75c024 470MiB/500MiB(94%)]
+[DL:10MiB][#d665b7 319MiB/500MiB(63%)][#f7ff94 108MiB/500MiB(21%)][#75c024 478MiB/500MiB(95%)]
+[DL:10MiB][#d665b7 322MiB/500MiB(64%)][#f7ff94 109MiB/500MiB(21%)][#75c024 483MiB/500MiB(96%)]
+[DL:10MiB][#d665b7 326MiB/500MiB(65%)][#f7ff94 111MiB/500MiB(22%)][#75c024 489MiB/500MiB(97%)]
+[DL:10MiB][#d665b7 329MiB/500MiB(65%)][#f7ff94 113MiB/500MiB(22%)][#75c024 496MiB/500MiB(99%)]
+
+04/06 20:22:37 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part39.rar
+[DL:10MiB][#d665b7 331MiB/500MiB(66%)][#f7ff94 115MiB/500MiB(23%)][#b0956f 1.6MiB/500MiB(0%)]
+ *** Download Progress Summary as of Mon Apr  6 20:22:38 2026 *** 
+===============================================================================
+[#d665b7 334MiB/500MiB(66%) CN:1 DL:2.2MiB ETA:1m14s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#f7ff94 117MiB/500MiB(23%) CN:1 DL:1.7MiB ETA:3m38s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#b0956f 7.9MiB/500MiB(1%) CN:1 DL:5.9MiB ETA:1m22s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part40.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#d665b7 334MiB/500MiB(66%)][#f7ff94 117MiB/500MiB(23%)][#b0956f 7.9MiB/500MiB(1%)]
+[DL:10MiB][#d665b7 336MiB/500MiB(67%)][#f7ff94 119MiB/500MiB(23%)][#b0956f 15MiB/500MiB(3%)]
+[DL:10MiB][#d665b7 337MiB/500MiB(67%)][#f7ff94 121MiB/500MiB(24%)][#b0956f 22MiB/500MiB(4%)]
+[DL:10MiB][#d665b7 339MiB/500MiB(67%)][#f7ff94 122MiB/500MiB(24%)][#b0956f 30MiB/500MiB(6%)]
+[DL:10MiB][#d665b7 341MiB/500MiB(68%)][#f7ff94 124MiB/500MiB(24%)][#b0956f 39MiB/500MiB(7%)]
+[DL:10MiB][#d665b7 342MiB/500MiB(68%)][#f7ff94 125MiB/500MiB(25%)][#b0956f 47MiB/500MiB(9%)]
+[DL:11MiB][#d665b7 343MiB/500MiB(68%)][#f7ff94 128MiB/500MiB(25%)][#b0956f 54MiB/500MiB(10%)]
+[DL:10MiB][#d665b7 344MiB/500MiB(68%)][#f7ff94 133MiB/500MiB(26%)][#b0956f 58MiB/500MiB(11%)]
+[DL:10MiB][#d665b7 345MiB/500MiB(69%)][#f7ff94 137MiB/500MiB(27%)][#b0956f 64MiB/500MiB(12%)]
+[DL:11MiB][#d665b7 346MiB/500MiB(69%)][#f7ff94 140MiB/500MiB(28%)][#b0956f 71MiB/500MiB(14%)]
+[DL:11MiB][#d665b7 348MiB/500MiB(69%)][#f7ff94 142MiB/500MiB(28%)][#b0956f 78MiB/500MiB(15%)]
+[DL:11MiB][#d665b7 349MiB/500MiB(69%)][#f7ff94 144MiB/500MiB(28%)][#b0956f 86MiB/500MiB(17%)]
+[DL:11MiB][#d665b7 351MiB/500MiB(70%)][#f7ff94 145MiB/500MiB(29%)][#b0956f 94MiB/500MiB(18%)]
+[DL:11MiB][#d665b7 352MiB/500MiB(70%)][#f7ff94 147MiB/500MiB(29%)][#b0956f 103MiB/500MiB(20%)]
+[DL:11MiB][#d665b7 354MiB/500MiB(70%)][#f7ff94 148MiB/500MiB(29%)][#b0956f 111MiB/500MiB(22%)]
+[DL:11MiB][#d665b7 355MiB/500MiB(71%)][#f7ff94 150MiB/500MiB(30%)][#b0956f 119MiB/500MiB(23%)]
+ *** Download Progress Summary as of Mon Apr  6 20:22:54 2026 *** 
+===============================================================================
+[#d665b7 356MiB/500MiB(71%) CN:1 DL:1.3MiB ETA:1m42s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#f7ff94 151MiB/500MiB(30%) CN:1 DL:2.0MiB ETA:2m48s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#b0956f 127MiB/500MiB(25%) CN:1 DL:7.7MiB ETA:48s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part40.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#d665b7 356MiB/500MiB(71%)][#f7ff94 151MiB/500MiB(30%)][#b0956f 127MiB/500MiB(25%)]
+[DL:10MiB][#d665b7 357MiB/500MiB(71%)][#f7ff94 153MiB/500MiB(30%)][#b0956f 133MiB/500MiB(26%)]
+[DL:10MiB][#d665b7 359MiB/500MiB(71%)][#f7ff94 154MiB/500MiB(30%)][#b0956f 141MiB/500MiB(28%)]
+[DL:10MiB][#d665b7 360MiB/500MiB(72%)][#f7ff94 156MiB/500MiB(31%)][#b0956f 150MiB/500MiB(30%)]
+[DL:10MiB][#d665b7 362MiB/500MiB(72%)][#f7ff94 157MiB/500MiB(31%)][#b0956f 158MiB/500MiB(31%)]
+[DL:10MiB][#d665b7 363MiB/500MiB(72%)][#f7ff94 158MiB/500MiB(31%)][#b0956f 166MiB/500MiB(33%)]
+[DL:10MiB][#d665b7 364MiB/500MiB(72%)][#f7ff94 160MiB/500MiB(32%)][#b0956f 175MiB/500MiB(35%)]
+[DL:10MiB][#d665b7 366MiB/500MiB(73%)][#f7ff94 161MiB/500MiB(32%)][#b0956f 183MiB/500MiB(36%)]
+[DL:10MiB][#d665b7 367MiB/500MiB(73%)][#f7ff94 162MiB/500MiB(32%)][#b0956f 192MiB/500MiB(38%)]
+[DL:10MiB][#d665b7 368MiB/500MiB(73%)][#f7ff94 163MiB/500MiB(32%)][#b0956f 200MiB/500MiB(40%)]
+[DL:11MiB][#d665b7 370MiB/500MiB(74%)][#f7ff94 165MiB/500MiB(33%)][#b0956f 209MiB/500MiB(41%)]
+[DL:10MiB][#d665b7 371MiB/500MiB(74%)][#f7ff94 166MiB/500MiB(33%)][#b0956f 215MiB/500MiB(43%)]
+[DL:10MiB][#d665b7 373MiB/500MiB(74%)][#f7ff94 167MiB/500MiB(33%)][#b0956f 223MiB/500MiB(44%)]
+[DL:10MiB][#d665b7 374MiB/500MiB(74%)][#f7ff94 169MiB/500MiB(33%)][#b0956f 231MiB/500MiB(46%)]
+[DL:10MiB][#d665b7 376MiB/500MiB(75%)][#f7ff94 170MiB/500MiB(34%)][#b0956f 240MiB/500MiB(48%)]
+[DL:10MiB][#d665b7 377MiB/500MiB(75%)][#f7ff94 171MiB/500MiB(34%)][#b0956f 248MiB/500MiB(49%)]
+ *** Download Progress Summary as of Mon Apr  6 20:23:10 2026 *** 
+===============================================================================
+[#d665b7 378MiB/500MiB(75%) CN:1 DL:1.4MiB ETA:1m25s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#f7ff94 173MiB/500MiB(34%) CN:1 DL:1.3MiB ETA:4m8s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#b0956f 256MiB/500MiB(51%) CN:1 DL:8.2MiB ETA:29s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part40.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#d665b7 378MiB/500MiB(75%)][#f7ff94 173MiB/500MiB(34%)][#b0956f 256MiB/500MiB(51%)]
+[DL:10MiB][#d665b7 380MiB/500MiB(76%)][#f7ff94 174MiB/500MiB(34%)][#b0956f 265MiB/500MiB(53%)]
+[DL:10MiB][#d665b7 381MiB/500MiB(76%)][#f7ff94 175MiB/500MiB(35%)][#b0956f 273MiB/500MiB(54%)]
+[DL:10MiB][#d665b7 382MiB/500MiB(76%)][#f7ff94 177MiB/500MiB(35%)][#b0956f 281MiB/500MiB(56%)]
+[DL:10MiB][#d665b7 384MiB/500MiB(76%)][#f7ff94 178MiB/500MiB(35%)][#b0956f 290MiB/500MiB(58%)]
+[DL:11MiB][#d665b7 385MiB/500MiB(77%)][#f7ff94 179MiB/500MiB(35%)][#b0956f 298MiB/500MiB(59%)]
+[DL:10MiB][#d665b7 386MiB/500MiB(77%)][#f7ff94 181MiB/500MiB(36%)][#b0956f 304MiB/500MiB(60%)]
+[DL:10MiB][#d665b7 388MiB/500MiB(77%)][#f7ff94 182MiB/500MiB(36%)][#b0956f 312MiB/500MiB(62%)]
+[DL:10MiB][#d665b7 389MiB/500MiB(77%)][#f7ff94 184MiB/500MiB(36%)][#b0956f 320MiB/500MiB(64%)]
+[DL:10MiB][#d665b7 391MiB/500MiB(78%)][#f7ff94 185MiB/500MiB(37%)][#b0956f 328MiB/500MiB(65%)]
+[DL:10MiB][#d665b7 392MiB/500MiB(78%)][#f7ff94 187MiB/500MiB(37%)][#b0956f 337MiB/500MiB(67%)]
+[DL:10MiB][#d665b7 394MiB/500MiB(78%)][#f7ff94 188MiB/500MiB(37%)][#b0956f 345MiB/500MiB(69%)]
+[DL:10MiB][#d665b7 395MiB/500MiB(79%)][#f7ff94 189MiB/500MiB(37%)][#b0956f 353MiB/500MiB(70%)]
+[DL:10MiB][#d665b7 396MiB/500MiB(79%)][#f7ff94 191MiB/500MiB(38%)][#b0956f 362MiB/500MiB(72%)]
+[DL:10MiB][#d665b7 398MiB/500MiB(79%)][#f7ff94 192MiB/500MiB(38%)][#b0956f 370MiB/500MiB(74%)]
+[DL:11MiB][#d665b7 399MiB/500MiB(79%)][#f7ff94 193MiB/500MiB(38%)][#b0956f 379MiB/500MiB(75%)]
+ *** Download Progress Summary as of Mon Apr  6 20:23:26 2026 *** 
+===============================================================================
+[#d665b7 400MiB/500MiB(80%) CN:1 DL:1.4MiB ETA:1m10s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#f7ff94 194MiB/500MiB(38%) CN:1 DL:1.3MiB ETA:3m38s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#b0956f 385MiB/500MiB(77%) CN:1 DL:8.1MiB ETA:14s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part40.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#d665b7 400MiB/500MiB(80%)][#f7ff94 194MiB/500MiB(38%)][#b0956f 385MiB/500MiB(77%)]
+[DL:10MiB][#d665b7 402MiB/500MiB(80%)][#f7ff94 196MiB/500MiB(39%)][#b0956f 393MiB/500MiB(78%)]
+[DL:10MiB][#d665b7 404MiB/500MiB(80%)][#f7ff94 197MiB/500MiB(39%)][#b0956f 401MiB/500MiB(80%)]
+[DL:10MiB][#d665b7 405MiB/500MiB(81%)][#f7ff94 199MiB/500MiB(39%)][#b0956f 409MiB/500MiB(81%)]
+[DL:10MiB][#d665b7 406MiB/500MiB(81%)][#f7ff94 200MiB/500MiB(40%)][#b0956f 417MiB/500MiB(83%)]
+[DL:10MiB][#d665b7 408MiB/500MiB(81%)][#f7ff94 202MiB/500MiB(40%)][#b0956f 426MiB/500MiB(85%)]
+[DL:10MiB][#d665b7 409MiB/500MiB(81%)][#f7ff94 203MiB/500MiB(40%)][#b0956f 434MiB/500MiB(86%)]
+[DL:10MiB][#d665b7 411MiB/500MiB(82%)][#f7ff94 204MiB/500MiB(40%)][#b0956f 442MiB/500MiB(88%)]
+[DL:10MiB][#d665b7 412MiB/500MiB(82%)][#f7ff94 206MiB/500MiB(41%)][#b0956f 450MiB/500MiB(90%)]
+[DL:11MiB][#d665b7 414MiB/500MiB(82%)][#f7ff94 207MiB/500MiB(41%)][#b0956f 459MiB/500MiB(91%)]
+[DL:10MiB][#d665b7 415MiB/500MiB(83%)][#f7ff94 208MiB/500MiB(41%)][#b0956f 466MiB/500MiB(93%)]
+[DL:10MiB][#d665b7 417MiB/500MiB(83%)][#f7ff94 210MiB/500MiB(42%)][#b0956f 473MiB/500MiB(94%)]
+[DL:10MiB][#d665b7 418MiB/500MiB(83%)][#f7ff94 211MiB/500MiB(42%)][#b0956f 481MiB/500MiB(96%)]
+[DL:10MiB][#d665b7 420MiB/500MiB(84%)][#f7ff94 212MiB/500MiB(42%)][#b0956f 489MiB/500MiB(97%)]
+[DL:10MiB][#d665b7 422MiB/500MiB(84%)][#f7ff94 214MiB/500MiB(42%)][#b0956f 497MiB/500MiB(99%)]
+
+04/06 20:23:40 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part40.rar
+[DL:10MiB][#d665b7 423MiB/500MiB(84%)][#f7ff94 216MiB/500MiB(43%)][#708fcd 4.6MiB/500MiB(0%)]
+ *** Download Progress Summary as of Mon Apr  6 20:23:42 2026 *** 
+===============================================================================
+[#d665b7 425MiB/500MiB(85%) CN:1 DL:1.5MiB ETA:48s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#f7ff94 217MiB/500MiB(43%) CN:1 DL:1.4MiB ETA:3m17s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#708fcd 12MiB/500MiB(2%) CN:1 DL:8.0MiB ETA:1m]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part41.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#d665b7 425MiB/500MiB(85%)][#f7ff94 217MiB/500MiB(43%)][#708fcd 12MiB/500MiB(2%)]
+[DL:10MiB][#d665b7 426MiB/500MiB(85%)][#f7ff94 219MiB/500MiB(43%)][#708fcd 20MiB/500MiB(4%)]
+[DL:10MiB][#d665b7 427MiB/500MiB(85%)][#f7ff94 220MiB/500MiB(44%)][#708fcd 29MiB/500MiB(5%)]
+[DL:10MiB][#d665b7 429MiB/500MiB(85%)][#f7ff94 221MiB/500MiB(44%)][#708fcd 37MiB/500MiB(7%)]
+[DL:11MiB][#d665b7 430MiB/500MiB(86%)][#f7ff94 223MiB/500MiB(44%)][#708fcd 45MiB/500MiB(9%)]
+[DL:10MiB][#d665b7 433MiB/500MiB(86%)][#f7ff94 224MiB/500MiB(44%)][#708fcd 51MiB/500MiB(10%)]
+[DL:10MiB][#d665b7 436MiB/500MiB(87%)][#f7ff94 225MiB/500MiB(45%)][#708fcd 58MiB/500MiB(11%)]
+[DL:10MiB][#d665b7 438MiB/500MiB(87%)][#f7ff94 227MiB/500MiB(45%)][#708fcd 65MiB/500MiB(13%)]
+[DL:10MiB][#d665b7 439MiB/500MiB(87%)][#f7ff94 228MiB/500MiB(45%)][#708fcd 73MiB/500MiB(14%)]
+[DL:10MiB][#d665b7 441MiB/500MiB(88%)][#f7ff94 229MiB/500MiB(45%)][#708fcd 81MiB/500MiB(16%)]
+[DL:10MiB][#d665b7 444MiB/500MiB(88%)][#f7ff94 230MiB/500MiB(46%)][#708fcd 88MiB/500MiB(17%)]
+[DL:11MiB][#d665b7 448MiB/500MiB(89%)][#f7ff94 231MiB/500MiB(46%)][#708fcd 95MiB/500MiB(19%)]
+[DL:11MiB][#d665b7 453MiB/500MiB(90%)][#f7ff94 232MiB/500MiB(46%)][#708fcd 100MiB/500MiB(20%)]
+[DL:11MiB][#d665b7 458MiB/500MiB(91%)][#f7ff94 233MiB/500MiB(46%)][#708fcd 106MiB/500MiB(21%)]
+[DL:11MiB][#d665b7 464MiB/500MiB(92%)][#f7ff94 234MiB/500MiB(46%)][#708fcd 110MiB/500MiB(22%)]
+[DL:11MiB][#d665b7 470MiB/500MiB(94%)][#f7ff94 234MiB/500MiB(46%)][#708fcd 114MiB/500MiB(22%)]
+ *** Download Progress Summary as of Mon Apr  6 20:23:57 2026 *** 
+===============================================================================
+[#d665b7 477MiB/500MiB(95%) CN:1 DL:4.1MiB ETA:5s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+-------------------------------------------------------------------------------
+[#f7ff94 235MiB/500MiB(47%) CN:1 DL:0.9MiB ETA:4m40s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#708fcd 117MiB/500MiB(23%) CN:1 DL:5.9MiB ETA:1m4s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part41.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#d665b7 477MiB/500MiB(95%)][#f7ff94 235MiB/500MiB(47%)][#708fcd 117MiB/500MiB(23%)]
+[DL:11MiB][#d665b7 483MiB/500MiB(96%)][#f7ff94 236MiB/500MiB(47%)][#708fcd 122MiB/500MiB(24%)]
+[DL:11MiB][#d665b7 489MiB/500MiB(97%)][#f7ff94 236MiB/500MiB(47%)][#708fcd 126MiB/500MiB(25%)]
+[DL:11MiB][#d665b7 495MiB/500MiB(99%)][#f7ff94 237MiB/500MiB(47%)][#708fcd 130MiB/500MiB(26%)]
+
+04/06 20:24:01 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part36.rar
+[DL:11MiB][#f7ff94 238MiB/500MiB(47%)][#708fcd 135MiB/500MiB(27%)][#5399a5 128KiB/500MiB(0%)]
+[DL:11MiB][#f7ff94 240MiB/500MiB(48%)][#708fcd 140MiB/500MiB(28%)][#5399a5 4.2MiB/500MiB(0%)]
+[DL:11MiB][#f7ff94 241MiB/500MiB(48%)][#708fcd 145MiB/500MiB(29%)][#5399a5 8.7MiB/500MiB(1%)]
+[DL:11MiB][#f7ff94 242MiB/500MiB(48%)][#708fcd 150MiB/500MiB(30%)][#5399a5 13MiB/500MiB(2%)]
+[DL:11MiB][#f7ff94 243MiB/500MiB(48%)][#708fcd 156MiB/500MiB(31%)][#5399a5 18MiB/500MiB(3%)]
+[DL:11MiB][#f7ff94 244MiB/500MiB(48%)][#708fcd 161MiB/500MiB(32%)][#5399a5 22MiB/500MiB(4%)]
+[DL:11MiB][#f7ff94 245MiB/500MiB(49%)][#708fcd 168MiB/500MiB(33%)][#5399a5 25MiB/500MiB(5%)]
+[DL:11MiB][#f7ff94 246MiB/500MiB(49%)][#708fcd 174MiB/500MiB(34%)][#5399a5 29MiB/500MiB(5%)]
+[DL:11MiB][#f7ff94 247MiB/500MiB(49%)][#708fcd 180MiB/500MiB(36%)][#5399a5 34MiB/500MiB(6%)]
+[DL:11MiB][#f7ff94 248MiB/500MiB(49%)][#708fcd 186MiB/500MiB(37%)][#5399a5 38MiB/500MiB(7%)]
+[DL:11MiB][#f7ff94 248MiB/500MiB(49%)][#708fcd 191MiB/500MiB(38%)][#5399a5 43MiB/500MiB(8%)]
+[DL:11MiB][#f7ff94 249MiB/500MiB(49%)][#708fcd 197MiB/500MiB(39%)][#5399a5 47MiB/500MiB(9%)]
+ *** Download Progress Summary as of Mon Apr  6 20:24:13 2026 *** 
+===============================================================================
+[#f7ff94 250MiB/500MiB(50%) CN:1 DL:889KiB ETA:4m46s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#708fcd 203MiB/500MiB(40%) CN:1 DL:5.9MiB ETA:50s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part41.rar
+-------------------------------------------------------------------------------
+[#5399a5 52MiB/500MiB(10%) CN:1 DL:4.3MiB ETA:1m42s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part42.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#f7ff94 250MiB/500MiB(50%)][#708fcd 203MiB/500MiB(40%)][#5399a5 52MiB/500MiB(10%)]
+[DL:11MiB][#f7ff94 251MiB/500MiB(50%)][#708fcd 209MiB/500MiB(41%)][#5399a5 56MiB/500MiB(11%)]
+[DL:11MiB][#f7ff94 252MiB/500MiB(50%)][#708fcd 214MiB/500MiB(42%)][#5399a5 61MiB/500MiB(12%)]
+[DL:11MiB][#f7ff94 253MiB/500MiB(50%)][#708fcd 219MiB/500MiB(43%)][#5399a5 66MiB/500MiB(13%)]
+[DL:11MiB][#f7ff94 254MiB/500MiB(50%)][#708fcd 222MiB/500MiB(44%)][#5399a5 72MiB/500MiB(14%)]
+[DL:11MiB][#f7ff94 256MiB/500MiB(51%)][#708fcd 227MiB/500MiB(45%)][#5399a5 77MiB/500MiB(15%)]
+[DL:11MiB][#f7ff94 257MiB/500MiB(51%)][#708fcd 231MiB/500MiB(46%)][#5399a5 83MiB/500MiB(16%)]
+[DL:11MiB][#f7ff94 258MiB/500MiB(51%)][#708fcd 235MiB/500MiB(47%)][#5399a5 89MiB/500MiB(17%)]
+[DL:11MiB][#f7ff94 259MiB/500MiB(51%)][#708fcd 240MiB/500MiB(48%)][#5399a5 95MiB/500MiB(19%)]
+[DL:11MiB][#f7ff94 259MiB/500MiB(51%)][#708fcd 244MiB/500MiB(48%)][#5399a5 101MiB/500MiB(20%)]
+[DL:11MiB][#f7ff94 260MiB/500MiB(52%)][#708fcd 248MiB/500MiB(49%)][#5399a5 106MiB/500MiB(21%)]
+[DL:11MiB][#f7ff94 262MiB/500MiB(52%)][#708fcd 253MiB/500MiB(50%)][#5399a5 112MiB/500MiB(22%)]
+[DL:11MiB][#f7ff94 264MiB/500MiB(52%)][#708fcd 257MiB/500MiB(51%)][#5399a5 117MiB/500MiB(23%)]
+[DL:11MiB][#f7ff94 266MiB/500MiB(53%)][#708fcd 260MiB/500MiB(52%)][#5399a5 122MiB/500MiB(24%)]
+[DL:11MiB][#f7ff94 272MiB/500MiB(54%)][#708fcd 263MiB/500MiB(52%)][#5399a5 124MiB/500MiB(24%)]
+[DL:11MiB][#f7ff94 276MiB/500MiB(55%)][#708fcd 266MiB/500MiB(53%)][#5399a5 128MiB/500MiB(25%)]
+ *** Download Progress Summary as of Mon Apr  6 20:24:29 2026 *** 
+===============================================================================
+[#f7ff94 279MiB/500MiB(55%) CN:1 DL:2.3MiB ETA:1m33s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#708fcd 270MiB/500MiB(54%) CN:1 DL:3.9MiB ETA:58s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part41.rar
+-------------------------------------------------------------------------------
+[#5399a5 133MiB/500MiB(26%) CN:1 DL:4.9MiB ETA:1m13s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part42.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#f7ff94 279MiB/500MiB(55%)][#708fcd 270MiB/500MiB(54%)][#5399a5 133MiB/500MiB(26%)]
+[DL:11MiB][#f7ff94 280MiB/500MiB(56%)][#708fcd 274MiB/500MiB(54%)][#5399a5 138MiB/500MiB(27%)]
+[DL:11MiB][#f7ff94 282MiB/500MiB(56%)][#708fcd 278MiB/500MiB(55%)][#5399a5 143MiB/500MiB(28%)]
+[DL:11MiB][#f7ff94 283MiB/500MiB(56%)][#708fcd 283MiB/500MiB(56%)][#5399a5 149MiB/500MiB(29%)]
+[DL:11MiB][#f7ff94 284MiB/500MiB(56%)][#708fcd 288MiB/500MiB(57%)][#5399a5 154MiB/500MiB(30%)]
+[DL:11MiB][#f7ff94 285MiB/500MiB(57%)][#708fcd 292MiB/500MiB(58%)][#5399a5 160MiB/500MiB(32%)]
+[DL:11MiB][#f7ff94 285MiB/500MiB(57%)][#708fcd 297MiB/500MiB(59%)][#5399a5 166MiB/500MiB(33%)]
+[DL:11MiB][#f7ff94 286MiB/500MiB(57%)][#708fcd 301MiB/500MiB(60%)][#5399a5 172MiB/500MiB(34%)]
+[DL:10MiB][#f7ff94 287MiB/500MiB(57%)][#708fcd 305MiB/500MiB(61%)][#5399a5 176MiB/500MiB(35%)]
+[DL:10MiB][#f7ff94 290MiB/500MiB(58%)][#708fcd 309MiB/500MiB(61%)][#5399a5 181MiB/500MiB(36%)]
+[DL:10MiB][#f7ff94 291MiB/500MiB(58%)][#708fcd 313MiB/500MiB(62%)][#5399a5 186MiB/500MiB(37%)]
+[DL:10MiB][#f7ff94 292MiB/500MiB(58%)][#708fcd 317MiB/500MiB(63%)][#5399a5 192MiB/500MiB(38%)]
+[DL:10MiB][#f7ff94 293MiB/500MiB(58%)][#708fcd 322MiB/500MiB(64%)][#5399a5 198MiB/500MiB(39%)]
+[DL:10MiB][#f7ff94 294MiB/500MiB(58%)][#708fcd 326MiB/500MiB(65%)][#5399a5 204MiB/500MiB(40%)]
+[DL:10MiB][#f7ff94 295MiB/500MiB(59%)][#708fcd 330MiB/500MiB(66%)][#5399a5 209MiB/500MiB(41%)]
+[DL:10MiB][#f7ff94 296MiB/500MiB(59%)][#708fcd 335MiB/500MiB(67%)][#5399a5 215MiB/500MiB(43%)]
+ *** Download Progress Summary as of Mon Apr  6 20:24:45 2026 *** 
+===============================================================================
+[#f7ff94 297MiB/500MiB(59%) CN:1 DL:1.1MiB ETA:2m56s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#708fcd 339MiB/500MiB(67%) CN:1 DL:4.3MiB ETA:37s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part41.rar
+-------------------------------------------------------------------------------
+[#5399a5 221MiB/500MiB(44%) CN:1 DL:5.5MiB ETA:50s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part42.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#f7ff94 297MiB/500MiB(59%)][#708fcd 339MiB/500MiB(67%)][#5399a5 221MiB/500MiB(44%)]
+[DL:10MiB][#f7ff94 298MiB/500MiB(59%)][#708fcd 344MiB/500MiB(68%)][#5399a5 227MiB/500MiB(45%)]
+[DL:11MiB][#f7ff94 298MiB/500MiB(59%)][#708fcd 348MiB/500MiB(69%)][#5399a5 233MiB/500MiB(46%)]
+[DL:10MiB][#f7ff94 300MiB/500MiB(60%)][#708fcd 351MiB/500MiB(70%)][#5399a5 237MiB/500MiB(47%)]
+[DL:10MiB][#f7ff94 301MiB/500MiB(60%)][#708fcd 355MiB/500MiB(71%)][#5399a5 242MiB/500MiB(48%)]
+[DL:10MiB][#f7ff94 302MiB/500MiB(60%)][#708fcd 360MiB/500MiB(72%)][#5399a5 248MiB/500MiB(49%)]
+[DL:10MiB][#f7ff94 303MiB/500MiB(60%)][#708fcd 364MiB/500MiB(72%)][#5399a5 254MiB/500MiB(50%)]
+[DL:10MiB][#f7ff94 304MiB/500MiB(60%)][#708fcd 368MiB/500MiB(73%)][#5399a5 260MiB/500MiB(52%)]
+[DL:10MiB][#f7ff94 305MiB/500MiB(61%)][#708fcd 372MiB/500MiB(74%)][#5399a5 266MiB/500MiB(53%)]
+[DL:10MiB][#f7ff94 306MiB/500MiB(61%)][#708fcd 376MiB/500MiB(75%)][#5399a5 272MiB/500MiB(54%)]
+[DL:10MiB][#f7ff94 307MiB/500MiB(61%)][#708fcd 381MiB/500MiB(76%)][#5399a5 278MiB/500MiB(55%)]
+[DL:10MiB][#f7ff94 308MiB/500MiB(61%)][#708fcd 385MiB/500MiB(77%)][#5399a5 284MiB/500MiB(56%)]
+[DL:11MiB][#f7ff94 308MiB/500MiB(61%)][#708fcd 389MiB/500MiB(77%)][#5399a5 290MiB/500MiB(58%)]
+[DL:10MiB][#f7ff94 309MiB/500MiB(61%)][#708fcd 392MiB/500MiB(78%)][#5399a5 294MiB/500MiB(58%)]
+[DL:10MiB][#f7ff94 310MiB/500MiB(62%)][#708fcd 397MiB/500MiB(79%)][#5399a5 300MiB/500MiB(60%)]
+[DL:10MiB][#f7ff94 311MiB/500MiB(62%)][#708fcd 401MiB/500MiB(80%)][#5399a5 306MiB/500MiB(61%)]
+ *** Download Progress Summary as of Mon Apr  6 20:25:01 2026 *** 
+===============================================================================
+[#f7ff94 312MiB/500MiB(62%) CN:1 DL:0.9MiB ETA:3m22s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#708fcd 405MiB/500MiB(81%) CN:1 DL:4.1MiB ETA:22s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part41.rar
+-------------------------------------------------------------------------------
+[#5399a5 312MiB/500MiB(62%) CN:1 DL:5.8MiB ETA:32s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part42.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#f7ff94 312MiB/500MiB(62%)][#708fcd 405MiB/500MiB(81%)][#5399a5 312MiB/500MiB(62%)]
+[DL:10MiB][#f7ff94 313MiB/500MiB(62%)][#708fcd 410MiB/500MiB(82%)][#5399a5 318MiB/500MiB(63%)]
+[DL:10MiB][#f7ff94 314MiB/500MiB(62%)][#708fcd 414MiB/500MiB(82%)][#5399a5 323MiB/500MiB(64%)]
+[DL:10MiB][#f7ff94 315MiB/500MiB(63%)][#708fcd 419MiB/500MiB(83%)][#5399a5 329MiB/500MiB(65%)]
+[DL:10MiB][#f7ff94 316MiB/500MiB(63%)][#708fcd 423MiB/500MiB(84%)][#5399a5 335MiB/500MiB(67%)]
+[DL:10MiB][#f7ff94 316MiB/500MiB(63%)][#708fcd 427MiB/500MiB(85%)][#5399a5 341MiB/500MiB(68%)]
+[DL:11MiB][#f7ff94 317MiB/500MiB(63%)][#708fcd 432MiB/500MiB(86%)][#5399a5 347MiB/500MiB(69%)]
+[DL:10MiB][#f7ff94 318MiB/500MiB(63%)][#708fcd 435MiB/500MiB(87%)][#5399a5 352MiB/500MiB(70%)]
+[DL:10MiB][#f7ff94 319MiB/500MiB(63%)][#708fcd 439MiB/500MiB(87%)][#5399a5 357MiB/500MiB(71%)]
+[DL:10MiB][#f7ff94 320MiB/500MiB(64%)][#708fcd 444MiB/500MiB(88%)][#5399a5 363MiB/500MiB(72%)]
+[DL:10MiB][#f7ff94 321MiB/500MiB(64%)][#708fcd 448MiB/500MiB(89%)][#5399a5 368MiB/500MiB(73%)]
+[DL:10MiB][#f7ff94 322MiB/500MiB(64%)][#708fcd 453MiB/500MiB(90%)][#5399a5 374MiB/500MiB(74%)]
+[DL:10MiB][#f7ff94 323MiB/500MiB(64%)][#708fcd 457MiB/500MiB(91%)][#5399a5 379MiB/500MiB(75%)]
+[DL:10MiB][#f7ff94 323MiB/500MiB(64%)][#708fcd 462MiB/500MiB(92%)][#5399a5 385MiB/500MiB(77%)]
+[DL:10MiB][#f7ff94 324MiB/500MiB(64%)][#708fcd 466MiB/500MiB(93%)][#5399a5 391MiB/500MiB(78%)]
+[DL:10MiB][#f7ff94 325MiB/500MiB(65%)][#708fcd 471MiB/500MiB(94%)][#5399a5 396MiB/500MiB(79%)]
+ *** Download Progress Summary as of Mon Apr  6 20:25:17 2026 *** 
+===============================================================================
+[#f7ff94 326MiB/500MiB(65%) CN:1 DL:884KiB ETA:3m21s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#708fcd 475MiB/500MiB(95%) CN:1 DL:4.4MiB ETA:5s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part41.rar
+-------------------------------------------------------------------------------
+[#5399a5 402MiB/500MiB(80%) CN:1 DL:5.5MiB ETA:17s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part42.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#f7ff94 326MiB/500MiB(65%)][#708fcd 475MiB/500MiB(95%)][#5399a5 402MiB/500MiB(80%)]
+[DL:11MiB][#f7ff94 327MiB/500MiB(65%)][#708fcd 480MiB/500MiB(96%)][#5399a5 408MiB/500MiB(81%)]
+[DL:10MiB][#f7ff94 328MiB/500MiB(65%)][#708fcd 483MiB/500MiB(96%)][#5399a5 412MiB/500MiB(82%)]
+[DL:10MiB][#f7ff94 328MiB/500MiB(65%)][#708fcd 488MiB/500MiB(97%)][#5399a5 418MiB/500MiB(83%)]
+[DL:10MiB][#f7ff94 329MiB/500MiB(65%)][#708fcd 492MiB/500MiB(98%)][#5399a5 424MiB/500MiB(84%)]
+[DL:10MiB][#f7ff94 330MiB/500MiB(66%)][#708fcd 497MiB/500MiB(99%)][#5399a5 429MiB/500MiB(85%)]
+
+04/06 20:25:22 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part41.rar
+[DL:10MiB][#f7ff94 331MiB/500MiB(66%)][#5399a5 435MiB/500MiB(87%)][#71b1ae 0.9MiB/500MiB(0%)]
+[DL:10MiB][#f7ff94 332MiB/500MiB(66%)][#5399a5 441MiB/500MiB(88%)][#71b1ae 5.0MiB/500MiB(1%)]
+[DL:10MiB][#f7ff94 333MiB/500MiB(66%)][#5399a5 447MiB/500MiB(89%)][#71b1ae 9.0MiB/500MiB(1%)]
+[DL:10MiB][#f7ff94 334MiB/500MiB(66%)][#5399a5 454MiB/500MiB(90%)][#71b1ae 13MiB/500MiB(2%)]
+[DL:10MiB][#f7ff94 335MiB/500MiB(67%)][#5399a5 460MiB/500MiB(92%)][#71b1ae 17MiB/500MiB(3%)]
+[DL:10MiB][#f7ff94 336MiB/500MiB(67%)][#5399a5 465MiB/500MiB(93%)][#71b1ae 21MiB/500MiB(4%)]
+[DL:11MiB][#f7ff94 337MiB/500MiB(67%)][#5399a5 472MiB/500MiB(94%)][#71b1ae 24MiB/500MiB(4%)]
+[DL:11MiB][#f7ff94 338MiB/500MiB(67%)][#5399a5 479MiB/500MiB(95%)][#71b1ae 27MiB/500MiB(5%)]
+[DL:11MiB][#f7ff94 339MiB/500MiB(67%)][#5399a5 485MiB/500MiB(97%)][#71b1ae 31MiB/500MiB(6%)]
+[DL:11MiB][#f7ff94 340MiB/500MiB(68%)][#5399a5 492MiB/500MiB(98%)][#71b1ae 34MiB/500MiB(6%)]
+ *** Download Progress Summary as of Mon Apr  6 20:25:33 2026 *** 
+===============================================================================
+[#f7ff94 341MiB/500MiB(68%) CN:1 DL:0.9MiB ETA:2m40s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#5399a5 498MiB/500MiB(99%) CN:1 DL:6.3MiB]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part42.rar
+-------------------------------------------------------------------------------
+[#71b1ae 38MiB/500MiB(7%) CN:1 DL:3.7MiB ETA:2m2s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part43.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#f7ff94 341MiB/500MiB(68%)][#5399a5 498MiB/500MiB(99%)][#71b1ae 38MiB/500MiB(7%)]
+
+04/06 20:25:33 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part42.rar
+[DL:10MiB][#f7ff94 342MiB/500MiB(68%)][#71b1ae 45MiB/500MiB(9%)][#56495d 672KiB/500MiB(0%)]
+[DL:10MiB][#f7ff94 343MiB/500MiB(68%)][#71b1ae 52MiB/500MiB(10%)][#56495d 4.0MiB/500MiB(0%)]
+[DL:11MiB][#f7ff94 344MiB/500MiB(68%)][#71b1ae 59MiB/500MiB(11%)][#56495d 7.5MiB/500MiB(1%)]
+[DL:11MiB][#f7ff94 345MiB/500MiB(69%)][#71b1ae 65MiB/500MiB(13%)][#56495d 11MiB/500MiB(2%)]
+[DL:11MiB][#f7ff94 346MiB/500MiB(69%)][#71b1ae 71MiB/500MiB(14%)][#56495d 15MiB/500MiB(3%)]
+[DL:11MiB][#f7ff94 346MiB/500MiB(69%)][#71b1ae 77MiB/500MiB(15%)][#56495d 20MiB/500MiB(4%)]
+[DL:11MiB][#f7ff94 347MiB/500MiB(69%)][#71b1ae 83MiB/500MiB(16%)][#56495d 24MiB/500MiB(4%)]
+[DL:11MiB][#f7ff94 348MiB/500MiB(69%)][#71b1ae 88MiB/500MiB(17%)][#56495d 29MiB/500MiB(5%)]
+[DL:11MiB][#f7ff94 349MiB/500MiB(69%)][#71b1ae 93MiB/500MiB(18%)][#56495d 34MiB/500MiB(6%)]
+[DL:11MiB][#f7ff94 350MiB/500MiB(70%)][#71b1ae 98MiB/500MiB(19%)][#56495d 39MiB/500MiB(7%)]
+[DL:11MiB][#f7ff94 351MiB/500MiB(70%)][#71b1ae 102MiB/500MiB(20%)][#56495d 43MiB/500MiB(8%)]
+[DL:10MiB][#f7ff94 353MiB/500MiB(70%)][#71b1ae 108MiB/500MiB(21%)][#56495d 47MiB/500MiB(9%)]
+[DL:10MiB][#f7ff94 356MiB/500MiB(71%)][#71b1ae 112MiB/500MiB(22%)][#56495d 50MiB/500MiB(10%)]
+[DL:10MiB][#f7ff94 360MiB/500MiB(72%)][#71b1ae 116MiB/500MiB(23%)][#56495d 53MiB/500MiB(10%)]
+[DL:10MiB][#f7ff94 364MiB/500MiB(72%)][#71b1ae 120MiB/500MiB(24%)][#56495d 56MiB/500MiB(11%)]
+ *** Download Progress Summary as of Mon Apr  6 20:25:48 2026 *** 
+===============================================================================
+[#f7ff94 369MiB/500MiB(73%) CN:1 DL:2.3MiB ETA:54s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#71b1ae 123MiB/500MiB(24%) CN:1 DL:4.5MiB ETA:1m21s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part43.rar
+-------------------------------------------------------------------------------
+[#56495d 59MiB/500MiB(11%) CN:1 DL:3.9MiB ETA:1m51s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part44.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#f7ff94 369MiB/500MiB(73%)][#71b1ae 123MiB/500MiB(24%)][#56495d 59MiB/500MiB(11%)]
+[DL:10MiB][#f7ff94 374MiB/500MiB(74%)][#71b1ae 126MiB/500MiB(25%)][#56495d 62MiB/500MiB(12%)]
+[DL:10MiB][#f7ff94 380MiB/500MiB(76%)][#71b1ae 129MiB/500MiB(25%)][#56495d 65MiB/500MiB(13%)]
+[DL:10MiB][#f7ff94 386MiB/500MiB(77%)][#71b1ae 132MiB/500MiB(26%)][#56495d 67MiB/500MiB(13%)]
+[DL:11MiB][#f7ff94 392MiB/500MiB(78%)][#71b1ae 134MiB/500MiB(26%)][#56495d 70MiB/500MiB(14%)]
+[DL:11MiB][#f7ff94 398MiB/500MiB(79%)][#71b1ae 136MiB/500MiB(27%)][#56495d 73MiB/500MiB(14%)]
+[DL:11MiB][#f7ff94 405MiB/500MiB(81%)][#71b1ae 138MiB/500MiB(27%)][#56495d 75MiB/500MiB(15%)]
+[DL:11MiB][#f7ff94 409MiB/500MiB(81%)][#71b1ae 141MiB/500MiB(28%)][#56495d 79MiB/500MiB(15%)]
+[DL:11MiB][#f7ff94 412MiB/500MiB(82%)][#71b1ae 144MiB/500MiB(28%)][#56495d 84MiB/500MiB(16%)]
+[DL:11MiB][#f7ff94 414MiB/500MiB(82%)][#71b1ae 148MiB/500MiB(29%)][#56495d 90MiB/500MiB(18%)]
+[DL:11MiB][#f7ff94 415MiB/500MiB(83%)][#71b1ae 152MiB/500MiB(30%)][#56495d 96MiB/500MiB(19%)]
+[DL:11MiB][#f7ff94 416MiB/500MiB(83%)][#71b1ae 156MiB/500MiB(31%)][#56495d 102MiB/500MiB(20%)]
+[DL:11MiB][#f7ff94 417MiB/500MiB(83%)][#71b1ae 159MiB/500MiB(31%)][#56495d 108MiB/500MiB(21%)]
+[DL:11MiB][#f7ff94 417MiB/500MiB(83%)][#71b1ae 163MiB/500MiB(32%)][#56495d 115MiB/500MiB(23%)]
+[DL:11MiB][#f7ff94 418MiB/500MiB(83%)][#71b1ae 167MiB/500MiB(33%)][#56495d 121MiB/500MiB(24%)]
+[DL:11MiB][#f7ff94 419MiB/500MiB(83%)][#71b1ae 171MiB/500MiB(34%)][#56495d 127MiB/500MiB(25%)]
+ *** Download Progress Summary as of Mon Apr  6 20:26:04 2026 *** 
+===============================================================================
+[#f7ff94 420MiB/500MiB(84%) CN:1 DL:1.2MiB ETA:1m1s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#71b1ae 174MiB/500MiB(34%) CN:1 DL:3.6MiB ETA:1m29s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part43.rar
+-------------------------------------------------------------------------------
+[#56495d 132MiB/500MiB(26%) CN:1 DL:5.7MiB ETA:1m4s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part44.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#f7ff94 420MiB/500MiB(84%)][#71b1ae 174MiB/500MiB(34%)][#56495d 132MiB/500MiB(26%)]
+[DL:10MiB][#f7ff94 422MiB/500MiB(84%)][#71b1ae 178MiB/500MiB(35%)][#56495d 138MiB/500MiB(27%)]
+[DL:10MiB][#f7ff94 423MiB/500MiB(84%)][#71b1ae 182MiB/500MiB(36%)][#56495d 144MiB/500MiB(28%)]
+[DL:10MiB][#f7ff94 424MiB/500MiB(84%)][#71b1ae 186MiB/500MiB(37%)][#56495d 150MiB/500MiB(30%)]
+[DL:10MiB][#f7ff94 425MiB/500MiB(85%)][#71b1ae 190MiB/500MiB(38%)][#56495d 156MiB/500MiB(31%)]
+[DL:10MiB][#f7ff94 425MiB/500MiB(85%)][#71b1ae 194MiB/500MiB(38%)][#56495d 163MiB/500MiB(32%)]
+[DL:10MiB][#f7ff94 426MiB/500MiB(85%)][#71b1ae 198MiB/500MiB(39%)][#56495d 169MiB/500MiB(33%)]
+[DL:10MiB][#f7ff94 427MiB/500MiB(85%)][#71b1ae 202MiB/500MiB(40%)][#56495d 175MiB/500MiB(35%)]
+[DL:10MiB][#f7ff94 428MiB/500MiB(85%)][#71b1ae 206MiB/500MiB(41%)][#56495d 181MiB/500MiB(36%)]
+[DL:11MiB][#f7ff94 429MiB/500MiB(85%)][#71b1ae 210MiB/500MiB(42%)][#56495d 187MiB/500MiB(37%)]
+[DL:10MiB][#f7ff94 430MiB/500MiB(86%)][#71b1ae 214MiB/500MiB(42%)][#56495d 191MiB/500MiB(38%)]
+[DL:10MiB][#f7ff94 431MiB/500MiB(86%)][#71b1ae 218MiB/500MiB(43%)][#56495d 197MiB/500MiB(39%)]
+[DL:10MiB][#f7ff94 432MiB/500MiB(86%)][#71b1ae 222MiB/500MiB(44%)][#56495d 202MiB/500MiB(40%)]
+[DL:10MiB][#f7ff94 433MiB/500MiB(86%)][#71b1ae 227MiB/500MiB(45%)][#56495d 208MiB/500MiB(41%)]
+[DL:10MiB][#f7ff94 434MiB/500MiB(86%)][#71b1ae 232MiB/500MiB(46%)][#56495d 214MiB/500MiB(42%)]
+[DL:10MiB][#f7ff94 435MiB/500MiB(87%)][#71b1ae 236MiB/500MiB(47%)][#56495d 219MiB/500MiB(43%)]
+ *** Download Progress Summary as of Mon Apr  6 20:26:20 2026 *** 
+===============================================================================
+[#f7ff94 436MiB/500MiB(87%) CN:1 DL:0.9MiB ETA:1m7s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#71b1ae 240MiB/500MiB(48%) CN:1 DL:4.2MiB ETA:1m]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part43.rar
+-------------------------------------------------------------------------------
+[#56495d 225MiB/500MiB(45%) CN:1 DL:5.7MiB ETA:48s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part44.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#f7ff94 436MiB/500MiB(87%)][#71b1ae 240MiB/500MiB(48%)][#56495d 225MiB/500MiB(45%)]
+[DL:10MiB][#f7ff94 437MiB/500MiB(87%)][#71b1ae 245MiB/500MiB(49%)][#56495d 231MiB/500MiB(46%)]
+[DL:10MiB][#f7ff94 438MiB/500MiB(87%)][#71b1ae 249MiB/500MiB(49%)][#56495d 237MiB/500MiB(47%)]
+[DL:11MiB][#f7ff94 438MiB/500MiB(87%)][#71b1ae 254MiB/500MiB(50%)][#56495d 242MiB/500MiB(48%)]
+[DL:10MiB][#f7ff94 439MiB/500MiB(87%)][#71b1ae 258MiB/500MiB(51%)][#56495d 246MiB/500MiB(49%)]
+[DL:10MiB][#f7ff94 440MiB/500MiB(88%)][#71b1ae 262MiB/500MiB(52%)][#56495d 251MiB/500MiB(50%)]
+[DL:10MiB][#f7ff94 442MiB/500MiB(88%)][#71b1ae 267MiB/500MiB(53%)][#56495d 257MiB/500MiB(51%)]
+[DL:10MiB][#f7ff94 443MiB/500MiB(88%)][#71b1ae 272MiB/500MiB(54%)][#56495d 262MiB/500MiB(52%)]
+[DL:10MiB][#f7ff94 443MiB/500MiB(88%)][#71b1ae 276MiB/500MiB(55%)][#56495d 268MiB/500MiB(53%)]
+[DL:10MiB][#f7ff94 444MiB/500MiB(88%)][#71b1ae 281MiB/500MiB(56%)][#56495d 273MiB/500MiB(54%)]
+[DL:10MiB][#f7ff94 445MiB/500MiB(89%)][#71b1ae 285MiB/500MiB(57%)][#56495d 279MiB/500MiB(55%)]
+[DL:10MiB][#f7ff94 446MiB/500MiB(89%)][#71b1ae 290MiB/500MiB(58%)][#56495d 284MiB/500MiB(56%)]
+[DL:10MiB][#f7ff94 447MiB/500MiB(89%)][#71b1ae 295MiB/500MiB(59%)][#56495d 290MiB/500MiB(58%)]
+[DL:10MiB][#f7ff94 448MiB/500MiB(89%)][#71b1ae 299MiB/500MiB(59%)][#56495d 296MiB/500MiB(59%)]
+[DL:11MiB][#f7ff94 449MiB/500MiB(89%)][#71b1ae 303MiB/500MiB(60%)][#56495d 302MiB/500MiB(60%)]
+[DL:10MiB][#f7ff94 450MiB/500MiB(90%)][#71b1ae 307MiB/500MiB(61%)][#56495d 306MiB/500MiB(61%)]
+ *** Download Progress Summary as of Mon Apr  6 20:26:36 2026 *** 
+===============================================================================
+[#f7ff94 451MiB/500MiB(90%) CN:1 DL:0.9MiB ETA:53s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#71b1ae 311MiB/500MiB(62%) CN:1 DL:4.4MiB ETA:42s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part43.rar
+-------------------------------------------------------------------------------
+[#56495d 312MiB/500MiB(62%) CN:1 DL:5.5MiB ETA:33s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part44.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#f7ff94 451MiB/500MiB(90%)][#71b1ae 311MiB/500MiB(62%)][#56495d 312MiB/500MiB(62%)]
+[DL:10MiB][#f7ff94 451MiB/500MiB(90%)][#71b1ae 316MiB/500MiB(63%)][#56495d 318MiB/500MiB(63%)]
+[DL:10MiB][#f7ff94 452MiB/500MiB(90%)][#71b1ae 320MiB/500MiB(64%)][#56495d 323MiB/500MiB(64%)]
+[DL:10MiB][#f7ff94 453MiB/500MiB(90%)][#71b1ae 326MiB/500MiB(65%)][#56495d 328MiB/500MiB(65%)]
+[DL:10MiB][#f7ff94 454MiB/500MiB(90%)][#71b1ae 331MiB/500MiB(66%)][#56495d 332MiB/500MiB(66%)]
+[DL:10MiB][#f7ff94 455MiB/500MiB(91%)][#71b1ae 336MiB/500MiB(67%)][#56495d 337MiB/500MiB(67%)]
+[DL:10MiB][#f7ff94 456MiB/500MiB(91%)][#71b1ae 341MiB/500MiB(68%)][#56495d 342MiB/500MiB(68%)]
+[DL:10MiB][#f7ff94 457MiB/500MiB(91%)][#71b1ae 346MiB/500MiB(69%)][#56495d 348MiB/500MiB(69%)]
+[DL:11MiB][#f7ff94 458MiB/500MiB(91%)][#71b1ae 351MiB/500MiB(70%)][#56495d 353MiB/500MiB(70%)]
+[DL:11MiB][#f7ff94 459MiB/500MiB(91%)][#71b1ae 356MiB/500MiB(71%)][#56495d 358MiB/500MiB(71%)]
+[DL:11MiB][#f7ff94 460MiB/500MiB(92%)][#71b1ae 361MiB/500MiB(72%)][#56495d 364MiB/500MiB(72%)]
+[DL:11MiB][#f7ff94 460MiB/500MiB(92%)][#71b1ae 365MiB/500MiB(73%)][#56495d 369MiB/500MiB(73%)]
+[DL:11MiB][#f7ff94 461MiB/500MiB(92%)][#71b1ae 370MiB/500MiB(74%)][#56495d 375MiB/500MiB(75%)]
+[DL:10MiB][#f7ff94 462MiB/500MiB(92%)][#71b1ae 374MiB/500MiB(74%)][#56495d 379MiB/500MiB(75%)]
+[DL:10MiB][#f7ff94 463MiB/500MiB(92%)][#71b1ae 379MiB/500MiB(75%)][#56495d 384MiB/500MiB(76%)]
+[DL:10MiB][#f7ff94 464MiB/500MiB(92%)][#71b1ae 384MiB/500MiB(76%)][#56495d 390MiB/500MiB(78%)]
+ *** Download Progress Summary as of Mon Apr  6 20:26:52 2026 *** 
+===============================================================================
+[#f7ff94 464MiB/500MiB(92%) CN:1 DL:853KiB ETA:42s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#71b1ae 389MiB/500MiB(77%) CN:1 DL:4.8MiB ETA:22s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part43.rar
+-------------------------------------------------------------------------------
+[#56495d 395MiB/500MiB(79%) CN:1 DL:5.2MiB ETA:19s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part44.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#f7ff94 464MiB/500MiB(92%)][#71b1ae 389MiB/500MiB(77%)][#56495d 395MiB/500MiB(79%)]
+[DL:10MiB][#f7ff94 465MiB/500MiB(93%)][#71b1ae 394MiB/500MiB(78%)][#56495d 400MiB/500MiB(80%)]
+[DL:10MiB][#f7ff94 466MiB/500MiB(93%)][#71b1ae 399MiB/500MiB(79%)][#56495d 405MiB/500MiB(81%)]
+[DL:10MiB][#f7ff94 467MiB/500MiB(93%)][#71b1ae 404MiB/500MiB(80%)][#56495d 410MiB/500MiB(82%)]
+[DL:10MiB][#f7ff94 468MiB/500MiB(93%)][#71b1ae 409MiB/500MiB(81%)][#56495d 416MiB/500MiB(83%)]
+[DL:10MiB][#f7ff94 469MiB/500MiB(93%)][#71b1ae 414MiB/500MiB(82%)][#56495d 421MiB/500MiB(84%)]
+[DL:10MiB][#f7ff94 470MiB/500MiB(94%)][#71b1ae 419MiB/500MiB(83%)][#56495d 427MiB/500MiB(85%)]
+[DL:11MiB][#f7ff94 470MiB/500MiB(94%)][#71b1ae 423MiB/500MiB(84%)][#56495d 432MiB/500MiB(86%)]
+[DL:10MiB][#f7ff94 471MiB/500MiB(94%)][#71b1ae 427MiB/500MiB(85%)][#56495d 436MiB/500MiB(87%)]
+[DL:10MiB][#f7ff94 472MiB/500MiB(94%)][#71b1ae 431MiB/500MiB(86%)][#56495d 442MiB/500MiB(88%)]
+[DL:10MiB][#f7ff94 473MiB/500MiB(94%)][#71b1ae 436MiB/500MiB(87%)][#56495d 448MiB/500MiB(89%)]
+[DL:10MiB][#f7ff94 474MiB/500MiB(94%)][#71b1ae 441MiB/500MiB(88%)][#56495d 453MiB/500MiB(90%)]
+[DL:10MiB][#f7ff94 475MiB/500MiB(95%)][#71b1ae 445MiB/500MiB(89%)][#56495d 459MiB/500MiB(91%)]
+[DL:10MiB][#f7ff94 476MiB/500MiB(95%)][#71b1ae 449MiB/500MiB(89%)][#56495d 465MiB/500MiB(93%)]
+[DL:10MiB][#f7ff94 477MiB/500MiB(95%)][#71b1ae 453MiB/500MiB(90%)][#56495d 471MiB/500MiB(94%)]
+[DL:10MiB][#f7ff94 477MiB/500MiB(95%)][#71b1ae 458MiB/500MiB(91%)][#56495d 477MiB/500MiB(95%)]
+ *** Download Progress Summary as of Mon Apr  6 20:27:08 2026 *** 
+===============================================================================
+[#f7ff94 478MiB/500MiB(95%) CN:1 DL:890KiB ETA:24s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+-------------------------------------------------------------------------------
+[#71b1ae 462MiB/500MiB(92%) CN:1 DL:4.3MiB ETA:8s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part43.rar
+-------------------------------------------------------------------------------
+[#56495d 483MiB/500MiB(96%) CN:1 DL:5.6MiB ETA:2s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part44.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#f7ff94 478MiB/500MiB(95%)][#71b1ae 462MiB/500MiB(92%)][#56495d 483MiB/500MiB(96%)]
+[DL:10MiB][#f7ff94 479MiB/500MiB(95%)][#71b1ae 466MiB/500MiB(93%)][#56495d 489MiB/500MiB(97%)]
+[DL:11MiB][#f7ff94 480MiB/500MiB(96%)][#71b1ae 469MiB/500MiB(93%)][#56495d 495MiB/500MiB(99%)]
+
+04/06 20:27:10 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part44.rar
+[DL:11MiB][#f7ff94 482MiB/500MiB(96%)][#71b1ae 473MiB/500MiB(94%)][#a6bcfa 1.1MiB/500MiB(0%)]
+[DL:11MiB][#f7ff94 483MiB/500MiB(96%)][#71b1ae 476MiB/500MiB(95%)][#a6bcfa 7.2MiB/500MiB(1%)]
+[DL:11MiB][#f7ff94 484MiB/500MiB(96%)][#71b1ae 480MiB/500MiB(96%)][#a6bcfa 13MiB/500MiB(2%)]
+[DL:11MiB][#f7ff94 485MiB/500MiB(97%)][#71b1ae 484MiB/500MiB(96%)][#a6bcfa 19MiB/500MiB(3%)]
+[DL:11MiB][#f7ff94 486MiB/500MiB(97%)][#71b1ae 488MiB/500MiB(97%)][#a6bcfa 25MiB/500MiB(5%)]
+[DL:11MiB][#f7ff94 487MiB/500MiB(97%)][#71b1ae 492MiB/500MiB(98%)][#a6bcfa 32MiB/500MiB(6%)]
+[DL:11MiB][#f7ff94 488MiB/500MiB(97%)][#71b1ae 496MiB/500MiB(99%)][#a6bcfa 38MiB/500MiB(7%)]
+
+04/06 20:27:17 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part43.rar
+[DL:11MiB][#f7ff94 490MiB/500MiB(98%)][#a6bcfa 43MiB/500MiB(8%)][#85c54b 0B/0B]
+[DL:11MiB][#f7ff94 492MiB/500MiB(98%)][#a6bcfa 49MiB/500MiB(9%)][#85c54b 2.7MiB/500MiB(0%)]
+[DL:11MiB][#f7ff94 494MiB/500MiB(98%)][#a6bcfa 53MiB/500MiB(10%)][#85c54b 6.9MiB/500MiB(1%)]
+[DL:11MiB][#f7ff94 496MiB/500MiB(99%)][#a6bcfa 57MiB/500MiB(11%)][#85c54b 12MiB/500MiB(2%)]
+[DL:11MiB][#f7ff94 498MiB/500MiB(99%)][#a6bcfa 60MiB/500MiB(12%)][#85c54b 18MiB/500MiB(3%)]
+[DL:11MiB][#f7ff94 499MiB/500MiB(99%)][#a6bcfa 65MiB/500MiB(13%)][#85c54b 24MiB/500MiB(4%)]
+
+04/06 20:27:23 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part38.rar
+ *** Download Progress Summary as of Mon Apr  6 20:27:23 2026 *** 
+===============================================================================
+[#a6bcfa 69MiB/500MiB(13%) CN:1 DL:4.9MiB ETA:1m27s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part45.rar
+-------------------------------------------------------------------------------
+[#85c54b 30MiB/500MiB(6%) CN:1 DL:5.1MiB ETA:1m30s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part46.rar
+-------------------------------------------------------------------------------
+[#de4a78 0B/0B CN:1 DL:0B]
+FILE: https://fuckingfast.co/dl/AJupYWw69bvA9zyy7N4PHD8AhbC2nHYVQcU17sUS19_tpSpwaw9h008fISCPnoaORFOcKzp-Jq-k-8hbxoesRyo58IXhXILzEUdqkY_uRlfvvW0HJjpPyvUkNAiUKFSurjU518eBtrVZ88JxMekyX3OIAqQ_3JEl7_7FZa3NRGYPWcs
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#a6bcfa 69MiB/500MiB(13%)][#85c54b 30MiB/500MiB(6%)][#de4a78 0B/0B]
+[DL:11MiB][#a6bcfa 74MiB/500MiB(14%)][#85c54b 35MiB/500MiB(7%)][#de4a78 736KiB/500MiB(0%)]
+[DL:11MiB][#a6bcfa 79MiB/500MiB(15%)][#85c54b 41MiB/500MiB(8%)][#de4a78 1.5MiB/500MiB(0%)]
+[DL:11MiB][#a6bcfa 84MiB/500MiB(16%)][#85c54b 46MiB/500MiB(9%)][#de4a78 2.3MiB/500MiB(0%)]
+[DL:11MiB][#a6bcfa 89MiB/500MiB(17%)][#85c54b 51MiB/500MiB(10%)][#de4a78 3.2MiB/500MiB(0%)]
+[DL:11MiB][#a6bcfa 94MiB/500MiB(18%)][#85c54b 56MiB/500MiB(11%)][#de4a78 4.0MiB/500MiB(0%)]
+[DL:11MiB][#a6bcfa 99MiB/500MiB(19%)][#85c54b 61MiB/500MiB(12%)][#de4a78 4.9MiB/500MiB(0%)]
+[DL:11MiB][#a6bcfa 101MiB/500MiB(20%)][#85c54b 68MiB/500MiB(13%)][#de4a78 5.9MiB/500MiB(1%)]
+[DL:11MiB][#a6bcfa 105MiB/500MiB(21%)][#85c54b 75MiB/500MiB(15%)][#de4a78 7.1MiB/500MiB(1%)]
+[DL:11MiB][#a6bcfa 109MiB/500MiB(21%)][#85c54b 81MiB/500MiB(16%)][#de4a78 8.1MiB/500MiB(1%)]
+[DL:11MiB][#a6bcfa 113MiB/500MiB(22%)][#85c54b 87MiB/500MiB(17%)][#de4a78 9.0MiB/500MiB(1%)]
+[DL:11MiB][#a6bcfa 117MiB/500MiB(23%)][#85c54b 93MiB/500MiB(18%)][#de4a78 9.9MiB/500MiB(1%)]
+[DL:11MiB][#a6bcfa 122MiB/500MiB(24%)][#85c54b 99MiB/500MiB(19%)][#de4a78 10MiB/500MiB(2%)]
+[DL:11MiB][#a6bcfa 127MiB/500MiB(25%)][#85c54b 104MiB/500MiB(20%)][#de4a78 11MiB/500MiB(2%)]
+[DL:11MiB][#a6bcfa 132MiB/500MiB(26%)][#85c54b 110MiB/500MiB(22%)][#de4a78 12MiB/500MiB(2%)]
+[DL:11MiB][#a6bcfa 137MiB/500MiB(27%)][#85c54b 115MiB/500MiB(23%)][#de4a78 13MiB/500MiB(2%)]
+ *** Download Progress Summary as of Mon Apr  6 20:27:39 2026 *** 
+===============================================================================
+[#a6bcfa 143MiB/500MiB(28%) CN:1 DL:4.4MiB ETA:1m20s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part45.rar
+-------------------------------------------------------------------------------
+[#85c54b 118MiB/500MiB(23%) CN:1 DL:5.6MiB ETA:1m7s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part46.rar
+-------------------------------------------------------------------------------
+[#de4a78 14MiB/500MiB(2%) CN:1 DL:1.0MiB ETA:8m4s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#a6bcfa 143MiB/500MiB(28%)][#85c54b 118MiB/500MiB(23%)][#de4a78 14MiB/500MiB(2%)]
+[DL:11MiB][#a6bcfa 149MiB/500MiB(29%)][#85c54b 121MiB/500MiB(24%)][#de4a78 15MiB/500MiB(3%)]
+[DL:11MiB][#a6bcfa 156MiB/500MiB(31%)][#85c54b 125MiB/500MiB(25%)][#de4a78 16MiB/500MiB(3%)]
+[DL:11MiB][#a6bcfa 162MiB/500MiB(32%)][#85c54b 128MiB/500MiB(25%)][#de4a78 17MiB/500MiB(3%)]
+[DL:11MiB][#a6bcfa 169MiB/500MiB(33%)][#85c54b 132MiB/500MiB(26%)][#de4a78 18MiB/500MiB(3%)]
+[DL:11MiB][#a6bcfa 175MiB/500MiB(35%)][#85c54b 136MiB/500MiB(27%)][#de4a78 19MiB/500MiB(3%)]
+[DL:11MiB][#a6bcfa 181MiB/500MiB(36%)][#85c54b 140MiB/500MiB(28%)][#de4a78 20MiB/500MiB(4%)]
+[DL:11MiB][#a6bcfa 187MiB/500MiB(37%)][#85c54b 144MiB/500MiB(28%)][#de4a78 21MiB/500MiB(4%)]
+[DL:11MiB][#a6bcfa 193MiB/500MiB(38%)][#85c54b 148MiB/500MiB(29%)][#de4a78 22MiB/500MiB(4%)]
+[DL:11MiB][#a6bcfa 200MiB/500MiB(40%)][#85c54b 153MiB/500MiB(30%)][#de4a78 22MiB/500MiB(4%)]
+[DL:10MiB][#a6bcfa 204MiB/500MiB(40%)][#85c54b 156MiB/500MiB(31%)][#de4a78 23MiB/500MiB(4%)]
+[DL:10MiB][#a6bcfa 210MiB/500MiB(42%)][#85c54b 160MiB/500MiB(32%)][#de4a78 25MiB/500MiB(5%)]
+[DL:10MiB][#a6bcfa 215MiB/500MiB(43%)][#85c54b 164MiB/500MiB(32%)][#de4a78 26MiB/500MiB(5%)]
+[DL:10MiB][#a6bcfa 221MiB/500MiB(44%)][#85c54b 169MiB/500MiB(33%)][#de4a78 27MiB/500MiB(5%)]
+[DL:10MiB][#a6bcfa 227MiB/500MiB(45%)][#85c54b 173MiB/500MiB(34%)][#de4a78 28MiB/500MiB(5%)]
+[DL:10MiB][#a6bcfa 233MiB/500MiB(46%)][#85c54b 177MiB/500MiB(35%)][#de4a78 29MiB/500MiB(5%)]
+ *** Download Progress Summary as of Mon Apr  6 20:27:55 2026 *** 
+===============================================================================
+[#a6bcfa 239MiB/500MiB(47%) CN:1 DL:5.8MiB ETA:44s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part45.rar
+-------------------------------------------------------------------------------
+[#85c54b 181MiB/500MiB(36%) CN:1 DL:4.1MiB ETA:1m16s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part46.rar
+-------------------------------------------------------------------------------
+[#de4a78 30MiB/500MiB(6%) CN:1 DL:0.9MiB ETA:7m58s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#a6bcfa 239MiB/500MiB(47%)][#85c54b 181MiB/500MiB(36%)][#de4a78 30MiB/500MiB(6%)]
+[DL:10MiB][#a6bcfa 245MiB/500MiB(49%)][#85c54b 186MiB/500MiB(37%)][#de4a78 31MiB/500MiB(6%)]
+[DL:10MiB][#a6bcfa 251MiB/500MiB(50%)][#85c54b 190MiB/500MiB(38%)][#de4a78 31MiB/500MiB(6%)]
+[DL:10MiB][#a6bcfa 257MiB/500MiB(51%)][#85c54b 194MiB/500MiB(38%)][#de4a78 32MiB/500MiB(6%)]
+[DL:11MiB][#a6bcfa 263MiB/500MiB(52%)][#85c54b 198MiB/500MiB(39%)][#de4a78 33MiB/500MiB(6%)]
+[DL:10MiB][#a6bcfa 267MiB/500MiB(53%)][#85c54b 202MiB/500MiB(40%)][#de4a78 34MiB/500MiB(6%)]
+[DL:10MiB][#a6bcfa 273MiB/500MiB(54%)][#85c54b 206MiB/500MiB(41%)][#de4a78 35MiB/500MiB(7%)]
+[DL:10MiB][#a6bcfa 278MiB/500MiB(55%)][#85c54b 211MiB/500MiB(42%)][#de4a78 36MiB/500MiB(7%)]
+[DL:10MiB][#a6bcfa 284MiB/500MiB(56%)][#85c54b 215MiB/500MiB(43%)][#de4a78 37MiB/500MiB(7%)]
+[DL:10MiB][#a6bcfa 290MiB/500MiB(58%)][#85c54b 219MiB/500MiB(43%)][#de4a78 37MiB/500MiB(7%)]
+[DL:10MiB][#a6bcfa 296MiB/500MiB(59%)][#85c54b 224MiB/500MiB(44%)][#de4a78 38MiB/500MiB(7%)]
+[DL:10MiB][#a6bcfa 302MiB/500MiB(60%)][#85c54b 228MiB/500MiB(45%)][#de4a78 39MiB/500MiB(7%)]
+[DL:10MiB][#a6bcfa 307MiB/500MiB(61%)][#85c54b 233MiB/500MiB(46%)][#de4a78 40MiB/500MiB(8%)]
+[DL:10MiB][#a6bcfa 313MiB/500MiB(62%)][#85c54b 237MiB/500MiB(47%)][#de4a78 41MiB/500MiB(8%)]
+[DL:11MiB][#a6bcfa 318MiB/500MiB(63%)][#85c54b 242MiB/500MiB(48%)][#de4a78 42MiB/500MiB(8%)]
+[DL:11MiB][#a6bcfa 325MiB/500MiB(65%)][#85c54b 245MiB/500MiB(49%)][#de4a78 43MiB/500MiB(8%)]
+ *** Download Progress Summary as of Mon Apr  6 20:28:11 2026 *** 
+===============================================================================
+[#a6bcfa 332MiB/500MiB(66%) CN:1 DL:6.0MiB ETA:27s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part45.rar
+-------------------------------------------------------------------------------
+[#85c54b 248MiB/500MiB(49%) CN:1 DL:4.2MiB ETA:59s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part46.rar
+-------------------------------------------------------------------------------
+[#de4a78 43MiB/500MiB(8%) CN:1 DL:889KiB ETA:8m45s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#a6bcfa 332MiB/500MiB(66%)][#85c54b 248MiB/500MiB(49%)][#de4a78 43MiB/500MiB(8%)]
+[DL:11MiB][#a6bcfa 339MiB/500MiB(67%)][#85c54b 252MiB/500MiB(50%)][#de4a78 44MiB/500MiB(8%)]
+[DL:11MiB][#a6bcfa 345MiB/500MiB(69%)][#85c54b 256MiB/500MiB(51%)][#de4a78 45MiB/500MiB(9%)]
+[DL:11MiB][#a6bcfa 352MiB/500MiB(70%)][#85c54b 259MiB/500MiB(51%)][#de4a78 46MiB/500MiB(9%)]
+[DL:11MiB][#a6bcfa 358MiB/500MiB(71%)][#85c54b 263MiB/500MiB(52%)][#de4a78 47MiB/500MiB(9%)]
+[DL:11MiB][#a6bcfa 364MiB/500MiB(72%)][#85c54b 267MiB/500MiB(53%)][#de4a78 48MiB/500MiB(9%)]
+[DL:11MiB][#a6bcfa 371MiB/500MiB(74%)][#85c54b 271MiB/500MiB(54%)][#de4a78 49MiB/500MiB(9%)]
+[DL:11MiB][#a6bcfa 377MiB/500MiB(75%)][#85c54b 275MiB/500MiB(55%)][#de4a78 50MiB/500MiB(10%)]
+[DL:11MiB][#a6bcfa 383MiB/500MiB(76%)][#85c54b 279MiB/500MiB(55%)][#de4a78 50MiB/500MiB(10%)]
+[DL:10MiB][#a6bcfa 388MiB/500MiB(77%)][#85c54b 282MiB/500MiB(56%)][#de4a78 51MiB/500MiB(10%)]
+[DL:10MiB][#a6bcfa 394MiB/500MiB(78%)][#85c54b 286MiB/500MiB(57%)][#de4a78 52MiB/500MiB(10%)]
+[DL:10MiB][#a6bcfa 399MiB/500MiB(79%)][#85c54b 290MiB/500MiB(58%)][#de4a78 53MiB/500MiB(10%)]
+[DL:10MiB][#a6bcfa 405MiB/500MiB(81%)][#85c54b 295MiB/500MiB(59%)][#de4a78 54MiB/500MiB(10%)]
+[DL:10MiB][#a6bcfa 411MiB/500MiB(82%)][#85c54b 299MiB/500MiB(59%)][#de4a78 55MiB/500MiB(11%)]
+[DL:10MiB][#a6bcfa 417MiB/500MiB(83%)][#85c54b 304MiB/500MiB(60%)][#de4a78 56MiB/500MiB(11%)]
+[DL:10MiB][#a6bcfa 422MiB/500MiB(84%)][#85c54b 308MiB/500MiB(61%)][#de4a78 57MiB/500MiB(11%)]
+ *** Download Progress Summary as of Mon Apr  6 20:28:27 2026 *** 
+===============================================================================
+[#a6bcfa 428MiB/500MiB(85%) CN:1 DL:5.7MiB ETA:12s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part45.rar
+-------------------------------------------------------------------------------
+[#85c54b 313MiB/500MiB(62%) CN:1 DL:4.2MiB ETA:43s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part46.rar
+-------------------------------------------------------------------------------
+[#de4a78 58MiB/500MiB(11%) CN:1 DL:0.9MiB ETA:7m51s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#a6bcfa 428MiB/500MiB(85%)][#85c54b 313MiB/500MiB(62%)][#de4a78 58MiB/500MiB(11%)]
+[DL:10MiB][#a6bcfa 434MiB/500MiB(86%)][#85c54b 317MiB/500MiB(63%)][#de4a78 59MiB/500MiB(11%)]
+[DL:10MiB][#a6bcfa 439MiB/500MiB(87%)][#85c54b 322MiB/500MiB(64%)][#de4a78 60MiB/500MiB(12%)]
+[DL:11MiB][#a6bcfa 445MiB/500MiB(89%)][#85c54b 326MiB/500MiB(65%)][#de4a78 61MiB/500MiB(12%)]
+[DL:10MiB][#a6bcfa 449MiB/500MiB(89%)][#85c54b 330MiB/500MiB(66%)][#de4a78 62MiB/500MiB(12%)]
+[DL:10MiB][#a6bcfa 455MiB/500MiB(91%)][#85c54b 334MiB/500MiB(66%)][#de4a78 63MiB/500MiB(12%)]
+[DL:10MiB][#a6bcfa 460MiB/500MiB(92%)][#85c54b 339MiB/500MiB(67%)][#de4a78 64MiB/500MiB(12%)]
+[DL:11MiB][#a6bcfa 466MiB/500MiB(93%)][#85c54b 343MiB/500MiB(68%)][#de4a78 65MiB/500MiB(13%)]
+[DL:10MiB][#a6bcfa 472MiB/500MiB(94%)][#85c54b 348MiB/500MiB(69%)][#de4a78 66MiB/500MiB(13%)]
+[DL:10MiB][#a6bcfa 478MiB/500MiB(95%)][#85c54b 352MiB/500MiB(70%)][#de4a78 66MiB/500MiB(13%)]
+[DL:10MiB][#a6bcfa 484MiB/500MiB(96%)][#85c54b 356MiB/500MiB(71%)][#de4a78 67MiB/500MiB(13%)]
+[DL:10MiB][#a6bcfa 489MiB/500MiB(97%)][#85c54b 361MiB/500MiB(72%)][#de4a78 68MiB/500MiB(13%)]
+[DL:10MiB][#a6bcfa 495MiB/500MiB(99%)][#85c54b 365MiB/500MiB(73%)][#de4a78 69MiB/500MiB(13%)]
+
+04/06 20:28:40 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part45.rar
+[DL:10MiB][#85c54b 370MiB/500MiB(74%)][#de4a78 70MiB/500MiB(14%)][#3b7a81 384KiB/500MiB(0%)]
+[DL:11MiB][#85c54b 375MiB/500MiB(75%)][#de4a78 72MiB/500MiB(14%)][#3b7a81 4.3MiB/500MiB(0%)]
+[DL:11MiB][#85c54b 380MiB/500MiB(76%)][#de4a78 73MiB/500MiB(14%)][#3b7a81 9.1MiB/500MiB(1%)]
+ *** Download Progress Summary as of Mon Apr  6 20:28:43 2026 *** 
+===============================================================================
+[#85c54b 384MiB/500MiB(76%) CN:1 DL:4.5MiB ETA:25s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part46.rar
+-------------------------------------------------------------------------------
+[#de4a78 74MiB/500MiB(14%) CN:1 DL:1.0MiB ETA:6m53s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#3b7a81 14MiB/500MiB(2%) CN:1 DL:4.7MiB ETA:1m43s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part48.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#85c54b 384MiB/500MiB(76%)][#de4a78 74MiB/500MiB(14%)][#3b7a81 14MiB/500MiB(2%)]
+[DL:11MiB][#85c54b 389MiB/500MiB(77%)][#de4a78 75MiB/500MiB(15%)][#3b7a81 19MiB/500MiB(3%)]
+[DL:11MiB][#85c54b 394MiB/500MiB(78%)][#de4a78 76MiB/500MiB(15%)][#3b7a81 24MiB/500MiB(4%)]
+[DL:11MiB][#85c54b 399MiB/500MiB(79%)][#de4a78 77MiB/500MiB(15%)][#3b7a81 30MiB/500MiB(6%)]
+[DL:11MiB][#85c54b 404MiB/500MiB(80%)][#de4a78 78MiB/500MiB(15%)][#3b7a81 35MiB/500MiB(7%)]
+[DL:11MiB][#85c54b 408MiB/500MiB(81%)][#de4a78 78MiB/500MiB(15%)][#3b7a81 41MiB/500MiB(8%)]
+[DL:11MiB][#85c54b 413MiB/500MiB(82%)][#de4a78 79MiB/500MiB(15%)][#3b7a81 47MiB/500MiB(9%)]
+[DL:11MiB][#85c54b 418MiB/500MiB(83%)][#de4a78 80MiB/500MiB(16%)][#3b7a81 51MiB/500MiB(10%)]
+[DL:11MiB][#85c54b 423MiB/500MiB(84%)][#de4a78 81MiB/500MiB(16%)][#3b7a81 56MiB/500MiB(11%)]
+[DL:10MiB][#85c54b 428MiB/500MiB(85%)][#de4a78 82MiB/500MiB(16%)][#3b7a81 59MiB/500MiB(11%)]
+[DL:11MiB][#85c54b 437MiB/500MiB(87%)][#de4a78 83MiB/500MiB(16%)][#3b7a81 63MiB/500MiB(12%)]
+[DL:11MiB][#85c54b 443MiB/500MiB(88%)][#de4a78 84MiB/500MiB(16%)][#3b7a81 67MiB/500MiB(13%)]
+[DL:11MiB][#85c54b 449MiB/500MiB(89%)][#de4a78 84MiB/500MiB(16%)][#3b7a81 71MiB/500MiB(14%)]
+[DL:11MiB][#85c54b 455MiB/500MiB(91%)][#de4a78 85MiB/500MiB(17%)][#3b7a81 76MiB/500MiB(15%)]
+[DL:11MiB][#85c54b 460MiB/500MiB(92%)][#de4a78 86MiB/500MiB(17%)][#3b7a81 80MiB/500MiB(16%)]
+[DL:11MiB][#85c54b 466MiB/500MiB(93%)][#de4a78 87MiB/500MiB(17%)][#3b7a81 85MiB/500MiB(17%)]
+ *** Download Progress Summary as of Mon Apr  6 20:28:59 2026 *** 
+===============================================================================
+[#85c54b 471MiB/500MiB(94%) CN:1 DL:5.8MiB ETA:4s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part46.rar
+-------------------------------------------------------------------------------
+[#de4a78 88MiB/500MiB(17%) CN:1 DL:892KiB ETA:7m52s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#3b7a81 90MiB/500MiB(18%) CN:1 DL:4.3MiB ETA:1m33s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part48.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#85c54b 471MiB/500MiB(94%)][#de4a78 88MiB/500MiB(17%)][#3b7a81 90MiB/500MiB(18%)]
+[DL:11MiB][#85c54b 474MiB/500MiB(94%)][#de4a78 90MiB/500MiB(18%)][#3b7a81 96MiB/500MiB(19%)]
+[DL:11MiB][#85c54b 477MiB/500MiB(95%)][#de4a78 91MiB/500MiB(18%)][#3b7a81 102MiB/500MiB(20%)]
+[DL:11MiB][#85c54b 481MiB/500MiB(96%)][#de4a78 92MiB/500MiB(18%)][#3b7a81 108MiB/500MiB(21%)]
+[DL:11MiB][#85c54b 485MiB/500MiB(97%)][#de4a78 93MiB/500MiB(18%)][#3b7a81 114MiB/500MiB(22%)]
+[DL:11MiB][#85c54b 489MiB/500MiB(97%)][#de4a78 94MiB/500MiB(18%)][#3b7a81 120MiB/500MiB(24%)]
+[DL:11MiB][#85c54b 493MiB/500MiB(98%)][#de4a78 95MiB/500MiB(19%)][#3b7a81 126MiB/500MiB(25%)]
+[DL:11MiB][#85c54b 498MiB/500MiB(99%)][#de4a78 96MiB/500MiB(19%)][#3b7a81 132MiB/500MiB(26%)]
+
+04/06 20:29:06 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part46.rar
+[DL:11MiB][#de4a78 97MiB/500MiB(19%)][#3b7a81 137MiB/500MiB(27%)][#55e8ea 2.0MiB/500MiB(0%)]
+[DL:11MiB][#de4a78 98MiB/500MiB(19%)][#3b7a81 143MiB/500MiB(28%)][#55e8ea 6.3MiB/500MiB(1%)]
+[DL:11MiB][#de4a78 99MiB/500MiB(19%)][#3b7a81 149MiB/500MiB(29%)][#55e8ea 10MiB/500MiB(2%)]
+[DL:10MiB][#de4a78 100MiB/500MiB(20%)][#3b7a81 154MiB/500MiB(30%)][#55e8ea 13MiB/500MiB(2%)]
+[DL:10MiB][#de4a78 101MiB/500MiB(20%)][#3b7a81 159MiB/500MiB(31%)][#55e8ea 17MiB/500MiB(3%)]
+[DL:10MiB][#de4a78 102MiB/500MiB(20%)][#3b7a81 165MiB/500MiB(33%)][#55e8ea 22MiB/500MiB(4%)]
+[DL:10MiB][#de4a78 103MiB/500MiB(20%)][#3b7a81 171MiB/500MiB(34%)][#55e8ea 26MiB/500MiB(5%)]
+[DL:10MiB][#de4a78 104MiB/500MiB(20%)][#3b7a81 177MiB/500MiB(35%)][#55e8ea 30MiB/500MiB(6%)]
+ *** Download Progress Summary as of Mon Apr  6 20:29:14 2026 *** 
+===============================================================================
+[#de4a78 105MiB/500MiB(21%) CN:1 DL:0.9MiB ETA:6m42s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#3b7a81 183MiB/500MiB(36%) CN:1 DL:5.8MiB ETA:54s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part48.rar
+-------------------------------------------------------------------------------
+[#55e8ea 34MiB/500MiB(6%) CN:1 DL:4.1MiB ETA:1m52s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part49.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#de4a78 105MiB/500MiB(21%)][#3b7a81 183MiB/500MiB(36%)][#55e8ea 34MiB/500MiB(6%)]
+[DL:10MiB][#de4a78 106MiB/500MiB(21%)][#3b7a81 189MiB/500MiB(37%)][#55e8ea 38MiB/500MiB(7%)]
+[DL:10MiB][#de4a78 107MiB/500MiB(21%)][#3b7a81 195MiB/500MiB(39%)][#55e8ea 43MiB/500MiB(8%)]
+[DL:10MiB][#de4a78 108MiB/500MiB(21%)][#3b7a81 201MiB/500MiB(40%)][#55e8ea 47MiB/500MiB(9%)]
+[DL:10MiB][#de4a78 109MiB/500MiB(21%)][#3b7a81 207MiB/500MiB(41%)][#55e8ea 51MiB/500MiB(10%)]
+[DL:11MiB][#de4a78 110MiB/500MiB(22%)][#3b7a81 213MiB/500MiB(42%)][#55e8ea 55MiB/500MiB(11%)]
+[DL:10MiB][#de4a78 111MiB/500MiB(22%)][#3b7a81 218MiB/500MiB(43%)][#55e8ea 58MiB/500MiB(11%)]
+[DL:10MiB][#de4a78 112MiB/500MiB(22%)][#3b7a81 223MiB/500MiB(44%)][#55e8ea 63MiB/500MiB(12%)]
+[DL:10MiB][#de4a78 113MiB/500MiB(22%)][#3b7a81 229MiB/500MiB(45%)][#55e8ea 67MiB/500MiB(13%)]
+[DL:10MiB][#de4a78 114MiB/500MiB(22%)][#3b7a81 235MiB/500MiB(47%)][#55e8ea 71MiB/500MiB(14%)]
+[DL:10MiB][#de4a78 115MiB/500MiB(23%)][#3b7a81 241MiB/500MiB(48%)][#55e8ea 75MiB/500MiB(15%)]
+[DL:10MiB][#de4a78 116MiB/500MiB(23%)][#3b7a81 248MiB/500MiB(49%)][#55e8ea 78MiB/500MiB(15%)]
+[DL:10MiB][#de4a78 117MiB/500MiB(23%)][#3b7a81 254MiB/500MiB(50%)][#55e8ea 82MiB/500MiB(16%)]
+[DL:10MiB][#de4a78 118MiB/500MiB(23%)][#3b7a81 260MiB/500MiB(52%)][#55e8ea 87MiB/500MiB(17%)]
+[DL:10MiB][#de4a78 119MiB/500MiB(23%)][#3b7a81 266MiB/500MiB(53%)][#55e8ea 91MiB/500MiB(18%)]
+[DL:11MiB][#de4a78 120MiB/500MiB(24%)][#3b7a81 272MiB/500MiB(54%)][#55e8ea 95MiB/500MiB(19%)]
+ *** Download Progress Summary as of Mon Apr  6 20:29:30 2026 *** 
+===============================================================================
+[#de4a78 120MiB/500MiB(24%) CN:1 DL:0.9MiB ETA:6m38s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#3b7a81 278MiB/500MiB(55%) CN:1 DL:6.1MiB ETA:35s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part48.rar
+-------------------------------------------------------------------------------
+[#55e8ea 98MiB/500MiB(19%) CN:1 DL:3.9MiB ETA:1m41s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part49.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#de4a78 120MiB/500MiB(24%)][#3b7a81 278MiB/500MiB(55%)][#55e8ea 98MiB/500MiB(19%)]
+[DL:11MiB][#de4a78 121MiB/500MiB(24%)][#3b7a81 285MiB/500MiB(57%)][#55e8ea 101MiB/500MiB(20%)]
+[DL:11MiB][#de4a78 122MiB/500MiB(24%)][#3b7a81 291MiB/500MiB(58%)][#55e8ea 105MiB/500MiB(21%)]
+[DL:11MiB][#de4a78 123MiB/500MiB(24%)][#3b7a81 298MiB/500MiB(59%)][#55e8ea 109MiB/500MiB(21%)]
+[DL:11MiB][#de4a78 124MiB/500MiB(24%)][#3b7a81 304MiB/500MiB(60%)][#55e8ea 113MiB/500MiB(22%)]
+[DL:11MiB][#de4a78 125MiB/500MiB(25%)][#3b7a81 310MiB/500MiB(62%)][#55e8ea 117MiB/500MiB(23%)]
+[DL:11MiB][#de4a78 126MiB/500MiB(25%)][#3b7a81 316MiB/500MiB(63%)][#55e8ea 121MiB/500MiB(24%)]
+[DL:11MiB][#de4a78 127MiB/500MiB(25%)][#3b7a81 322MiB/500MiB(64%)][#55e8ea 125MiB/500MiB(25%)]
+[DL:11MiB][#de4a78 128MiB/500MiB(25%)][#3b7a81 329MiB/500MiB(65%)][#55e8ea 129MiB/500MiB(25%)]
+[DL:11MiB][#de4a78 128MiB/500MiB(25%)][#3b7a81 335MiB/500MiB(67%)][#55e8ea 134MiB/500MiB(26%)]
+[DL:11MiB][#de4a78 129MiB/500MiB(25%)][#3b7a81 339MiB/500MiB(67%)][#55e8ea 138MiB/500MiB(27%)]
+[DL:11MiB][#de4a78 130MiB/500MiB(26%)][#3b7a81 345MiB/500MiB(69%)][#55e8ea 143MiB/500MiB(28%)]
+[DL:11MiB][#de4a78 131MiB/500MiB(26%)][#3b7a81 350MiB/500MiB(70%)][#55e8ea 147MiB/500MiB(29%)]
+[DL:10MiB][#de4a78 132MiB/500MiB(26%)][#3b7a81 356MiB/500MiB(71%)][#55e8ea 152MiB/500MiB(30%)]
+[DL:11MiB][#de4a78 133MiB/500MiB(26%)][#3b7a81 362MiB/500MiB(72%)][#55e8ea 157MiB/500MiB(31%)]
+[DL:11MiB][#de4a78 134MiB/500MiB(26%)][#3b7a81 368MiB/500MiB(73%)][#55e8ea 161MiB/500MiB(32%)]
+ *** Download Progress Summary as of Mon Apr  6 20:29:46 2026 *** 
+===============================================================================
+[#de4a78 134MiB/500MiB(26%) CN:1 DL:887KiB ETA:7m1s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#3b7a81 373MiB/500MiB(74%) CN:1 DL:5.7MiB ETA:22s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part48.rar
+-------------------------------------------------------------------------------
+[#55e8ea 165MiB/500MiB(33%) CN:1 DL:4.4MiB ETA:1m14s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part49.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#de4a78 134MiB/500MiB(26%)][#3b7a81 373MiB/500MiB(74%)][#55e8ea 165MiB/500MiB(33%)]
+[DL:11MiB][#de4a78 135MiB/500MiB(27%)][#3b7a81 379MiB/500MiB(75%)][#55e8ea 170MiB/500MiB(34%)]
+[DL:11MiB][#de4a78 136MiB/500MiB(27%)][#3b7a81 385MiB/500MiB(77%)][#55e8ea 174MiB/500MiB(34%)]
+[DL:11MiB][#de4a78 137MiB/500MiB(27%)][#3b7a81 390MiB/500MiB(78%)][#55e8ea 178MiB/500MiB(35%)]
+[DL:11MiB][#de4a78 138MiB/500MiB(27%)][#3b7a81 396MiB/500MiB(79%)][#55e8ea 183MiB/500MiB(36%)]
+[DL:10MiB][#de4a78 139MiB/500MiB(27%)][#3b7a81 400MiB/500MiB(80%)][#55e8ea 186MiB/500MiB(37%)]
+[DL:10MiB][#de4a78 140MiB/500MiB(28%)][#3b7a81 406MiB/500MiB(81%)][#55e8ea 191MiB/500MiB(38%)]
+[DL:10MiB][#de4a78 141MiB/500MiB(28%)][#3b7a81 412MiB/500MiB(82%)][#55e8ea 195MiB/500MiB(39%)]
+[DL:10MiB][#de4a78 142MiB/500MiB(28%)][#3b7a81 418MiB/500MiB(83%)][#55e8ea 199MiB/500MiB(39%)]
+[DL:10MiB][#de4a78 143MiB/500MiB(28%)][#3b7a81 424MiB/500MiB(84%)][#55e8ea 203MiB/500MiB(40%)]
+[DL:10MiB][#de4a78 144MiB/500MiB(28%)][#3b7a81 430MiB/500MiB(86%)][#55e8ea 207MiB/500MiB(41%)]
+[DL:10MiB][#de4a78 145MiB/500MiB(29%)][#3b7a81 436MiB/500MiB(87%)][#55e8ea 211MiB/500MiB(42%)]
+[DL:10MiB][#de4a78 146MiB/500MiB(29%)][#3b7a81 443MiB/500MiB(88%)][#55e8ea 216MiB/500MiB(43%)]
+[DL:10MiB][#de4a78 147MiB/500MiB(29%)][#3b7a81 449MiB/500MiB(89%)][#55e8ea 220MiB/500MiB(44%)]
+[DL:11MiB][#de4a78 148MiB/500MiB(29%)][#3b7a81 455MiB/500MiB(91%)][#55e8ea 224MiB/500MiB(44%)]
+[DL:10MiB][#de4a78 148MiB/500MiB(29%)][#3b7a81 459MiB/500MiB(91%)][#55e8ea 227MiB/500MiB(45%)]
+ *** Download Progress Summary as of Mon Apr  6 20:30:02 2026 *** 
+===============================================================================
+[#de4a78 150MiB/500MiB(30%) CN:1 DL:0.9MiB ETA:6m9s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#3b7a81 465MiB/500MiB(93%) CN:1 DL:5.8MiB ETA:5s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part48.rar
+-------------------------------------------------------------------------------
+[#55e8ea 231MiB/500MiB(46%) CN:1 DL:4.1MiB ETA:1m4s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part49.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#de4a78 150MiB/500MiB(30%)][#3b7a81 465MiB/500MiB(93%)][#55e8ea 231MiB/500MiB(46%)]
+[DL:10MiB][#de4a78 151MiB/500MiB(30%)][#3b7a81 470MiB/500MiB(94%)][#55e8ea 236MiB/500MiB(47%)]
+[DL:10MiB][#de4a78 152MiB/500MiB(30%)][#3b7a81 476MiB/500MiB(95%)][#55e8ea 240MiB/500MiB(48%)]
+[DL:10MiB][#de4a78 153MiB/500MiB(30%)][#3b7a81 482MiB/500MiB(96%)][#55e8ea 244MiB/500MiB(48%)]
+[DL:10MiB][#de4a78 154MiB/500MiB(30%)][#3b7a81 488MiB/500MiB(97%)][#55e8ea 249MiB/500MiB(49%)]
+[DL:10MiB][#de4a78 154MiB/500MiB(30%)][#3b7a81 494MiB/500MiB(98%)][#55e8ea 253MiB/500MiB(50%)]
+
+04/06 20:30:08 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part48.rar
+[DL:10MiB][#de4a78 155MiB/500MiB(31%)][#55e8ea 257MiB/500MiB(51%)][#88f452 0B/0B]
+[DL:10MiB][#de4a78 156MiB/500MiB(31%)][#55e8ea 263MiB/500MiB(52%)][#88f452 4.0MiB/500MiB(0%)]
+[DL:10MiB][#de4a78 157MiB/500MiB(31%)][#55e8ea 268MiB/500MiB(53%)][#88f452 8.8MiB/500MiB(1%)]
+[DL:11MiB][#de4a78 158MiB/500MiB(31%)][#55e8ea 274MiB/500MiB(54%)][#88f452 13MiB/500MiB(2%)]
+[DL:11MiB][#de4a78 159MiB/500MiB(31%)][#55e8ea 281MiB/500MiB(56%)][#88f452 16MiB/500MiB(3%)]
+[DL:11MiB][#de4a78 160MiB/500MiB(32%)][#55e8ea 287MiB/500MiB(57%)][#88f452 19MiB/500MiB(3%)]
+[DL:11MiB][#de4a78 161MiB/500MiB(32%)][#55e8ea 293MiB/500MiB(58%)][#88f452 24MiB/500MiB(4%)]
+[DL:11MiB][#de4a78 162MiB/500MiB(32%)][#55e8ea 299MiB/500MiB(59%)][#88f452 28MiB/500MiB(5%)]
+[DL:11MiB][#de4a78 163MiB/500MiB(32%)][#55e8ea 304MiB/500MiB(60%)][#88f452 33MiB/500MiB(6%)]
+[DL:11MiB][#de4a78 164MiB/500MiB(32%)][#55e8ea 309MiB/500MiB(61%)][#88f452 38MiB/500MiB(7%)]
+ *** Download Progress Summary as of Mon Apr  6 20:30:18 2026 *** 
+===============================================================================
+[#de4a78 165MiB/500MiB(33%) CN:1 DL:0.9MiB ETA:5m55s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#55e8ea 315MiB/500MiB(63%) CN:1 DL:5.7MiB ETA:31s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part49.rar
+-------------------------------------------------------------------------------
+[#88f452 43MiB/500MiB(8%) CN:1 DL:4.4MiB ETA:1m42s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part50.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#de4a78 165MiB/500MiB(33%)][#55e8ea 315MiB/500MiB(63%)][#88f452 43MiB/500MiB(8%)]
+[DL:11MiB][#de4a78 165MiB/500MiB(33%)][#55e8ea 320MiB/500MiB(64%)][#88f452 48MiB/500MiB(9%)]
+[DL:11MiB][#de4a78 167MiB/500MiB(33%)][#55e8ea 324MiB/500MiB(64%)][#88f452 54MiB/500MiB(10%)]
+[DL:11MiB][#de4a78 168MiB/500MiB(33%)][#55e8ea 329MiB/500MiB(65%)][#88f452 59MiB/500MiB(11%)]
+[DL:11MiB][#de4a78 171MiB/500MiB(34%)][#55e8ea 331MiB/500MiB(66%)][#88f452 62MiB/500MiB(12%)]
+[DL:11MiB][#de4a78 174MiB/500MiB(34%)][#55e8ea 335MiB/500MiB(67%)][#88f452 66MiB/500MiB(13%)]
+[DL:10MiB][#de4a78 176MiB/500MiB(35%)][#55e8ea 340MiB/500MiB(68%)][#88f452 71MiB/500MiB(14%)]
+[DL:10MiB][#de4a78 178MiB/500MiB(35%)][#55e8ea 344MiB/500MiB(68%)][#88f452 76MiB/500MiB(15%)]
+[DL:10MiB][#de4a78 179MiB/500MiB(35%)][#55e8ea 349MiB/500MiB(69%)][#88f452 81MiB/500MiB(16%)]
+[DL:10MiB][#de4a78 180MiB/500MiB(36%)][#55e8ea 354MiB/500MiB(70%)][#88f452 86MiB/500MiB(17%)]
+[DL:10MiB][#de4a78 181MiB/500MiB(36%)][#55e8ea 359MiB/500MiB(71%)][#88f452 92MiB/500MiB(18%)]
+[DL:10MiB][#de4a78 182MiB/500MiB(36%)][#55e8ea 363MiB/500MiB(72%)][#88f452 98MiB/500MiB(19%)]
+[DL:10MiB][#de4a78 182MiB/500MiB(36%)][#55e8ea 368MiB/500MiB(73%)][#88f452 103MiB/500MiB(20%)]
+[DL:11MiB][#de4a78 183MiB/500MiB(36%)][#55e8ea 372MiB/500MiB(74%)][#88f452 109MiB/500MiB(21%)]
+[DL:10MiB][#de4a78 185MiB/500MiB(37%)][#55e8ea 376MiB/500MiB(75%)][#88f452 112MiB/500MiB(22%)]
+[DL:10MiB][#de4a78 187MiB/500MiB(37%)][#55e8ea 381MiB/500MiB(76%)][#88f452 117MiB/500MiB(23%)]
+ *** Download Progress Summary as of Mon Apr  6 20:30:34 2026 *** 
+===============================================================================
+[#de4a78 188MiB/500MiB(37%) CN:1 DL:1.1MiB ETA:4m24s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#55e8ea 386MiB/500MiB(77%) CN:1 DL:4.6MiB ETA:24s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part49.rar
+-------------------------------------------------------------------------------
+[#88f452 122MiB/500MiB(24%) CN:1 DL:5.1MiB ETA:1m13s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part50.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#de4a78 188MiB/500MiB(37%)][#55e8ea 386MiB/500MiB(77%)][#88f452 122MiB/500MiB(24%)]
+[DL:10MiB][#de4a78 189MiB/500MiB(37%)][#55e8ea 391MiB/500MiB(78%)][#88f452 127MiB/500MiB(25%)]
+[DL:10MiB][#de4a78 190MiB/500MiB(38%)][#55e8ea 395MiB/500MiB(79%)][#88f452 132MiB/500MiB(26%)]
+[DL:10MiB][#de4a78 191MiB/500MiB(38%)][#55e8ea 400MiB/500MiB(80%)][#88f452 137MiB/500MiB(27%)]
+[DL:10MiB][#de4a78 192MiB/500MiB(38%)][#55e8ea 405MiB/500MiB(81%)][#88f452 142MiB/500MiB(28%)]
+[DL:10MiB][#de4a78 193MiB/500MiB(38%)][#55e8ea 410MiB/500MiB(82%)][#88f452 147MiB/500MiB(29%)]
+[DL:10MiB][#de4a78 194MiB/500MiB(38%)][#55e8ea 415MiB/500MiB(83%)][#88f452 153MiB/500MiB(30%)]
+[DL:10MiB][#de4a78 195MiB/500MiB(39%)][#55e8ea 420MiB/500MiB(84%)][#88f452 158MiB/500MiB(31%)]
+[DL:11MiB][#de4a78 196MiB/500MiB(39%)][#55e8ea 424MiB/500MiB(84%)][#88f452 164MiB/500MiB(32%)]
+[DL:10MiB][#de4a78 197MiB/500MiB(39%)][#55e8ea 428MiB/500MiB(85%)][#88f452 168MiB/500MiB(33%)]
+[DL:10MiB][#de4a78 198MiB/500MiB(39%)][#55e8ea 433MiB/500MiB(86%)][#88f452 173MiB/500MiB(34%)]
+[DL:10MiB][#de4a78 198MiB/500MiB(39%)][#55e8ea 437MiB/500MiB(87%)][#88f452 179MiB/500MiB(35%)]
+[DL:10MiB][#de4a78 199MiB/500MiB(39%)][#55e8ea 442MiB/500MiB(88%)][#88f452 185MiB/500MiB(37%)]
+[DL:10MiB][#de4a78 200MiB/500MiB(40%)][#55e8ea 446MiB/500MiB(89%)][#88f452 190MiB/500MiB(38%)]
+[DL:10MiB][#de4a78 201MiB/500MiB(40%)][#55e8ea 451MiB/500MiB(90%)][#88f452 196MiB/500MiB(39%)]
+[DL:10MiB][#de4a78 202MiB/500MiB(40%)][#55e8ea 456MiB/500MiB(91%)][#88f452 202MiB/500MiB(40%)]
+ *** Download Progress Summary as of Mon Apr  6 20:30:50 2026 *** 
+===============================================================================
+[#de4a78 203MiB/500MiB(40%) CN:1 DL:878KiB ETA:5m45s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#55e8ea 460MiB/500MiB(92%) CN:1 DL:4.5MiB ETA:8s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part49.rar
+-------------------------------------------------------------------------------
+[#88f452 207MiB/500MiB(41%) CN:1 DL:5.5MiB ETA:52s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part50.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#de4a78 203MiB/500MiB(40%)][#55e8ea 460MiB/500MiB(92%)][#88f452 207MiB/500MiB(41%)]
+[DL:10MiB][#de4a78 204MiB/500MiB(40%)][#55e8ea 465MiB/500MiB(93%)][#88f452 213MiB/500MiB(42%)]
+[DL:11MiB][#de4a78 204MiB/500MiB(40%)][#55e8ea 469MiB/500MiB(93%)][#88f452 219MiB/500MiB(43%)]
+[DL:10MiB][#de4a78 205MiB/500MiB(41%)][#55e8ea 473MiB/500MiB(94%)][#88f452 223MiB/500MiB(44%)]
+[DL:10MiB][#de4a78 207MiB/500MiB(41%)][#55e8ea 477MiB/500MiB(95%)][#88f452 229MiB/500MiB(45%)]
+[DL:10MiB][#de4a78 208MiB/500MiB(41%)][#55e8ea 482MiB/500MiB(96%)][#88f452 234MiB/500MiB(46%)]
+[DL:10MiB][#de4a78 209MiB/500MiB(41%)][#55e8ea 486MiB/500MiB(97%)][#88f452 239MiB/500MiB(47%)]
+[DL:10MiB][#de4a78 210MiB/500MiB(42%)][#55e8ea 491MiB/500MiB(98%)][#88f452 245MiB/500MiB(49%)]
+[DL:10MiB][#de4a78 210MiB/500MiB(42%)][#55e8ea 495MiB/500MiB(99%)][#88f452 251MiB/500MiB(50%)]
+
+04/06 20:30:58 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part49.rar
+[DL:10MiB][#de4a78 211MiB/500MiB(42%)][#88f452 257MiB/500MiB(51%)][#ddb6c2 0B/0B]
+[DL:10MiB][#de4a78 212MiB/500MiB(42%)][#88f452 263MiB/500MiB(52%)][#ddb6c2 3.6MiB/500MiB(0%)]
+[DL:10MiB][#de4a78 213MiB/500MiB(42%)][#88f452 269MiB/500MiB(53%)][#ddb6c2 7.7MiB/500MiB(1%)]
+[DL:10MiB][#de4a78 214MiB/500MiB(42%)][#88f452 275MiB/500MiB(55%)][#ddb6c2 11MiB/500MiB(2%)]
+[DL:11MiB][#de4a78 215MiB/500MiB(43%)][#88f452 281MiB/500MiB(56%)][#ddb6c2 15MiB/500MiB(3%)]
+[DL:11MiB][#de4a78 216MiB/500MiB(43%)][#88f452 288MiB/500MiB(57%)][#ddb6c2 17MiB/500MiB(3%)]
+[DL:11MiB][#de4a78 217MiB/500MiB(43%)][#88f452 295MiB/500MiB(59%)][#ddb6c2 21MiB/500MiB(4%)]
+ *** Download Progress Summary as of Mon Apr  6 20:31:05 2026 *** 
+===============================================================================
+[#de4a78 218MiB/500MiB(43%) CN:1 DL:0.9MiB ETA:4m48s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#88f452 302MiB/500MiB(60%) CN:1 DL:6.3MiB ETA:30s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part50.rar
+-------------------------------------------------------------------------------
+[#ddb6c2 24MiB/500MiB(4%) CN:1 DL:3.5MiB ETA:2m12s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part51.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#de4a78 218MiB/500MiB(43%)][#88f452 302MiB/500MiB(60%)][#ddb6c2 24MiB/500MiB(4%)]
+[DL:11MiB][#de4a78 219MiB/500MiB(43%)][#88f452 309MiB/500MiB(61%)][#ddb6c2 27MiB/500MiB(5%)]
+[DL:11MiB][#de4a78 220MiB/500MiB(44%)][#88f452 316MiB/500MiB(63%)][#ddb6c2 31MiB/500MiB(6%)]
+[DL:11MiB][#de4a78 221MiB/500MiB(44%)][#88f452 322MiB/500MiB(64%)][#ddb6c2 35MiB/500MiB(7%)]
+[DL:11MiB][#de4a78 222MiB/500MiB(44%)][#88f452 328MiB/500MiB(65%)][#ddb6c2 38MiB/500MiB(7%)]
+[DL:11MiB][#de4a78 223MiB/500MiB(44%)][#88f452 335MiB/500MiB(67%)][#ddb6c2 42MiB/500MiB(8%)]
+[DL:11MiB][#de4a78 224MiB/500MiB(44%)][#88f452 341MiB/500MiB(68%)][#ddb6c2 46MiB/500MiB(9%)]
+[DL:11MiB][#de4a78 224MiB/500MiB(44%)][#88f452 347MiB/500MiB(69%)][#ddb6c2 50MiB/500MiB(10%)]
+[DL:11MiB][#de4a78 225MiB/500MiB(45%)][#88f452 352MiB/500MiB(70%)][#ddb6c2 55MiB/500MiB(11%)]
+[DL:11MiB][#de4a78 226MiB/500MiB(45%)][#88f452 357MiB/500MiB(71%)][#ddb6c2 60MiB/500MiB(12%)]
+[DL:10MiB][#de4a78 227MiB/500MiB(45%)][#88f452 363MiB/500MiB(72%)][#ddb6c2 64MiB/500MiB(12%)]
+[DL:11MiB][#de4a78 228MiB/500MiB(45%)][#88f452 369MiB/500MiB(73%)][#ddb6c2 68MiB/500MiB(13%)]
+[DL:11MiB][#de4a78 228MiB/500MiB(45%)][#88f452 375MiB/500MiB(75%)][#ddb6c2 73MiB/500MiB(14%)]
+[DL:11MiB][#de4a78 229MiB/500MiB(45%)][#88f452 380MiB/500MiB(76%)][#ddb6c2 77MiB/500MiB(15%)]
+[DL:11MiB][#de4a78 230MiB/500MiB(46%)][#88f452 386MiB/500MiB(77%)][#ddb6c2 82MiB/500MiB(16%)]
+[DL:11MiB][#de4a78 231MiB/500MiB(46%)][#88f452 392MiB/500MiB(78%)][#ddb6c2 86MiB/500MiB(17%)]
+ *** Download Progress Summary as of Mon Apr  6 20:31:21 2026 *** 
+===============================================================================
+[#de4a78 232MiB/500MiB(46%) CN:1 DL:856KiB ETA:5m19s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#88f452 398MiB/500MiB(79%) CN:1 DL:5.7MiB ETA:17s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part50.rar
+-------------------------------------------------------------------------------
+[#ddb6c2 90MiB/500MiB(18%) CN:1 DL:4.4MiB ETA:1m31s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part51.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#de4a78 232MiB/500MiB(46%)][#88f452 398MiB/500MiB(79%)][#ddb6c2 90MiB/500MiB(18%)]
+[DL:11MiB][#de4a78 233MiB/500MiB(46%)][#88f452 404MiB/500MiB(80%)][#ddb6c2 95MiB/500MiB(19%)]
+[DL:10MiB][#de4a78 234MiB/500MiB(46%)][#88f452 408MiB/500MiB(81%)][#ddb6c2 98MiB/500MiB(19%)]
+[DL:10MiB][#de4a78 235MiB/500MiB(47%)][#88f452 414MiB/500MiB(82%)][#ddb6c2 102MiB/500MiB(20%)]
+[DL:10MiB][#de4a78 236MiB/500MiB(47%)][#88f452 420MiB/500MiB(84%)][#ddb6c2 106MiB/500MiB(21%)]
+[DL:10MiB][#de4a78 237MiB/500MiB(47%)][#88f452 426MiB/500MiB(85%)][#ddb6c2 111MiB/500MiB(22%)]
+[DL:10MiB][#de4a78 238MiB/500MiB(47%)][#88f452 432MiB/500MiB(86%)][#ddb6c2 115MiB/500MiB(23%)]
+[DL:10MiB][#de4a78 238MiB/500MiB(47%)][#88f452 438MiB/500MiB(87%)][#ddb6c2 119MiB/500MiB(23%)]
+[DL:10MiB][#de4a78 239MiB/500MiB(47%)][#88f452 443MiB/500MiB(88%)][#ddb6c2 123MiB/500MiB(24%)]
+[DL:10MiB][#de4a78 240MiB/500MiB(48%)][#88f452 449MiB/500MiB(89%)][#ddb6c2 128MiB/500MiB(25%)]
+[DL:10MiB][#de4a78 241MiB/500MiB(48%)][#88f452 455MiB/500MiB(91%)][#ddb6c2 132MiB/500MiB(26%)]
+[DL:11MiB][#de4a78 242MiB/500MiB(48%)][#88f452 461MiB/500MiB(92%)][#ddb6c2 137MiB/500MiB(27%)]
+[DL:11MiB][#de4a78 243MiB/500MiB(48%)][#88f452 467MiB/500MiB(93%)][#ddb6c2 141MiB/500MiB(28%)]
+[DL:10MiB][#de4a78 244MiB/500MiB(48%)][#88f452 471MiB/500MiB(94%)][#ddb6c2 144MiB/500MiB(28%)]
+[DL:10MiB][#de4a78 245MiB/500MiB(49%)][#88f452 477MiB/500MiB(95%)][#ddb6c2 149MiB/500MiB(29%)]
+[DL:10MiB][#de4a78 246MiB/500MiB(49%)][#88f452 483MiB/500MiB(96%)][#ddb6c2 153MiB/500MiB(30%)]
+ *** Download Progress Summary as of Mon Apr  6 20:31:37 2026 *** 
+===============================================================================
+[#de4a78 247MiB/500MiB(49%) CN:1 DL:0.9MiB ETA:4m36s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#88f452 489MiB/500MiB(97%) CN:1 DL:5.7MiB ETA:1s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part50.rar
+-------------------------------------------------------------------------------
+[#ddb6c2 157MiB/500MiB(31%) CN:1 DL:4.2MiB ETA:1m20s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part51.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#de4a78 247MiB/500MiB(49%)][#88f452 489MiB/500MiB(97%)][#ddb6c2 157MiB/500MiB(31%)]
+[DL:11MiB][#de4a78 247MiB/500MiB(49%)][#88f452 495MiB/500MiB(99%)][#ddb6c2 161MiB/500MiB(32%)]
+
+04/06 20:31:39 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part50.rar
+[DL:10MiB][#de4a78 248MiB/500MiB(49%)][#ddb6c2 166MiB/500MiB(33%)][#3e0cae 512KiB/500MiB(0%)]
+[DL:10MiB][#de4a78 250MiB/500MiB(50%)][#ddb6c2 170MiB/500MiB(34%)][#3e0cae 6.1MiB/500MiB(1%)]
+[DL:10MiB][#de4a78 251MiB/500MiB(50%)][#ddb6c2 174MiB/500MiB(34%)][#3e0cae 11MiB/500MiB(2%)]
+[DL:10MiB][#de4a78 251MiB/500MiB(50%)][#ddb6c2 179MiB/500MiB(35%)][#3e0cae 17MiB/500MiB(3%)]
+[DL:11MiB][#de4a78 252MiB/500MiB(50%)][#ddb6c2 183MiB/500MiB(36%)][#3e0cae 23MiB/500MiB(4%)]
+[DL:11MiB][#de4a78 254MiB/500MiB(50%)][#ddb6c2 188MiB/500MiB(37%)][#3e0cae 27MiB/500MiB(5%)]
+[DL:11MiB][#de4a78 255MiB/500MiB(51%)][#ddb6c2 193MiB/500MiB(38%)][#3e0cae 31MiB/500MiB(6%)]
+[DL:11MiB][#de4a78 256MiB/500MiB(51%)][#ddb6c2 198MiB/500MiB(39%)][#3e0cae 36MiB/500MiB(7%)]
+[DL:11MiB][#de4a78 257MiB/500MiB(51%)][#ddb6c2 203MiB/500MiB(40%)][#3e0cae 42MiB/500MiB(8%)]
+[DL:11MiB][#de4a78 258MiB/500MiB(51%)][#ddb6c2 208MiB/500MiB(41%)][#3e0cae 47MiB/500MiB(9%)]
+[DL:11MiB][#de4a78 259MiB/500MiB(51%)][#ddb6c2 213MiB/500MiB(42%)][#3e0cae 52MiB/500MiB(10%)]
+[DL:10MiB][#de4a78 260MiB/500MiB(52%)][#ddb6c2 217MiB/500MiB(43%)][#3e0cae 57MiB/500MiB(11%)]
+[DL:10MiB][#de4a78 261MiB/500MiB(52%)][#ddb6c2 221MiB/500MiB(44%)][#3e0cae 63MiB/500MiB(12%)]
+[DL:10MiB][#de4a78 262MiB/500MiB(52%)][#ddb6c2 226MiB/500MiB(45%)][#3e0cae 68MiB/500MiB(13%)]
+ *** Download Progress Summary as of Mon Apr  6 20:31:53 2026 *** 
+===============================================================================
+[#de4a78 263MiB/500MiB(52%) CN:1 DL:1.0MiB ETA:3m41s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#ddb6c2 231MiB/500MiB(46%) CN:1 DL:4.7MiB ETA:56s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part51.rar
+-------------------------------------------------------------------------------
+[#3e0cae 74MiB/500MiB(14%) CN:1 DL:5.1MiB ETA:1m22s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part52.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#de4a78 263MiB/500MiB(52%)][#ddb6c2 231MiB/500MiB(46%)][#3e0cae 74MiB/500MiB(14%)]
+[DL:11MiB][#de4a78 264MiB/500MiB(52%)][#ddb6c2 235MiB/500MiB(47%)][#3e0cae 79MiB/500MiB(15%)]
+[DL:11MiB][#de4a78 265MiB/500MiB(53%)][#ddb6c2 240MiB/500MiB(48%)][#3e0cae 85MiB/500MiB(17%)]
+[DL:11MiB][#de4a78 265MiB/500MiB(53%)][#ddb6c2 244MiB/500MiB(48%)][#3e0cae 91MiB/500MiB(18%)]
+[DL:11MiB][#de4a78 266MiB/500MiB(53%)][#ddb6c2 249MiB/500MiB(49%)][#3e0cae 96MiB/500MiB(19%)]
+[DL:11MiB][#de4a78 267MiB/500MiB(53%)][#ddb6c2 254MiB/500MiB(50%)][#3e0cae 101MiB/500MiB(20%)]
+[DL:11MiB][#de4a78 268MiB/500MiB(53%)][#ddb6c2 259MiB/500MiB(51%)][#3e0cae 106MiB/500MiB(21%)]
+[DL:10MiB][#de4a78 270MiB/500MiB(54%)][#ddb6c2 263MiB/500MiB(52%)][#3e0cae 109MiB/500MiB(21%)]
+[DL:11MiB][#de4a78 271MiB/500MiB(54%)][#ddb6c2 269MiB/500MiB(53%)][#3e0cae 114MiB/500MiB(22%)]
+[DL:11MiB][#de4a78 272MiB/500MiB(54%)][#ddb6c2 275MiB/500MiB(55%)][#3e0cae 119MiB/500MiB(23%)]
+[DL:11MiB][#de4a78 273MiB/500MiB(54%)][#ddb6c2 280MiB/500MiB(56%)][#3e0cae 124MiB/500MiB(24%)]
+[DL:11MiB][#de4a78 274MiB/500MiB(54%)][#ddb6c2 285MiB/500MiB(57%)][#3e0cae 129MiB/500MiB(25%)]
+[DL:11MiB][#de4a78 275MiB/500MiB(55%)][#ddb6c2 290MiB/500MiB(58%)][#3e0cae 134MiB/500MiB(26%)]
+[DL:11MiB][#de4a78 276MiB/500MiB(55%)][#ddb6c2 295MiB/500MiB(59%)][#3e0cae 139MiB/500MiB(27%)]
+[DL:11MiB][#de4a78 277MiB/500MiB(55%)][#ddb6c2 300MiB/500MiB(60%)][#3e0cae 145MiB/500MiB(29%)]
+[DL:11MiB][#de4a78 277MiB/500MiB(55%)][#ddb6c2 305MiB/500MiB(61%)][#3e0cae 150MiB/500MiB(30%)]
+ *** Download Progress Summary as of Mon Apr  6 20:32:09 2026 *** 
+===============================================================================
+[#de4a78 278MiB/500MiB(55%) CN:1 DL:1.0MiB ETA:3m39s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#ddb6c2 309MiB/500MiB(61%) CN:1 DL:5.0MiB ETA:37s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part51.rar
+-------------------------------------------------------------------------------
+[#3e0cae 156MiB/500MiB(31%) CN:1 DL:5.0MiB ETA:1m8s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part52.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#de4a78 278MiB/500MiB(55%)][#ddb6c2 309MiB/500MiB(61%)][#3e0cae 156MiB/500MiB(31%)]
+[DL:10MiB][#de4a78 279MiB/500MiB(55%)][#ddb6c2 313MiB/500MiB(62%)][#3e0cae 160MiB/500MiB(32%)]
+[DL:10MiB][#de4a78 280MiB/500MiB(56%)][#ddb6c2 317MiB/500MiB(63%)][#3e0cae 166MiB/500MiB(33%)]
+[DL:10MiB][#de4a78 281MiB/500MiB(56%)][#ddb6c2 322MiB/500MiB(64%)][#3e0cae 171MiB/500MiB(34%)]
+[DL:10MiB][#de4a78 282MiB/500MiB(56%)][#ddb6c2 326MiB/500MiB(65%)][#3e0cae 177MiB/500MiB(35%)]
+[DL:10MiB][#de4a78 283MiB/500MiB(56%)][#ddb6c2 330MiB/500MiB(66%)][#3e0cae 183MiB/500MiB(36%)]
+[DL:10MiB][#de4a78 284MiB/500MiB(56%)][#ddb6c2 334MiB/500MiB(66%)][#3e0cae 189MiB/500MiB(37%)]
+[DL:10MiB][#de4a78 285MiB/500MiB(57%)][#ddb6c2 339MiB/500MiB(67%)][#3e0cae 195MiB/500MiB(39%)]
+[DL:10MiB][#de4a78 286MiB/500MiB(57%)][#ddb6c2 343MiB/500MiB(68%)][#3e0cae 201MiB/500MiB(40%)]
+[DL:10MiB][#de4a78 286MiB/500MiB(57%)][#ddb6c2 347MiB/500MiB(69%)][#3e0cae 207MiB/500MiB(41%)]
+[DL:10MiB][#de4a78 287MiB/500MiB(57%)][#ddb6c2 352MiB/500MiB(70%)][#3e0cae 213MiB/500MiB(42%)]
+[DL:11MiB][#de4a78 288MiB/500MiB(57%)][#ddb6c2 356MiB/500MiB(71%)][#3e0cae 219MiB/500MiB(43%)]
+[DL:10MiB][#de4a78 289MiB/500MiB(57%)][#ddb6c2 359MiB/500MiB(71%)][#3e0cae 223MiB/500MiB(44%)]
+[DL:10MiB][#de4a78 291MiB/500MiB(58%)][#ddb6c2 364MiB/500MiB(72%)][#3e0cae 228MiB/500MiB(45%)]
+[DL:10MiB][#de4a78 292MiB/500MiB(58%)][#ddb6c2 368MiB/500MiB(73%)][#3e0cae 234MiB/500MiB(46%)]
+[DL:10MiB][#de4a78 293MiB/500MiB(58%)][#ddb6c2 373MiB/500MiB(74%)][#3e0cae 239MiB/500MiB(47%)]
+ *** Download Progress Summary as of Mon Apr  6 20:32:25 2026 *** 
+===============================================================================
+[#de4a78 293MiB/500MiB(58%) CN:1 DL:0.9MiB ETA:3m30s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#ddb6c2 377MiB/500MiB(75%) CN:1 DL:4.3MiB ETA:28s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part51.rar
+-------------------------------------------------------------------------------
+[#3e0cae 245MiB/500MiB(49%) CN:1 DL:5.6MiB ETA:45s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part52.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#de4a78 293MiB/500MiB(58%)][#ddb6c2 377MiB/500MiB(75%)][#3e0cae 245MiB/500MiB(49%)]
+[DL:11MiB][#de4a78 294MiB/500MiB(58%)][#ddb6c2 382MiB/500MiB(76%)][#3e0cae 251MiB/500MiB(50%)]
+[DL:10MiB][#de4a78 295MiB/500MiB(59%)][#ddb6c2 386MiB/500MiB(77%)][#3e0cae 256MiB/500MiB(51%)]
+[DL:10MiB][#de4a78 296MiB/500MiB(59%)][#ddb6c2 391MiB/500MiB(78%)][#3e0cae 262MiB/500MiB(52%)]
+[DL:10MiB][#de4a78 297MiB/500MiB(59%)][#ddb6c2 395MiB/500MiB(79%)][#3e0cae 268MiB/500MiB(53%)]
+[DL:11MiB][#de4a78 298MiB/500MiB(59%)][#ddb6c2 400MiB/500MiB(80%)][#3e0cae 274MiB/500MiB(54%)]
+[DL:11MiB][#de4a78 299MiB/500MiB(59%)][#ddb6c2 403MiB/500MiB(80%)][#3e0cae 278MiB/500MiB(55%)]
+[DL:10MiB][#de4a78 300MiB/500MiB(60%)][#ddb6c2 407MiB/500MiB(81%)][#3e0cae 283MiB/500MiB(56%)]
+[DL:10MiB][#de4a78 301MiB/500MiB(60%)][#ddb6c2 411MiB/500MiB(82%)][#3e0cae 289MiB/500MiB(57%)]
+[DL:10MiB][#de4a78 302MiB/500MiB(60%)][#ddb6c2 415MiB/500MiB(83%)][#3e0cae 295MiB/500MiB(59%)]
+[DL:10MiB][#de4a78 303MiB/500MiB(60%)][#ddb6c2 420MiB/500MiB(84%)][#3e0cae 301MiB/500MiB(60%)]
+[DL:10MiB][#de4a78 304MiB/500MiB(60%)][#ddb6c2 424MiB/500MiB(84%)][#3e0cae 307MiB/500MiB(61%)]
+[DL:10MiB][#de4a78 305MiB/500MiB(61%)][#ddb6c2 428MiB/500MiB(85%)][#3e0cae 313MiB/500MiB(62%)]
+[DL:10MiB][#de4a78 306MiB/500MiB(61%)][#ddb6c2 433MiB/500MiB(86%)][#3e0cae 319MiB/500MiB(63%)]
+[DL:10MiB][#de4a78 307MiB/500MiB(61%)][#ddb6c2 437MiB/500MiB(87%)][#3e0cae 324MiB/500MiB(64%)]
+[DL:11MiB][#de4a78 308MiB/500MiB(61%)][#ddb6c2 442MiB/500MiB(88%)][#3e0cae 330MiB/500MiB(66%)]
+ *** Download Progress Summary as of Mon Apr  6 20:32:40 2026 *** 
+===============================================================================
+[#de4a78 308MiB/500MiB(61%) CN:1 DL:0.9MiB ETA:3m21s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#ddb6c2 445MiB/500MiB(89%) CN:1 DL:4.1MiB ETA:13s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part51.rar
+-------------------------------------------------------------------------------
+[#3e0cae 337MiB/500MiB(67%) CN:1 DL:5.9MiB ETA:27s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part52.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#de4a78 308MiB/500MiB(61%)][#ddb6c2 445MiB/500MiB(89%)][#3e0cae 337MiB/500MiB(67%)]
+[DL:11MiB][#de4a78 309MiB/500MiB(61%)][#ddb6c2 448MiB/500MiB(89%)][#3e0cae 344MiB/500MiB(68%)]
+[DL:11MiB][#de4a78 310MiB/500MiB(62%)][#ddb6c2 452MiB/500MiB(90%)][#3e0cae 350MiB/500MiB(70%)]
+[DL:11MiB][#de4a78 311MiB/500MiB(62%)][#ddb6c2 455MiB/500MiB(91%)][#3e0cae 357MiB/500MiB(71%)]
+[DL:11MiB][#de4a78 312MiB/500MiB(62%)][#ddb6c2 459MiB/500MiB(91%)][#3e0cae 364MiB/500MiB(72%)]
+[DL:11MiB][#de4a78 313MiB/500MiB(62%)][#ddb6c2 463MiB/500MiB(92%)][#3e0cae 370MiB/500MiB(74%)]
+[DL:11MiB][#de4a78 313MiB/500MiB(62%)][#ddb6c2 467MiB/500MiB(93%)][#3e0cae 376MiB/500MiB(75%)]
+[DL:11MiB][#de4a78 314MiB/500MiB(62%)][#ddb6c2 471MiB/500MiB(94%)][#3e0cae 383MiB/500MiB(76%)]
+[DL:11MiB][#de4a78 315MiB/500MiB(63%)][#ddb6c2 475MiB/500MiB(95%)][#3e0cae 389MiB/500MiB(77%)]
+[DL:11MiB][#de4a78 316MiB/500MiB(63%)][#ddb6c2 479MiB/500MiB(95%)][#3e0cae 395MiB/500MiB(79%)]
+[DL:11MiB][#de4a78 317MiB/500MiB(63%)][#ddb6c2 483MiB/500MiB(96%)][#3e0cae 401MiB/500MiB(80%)]
+[DL:10MiB][#de4a78 318MiB/500MiB(63%)][#ddb6c2 486MiB/500MiB(97%)][#3e0cae 406MiB/500MiB(81%)]
+[DL:10MiB][#de4a78 319MiB/500MiB(63%)][#ddb6c2 490MiB/500MiB(98%)][#3e0cae 410MiB/500MiB(82%)]
+[DL:10MiB][#de4a78 320MiB/500MiB(64%)][#ddb6c2 495MiB/500MiB(99%)][#3e0cae 416MiB/500MiB(83%)]
+
+04/06 20:32:54 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part51.rar
+[DL:10MiB][#de4a78 321MiB/500MiB(64%)][#3e0cae 421MiB/500MiB(84%)][#f00bbe 128KiB/500MiB(0%)]
+[DL:10MiB][#de4a78 322MiB/500MiB(64%)][#3e0cae 427MiB/500MiB(85%)][#f00bbe 4.7MiB/500MiB(0%)]
+ *** Download Progress Summary as of Mon Apr  6 20:32:56 2026 *** 
+===============================================================================
+[#de4a78 323MiB/500MiB(64%) CN:1 DL:1.0MiB ETA:2m56s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#3e0cae 432MiB/500MiB(86%) CN:1 DL:5.5MiB ETA:12s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part52.rar
+-------------------------------------------------------------------------------
+[#f00bbe 9.3MiB/500MiB(1%) CN:1 DL:4.6MiB ETA:1m44s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part53.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#de4a78 323MiB/500MiB(64%)][#3e0cae 432MiB/500MiB(86%)][#f00bbe 9.3MiB/500MiB(1%)]
+[DL:10MiB][#de4a78 324MiB/500MiB(64%)][#3e0cae 438MiB/500MiB(87%)][#f00bbe 14MiB/500MiB(2%)]
+[DL:10MiB][#de4a78 325MiB/500MiB(65%)][#3e0cae 443MiB/500MiB(88%)][#f00bbe 18MiB/500MiB(3%)]
+[DL:10MiB][#de4a78 326MiB/500MiB(65%)][#3e0cae 449MiB/500MiB(89%)][#f00bbe 23MiB/500MiB(4%)]
+[DL:11MiB][#de4a78 327MiB/500MiB(65%)][#3e0cae 455MiB/500MiB(91%)][#f00bbe 27MiB/500MiB(5%)]
+[DL:11MiB][#de4a78 328MiB/500MiB(65%)][#3e0cae 461MiB/500MiB(92%)][#f00bbe 31MiB/500MiB(6%)]
+[DL:11MiB][#de4a78 329MiB/500MiB(65%)][#3e0cae 467MiB/500MiB(93%)][#f00bbe 34MiB/500MiB(6%)]
+[DL:11MiB][#de4a78 331MiB/500MiB(66%)][#3e0cae 473MiB/500MiB(94%)][#f00bbe 38MiB/500MiB(7%)]
+[DL:11MiB][#de4a78 333MiB/500MiB(66%)][#3e0cae 478MiB/500MiB(95%)][#f00bbe 41MiB/500MiB(8%)]
+[DL:11MiB][#de4a78 337MiB/500MiB(67%)][#3e0cae 482MiB/500MiB(96%)][#f00bbe 44MiB/500MiB(8%)]
+[DL:11MiB][#de4a78 341MiB/500MiB(68%)][#3e0cae 487MiB/500MiB(97%)][#f00bbe 47MiB/500MiB(9%)]
+[DL:11MiB][#de4a78 346MiB/500MiB(69%)][#3e0cae 490MiB/500MiB(98%)][#f00bbe 49MiB/500MiB(9%)]
+[DL:11MiB][#de4a78 352MiB/500MiB(70%)][#3e0cae 493MiB/500MiB(98%)][#f00bbe 51MiB/500MiB(10%)]
+[DL:11MiB][#de4a78 359MiB/500MiB(71%)][#3e0cae 496MiB/500MiB(99%)][#f00bbe 53MiB/500MiB(10%)]
+[DL:11MiB][#de4a78 367MiB/500MiB(73%)][#3e0cae 498MiB/500MiB(99%)][#f00bbe 54MiB/500MiB(10%)]
+[DL:11MiB][#de4a78 375MiB/500MiB(75%)][#3e0cae 499MiB/500MiB(99%)][#f00bbe 55MiB/500MiB(11%)]
+
+04/06 20:33:12 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part52.rar
+ *** Download Progress Summary as of Mon Apr  6 20:33:12 2026 *** 
+===============================================================================
+[#de4a78 384MiB/500MiB(76%) CN:1 DL:5.6MiB ETA:20s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#f00bbe 56MiB/500MiB(11%) CN:1 DL:2.2MiB ETA:3m19s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part53.rar
+-------------------------------------------------------------------------------
+[#c0f6ea 768KiB/500MiB(0%) CN:1 DL:1.8MiB ETA:4m35s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part54.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#de4a78 384MiB/500MiB(76%)][#f00bbe 56MiB/500MiB(11%)][#c0f6ea 768KiB/500MiB(0%)]
+[DL:11MiB][#de4a78 392MiB/500MiB(78%)][#f00bbe 58MiB/500MiB(11%)][#c0f6ea 2.9MiB/500MiB(0%)]
+[DL:11MiB][#de4a78 398MiB/500MiB(79%)][#f00bbe 60MiB/500MiB(12%)][#c0f6ea 5.8MiB/500MiB(1%)]
+[DL:11MiB][#de4a78 402MiB/500MiB(80%)][#f00bbe 63MiB/500MiB(12%)][#c0f6ea 9.4MiB/500MiB(1%)]
+[DL:11MiB][#de4a78 406MiB/500MiB(81%)][#f00bbe 66MiB/500MiB(13%)][#c0f6ea 13MiB/500MiB(2%)]
+[DL:11MiB][#de4a78 408MiB/500MiB(81%)][#f00bbe 70MiB/500MiB(14%)][#c0f6ea 18MiB/500MiB(3%)]
+[DL:11MiB][#de4a78 410MiB/500MiB(82%)][#f00bbe 74MiB/500MiB(14%)][#c0f6ea 23MiB/500MiB(4%)]
+[DL:11MiB][#de4a78 412MiB/500MiB(82%)][#f00bbe 78MiB/500MiB(15%)][#c0f6ea 29MiB/500MiB(5%)]
+[DL:11MiB][#de4a78 413MiB/500MiB(82%)][#f00bbe 81MiB/500MiB(16%)][#c0f6ea 34MiB/500MiB(6%)]
+[DL:11MiB][#de4a78 414MiB/500MiB(82%)][#f00bbe 86MiB/500MiB(17%)][#c0f6ea 40MiB/500MiB(8%)]
+[DL:10MiB][#de4a78 415MiB/500MiB(83%)][#f00bbe 89MiB/500MiB(17%)][#c0f6ea 45MiB/500MiB(9%)]
+[DL:10MiB][#de4a78 416MiB/500MiB(83%)][#f00bbe 93MiB/500MiB(18%)][#c0f6ea 51MiB/500MiB(10%)]
+[DL:10MiB][#de4a78 417MiB/500MiB(83%)][#f00bbe 97MiB/500MiB(19%)][#c0f6ea 57MiB/500MiB(11%)]
+[DL:10MiB][#de4a78 418MiB/500MiB(83%)][#f00bbe 101MiB/500MiB(20%)][#c0f6ea 63MiB/500MiB(12%)]
+[DL:10MiB][#de4a78 419MiB/500MiB(83%)][#f00bbe 105MiB/500MiB(21%)][#c0f6ea 69MiB/500MiB(13%)]
+[DL:10MiB][#de4a78 420MiB/500MiB(84%)][#f00bbe 109MiB/500MiB(21%)][#c0f6ea 75MiB/500MiB(15%)]
+ *** Download Progress Summary as of Mon Apr  6 20:33:28 2026 *** 
+===============================================================================
+[#de4a78 421MiB/500MiB(84%) CN:1 DL:1.0MiB ETA:1m15s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#f00bbe 113MiB/500MiB(22%) CN:1 DL:3.9MiB ETA:1m36s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part53.rar
+-------------------------------------------------------------------------------
+[#c0f6ea 82MiB/500MiB(16%) CN:1 DL:5.8MiB ETA:1m10s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part54.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#de4a78 421MiB/500MiB(84%)][#f00bbe 113MiB/500MiB(22%)][#c0f6ea 82MiB/500MiB(16%)]
+[DL:11MiB][#de4a78 422MiB/500MiB(84%)][#f00bbe 117MiB/500MiB(23%)][#c0f6ea 88MiB/500MiB(17%)]
+[DL:10MiB][#de4a78 423MiB/500MiB(84%)][#f00bbe 121MiB/500MiB(24%)][#c0f6ea 94MiB/500MiB(18%)]
+[DL:10MiB][#de4a78 424MiB/500MiB(84%)][#f00bbe 126MiB/500MiB(25%)][#c0f6ea 100MiB/500MiB(20%)]
+[DL:10MiB][#de4a78 424MiB/500MiB(84%)][#f00bbe 129MiB/500MiB(25%)][#c0f6ea 105MiB/500MiB(21%)]
+[DL:10MiB][#de4a78 425MiB/500MiB(85%)][#f00bbe 133MiB/500MiB(26%)][#c0f6ea 110MiB/500MiB(22%)]
+[DL:10MiB][#de4a78 427MiB/500MiB(85%)][#f00bbe 137MiB/500MiB(27%)][#c0f6ea 116MiB/500MiB(23%)]
+[DL:10MiB][#de4a78 427MiB/500MiB(85%)][#f00bbe 141MiB/500MiB(28%)][#c0f6ea 122MiB/500MiB(24%)]
+[DL:10MiB][#de4a78 428MiB/500MiB(85%)][#f00bbe 145MiB/500MiB(29%)][#c0f6ea 128MiB/500MiB(25%)]
+[DL:10MiB][#de4a78 429MiB/500MiB(85%)][#f00bbe 150MiB/500MiB(30%)][#c0f6ea 134MiB/500MiB(26%)]
+[DL:10MiB][#de4a78 430MiB/500MiB(86%)][#f00bbe 154MiB/500MiB(30%)][#c0f6ea 140MiB/500MiB(28%)]
+[DL:10MiB][#de4a78 431MiB/500MiB(86%)][#f00bbe 158MiB/500MiB(31%)][#c0f6ea 146MiB/500MiB(29%)]
+[DL:10MiB][#de4a78 432MiB/500MiB(86%)][#f00bbe 162MiB/500MiB(32%)][#c0f6ea 152MiB/500MiB(30%)]
+[DL:10MiB][#de4a78 433MiB/500MiB(86%)][#f00bbe 167MiB/500MiB(33%)][#c0f6ea 158MiB/500MiB(31%)]
+[DL:11MiB][#de4a78 434MiB/500MiB(86%)][#f00bbe 171MiB/500MiB(34%)][#c0f6ea 164MiB/500MiB(32%)]
+[DL:10MiB][#de4a78 435MiB/500MiB(87%)][#f00bbe 174MiB/500MiB(34%)][#c0f6ea 168MiB/500MiB(33%)]
+ *** Download Progress Summary as of Mon Apr  6 20:33:44 2026 *** 
+===============================================================================
+[#de4a78 435MiB/500MiB(87%) CN:1 DL:0.9MiB ETA:1m11s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#f00bbe 179MiB/500MiB(35%) CN:1 DL:4.2MiB ETA:1m15s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part53.rar
+-------------------------------------------------------------------------------
+[#c0f6ea 173MiB/500MiB(34%) CN:1 DL:5.7MiB ETA:56s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part54.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#de4a78 435MiB/500MiB(87%)][#f00bbe 179MiB/500MiB(35%)][#c0f6ea 173MiB/500MiB(34%)]
+[DL:10MiB][#de4a78 436MiB/500MiB(87%)][#f00bbe 184MiB/500MiB(36%)][#c0f6ea 179MiB/500MiB(35%)]
+[DL:10MiB][#de4a78 437MiB/500MiB(87%)][#f00bbe 188MiB/500MiB(37%)][#c0f6ea 184MiB/500MiB(36%)]
+[DL:10MiB][#de4a78 438MiB/500MiB(87%)][#f00bbe 193MiB/500MiB(38%)][#c0f6ea 190MiB/500MiB(38%)]
+[DL:10MiB][#de4a78 439MiB/500MiB(87%)][#f00bbe 197MiB/500MiB(39%)][#c0f6ea 196MiB/500MiB(39%)]
+[DL:10MiB][#de4a78 440MiB/500MiB(88%)][#f00bbe 202MiB/500MiB(40%)][#c0f6ea 202MiB/500MiB(40%)]
+[DL:10MiB][#de4a78 441MiB/500MiB(88%)][#f00bbe 206MiB/500MiB(41%)][#c0f6ea 208MiB/500MiB(41%)]
+[DL:10MiB][#de4a78 442MiB/500MiB(88%)][#f00bbe 210MiB/500MiB(42%)][#c0f6ea 214MiB/500MiB(42%)]
+[DL:11MiB][#de4a78 442MiB/500MiB(88%)][#f00bbe 215MiB/500MiB(43%)][#c0f6ea 219MiB/500MiB(43%)]
+[DL:10MiB][#de4a78 443MiB/500MiB(88%)][#f00bbe 218MiB/500MiB(43%)][#c0f6ea 224MiB/500MiB(44%)]
+[DL:10MiB][#de4a78 445MiB/500MiB(89%)][#f00bbe 222MiB/500MiB(44%)][#c0f6ea 229MiB/500MiB(45%)]
+[DL:10MiB][#de4a78 446MiB/500MiB(89%)][#f00bbe 226MiB/500MiB(45%)][#c0f6ea 235MiB/500MiB(47%)]
+[DL:10MiB][#de4a78 447MiB/500MiB(89%)][#f00bbe 231MiB/500MiB(46%)][#c0f6ea 241MiB/500MiB(48%)]
+[DL:10MiB][#de4a78 448MiB/500MiB(89%)][#f00bbe 235MiB/500MiB(47%)][#c0f6ea 247MiB/500MiB(49%)]
+[DL:10MiB][#de4a78 449MiB/500MiB(89%)][#f00bbe 240MiB/500MiB(48%)][#c0f6ea 252MiB/500MiB(50%)]
+[DL:10MiB][#de4a78 450MiB/500MiB(90%)][#f00bbe 244MiB/500MiB(48%)][#c0f6ea 258MiB/500MiB(51%)]
+ *** Download Progress Summary as of Mon Apr  6 20:34:00 2026 *** 
+===============================================================================
+[#de4a78 450MiB/500MiB(90%) CN:1 DL:0.9MiB ETA:50s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#f00bbe 248MiB/500MiB(49%) CN:1 DL:4.2MiB ETA:59s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part53.rar
+-------------------------------------------------------------------------------
+[#c0f6ea 264MiB/500MiB(52%) CN:1 DL:5.7MiB ETA:41s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part54.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#de4a78 450MiB/500MiB(90%)][#f00bbe 248MiB/500MiB(49%)][#c0f6ea 264MiB/500MiB(52%)]
+[DL:10MiB][#de4a78 451MiB/500MiB(90%)][#f00bbe 252MiB/500MiB(50%)][#c0f6ea 270MiB/500MiB(54%)]
+[DL:10MiB][#de4a78 452MiB/500MiB(90%)][#f00bbe 257MiB/500MiB(51%)][#c0f6ea 276MiB/500MiB(55%)]
+[DL:11MiB][#de4a78 453MiB/500MiB(90%)][#f00bbe 260MiB/500MiB(52%)][#c0f6ea 281MiB/500MiB(56%)]
+[DL:10MiB][#de4a78 454MiB/500MiB(90%)][#f00bbe 264MiB/500MiB(52%)][#c0f6ea 286MiB/500MiB(57%)]
+[DL:10MiB][#de4a78 455MiB/500MiB(91%)][#f00bbe 268MiB/500MiB(53%)][#c0f6ea 292MiB/500MiB(58%)]
+[DL:10MiB][#de4a78 456MiB/500MiB(91%)][#f00bbe 273MiB/500MiB(54%)][#c0f6ea 298MiB/500MiB(59%)]
+[DL:10MiB][#de4a78 457MiB/500MiB(91%)][#f00bbe 277MiB/500MiB(55%)][#c0f6ea 304MiB/500MiB(60%)]
+[DL:10MiB][#de4a78 458MiB/500MiB(91%)][#f00bbe 281MiB/500MiB(56%)][#c0f6ea 310MiB/500MiB(62%)]
+[DL:10MiB][#de4a78 458MiB/500MiB(91%)][#f00bbe 286MiB/500MiB(57%)][#c0f6ea 316MiB/500MiB(63%)]
+[DL:10MiB][#de4a78 459MiB/500MiB(91%)][#f00bbe 290MiB/500MiB(58%)][#c0f6ea 322MiB/500MiB(64%)]
+[DL:10MiB][#de4a78 460MiB/500MiB(92%)][#f00bbe 294MiB/500MiB(58%)][#c0f6ea 328MiB/500MiB(65%)]
+[DL:10MiB][#de4a78 461MiB/500MiB(92%)][#f00bbe 299MiB/500MiB(59%)][#c0f6ea 334MiB/500MiB(66%)]
+[DL:11MiB][#de4a78 462MiB/500MiB(92%)][#f00bbe 303MiB/500MiB(60%)][#c0f6ea 339MiB/500MiB(67%)]
+[DL:11MiB][#de4a78 463MiB/500MiB(92%)][#f00bbe 305MiB/500MiB(61%)][#c0f6ea 347MiB/500MiB(69%)]
+[DL:11MiB][#de4a78 463MiB/500MiB(92%)][#f00bbe 309MiB/500MiB(61%)][#c0f6ea 354MiB/500MiB(70%)]
+ *** Download Progress Summary as of Mon Apr  6 20:34:16 2026 *** 
+===============================================================================
+[#de4a78 464MiB/500MiB(92%) CN:1 DL:836KiB ETA:43s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#f00bbe 312MiB/500MiB(62%) CN:1 DL:3.9MiB ETA:47s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part53.rar
+-------------------------------------------------------------------------------
+[#c0f6ea 361MiB/500MiB(72%) CN:1 DL:6.3MiB ETA:21s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part54.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#de4a78 464MiB/500MiB(92%)][#f00bbe 312MiB/500MiB(62%)][#c0f6ea 361MiB/500MiB(72%)]
+[DL:11MiB][#de4a78 465MiB/500MiB(93%)][#f00bbe 316MiB/500MiB(63%)][#c0f6ea 368MiB/500MiB(73%)]
+[DL:11MiB][#de4a78 466MiB/500MiB(93%)][#f00bbe 319MiB/500MiB(63%)][#c0f6ea 375MiB/500MiB(75%)]
+[DL:11MiB][#de4a78 467MiB/500MiB(93%)][#f00bbe 323MiB/500MiB(64%)][#c0f6ea 381MiB/500MiB(76%)]
+[DL:11MiB][#de4a78 468MiB/500MiB(93%)][#f00bbe 327MiB/500MiB(65%)][#c0f6ea 387MiB/500MiB(77%)]
+[DL:11MiB][#de4a78 469MiB/500MiB(93%)][#f00bbe 331MiB/500MiB(66%)][#c0f6ea 394MiB/500MiB(78%)]
+[DL:11MiB][#de4a78 470MiB/500MiB(94%)][#f00bbe 335MiB/500MiB(67%)][#c0f6ea 400MiB/500MiB(80%)]
+[DL:11MiB][#de4a78 470MiB/500MiB(94%)][#f00bbe 339MiB/500MiB(67%)][#c0f6ea 406MiB/500MiB(81%)]
+[DL:10MiB][#de4a78 471MiB/500MiB(94%)][#f00bbe 342MiB/500MiB(68%)][#c0f6ea 410MiB/500MiB(82%)]
+[DL:10MiB][#de4a78 472MiB/500MiB(94%)][#f00bbe 346MiB/500MiB(69%)][#c0f6ea 416MiB/500MiB(83%)]
+[DL:10MiB][#de4a78 473MiB/500MiB(94%)][#f00bbe 350MiB/500MiB(70%)][#c0f6ea 422MiB/500MiB(84%)]
+[DL:10MiB][#de4a78 474MiB/500MiB(94%)][#f00bbe 355MiB/500MiB(71%)][#c0f6ea 428MiB/500MiB(85%)]
+[DL:10MiB][#de4a78 475MiB/500MiB(95%)][#f00bbe 359MiB/500MiB(71%)][#c0f6ea 434MiB/500MiB(86%)]
+[DL:10MiB][#de4a78 476MiB/500MiB(95%)][#f00bbe 363MiB/500MiB(72%)][#c0f6ea 440MiB/500MiB(88%)]
+[DL:10MiB][#de4a78 477MiB/500MiB(95%)][#f00bbe 367MiB/500MiB(73%)][#c0f6ea 446MiB/500MiB(89%)]
+[DL:10MiB][#de4a78 478MiB/500MiB(95%)][#f00bbe 372MiB/500MiB(74%)][#c0f6ea 452MiB/500MiB(90%)]
+ *** Download Progress Summary as of Mon Apr  6 20:34:31 2026 *** 
+===============================================================================
+[#de4a78 479MiB/500MiB(95%) CN:1 DL:0.9MiB ETA:22s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#f00bbe 376MiB/500MiB(75%) CN:1 DL:4.1MiB ETA:29s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part53.rar
+-------------------------------------------------------------------------------
+[#c0f6ea 458MiB/500MiB(91%) CN:1 DL:5.8MiB ETA:7s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part54.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#de4a78 479MiB/500MiB(95%)][#f00bbe 376MiB/500MiB(75%)][#c0f6ea 458MiB/500MiB(91%)]
+[DL:11MiB][#de4a78 480MiB/500MiB(96%)][#f00bbe 381MiB/500MiB(76%)][#c0f6ea 463MiB/500MiB(92%)]
+[DL:11MiB][#de4a78 480MiB/500MiB(96%)][#f00bbe 385MiB/500MiB(77%)][#c0f6ea 469MiB/500MiB(93%)]
+[DL:10MiB][#de4a78 481MiB/500MiB(96%)][#f00bbe 388MiB/500MiB(77%)][#c0f6ea 474MiB/500MiB(94%)]
+[DL:10MiB][#de4a78 482MiB/500MiB(96%)][#f00bbe 393MiB/500MiB(78%)][#c0f6ea 480MiB/500MiB(96%)]
+[DL:10MiB][#de4a78 483MiB/500MiB(96%)][#f00bbe 397MiB/500MiB(79%)][#c0f6ea 485MiB/500MiB(97%)]
+[DL:10MiB][#de4a78 484MiB/500MiB(96%)][#f00bbe 401MiB/500MiB(80%)][#c0f6ea 491MiB/500MiB(98%)]
+[DL:10MiB][#de4a78 485MiB/500MiB(97%)][#f00bbe 406MiB/500MiB(81%)][#c0f6ea 497MiB/500MiB(99%)]
+
+04/06 20:34:39 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part54.rar
+[DL:10MiB][#de4a78 486MiB/500MiB(97%)][#f00bbe 410MiB/500MiB(82%)][#0313b3 2.2MiB/500MiB(0%)]
+[DL:10MiB][#de4a78 487MiB/500MiB(97%)][#f00bbe 416MiB/500MiB(83%)][#0313b3 7.2MiB/500MiB(1%)]
+[DL:10MiB][#de4a78 488MiB/500MiB(97%)][#f00bbe 421MiB/500MiB(84%)][#0313b3 12MiB/500MiB(2%)]
+[DL:10MiB][#de4a78 488MiB/500MiB(97%)][#f00bbe 426MiB/500MiB(85%)][#0313b3 17MiB/500MiB(3%)]
+[DL:10MiB][#de4a78 489MiB/500MiB(97%)][#f00bbe 431MiB/500MiB(86%)][#0313b3 22MiB/500MiB(4%)]
+[DL:10MiB][#de4a78 491MiB/500MiB(98%)][#f00bbe 435MiB/500MiB(87%)][#0313b3 26MiB/500MiB(5%)]
+[DL:10MiB][#de4a78 492MiB/500MiB(98%)][#f00bbe 440MiB/500MiB(88%)][#0313b3 31MiB/500MiB(6%)]
+[DL:10MiB][#de4a78 493MiB/500MiB(98%)][#f00bbe 444MiB/500MiB(88%)][#0313b3 36MiB/500MiB(7%)]
+ *** Download Progress Summary as of Mon Apr  6 20:34:47 2026 *** 
+===============================================================================
+[#de4a78 494MiB/500MiB(98%) CN:1 DL:1.0MiB ETA:5s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+-------------------------------------------------------------------------------
+[#f00bbe 449MiB/500MiB(89%) CN:1 DL:4.7MiB ETA:10s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part53.rar
+-------------------------------------------------------------------------------
+[#0313b3 42MiB/500MiB(8%) CN:1 DL:5.0MiB ETA:1m30s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part55.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#de4a78 494MiB/500MiB(98%)][#f00bbe 449MiB/500MiB(89%)][#0313b3 42MiB/500MiB(8%)]
+[DL:10MiB][#de4a78 495MiB/500MiB(99%)][#f00bbe 453MiB/500MiB(90%)][#0313b3 47MiB/500MiB(9%)]
+[DL:10MiB][#de4a78 496MiB/500MiB(99%)][#f00bbe 458MiB/500MiB(91%)][#0313b3 53MiB/500MiB(10%)]
+[DL:10MiB][#de4a78 497MiB/500MiB(99%)][#f00bbe 463MiB/500MiB(92%)][#0313b3 58MiB/500MiB(11%)]
+[DL:10MiB][#de4a78 498MiB/500MiB(99%)][#f00bbe 467MiB/500MiB(93%)][#0313b3 64MiB/500MiB(12%)]
+
+04/06 20:34:52 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part47.rar
+[DL:10MiB][#f00bbe 471MiB/500MiB(94%)][#0313b3 69MiB/500MiB(13%)][#f86592 256KiB/500MiB(0%)]
+[DL:10MiB][#f00bbe 475MiB/500MiB(95%)][#0313b3 74MiB/500MiB(14%)][#f86592 2.3MiB/500MiB(0%)]
+[DL:11MiB][#f00bbe 478MiB/500MiB(95%)][#0313b3 77MiB/500MiB(15%)][#f86592 5.9MiB/500MiB(1%)]
+[DL:11MiB][#f00bbe 481MiB/500MiB(96%)][#0313b3 80MiB/500MiB(16%)][#f86592 11MiB/500MiB(2%)]
+[DL:11MiB][#f00bbe 484MiB/500MiB(96%)][#0313b3 84MiB/500MiB(16%)][#f86592 15MiB/500MiB(3%)]
+[DL:11MiB][#f00bbe 488MiB/500MiB(97%)][#0313b3 89MiB/500MiB(17%)][#f86592 18MiB/500MiB(3%)]
+[DL:11MiB][#f00bbe 492MiB/500MiB(98%)][#0313b3 94MiB/500MiB(18%)][#f86592 19MiB/500MiB(3%)]
+[DL:11MiB][#f00bbe 496MiB/500MiB(99%)][#0313b3 99MiB/500MiB(19%)][#f86592 21MiB/500MiB(4%)]
+
+04/06 20:35:00 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part53.rar
+[DL:11MiB][#0313b3 105MiB/500MiB(21%)][#f86592 22MiB/500MiB(4%)][#970556 592KiB/500MiB(0%)]
+[DL:11MiB][#0313b3 111MiB/500MiB(22%)][#f86592 24MiB/500MiB(4%)][#970556 4.5MiB/500MiB(0%)]
+[DL:11MiB][#0313b3 117MiB/500MiB(23%)][#f86592 24MiB/500MiB(4%)][#970556 8.6MiB/500MiB(1%)]
+ *** Download Progress Summary as of Mon Apr  6 20:35:03 2026 *** 
+===============================================================================
+[#0313b3 123MiB/500MiB(24%) CN:1 DL:5.0MiB ETA:1m15s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part55.rar
+-------------------------------------------------------------------------------
+[#f86592 25MiB/500MiB(5%) CN:1 DL:2.3MiB ETA:3m24s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part56.rar
+-------------------------------------------------------------------------------
+[#970556 12MiB/500MiB(2%) CN:1 DL:4.1MiB ETA:1m57s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part57.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#0313b3 123MiB/500MiB(24%)][#f86592 25MiB/500MiB(5%)][#970556 12MiB/500MiB(2%)]
+[DL:11MiB][#0313b3 129MiB/500MiB(25%)][#f86592 26MiB/500MiB(5%)][#970556 17MiB/500MiB(3%)]
+[DL:11MiB][#0313b3 136MiB/500MiB(27%)][#f86592 27MiB/500MiB(5%)][#970556 19MiB/500MiB(3%)]
+[DL:11MiB][#0313b3 142MiB/500MiB(28%)][#f86592 28MiB/500MiB(5%)][#970556 23MiB/500MiB(4%)]
+[DL:11MiB][#0313b3 148MiB/500MiB(29%)][#f86592 29MiB/500MiB(5%)][#970556 27MiB/500MiB(5%)]
+[DL:11MiB][#0313b3 154MiB/500MiB(30%)][#f86592 30MiB/500MiB(6%)][#970556 31MiB/500MiB(6%)]
+[DL:11MiB][#0313b3 161MiB/500MiB(32%)][#f86592 31MiB/500MiB(6%)][#970556 36MiB/500MiB(7%)]
+[DL:11MiB][#0313b3 167MiB/500MiB(33%)][#f86592 31MiB/500MiB(6%)][#970556 40MiB/500MiB(8%)]
+[DL:11MiB][#0313b3 170MiB/500MiB(34%)][#f86592 33MiB/500MiB(6%)][#970556 45MiB/500MiB(9%)]
+[DL:11MiB][#0313b3 175MiB/500MiB(35%)][#f86592 34MiB/500MiB(6%)][#970556 50MiB/500MiB(10%)]
+[DL:11MiB][#0313b3 180MiB/500MiB(36%)][#f86592 35MiB/500MiB(7%)][#970556 55MiB/500MiB(11%)]
+[DL:11MiB][#0313b3 186MiB/500MiB(37%)][#f86592 36MiB/500MiB(7%)][#970556 60MiB/500MiB(12%)]
+[DL:11MiB][#0313b3 191MiB/500MiB(38%)][#f86592 37MiB/500MiB(7%)][#970556 65MiB/500MiB(13%)]
+[DL:11MiB][#0313b3 196MiB/500MiB(39%)][#f86592 37MiB/500MiB(7%)][#970556 69MiB/500MiB(13%)]
+[DL:11MiB][#0313b3 202MiB/500MiB(40%)][#f86592 38MiB/500MiB(7%)][#970556 74MiB/500MiB(14%)]
+[DL:11MiB][#0313b3 208MiB/500MiB(41%)][#f86592 39MiB/500MiB(7%)][#970556 79MiB/500MiB(15%)]
+ *** Download Progress Summary as of Mon Apr  6 20:35:19 2026 *** 
+===============================================================================
+[#0313b3 213MiB/500MiB(42%) CN:1 DL:5.3MiB ETA:53s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part55.rar
+-------------------------------------------------------------------------------
+[#f86592 40MiB/500MiB(8%) CN:1 DL:0.9MiB ETA:8m12s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part56.rar
+-------------------------------------------------------------------------------
+[#970556 83MiB/500MiB(16%) CN:1 DL:4.8MiB ETA:1m26s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part57.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#0313b3 213MiB/500MiB(42%)][#f86592 40MiB/500MiB(8%)][#970556 83MiB/500MiB(16%)]
+[DL:11MiB][#0313b3 219MiB/500MiB(43%)][#f86592 41MiB/500MiB(8%)][#970556 88MiB/500MiB(17%)]
+[DL:11MiB][#0313b3 223MiB/500MiB(44%)][#f86592 41MiB/500MiB(8%)][#970556 93MiB/500MiB(18%)]
+[DL:11MiB][#0313b3 227MiB/500MiB(45%)][#f86592 42MiB/500MiB(8%)][#970556 100MiB/500MiB(20%)]
+[DL:11MiB][#0313b3 231MiB/500MiB(46%)][#f86592 43MiB/500MiB(8%)][#970556 106MiB/500MiB(21%)]
+[DL:11MiB][#0313b3 235MiB/500MiB(47%)][#f86592 44MiB/500MiB(8%)][#970556 112MiB/500MiB(22%)]
+[DL:11MiB][#0313b3 240MiB/500MiB(48%)][#f86592 44MiB/500MiB(8%)][#970556 118MiB/500MiB(23%)]
+[DL:11MiB][#0313b3 245MiB/500MiB(49%)][#f86592 45MiB/500MiB(9%)][#970556 123MiB/500MiB(24%)]
+[DL:11MiB][#0313b3 250MiB/500MiB(50%)][#f86592 46MiB/500MiB(9%)][#970556 129MiB/500MiB(25%)]
+[DL:11MiB][#0313b3 255MiB/500MiB(51%)][#f86592 47MiB/500MiB(9%)][#970556 134MiB/500MiB(26%)]
+[DL:11MiB][#0313b3 260MiB/500MiB(52%)][#f86592 48MiB/500MiB(9%)][#970556 139MiB/500MiB(27%)]
+[DL:11MiB][#0313b3 265MiB/500MiB(53%)][#f86592 49MiB/500MiB(9%)][#970556 144MiB/500MiB(28%)]
+[DL:11MiB][#0313b3 270MiB/500MiB(54%)][#f86592 50MiB/500MiB(10%)][#970556 148MiB/500MiB(29%)]
+[DL:11MiB][#0313b3 276MiB/500MiB(55%)][#f86592 51MiB/500MiB(10%)][#970556 152MiB/500MiB(30%)]
+[DL:11MiB][#0313b3 282MiB/500MiB(56%)][#f86592 51MiB/500MiB(10%)][#970556 157MiB/500MiB(31%)]
+[DL:11MiB][#0313b3 288MiB/500MiB(57%)][#f86592 52MiB/500MiB(10%)][#970556 161MiB/500MiB(32%)]
+ *** Download Progress Summary as of Mon Apr  6 20:35:35 2026 *** 
+===============================================================================
+[#0313b3 293MiB/500MiB(58%) CN:1 DL:5.3MiB ETA:38s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part55.rar
+-------------------------------------------------------------------------------
+[#f86592 53MiB/500MiB(10%) CN:1 DL:907KiB ETA:8m23s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part56.rar
+-------------------------------------------------------------------------------
+[#970556 166MiB/500MiB(33%) CN:1 DL:4.8MiB ETA:1m8s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part57.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#0313b3 293MiB/500MiB(58%)][#f86592 53MiB/500MiB(10%)][#970556 166MiB/500MiB(33%)]
+[DL:11MiB][#0313b3 299MiB/500MiB(59%)][#f86592 54MiB/500MiB(10%)][#970556 170MiB/500MiB(34%)]
+[DL:11MiB][#0313b3 305MiB/500MiB(61%)][#f86592 55MiB/500MiB(11%)][#970556 175MiB/500MiB(35%)]
+[DL:11MiB][#0313b3 310MiB/500MiB(62%)][#f86592 56MiB/500MiB(11%)][#970556 179MiB/500MiB(35%)]
+[DL:11MiB][#0313b3 316MiB/500MiB(63%)][#f86592 57MiB/500MiB(11%)][#970556 184MiB/500MiB(36%)]
+[DL:11MiB][#0313b3 322MiB/500MiB(64%)][#f86592 58MiB/500MiB(11%)][#970556 188MiB/500MiB(37%)]
+[DL:11MiB][#0313b3 327MiB/500MiB(65%)][#f86592 59MiB/500MiB(11%)][#970556 192MiB/500MiB(38%)]
+[DL:10MiB][#0313b3 331MiB/500MiB(66%)][#f86592 61MiB/500MiB(12%)][#970556 195MiB/500MiB(39%)]
+[DL:10MiB][#0313b3 336MiB/500MiB(67%)][#f86592 63MiB/500MiB(12%)][#970556 199MiB/500MiB(39%)]
+[DL:10MiB][#0313b3 342MiB/500MiB(68%)][#f86592 65MiB/500MiB(13%)][#970556 203MiB/500MiB(40%)]
+[DL:10MiB][#0313b3 348MiB/500MiB(69%)][#f86592 66MiB/500MiB(13%)][#970556 207MiB/500MiB(41%)]
+[DL:10MiB][#0313b3 354MiB/500MiB(70%)][#f86592 67MiB/500MiB(13%)][#970556 212MiB/500MiB(42%)]
+[DL:10MiB][#0313b3 360MiB/500MiB(72%)][#f86592 68MiB/500MiB(13%)][#970556 216MiB/500MiB(43%)]
+[DL:10MiB][#0313b3 366MiB/500MiB(73%)][#f86592 69MiB/500MiB(13%)][#970556 220MiB/500MiB(44%)]
+[DL:10MiB][#0313b3 371MiB/500MiB(74%)][#f86592 70MiB/500MiB(14%)][#970556 224MiB/500MiB(44%)]
+[DL:10MiB][#0313b3 377MiB/500MiB(75%)][#f86592 71MiB/500MiB(14%)][#970556 229MiB/500MiB(45%)]
+ *** Download Progress Summary as of Mon Apr  6 20:35:51 2026 *** 
+===============================================================================
+[#0313b3 383MiB/500MiB(76%) CN:1 DL:5.8MiB ETA:20s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part55.rar
+-------------------------------------------------------------------------------
+[#f86592 72MiB/500MiB(14%) CN:1 DL:1.2MiB ETA:5m49s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part56.rar
+-------------------------------------------------------------------------------
+[#970556 233MiB/500MiB(46%) CN:1 DL:4.1MiB ETA:1m4s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part57.rar
+-------------------------------------------------------------------------------
+
+[DL:11MiB][#0313b3 383MiB/500MiB(76%)][#f86592 72MiB/500MiB(14%)][#970556 233MiB/500MiB(46%)]
+[DL:10MiB][#0313b3 388MiB/500MiB(77%)][#f86592 73MiB/500MiB(14%)][#970556 236MiB/500MiB(47%)]
+[DL:10MiB][#0313b3 394MiB/500MiB(78%)][#f86592 74MiB/500MiB(14%)][#970556 240MiB/500MiB(48%)]
+[DL:10MiB][#0313b3 400MiB/500MiB(80%)][#f86592 75MiB/500MiB(15%)][#970556 244MiB/500MiB(48%)]
+[DL:10MiB][#0313b3 406MiB/500MiB(81%)][#f86592 76MiB/500MiB(15%)][#970556 248MiB/500MiB(49%)]
+[DL:10MiB][#0313b3 412MiB/500MiB(82%)][#f86592 77MiB/500MiB(15%)][#970556 252MiB/500MiB(50%)]
+[DL:10MiB][#0313b3 418MiB/500MiB(83%)][#f86592 78MiB/500MiB(15%)][#970556 256MiB/500MiB(51%)]
+[DL:10MiB][#0313b3 424MiB/500MiB(84%)][#f86592 79MiB/500MiB(15%)][#970556 260MiB/500MiB(52%)]
+[DL:10MiB][#0313b3 430MiB/500MiB(86%)][#f86592 79MiB/500MiB(15%)][#970556 264MiB/500MiB(52%)]
+[DL:10MiB][#0313b3 436MiB/500MiB(87%)][#f86592 80MiB/500MiB(16%)][#970556 268MiB/500MiB(53%)]
+[DL:11MiB][#0313b3 442MiB/500MiB(88%)][#f86592 81MiB/500MiB(16%)][#970556 273MiB/500MiB(54%)]
+[DL:10MiB][#0313b3 447MiB/500MiB(89%)][#f86592 82MiB/500MiB(16%)][#970556 276MiB/500MiB(55%)]
+[DL:10MiB][#0313b3 453MiB/500MiB(90%)][#f86592 83MiB/500MiB(16%)][#970556 280MiB/500MiB(56%)]
+[DL:10MiB][#0313b3 458MiB/500MiB(91%)][#f86592 84MiB/500MiB(16%)][#970556 284MiB/500MiB(56%)]
+[DL:10MiB][#0313b3 464MiB/500MiB(92%)][#f86592 85MiB/500MiB(17%)][#970556 288MiB/500MiB(57%)]
+[DL:10MiB][#0313b3 470MiB/500MiB(94%)][#f86592 86MiB/500MiB(17%)][#970556 293MiB/500MiB(58%)]
+ *** Download Progress Summary as of Mon Apr  6 20:36:06 2026 *** 
+===============================================================================
+[#0313b3 476MiB/500MiB(95%) CN:1 DL:5.8MiB ETA:3s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part55.rar
+-------------------------------------------------------------------------------
+[#f86592 87MiB/500MiB(17%) CN:1 DL:0.9MiB ETA:7m16s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part56.rar
+-------------------------------------------------------------------------------
+[#970556 297MiB/500MiB(59%) CN:1 DL:4.1MiB ETA:49s]
+FILE: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part57.rar
+-------------------------------------------------------------------------------
+
+[DL:10MiB][#0313b3 476MiB/500MiB(95%)][#f86592 87MiB/500MiB(17%)][#970556 297MiB/500MiB(59%)]
+[DL:10MiB][#0313b3 482MiB/500MiB(96%)][#f86592 88MiB/500MiB(17%)][#970556 301MiB/500MiB(60%)]
+[DL:10MiB][#0313b3 488MiB/500MiB(97%)][#f86592 89MiB/500MiB(17%)][#970556 305MiB/500MiB(61%)]
+[DL:10MiB][#0313b3 494MiB/500MiB(98%)][#f86592 90MiB/500MiB(18%)][#970556 310MiB/500MiB(62%)]
+[DL:11MiB][#0313b3 498MiB/500MiB(99%)][#f86592 91MiB/500MiB(18%)][#970556 315MiB/500MiB(63%)]
+
+04/06 20:36:11 [[1;32mNOTICE[0m] Download complete: /home/abdoufoundit/Games/fitgirl_download/Senuas_Saga_Hellblade_II_--_fitgirl-repacks.site_--_.part55.rar
