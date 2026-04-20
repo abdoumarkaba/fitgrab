@@ -113,7 +113,7 @@ DEFAULT_CONCURRENCY = 2
 # - Resume support (--continue=true) so re-running picks up where it left off.
 # - Reasonable timeouts to detect stalled connections quickly.
 
-ARIA2_CONCURRENT = 3
+ARIA2_CONCURRENT = 15
 ARIA2_SPLIT = 1
 ARIA2_MIN_SPLIT = "1M"
 ARIA2_FILE_ALLOCATION = "none"
@@ -189,27 +189,28 @@ def extract_filename_from_url(url: str) -> str:
     return url.split("/")[-1].split("?")[0]
 
 
-def save_url_manifest(direct_urls: list[str], dest_dir: Path, game_name: str) -> Path:
-    """Save resolved URLs to a game-specific manifest file.
+def save_ff_manifest(ff_links: list[str], dest_dir: Path, game_name: str) -> Path:
+    """Save FF page URLs to a game-specific manifest file.
     
-    Manifest format: .<game_name>_urls.txt
-    Each line: URL<tab>expected_filename
+    Manifest stores FF page URLs (stable, no expiring tokens) not CDN URLs.
+    This allows resume to re-resolve only missing files without stale URL failures.
+    Manifest format: .<game_name>_ff_urls.txt
+    Each line: one FF page URL
     Returns the manifest path.
     """
-    manifest_path = dest_dir / f".{slugify(game_name)}_urls.txt"
+    manifest_path = dest_dir / f".{slugify(game_name)}_ff_urls.txt"
     with open(manifest_path, "w") as f:
-        for url in direct_urls:
-            fname = extract_filename_from_url(url)
-            f.write(f"{url}\t{fname}\n")
+        for url in ff_links:
+            f.write(url + "\n")
     return manifest_path
 
 
-def load_url_manifest(dest_dir: Path, game_name: str) -> list[str] | None:
-    """Load URLs from a game-specific manifest file.
+def load_ff_manifest(dest_dir: Path, game_name: str) -> list[str] | None:
+    """Load FF page URLs from a game-specific manifest file.
     
-    Returns list of URLs, or None if manifest doesn't exist.
+    Returns list of FF page URLs, or None if manifest doesn't exist.
     """
-    manifest_path = dest_dir / f".{slugify(game_name)}_urls.txt"
+    manifest_path = dest_dir / f".{slugify(game_name)}_ff_urls.txt"
     if not manifest_path.exists():
         return None
     
@@ -218,9 +219,13 @@ def load_url_manifest(dest_dir: Path, game_name: str) -> list[str] | None:
         for line in f:
             line = line.strip()
             if line:
-                url = line.split("\t")[0]
-                urls.append(url)
+                urls.append(line)
     return urls
+
+
+def ff_manifest_path(dest_dir: Path, game_name: str) -> Path:
+    """Return the path to the FF manifest file for this game."""
+    return dest_dir / f".{slugify(game_name)}_ff_urls.txt"
 
 
 def scan_existing_files(dest_dir: Path) -> set[str]:
@@ -242,15 +247,122 @@ def scan_existing_files(dest_dir: Path) -> set[str]:
     return complete
 
 
-def filter_missing_urls(direct_urls: list[str], existing_files: set[str]) -> list[str]:
-    """Filter URLs to only those whose files don't exist or are incomplete.
+# ── Resume Integrity Module ───────────────────────────────────────────────────
+# Provides utilities to detect and clean corrupted aria2 resume state.
+# Corrupted .aria2 files cause aria2c to fail immediately with:
+#   "Failed to read from the segment file ... .aria2"
+# This module should be called before scan_existing_files() to ensure
+# clean resume state.
+
+def is_aria2_control_valid(aria2_path: Path) -> bool:
+    """Check if an aria2 control file is readable and non-corrupted.
     
-    Returns list of URLs for files that need to be downloaded.
+    aria2c uses a binary format. Corruption typically manifests as:
+    - Empty or 0-byte files
+    - Files with unreadable segment data
+    - Files where associated .rar doesn't exist or is 0 bytes
+    
+    This is a heuristic check - we verify basic structural integrity
+    rather than full binary parsing.
+    """
+    if not aria2_path.exists():
+        return False
+    
+    # Must have content (0-byte control files are definitely broken)
+    if aria2_path.stat().st_size == 0:
+        return False
+    
+    # Must be readable binary file (at least 16 bytes for header)
+    try:
+        if aria2_path.stat().st_size < 16:
+            return False
+    except OSError:
+        return False
+    
+    return True
+
+
+def clean_corrupted_resume_state(dest_dir: Path) -> tuple[int, int]:
+    """Clean corrupted aria2 resume files and their broken partial downloads.
+    
+    Scans directory for .aria2 control files. For each:
+    - If control file is corrupted/empty: delete it AND associated .rar
+    - If associated .rar is 0 bytes: delete both
+    - If .rar doesn't exist: delete the orphaned .aria2
+    
+    Returns tuple of (aria2_files_removed, rar_files_removed).
+    
+    This prevents the aria2c error:
+        "Failed to read from the segment file ..."
+    which causes all downloads to fail on resume.
+    """
+    if not dest_dir.exists():
+        return (0, 0)
+    
+    aria2_removed = 0
+    rar_removed = 0
+    
+    for f in dest_dir.iterdir():
+        if not f.name.endswith(".aria2"):
+            continue
+        
+        # Get associated .rar file path
+        rar_path = Path(str(f)[:-len(".aria2")])  # Remove .aria2 suffix
+        
+        needs_cleanup = False
+        
+        # Case 1: aria2 control file itself is corrupted
+        if not is_aria2_control_valid(f):
+            needs_cleanup = True
+        
+        # Case 2: Associated .rar doesn't exist
+        elif not rar_path.exists():
+            needs_cleanup = True
+        
+        # Case 3: Associated .rar is 0 bytes (download never started properly)
+        elif rar_path.stat().st_size == 0:
+            needs_cleanup = True
+        
+        if needs_cleanup:
+            try:
+                f.unlink()
+                aria2_removed += 1
+            except OSError:
+                pass
+            
+            # Also clean up the broken partial .rar if it exists
+            if rar_path.exists():
+                try:
+                    rar_path.unlink()
+                    rar_removed += 1
+                except OSError:
+                    pass
+    
+    return (aria2_removed, rar_removed)
+
+
+def filter_missing_ff_links(ff_links: list[str], existing_files: set[str]) -> list[str]:
+    """Filter FF page URLs to only those whose files don't exist on disk.
+    
+    Extracts the expected part number from each FF URL and checks if
+    the corresponding .rar file exists in existing_files.
+    Returns list of FF page URLs for files that need to be downloaded.
     """
     missing = []
-    for url in direct_urls:
-        fname = extract_filename_from_url(url)
-        if fname not in existing_files:
+    for url in ff_links:
+        # FF URLs contain the filename in the path segment after the hash
+        # e.g. https://fuckingfast.co/Hash/GameName_--_fitgirl_--_.part01.rar
+        # Extract part number to match against existing files
+        part_match = re.search(r'part(\d+)\.rar', url, re.IGNORECASE)
+        if not part_match:
+            # Can't determine part number, include it
+            missing.append(url)
+            continue
+        
+        part_num = part_match.group(1)
+        # Check if any existing file matches this part number
+        found = any(f'part{part_num}.rar' in fname for fname in existing_files)
+        if not found:
             missing.append(url)
     return missing
 
@@ -605,7 +717,7 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
 
 # ── Stage 4: aria2c ────────────────────────────────────────────────────────────
 
-def aria2c_download(direct_urls: list[str], dest_dir: Path, game_name: str) -> bool:
+def aria2c_download(direct_urls: list[str], dest_dir: Path) -> bool:
     """Download files using aria2c with resume support.
     
     Writes an aria2c input file (URL + dir per line) and spawns aria2c as a
@@ -619,7 +731,7 @@ def aria2c_download(direct_urls: list[str], dest_dir: Path, game_name: str) -> b
     - file-allocation=none: Skip pre-allocation (faster on SSD, avoids issues
       with sparse files)
     
-    On success (returncode 0), cleans up queue file and manifest.
+    On success (returncode 0), cleans up queue file.
     Returns True on success, False on failure.
     """
     if not shutil.which("aria2c"):
@@ -628,9 +740,6 @@ def aria2c_download(direct_urls: list[str], dest_dir: Path, game_name: str) -> b
         sys.exit(1)
 
     dest_dir.mkdir(parents=True, exist_ok=True)
-
-    # Save URL manifest before download
-    manifest_path = save_url_manifest(direct_urls, dest_dir, game_name)
 
     input_path = dest_dir / ".fitgrab_queue.txt"
     with open(input_path, "w") as f:
@@ -663,15 +772,12 @@ def aria2c_download(direct_urls: list[str], dest_dir: Path, game_name: str) -> b
 
     print(f"\n  → aria2c  [{len(direct_urls)} files → {dest_dir}]")
     print(f"     {ARIA2_CONCURRENT} concurrent × {ARIA2_SPLIT} connection/file  |  resume: yes")
-    print(f"     log: {log_path}")
-    print(f"     manifest: {manifest_path}\n")
+    print(f"     log: {log_path}\n")
     print("  " + "─" * 60)
 
     result = subprocess.run(cmd)
     if result.returncode == 0:
         input_path.unlink(missing_ok=True)
-        # Delete manifest on success to save space
-        manifest_path.unlink(missing_ok=True)
         return True
     else:
         print(f"\n  ⚠  aria2c exited {result.returncode} — re-run fitgrab to resume.")
@@ -681,17 +787,20 @@ def aria2c_download(direct_urls: list[str], dest_dir: Path, game_name: str) -> b
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 async def run(args):
-    """Main entry point - orchestrates the 4-stage download pipeline.
+    """Main entry point - orchestrates the download pipeline.
     
     Stage 1+2: Load FitGirl page or use provided paste URL, extract FF links
     Stage 3: Resolve each FF page to get direct CDN URLs (parallel workers)
     Stage 4: Pass URLs to aria2c for actual file download
     Stage 5: Test archive integrity with unrar
     
-    The flow is intentionally sequential: we must have all CDN URLs before
-    starting aria2c because we need to write the input file. For very large
-    repacks (100+ parts), this means waiting for all resolutions to complete
-    before any download starts.
+    Resume flow: If an FF manifest exists in the target directory, skip
+    Stage 1+2 and only resolve FF pages for files not already on disk.
+    FF page URLs are stable (no expiring tokens), so the manifest is safe
+    to reuse across restarts — unlike CDN URLs which would become stale.
+    
+    Game name is determined from CDN filenames after Stage 3, which is
+    more reliable than the title placeholder from paste URLs.
     """
     print("\n  ╒══════════════════════════════════╮")
     print("  ║   fitgrab  —  FitGirl speed loader    ║")
@@ -703,98 +812,170 @@ async def run(args):
         direct_paste_url = input_url
         print("  → Detected direct paste URL, skipping game page…")
 
-    # Stage 1+2: one lightweight context just for scraping
-    async with async_playwright() as pw:
-        browser = await pw.chromium.launch(
-            headless=True,
-            args=["--no-sandbox", "--disable-gpu"],
-        )
-        context = await browser.new_context(user_agent=DEFAULT_USER_AGENT)
-        title, ff_links = await get_ff_links(
-            input_url, context, paste_url=direct_paste_url
-        )
-        await context.close()
-        await browser.close()
+    # ── Determine initial game name and directory ──────────────────────────
+    # Use a preliminary name from the URL for manifest lookup.
+    # The REAL game name is determined later from CDN filenames.
+    preliminary_name = "fitgirl_download"
+    if not direct_paste_url:
+        # Extract slug from game page URL as preliminary name
+        preliminary_name = Path(input_url).stem.replace("-", " ").title()
 
-    if not ff_links:
-        print("\n  ✗  No FuckingFast links found. Check the game URL.\n")
-        sys.exit(1)
-
-    print(f"\n  ✓  Game  : {title}")
-    print(f"  ✓  Parts : {len(ff_links)}")
-
-    # Determine download directory using title from get_ff_links
-    # This ensures we always have a game name, even with direct paste URLs
     if args.dir:
-        # User explicitly provided --dir
         dest_dir = Path(args.dir).expanduser()
-        game_name = title
     else:
-        # Use title from get_ff_links (already extracted from URL or page)
-        game_name = title
-        folder_name = slugify(game_name)
-        dest_dir = Path.home() / "Games" / folder_name
-        # Fallback if slugify produces empty string
-        if not folder_name:
+        folder_name = slugify(preliminary_name)
+        if folder_name:
+            dest_dir = Path.home() / "Games" / folder_name
+        else:
             dest_dir = Path.home() / "Games" / f"fitgirl_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+
+    # ── Resume: check for existing FF manifest ──────────────────────────────
+    # FF manifest stores stable FF page URLs (no expiring tokens).
+    # If found, we skip Stage 1+2 entirely and only resolve missing files.
+    ff_links = load_ff_manifest(dest_dir, preliminary_name)
+    if ff_links:
+        print(f"  → Found existing FF manifest, resuming…")
+        print(f"  ✓  Parts : {len(ff_links)}")
+    else:
+        # Stage 1+2: one lightweight context just for scraping
+        async with async_playwright() as pw:
+            browser = await pw.chromium.launch(
+                headless=True,
+                args=["--no-sandbox", "--disable-gpu"],
+            )
+            context = await browser.new_context(user_agent=DEFAULT_USER_AGENT)
+            title, ff_links = await get_ff_links(
+                input_url, context, paste_url=direct_paste_url
+            )
+            await context.close()
+            await browser.close()
+
+        if not ff_links:
+            print("\n  ✗  No FuckingFast links found. Check the game URL.\n")
+            sys.exit(1)
+
+        # Update preliminary name from title if we got one
+        if title and title != "fitgirl_download":
+            preliminary_name = title
+            if not args.dir:
+                folder_name = slugify(preliminary_name)
+                if folder_name:
+                    dest_dir = Path.home() / "Games" / folder_name
+                else:
+                    dest_dir = Path.home() / "Games" / f"fitgirl_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+
+        print(f"\n  ✓  Game  : {preliminary_name}")
+        print(f"  ✓  Parts : {len(ff_links)}")
+
+        # Save FF manifest immediately for crash recovery
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        save_ff_manifest(ff_links, dest_dir, preliminary_name)
 
     print(f"  ✓  Dest  : {dest_dir}")
 
-    # Check for existing manifest and files (resume support)
-    existing_urls = load_url_manifest(dest_dir, game_name)
-    if existing_urls:
-        print(f"\n  → Found existing manifest, checking for incomplete downloads…")
-        direct_urls = existing_urls
-    else:
-        # Stage 3: resolve FF pages → direct CDN URLs
-        print(f"\n  → Resolving {len(ff_links)} URLs "
-              f"({args.concurrency} parallel contexts)…\n")
+    # ── Resume Integrity Check ─────────────────────────────────────────────
+    # Clean corrupted aria2 resume state before scanning to prevent
+    # "Failed to read from the segment file" errors on resume.
+    aria2_cleaned, rar_cleaned = clean_corrupted_resume_state(dest_dir)
+    if aria2_cleaned > 0 or rar_cleaned > 0:
+        print(f"  → Cleaned {aria2_cleaned} corrupted resume file(s), {rar_cleaned} broken partial(s)")
 
-        direct_urls = await resolve_all(ff_links, args.concurrency)
-
-        print(f"\n  ✓  Resolved : {len(direct_urls)}/{len(ff_links)}")
-        failed = len(ff_links) - len(direct_urls)
-        if failed:
-            print(f"  ✗  Failed   : {failed}  (re-run fitgrab to retry)")
-
-    if not direct_urls:
-        print("\n  ✗  Nothing to download.\n")
-        sys.exit(1)
-
-    # Scan existing files and filter out complete ones
+    # ── Scan existing files and filter ─────────────────────────────────────
     existing_files = scan_existing_files(dest_dir)
-    urls_to_download = filter_missing_urls(direct_urls, existing_files)
-    
+    ff_to_resolve = filter_missing_ff_links(ff_links, existing_files)
+
     if existing_files:
-        print(f"\n  → Found {len(existing_files)} complete files")
-        print(f"  → {len(urls_to_download)} files remaining to download")
+        print(f"\n  → Found {len(existing_files)} complete files on disk")
+        print(f"  → {len(ff_to_resolve)}/{len(ff_links)} files remaining")
 
     if args.dry_run:
-        print("\n  [DRY RUN — resolved URLs]\n")
-        for u in direct_urls:
-            fname = extract_filename_from_url(u)
-            status = "✓ exists" if fname in existing_files else "↓ to download"
-            print(f"    [{status}] {fname}")
+        print("\n  [DRY RUN — FF page URLs]\n")
+        for url in ff_links:
+            part_match = re.search(r'part(\d+)\.rar', url, re.IGNORECASE)
+            part_num = part_match.group(1) if part_match else "??"
+            found = any(f'part{part_num}.rar' in fname for fname in existing_files) if part_match else False
+            status = "✓ exists" if found else "↓ to download"
+            print(f"    [{status}] part{part_num}")
         print()
         return
 
-    # If all files already complete, skip download
-    if not urls_to_download:
+    # If all files already complete, skip download and test
+    if not ff_to_resolve:
         print("\n  ✓  All files already downloaded!")
-        # Still run archive test
+        # Determine real game name from existing files
+        game_name = preliminary_name
+        for f in dest_dir.iterdir():
+            if f.suffix == ".rar" and not f.name.endswith(".aria2"):
+                match = re.match(r'^(.+?)_--_', f.name)
+                if match:
+                    game_name = match.group(1).replace('_', ' ')
+                    break
         test_archive(dest_dir, game_name)
+        # Clean up manifest
+        ff_manifest_path(dest_dir, preliminary_name).unlink(missing_ok=True)
         print(f"\n  ✓  Done!  →  {dest_dir}")
         print(f"  Extract: cd '{dest_dir}' && unrar x *.part01.rar\n")
         return
 
     sys.stdout.flush()
 
-    # Stage 4: download via aria2c
-    success = aria2c_download(urls_to_download, dest_dir, game_name)
+    # ── Stage 3: resolve only missing FF pages → CDN URLs ──────────────────
+    print(f"\n  → Resolving {len(ff_to_resolve)} URLs "
+          f"({args.concurrency} parallel contexts)…\n")
+
+    direct_urls = await resolve_all(ff_to_resolve, args.concurrency)
+
+    print(f"\n  ✓  Resolved : {len(direct_urls)}/{len(ff_to_resolve)}")
+    failed = len(ff_to_resolve) - len(direct_urls)
+    if failed:
+        print(f"  ✗  Failed   : {failed}  (re-run fitgrab to retry)")
+
+    if not direct_urls:
+        print("\n  ✗  Nothing to download.\n")
+        sys.exit(1)
+
+    # ── Determine real game name from CDN filenames ────────────────────────
+    # This is the reliable source — CDN filenames contain the game name
+    # in the _--_ pattern, unlike the title placeholder from paste URLs.
+    game_name = extract_game_name(direct_urls) or preliminary_name
+
+    # Update directory if game name changed from preliminary
+    if not args.dir and game_name != preliminary_name:
+        folder_name = slugify(game_name)
+        if folder_name:
+            new_dir = Path.home() / "Games" / folder_name
+            if new_dir != dest_dir:
+                # Migrate manifest and any existing files to the correct directory
+                print(f"\n  → Game name corrected: {preliminary_name} → {game_name}")
+                print(f"  → Moving to: {new_dir}")
+                if dest_dir.exists():
+                    new_dir.mkdir(parents=True, exist_ok=True)
+                    # Move FF manifest
+                    old_manifest = ff_manifest_path(dest_dir, preliminary_name)
+                    if old_manifest.exists():
+                        old_manifest.rename(ff_manifest_path(new_dir, game_name))
+                    # Move existing RAR files
+                    for f in list(dest_dir.iterdir()):
+                        if f.suffix == ".rar" or f.name.endswith(".aria2"):
+                            f.rename(new_dir / f.name)
+                    # Move aria2 log
+                    old_log = dest_dir / ".fitgrab_aria2.log"
+                    if old_log.exists():
+                        old_log.rename(new_dir / ".fitgrab_aria2.log")
+                dest_dir = new_dir
+                # Re-scan after move, filter out already-downloaded files
+                existing_files = scan_existing_files(dest_dir)
+                direct_urls = [u for u in direct_urls
+                               if extract_filename_from_url(u) not in existing_files]
+
+    # ── Stage 4: download via aria2c ────────────────────────────────────────
+    success = aria2c_download(direct_urls, dest_dir)
 
     if success:
         # Stage 5: test archive integrity
         test_archive(dest_dir, game_name)
+        # Clean up FF manifest on success
+        ff_manifest_path(dest_dir, game_name).unlink(missing_ok=True)
         print(f"\n  ✓  Done!  →  {dest_dir}")
         print(f"  Extract: cd '{dest_dir}' && unrar x *.part01.rar\n")
     else:
