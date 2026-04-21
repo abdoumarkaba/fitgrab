@@ -237,23 +237,12 @@ def _signal_handler(sig, frame):
             expand=False,
         ))
     else:
-    if RICH_AVAILABLE and console:
-        console.print()
-        console.print(Panel(
-            "[yellow]Interrupted — re-run to resume[/yellow]",
-            title="[bold red]fitgrab[/bold red]",
-            border_style="red",
-            expand=False,
-        ))
-    else:
         print("\n\n  ════════════════════════════════════════╗")
         print("  ║  Interrupted — re-run to resume        ║")
         print("  ════════════════════════════════════════╝\n")
     sys.exit(0)
 
 signal.signal(signal.SIGINT, _signal_handler)
-
-
 # ── Utilities ──────────────────────────────────────────────────────────────────
 
 def slugify(title: str) -> str:
