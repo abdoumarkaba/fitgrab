@@ -44,7 +44,6 @@ Rate-limit bypass strategy (Stage 3):
 import sys
 import re
 import os
-import os
 import asyncio
 import subprocess
 import argparse
@@ -52,15 +51,10 @@ import random
 import shutil
 import signal
 import time
-import time
 from pathlib import Path
 from datetime import datetime
 from typing import Optional
-
-# ── Version ────────────────────────────────────────────────────────────────────
-
-__version__ = "1.2.0"
-from typing import Optional
+from urllib.parse import unquote
 
 # ── Version ────────────────────────────────────────────────────────────────────
 
@@ -71,33 +65,6 @@ try:
 except ImportError:
     print("\n  ✗ pip install playwright --break-system-packages")
     print("  ✗ playwright install chromium\n")
-    sys.exit(1)
-
-# ── Playwright browser persistence check ──────────────────────────────────────
-# ~/.cache/ is often cleaned by system services. Use ~/.local/share/ for persistence.
-# If browsers are missing, prompt user to install them.
-
-def _check_playwright_browsers() -> bool:
-    """Check if Playwright browsers are installed. Return True if available."""
-    browsers_path = os.environ.get(
-        "PLAYWRIGHT_BROWSERS_PATH",
-        Path.home() / ".cache" / "ms-playwright"
-    )
-    if isinstance(browsers_path, str):
-        browsers_path = Path(browsers_path)
-    
-    # Check for chromium directory
-    chromium_dirs = list(browsers_path.glob("chromium-*")) if browsers_path.exists() else []
-    return len(chromium_dirs) > 0
-
-# Set persistent browser path if not already set
-if "PLAYWRIGHT_BROWSERS_PATH" not in os.environ:
-    os.environ["PLAYWRIGHT_BROWSERS_PATH"] = str(Path.home() / ".local" / "share" / "playwright-browsers")
-
-if not _check_playwright_browsers():
-    print("\n  ✗ Playwright browsers not found.")
-    print("  → Run: playwright install chromium")
-    print("  → Or set PLAYWRIGHT_BROWSERS_PATH to your browser location.\n")
     sys.exit(1)
 
 # ── Playwright browser persistence check ──────────────────────────────────────
@@ -150,22 +117,6 @@ except ImportError:
     RICH_AVAILABLE = False
     console = None
 
-# ── Rich TUI library ───────────────────────────────────────────────────────────
-# Optional: provides beautiful progress bars and panels. Falls back to basic output.
-
-try:
-    from rich.console import Console
-    from rich.panel import Panel
-    from rich.progress import Progress, BarColumn, DownloadColumn, TransferSpeedColumn, TimeRemainingColumn, TextColumn, TaskProgressColumn
-    from rich.live import Live
-    from rich.table import Table
-    from rich.text import Text
-    RICH_AVAILABLE = True
-    console = Console()
-except ImportError:
-    RICH_AVAILABLE = False
-    console = None
-
 # ── User-agent pool ────────────────────────────────────────────────────────────
 # Rotated per browser context so each tab presents a distinct fingerprint.
 # This helps avoid detection when scraping FuckingFast's anti-bot measures.
@@ -189,7 +140,7 @@ DEFAULT_USER_AGENT = USER_AGENTS[0]
 # The CDN uses a sliding window - we back off to let it clear before retrying.
 
 MAX_ATTEMPTS        = 5     # maximum total attempts per URL across the retry queue
-COOLDOWN_AFTER_429  = 20    # base seconds a worker pauses after detecting a hard limit
+COOLDOWN_AFTER_429  = 60    # base seconds a worker pauses after detecting a hard limit
 BACKOFF_BASE        = 3.0   # seconds; doubles each attempt
 BACKOFF_CAP         = 60.0  # maximum ceiling for a single backoff draw
 
@@ -270,21 +221,22 @@ def jittered_backoff(attempt: int) -> float:
     return random.uniform(0, ceiling)
 
 
-def extract_game_name(direct_urls: list[str]) -> str | None:
-    """Extract game name from first resolved URL.
+def get_default_dest_dir(game_name: str | None) -> Path:
+    """Get default destination directory.
     
-    Filename format: <GameName>_--_fitgirl-repacks.site_--_.partNN.rar
-    Extract everything before '_--_' to get the game name.
+    Target: /run/media/abdoufoundit/forgames/extracted/<Game_Name>
+    Creates the directory if it doesn't exist.
     """
-    if not direct_urls:
-        return None
+    base_path = Path("/run/media/abdoufoundit/forgames/extracted")
     
-    fname = direct_urls[0].split("/")[-1].split("?")[0]
-    match = re.match(r'^(.+?)_--_', fname)
-    if match:
-        return match.group(1).replace('_', ' ')
+    # Ensure base path exists (create if needed)
+    base_path.mkdir(parents=True, exist_ok=True)
     
-    return None
+    if game_name:
+        folder_name = slugify(game_name)
+        return base_path / folder_name
+    else:
+        return base_path / f"fitgirl_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 
 
 def extract_filename_from_url(url: str) -> str:
@@ -629,19 +581,30 @@ def filter_missing_ff_links(ff_links: list[str], existing_files: set[str]) -> li
 def test_archive(dest_dir: Path, game_name: str) -> bool:
     """Test archive integrity using unrar on part01.rar.
     
-    Only tests *.part01.rar file specifically.
+    Only tests the first GAME part (part1.rar), not optional files.
+    Looks for files ending in part1.rar that don't start with fg- (selective files).
     Saves output to <game_name>test.log in the game directory.
     Returns True if test passed, False otherwise.
     """
-    # Find part01.rar specifically
-    part01 = None
+    # Find first game part: matches part1, part01, part001, part0001 (ends with 1, next char is 0 or nothing)
+    # Exclude fg-* files (optional/selective packs)
+    # Must contain the game name (extracted from filename using _--_ pattern)
+    game_part = None
+    # Extract game name pattern from game_name for matching (e.g., "Nier Automata" -> "nier" or "nier_automata")
+    game_name_pattern = game_name.lower().replace(' ', '_')
+    game_name_simple = game_name.split()[0].lower()  # First word only (e.g., "nier")
     for f in dest_dir.iterdir():
-        if f.name.endswith(".part01.rar"):
-            part01 = f
-            break
+        # Check: not fg-, matches part1/01/001/0001
+        if (not f.name.startswith("fg-") 
+            and re.search(r'\.part(1|01|001|0001)\.rar$', f.name)):
+            # Check if filename contains game name (either with underscores or as first word)
+            fname_lower = f.name.lower()
+            if game_name_pattern in fname_lower or game_name_simple in fname_lower.split('_')[0]:
+                game_part = f
+                break
     
-    if not part01:
-        print_status(False, f"No part01.rar found in {dest_dir}")
+    if not game_part:
+        print_status(False, f"No game part1.rar found in {dest_dir}")
         return False
     
     # Check if unrar is available
@@ -651,16 +614,16 @@ def test_archive(dest_dir: Path, game_name: str) -> bool:
     
     log_path = dest_dir / f"{slugify(game_name)}test.log"
     
-    print_stage(5, f"Testing archive integrity: {part01.name}")
+    print_stage(5, f"Testing archive integrity: {game_part.name}")
     print_status(True, f"Log: {log_path}")
     
     # Run unrar test and capture output
-    cmd = ["unrar", "t", "-idp", str(part01)]
+    cmd = ["unrar", "t", "-idp", str(game_part)]
     result = subprocess.run(cmd, capture_output=True, text=True)
     
     # Write log file
     with open(log_path, "w") as f:
-        f.write(f"Archive test: {part01.name}\n")
+        f.write(f"Archive test: {game_part.name}\n")
         f.write(f"Date: {datetime.now().isoformat()}\n")
         f.write(f"\n{'='*60}\n\n")
         f.write(result.stdout)
@@ -753,11 +716,14 @@ async def get_ff_links(
 
         if title == "fitgirl_download" and ff_links:
             first_link = ff_links[0]
+            # URL-decode the path first, then extract game name
+            # FF URL format: https://fuckingfast.co/<hash>/<GameName>_--_fitgirl-repacks.site_--_.part01.rar
+            decoded_path = unquote(first_link)
             match = re.search(
-                r'fuckingfast\.co/[^/]+/([^/]+?)(?:___|_part\d+)', first_link
+                r'fuckingfast\.co/[^/]+/(.+?)_--_', decoded_path
             )
             title = (
-                match.group(1).replace('_', ' ').title()
+                match.group(1).replace('_', ' ')
                 if match
                 else "fitgirl_download"
             )
@@ -940,7 +906,7 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
 
                     if result == "__RATE_LIMITED__":
                         if attempt < MAX_ATTEMPTS - 1:
-                            cooldown = COOLDOWN_AFTER_429 + random.uniform(0, 10)
+                            cooldown = COOLDOWN_AFTER_429 + random.uniform(0, 30)
                             print(
                                 f"  [worker-{worker_id}]  ❄  "
                                 f"Cooling {cooldown:.0f}s before retry…"
@@ -1085,8 +1051,8 @@ async def run(args):
     FF page URLs are stable (no expiring tokens), so the manifest is safe
     to reuse across restarts — unlike CDN URLs which would become stale.
     
-    Game name is determined from CDN filenames after Stage 3, which is
-    more reliable than the title placeholder from paste URLs.
+    Game name is extracted from FF page URLs in Stage 1+2 (URL-decoded),
+    which is more reliable than the title placeholder from paste URLs.
     """
     start_time = time.time()
     
@@ -1122,11 +1088,7 @@ async def run(args):
     if args.dir:
         dest_dir = Path(args.dir).expanduser()
     else:
-        folder_name = slugify(preliminary_name)
-        if folder_name:
-            dest_dir = Path.home() / "Games" / folder_name
-        else:
-            dest_dir = Path.home() / "Games" / f"fitgirl_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        dest_dir = get_default_dest_dir(preliminary_name)
 
     # ── Resume: check for existing FF manifest ──────────────────────────────
     # FF manifest stores stable FF page URLs (no expiring tokens).
@@ -1153,24 +1115,21 @@ async def run(args):
             print_status(False, "No FuckingFast links found. Check the game URL.")
             sys.exit(1)
 
-        # Update preliminary name from title if we got one
+        # Use title from get_ff_links (now URL-decoded) as the game name
         if title and title != "fitgirl_download":
             preliminary_name = title
             if not args.dir:
-                folder_name = slugify(preliminary_name)
-                if folder_name:
-                    dest_dir = Path.home() / "Games" / folder_name
-                else:
-                    dest_dir = Path.home() / "Games" / f"fitgirl_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+                dest_dir = get_default_dest_dir(preliminary_name)
 
         print_status(True, f"Game: {preliminary_name}")
         print_status(True, f"Parts: {len(ff_links)}")
+        # Only show Dest when we have the real game name (not the fallback)
+        if preliminary_name != "fitgirl_download":
+            print_status(True, f"Dest: {dest_dir}")
 
         # Save FF manifest immediately for crash recovery
         dest_dir.mkdir(parents=True, exist_ok=True)
         save_ff_manifest(ff_links, dest_dir, preliminary_name)
-
-    print_status(True, f"Dest: {dest_dir}")
 
     # ── Resume Integrity Check ─────────────────────────────────────────────
     # Clean corrupted aria2 resume state before scanning to prevent
@@ -1241,8 +1200,9 @@ async def run(args):
 
     sys.stdout.flush()
 
-    # ── Stage 3: resolve only missing FF pages → CDN URLs ──────────────────
-    print_stage(3, f"Resolving {len(ff_to_resolve)} URLs ({args.concurrency} parallel contexts)…")
+    # ----- Stage 3: resolve FF page URLs to CDN links -----
+    # Game name already determined in Stage 1+2 (URL-decoded from FF links)
+    print_stage(3, f"Resolving {len(ff_to_resolve)} URLs ({args.concurrency} parallel contexts)...")
 
     direct_urls = await resolve_all(ff_to_resolve, args.concurrency)
 
@@ -1255,41 +1215,10 @@ async def run(args):
         print_status(False, "Nothing to download.")
         sys.exit(1)
 
-    # ── Determine real game name from CDN filenames ────────────────────────
-    # This is the reliable source — CDN filenames contain the game name
-    # in the _--_ pattern, unlike the title placeholder from paste URLs.
-    game_name = extract_game_name(direct_urls) or preliminary_name
+    # Game name is already determined as preliminary_name from Stage 1+2
+    game_name = preliminary_name
 
-    # Update directory if game name changed from preliminary
-    if not args.dir and game_name != preliminary_name:
-        folder_name = slugify(game_name)
-        if folder_name:
-            new_dir = Path.home() / "Games" / folder_name
-            if new_dir != dest_dir:
-                # Migrate manifest and any existing files to the correct directory
-                print_stage(2, f"Game name corrected: {preliminary_name} -> {game_name}")
-                print_status(True, f"Moving to: {new_dir}")
-                if dest_dir.exists():
-                    new_dir.mkdir(parents=True, exist_ok=True)
-                    # Move FF manifest
-                    old_manifest = ff_manifest_path(dest_dir, preliminary_name)
-                    if old_manifest.exists():
-                        old_manifest.rename(ff_manifest_path(new_dir, game_name))
-                    # Move existing RAR files
-                    for f in list(dest_dir.iterdir()):
-                        if f.suffix == ".rar" or f.name.endswith(".aria2"):
-                            f.rename(new_dir / f.name)
-                    # Move aria2 log
-                    old_log = dest_dir / ".fitgrab_aria2.log"
-                    if old_log.exists():
-                        old_log.rename(new_dir / ".fitgrab_aria2.log")
-                dest_dir = new_dir
-                # Re-scan after move, filter out already-downloaded files
-                existing_files = scan_existing_files(dest_dir)
-                direct_urls = [u for u in direct_urls
-                               if extract_filename_from_url(u) not in existing_files]
-
-    # ── Stage 4: download via aria2c ────────────────────────────────────────
+    # ----- Stage 4: download via aria2c -----────────────────────────────────────────
     success = aria2c_download(direct_urls, dest_dir)
 
     if success:
