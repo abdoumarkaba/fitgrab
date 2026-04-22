@@ -23,7 +23,7 @@ jobs:
       - name: Cache Playwright browsers
         uses: actions/cache@v4
         with:
-          path: ~/.cache/ms-playwright
+          path: ~/.local/share/playwright-browsers
           key: ${{ runner.os }}-playwright-${{ matrix.python-version }}-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-playwright-${{ matrix.python-version }}-
@@ -34,6 +34,8 @@ jobs:
 
       - name: Install Playwright Chromium
         run: python -m playwright install chromium
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ~/.local/share/playwright-browsers
 
       - name: Verify aria2 installation
         run: aria2c --version
@@ -54,9 +56,15 @@ jobs:
 
       - name: Dry run test - Cyberpunk 2077
         run: python fitgrab https://fitgirl-repacks.site/cyberpunk-2077/ --dry-run
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ~/.local/share/playwright-browsers
 
       - name: Test with custom directory
         run: python fitgrab https://fitgirl-repacks.site/stellar-blade/ --dir ~/Games --dry-run
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ~/.local/share/playwright-browsers
 
       - name: Test concurrency flag
         run: python fitgrab https://fitgirl-repacks.site/elden-ring/ --concurrency 4 --dry-run
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ~/.local/share/playwright-browsers

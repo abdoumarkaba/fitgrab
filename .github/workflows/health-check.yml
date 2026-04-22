@@ -24,7 +24,7 @@ jobs:
       - name: Cache Playwright browsers
         uses: actions/cache@v4
         with:
-          path: ~/.cache/ms-playwright
+          path: ~/.local/share/playwright-browsers
           key: ${{ runner.os }}-playwright-healthcheck-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-playwright-healthcheck-
@@ -35,6 +35,8 @@ jobs:
 
       - name: Install Playwright Chromium
         run: python -m playwright install chromium
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ~/.local/share/playwright-browsers
 
       - name: Test FitGirl site accessibility
         run: |
@@ -55,22 +57,26 @@ jobs:
 
       - name: Test scraping with dry-run
         run: python fitgrab https://fitgirl-repacks.site/cyberpunk-2077/ --dry-run
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ~/.local/share/playwright-browsers
         continue-on-error: true
 
       - name: Check for common scraping errors
         run: |
           python fitgrab https://fitgirl-repacks.site/cyberpunk-2077/ --dry-run 2>&1 | tee test_output.log
-          
+
           if grep -q "No FuckingFast links found" test_output.log; then
             echo "ERROR: Scraping failed - no FF links found"
             exit 1
           fi
-          
+
           if grep -q "paste.fitgirl-repacks.site" test_output.log; then
             echo "OK: PrivateBin paste links are being detected"
           else
             echo "WARNING: PrivateBin paste links not detected"
           fi
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ~/.local/share/playwright-browsers
         continue-on-error: true
 
       - name: Create issue on failure
