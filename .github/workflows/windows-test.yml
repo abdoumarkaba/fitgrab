@@ -49,10 +49,11 @@ jobs:
         env:
           PYTHONIOENCODING: utf-8
 
-      - name: Dry run test - Direct paste URL
+      - name: Dry run test - Direct paste URL (invalid URL - expected to fail)
         run: python fitgrab https://paste.fitgirl-repacks.site/?v=1#abc123 --dry-run
         env:
           PYTHONIOENCODING: utf-8
+        continue-on-error: true
 
       - name: Test with custom directory
         run: python fitgrab https://fitgirl-repacks.site/stellar-blade/ --dir C:\Temp\Games --dry-run
