@@ -1,0 +1,27 @@
+name: Windows Test
+
+on: [push, workflow_dispatch]
+
+jobs:
+  test-windows:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install aria2
+        run: choco install aria2 -y
+
+      - name: Install Python deps
+        run: pip install playwright playwright-stealth rich
+
+      - name: Install Playwright Chromium
+        run: python -m playwright install chromium
+
+      - name: Dry run test
+        run: python fitgrab https://fitgirl-repacks.site/cyberpunk-2077/ --dry-run
