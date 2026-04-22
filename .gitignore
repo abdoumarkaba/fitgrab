@@ -5,3 +5,4 @@
 !requirements.txt
 !install_*.sh
 !install_*.ps1
+!.github/workflows/*.yml
