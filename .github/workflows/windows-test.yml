@@ -23,5 +23,43 @@ jobs:
       - name: Install Playwright Chromium
         run: python -m playwright install chromium
 
-      - name: Dry run test
+      - name: Verify aria2 installation
+        run: aria2c --version
+
+      - name: Verify Python version
+        run: python --version
+
+      - name: Verify Playwright installation
+        run: python -c "from playwright.sync_api import sync_playwright; print('Playwright OK')"
+
+      - name: Check disk space
+        run: |
+          $drive = Get-PSDrive C
+          $freeGB = [math]::Round($drive.Free / 1GB, 2)
+          Write-Host "Free disk space: $freeGB GB"
+          if ($freeGB -lt 5) {
+            Write-Host "WARNING: Low disk space"
+          }
+
+      - name: Set PYTHONIOENCODING for Windows
+        run: echo "PYTHONIOENCODING=utf-8" >> $env:GITHUB_ENV
+
+      - name: Dry run test - Cyberpunk 2077
         run: python fitgrab https://fitgirl-repacks.site/cyberpunk-2077/ --dry-run
+        env:
+          PYTHONIOENCODING: utf-8
+
+      - name: Dry run test - Direct paste URL
+        run: python fitgrab https://paste.fitgirl-repacks.site/?v=1#abc123 --dry-run
+        env:
+          PYTHONIOENCODING: utf-8
+
+      - name: Test with custom directory
+        run: python fitgrab https://fitgirl-repacks.site/stellar-blade/ --dir C:\Temp\Games --dry-run
+        env:
+          PYTHONIOENCODING: utf-8
+
+      - name: Test concurrency flag
+        run: python fitgrab https://fitgirl-repacks.site/elden-ring/ --concurrency 4 --dry-run
+        env:
+          PYTHONIOENCODING: utf-8
