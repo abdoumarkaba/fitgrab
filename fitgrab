@@ -566,6 +566,60 @@ def detect_range_header_errors(dest_dir: Path) -> list[Path]:
     return corrupted_files
 
 
+def extract_expected_filenames_from_queue(queue_path: Path) -> set[str]:
+    """Extract expected filenames from aria2 queue file.
+    
+    Queue file format:
+    https://dl.fuckingfast.co/...
+    dir=/path/to/dir
+    
+    Returns set of expected filenames (extracted from URLs).
+    """
+    if not queue_path.exists():
+        return set()
+    
+    expected = set()
+    
+    try:
+        with open(queue_path, "r") as f:
+            lines = f.readlines()
+        
+        for line in lines:
+            line = line.strip()
+            if line and not line.startswith("dir="):
+                # This is a URL line
+                filename = extract_filename_from_url(line)
+                if filename:
+                    expected.add(filename)
+    except Exception:
+        pass
+    
+    return expected
+
+
+def detect_missing_files(dest_dir: Path) -> list[str]:
+    """Detect completely missing files by comparing against queue file.
+    
+    Files that were never started have no .aria2 control file, so aria2
+    won't resume them automatically. This function detects those gaps.
+    
+    Returns list of missing filenames.
+    """
+    queue_path = dest_dir / ".fitgrab_queue.txt"
+    expected = extract_expected_filenames_from_queue(queue_path)
+    
+    if not expected:
+        return []
+    
+    existing = set()
+    for f in dest_dir.iterdir():
+        if f.suffix in [".rar", ".bin"]:
+            existing.add(f.name)
+    
+    missing = sorted(expected - existing)
+    return missing
+
+
 def clean_range_header_errors(dest_dir: Path) -> tuple[int, int]:
     """Clean files with range header errors and their .aria2 control files.
     
@@ -1059,7 +1113,17 @@ def aria2c_download(direct_urls: list[str], dest_dir: Path) -> bool:
 
     # Run aria2c (subprocess.run shows aria2c's own progress output)
     result = subprocess.run(cmd)
+
+    # Check for completely missing files (files that were never started)
+    missing_files = detect_missing_files(dest_dir)
     
+    if missing_files:
+        if RICH_AVAILABLE and console:
+            console.print(f"\n[yellow]Detected {len(missing_files)} missing file(s), re-downloading...[/yellow]")
+        else:
+            print(f"\n  Detected {len(missing_files)} missing file(s), re-downloading...")
+        # Re-run aria2c to download missing files
+        result = subprocess.run(cmd)
     
     if result.returncode == 0:
         input_path.unlink(missing_ok=True)
@@ -1140,6 +1204,17 @@ def aria2c_resume(dest_dir: Path, concurrency: int = 8) -> bool:
 
     # Run aria2c
     result = subprocess.run(cmd)
+
+    # Check for completely missing files (files that were never started)
+    missing_files = detect_missing_files(dest_dir)
+    
+    if missing_files:
+        if RICH_AVAILABLE and console:
+            console.print(f"\n[yellow]Detected {len(missing_files)} missing file(s), re-downloading...[/yellow]")
+        else:
+            print(f"\n  Detected {len(missing_files)} missing file(s), re-downloading...")
+        # Re-run aria2c to download missing files
+        result = subprocess.run(cmd)
 
     if result.returncode == 0:
         input_path.unlink(missing_ok=True)
