@@ -44,6 +44,7 @@ Rate-limit bypass strategy (Stage 3):
 import sys
 import re
 import os
+import platform
 import asyncio
 import subprocess
 import argparse
@@ -223,15 +224,25 @@ def jittered_backoff(attempt: int) -> float:
 
 def get_default_dest_dir(game_name: str | None) -> Path:
     """Get default destination directory.
-    
-    Target: /run/media/abdoufoundit/forgames/extracted/<Game_Name>
+
+    Target: ~/Games/<Game_Name> on Linux, ~/Games on macOS, or
+            C:\Users\<username>\Games on Windows.
     Creates the directory if it doesn't exist.
     """
-    base_path = Path("/run/media/abdoufoundit/forgames/extracted")
-    
+    # Determine OS-specific base path
+    if platform.system() == "Windows":
+        # Windows: C:\Users\<username>\Games
+        base_path = Path.home() / "Games"
+    elif platform.system() == "Darwin":
+        # macOS: ~/Games
+        base_path = Path.home() / "Games"
+    else:
+        # Linux and others: ~/Games
+        base_path = Path.home() / "Games"
+
     # Ensure base path exists (create if needed)
     base_path.mkdir(parents=True, exist_ok=True)
-    
+
     if game_name:
         folder_name = slugify(game_name)
         return base_path / folder_name

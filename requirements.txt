@@ -1,0 +1,11 @@
+# fitgrab - FitGirl Repacks Downloader via FuckingFast mirrors
+# Python dependencies
+
+# Required
+playwright>=1.40.0
+
+# Optional - Anti-detection for Playwright
+playwright-stealth>=1.0.6
+
+# Optional - Beautiful terminal UI
+rich>=13.7.0

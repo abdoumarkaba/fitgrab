@@ -1,3 +1,7 @@
 *
 !fitgrab
 !.gitignore
+!README.md
+!requirements.txt
+!install_*.sh
+!install_*.ps1
