@@ -2,7 +2,7 @@
 
 > **FitGirl Repacks downloader via FuckingFast mirrors**
 
-fitgrab automates downloading FitGirl repacks by extracting direct FuckingFast CDN links and downloading at full speed.
+fitgrab automates downloading FitGirl repacks by extracting direct FuckingFast CDN links and downloading at full speed. This only works for games with FuckingFast mirrors as a download option
 
 ## What it does
 
