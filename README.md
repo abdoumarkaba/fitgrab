@@ -52,10 +52,23 @@ Your disk
 
 ## Quick Start
 
+### One-Liner Installation
+
+**Linux:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/abdoumarkaba/fitgrab/main/install_linux.sh | bash
+```
+*Script will prompt for sudo when needed.*
+
+**Windows (PowerShell): Run as Administrator**
+```powershell
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/abdoumarkaba/fitgrab/main/install_windows.ps1 -OutFile install.ps1; ./install.ps1
+```
+
 ### Linux
 
 ```bash
-# Install dependencies
+# Or install from local script
 ./install_linux.sh
 
 # Download a game
