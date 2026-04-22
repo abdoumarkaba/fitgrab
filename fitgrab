@@ -260,7 +260,7 @@ def get_default_dest_dir(game_name: str | None) -> Path:
     """Get default destination directory.
 
     Target: ~/Games/<Game_Name> on Linux, ~/Games on macOS, or
-            C:\Users\<username>\Games on Windows.
+            C:/Users/<username>/Games on Windows.
     Creates the directory if it doesn't exist.
     """
     # Determine OS-specific base path
