@@ -104,10 +104,15 @@ ARIA2_TIMEOUT = int(os.environ.get("FITGRAB_ARIA2_TIMEOUT", "60"))
 ARIA2_CONNECT_TIMEOUT = int(os.environ.get("FITGRAB_ARIA2_CONNECT_TIMEOUT", "15"))
 
 # Playwright browser path
-PLAYWRIGHT_BROWSERS_PATH = os.environ.get(
-    "PLAYWRIGHT_BROWSERS_PATH",
-    str(Path.home() / ".local" / "share" / "playwright-browsers")
-)
+# On Linux/macOS: use persistent ~/.local/share/playwright-browsers to survive cache cleaning
+# On Windows: let Playwright use its default location (AppData/Local/ms-playwright)
+if platform.system() == "Windows":
+    PLAYWRIGHT_BROWSERS_PATH = os.environ.get("PLAYWRIGHT_BROWSERS_PATH", "")
+else:
+    PLAYWRIGHT_BROWSERS_PATH = os.environ.get(
+        "PLAYWRIGHT_BROWSERS_PATH",
+        str(Path.home() / ".local" / "share" / "playwright-browsers")
+    )
 
 # Rate limit detection signals
 RATE_LIMIT_SIGNALS = [
@@ -147,13 +152,17 @@ except ImportError:
 
 def _check_playwright_browsers() -> bool:
     """Check if Playwright browsers are installed. Return True if available."""
-    browsers_path = os.environ.get(
-        "PLAYWRIGHT_BROWSERS_PATH",
-        Path.home() / ".cache" / "ms-playwright"
-    )
-    if isinstance(browsers_path, str):
+    # Get path from env var or use OS-specific default
+    browsers_path = os.environ.get("PLAYWRIGHT_BROWSERS_PATH")
+    if browsers_path:
         browsers_path = Path(browsers_path)
-    
+    elif platform.system() == "Windows":
+        # Windows default: AppData/Local/ms-playwright
+        browsers_path = Path.home() / "AppData" / "Local" / "ms-playwright"
+    else:
+        # Linux/macOS default: ~/.cache/ms-playwright
+        browsers_path = Path.home() / ".cache" / "ms-playwright"
+
     # Check for chromium directory
     chromium_dirs = list(browsers_path.glob("chromium-*")) if browsers_path.exists() else []
     return len(chromium_dirs) > 0
