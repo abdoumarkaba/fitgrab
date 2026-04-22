@@ -1,0 +1,58 @@
+name: macOS Test
+
+on: [push, workflow_dispatch]
+
+jobs:
+  test-macos:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install aria2
+        run: brew install aria2
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Caches/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      - name: Install Python deps
+        run: pip install playwright playwright-stealth rich
+
+      - name: Install Playwright Chromium
+        run: python -m playwright install chromium
+
+      - name: Verify aria2 installation
+        run: aria2c --version
+
+      - name: Verify Python version
+        run: python --version
+
+      - name: Verify Playwright installation
+        run: python -c "from playwright.sync_api import sync_playwright; print('Playwright OK')"
+
+      - name: Check disk space
+        run: |
+          freeGB=$(df -h / | tail -1 | awk '{print $4}' | sed 's/G//')
+          echo "Free disk space: ${freeGB}GB"
+          if [ "$freeGB" -lt 5 ]; then
+            echo "WARNING: Low disk space"
+          fi
+
+      - name: Dry run test - Cyberpunk 2077
+        run: python fitgrab https://fitgirl-repacks.site/cyberpunk-2077/ --dry-run
+
+      - name: Test with custom directory
+        run: python fitgrab https://fitgirl-repacks.site/stellar-blade/ --dir ~/Games --dry-run
+
+      - name: Test concurrency flag
+        run: python fitgrab https://fitgirl-repacks.site/elden-ring/ --concurrency 4 --dry-run

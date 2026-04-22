@@ -1,11 +1,17 @@
 # fitgrab - FitGirl Repacks Downloader via FuckingFast mirrors
 # Python dependencies
 
-# Required
+# Required dependencies
 playwright>=1.40.0
-
-# Optional - Anti-detection for Playwright
 playwright-stealth>=1.0.6
-
-# Optional - Beautiful terminal UI
 rich>=13.7.0
+
+# Development dependencies (optional - install with: pip install -r requirements-dev.txt)
+# black>=23.0.0        # Code formatting
+# ruff>=0.1.0          # Fast linter
+# mypy>=1.0.0          # Type checking
+# pytest>=7.0.0        # Testing framework
+# pytest-asyncio>=0.21.0  # Async test support
+# build>=0.10.0        # Package building
+# twine>=4.0.0         # PyPI publishing
+# pip-audit>=2.0.0     # Security auditing

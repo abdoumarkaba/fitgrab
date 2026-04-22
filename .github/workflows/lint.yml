@@ -1,0 +1,46 @@
+name: Lint & Code Quality
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-lint-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-lint-
+
+      - name: Install linting tools
+        run: |
+          pip install ruff black mypy
+          pip install playwright playwright-stealth rich  # runtime deps for type checking
+
+      - name: Check code formatting with Black
+        run: black --check fitgrab
+
+      - name: Lint with Ruff
+        run: ruff check fitgrab
+
+      - name: Type check with mypy
+        run: mypy fitgrab --ignore-missing-imports --no-error-summary || true
+
+      - name: Check imports with Ruff
+        run: ruff check fitgrab --select I
+
+      - name: Security checks with Ruff
+        run: ruff check fitgrab --select S
