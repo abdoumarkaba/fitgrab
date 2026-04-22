@@ -52,21 +52,94 @@ import random
 import shutil
 import signal
 import time
+import logging
 from pathlib import Path
 from datetime import datetime
 from typing import Optional
 from urllib.parse import unquote
 
+# ── Logging Configuration ───────────────────────────────────────────────────────────
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(levelname)s: %(message)s',
+    datefmt='%H:%M:%S'
+)
+logger = logging.getLogger(__name__)
+
+# ── Public API ────────────────────────────────────────────────────────────────────
+
+__all__ = [
+    'main',
+    'FitgrabError',
+    'DependencyError',
+    'BrowserNotFoundError',
+]
+
 # ── Version ────────────────────────────────────────────────────────────────────
 
 __version__ = "1.2.0"
 
+# ── Configuration Constants ───────────────────────────────────────────────────────
+# All magic numbers and configuration values in one place for easy adjustment.
+# Can be overridden via environment variables (FITGRAB_MAX_ATTEMPTS, etc.)
+
+# Rate-limit bypass constants
+MAX_ATTEMPTS = int(os.environ.get("FITGRAB_MAX_ATTEMPTS", "5"))
+COOLDOWN_AFTER_429 = int(os.environ.get("FITGRAB_COOLDOWN_AFTER_429", "60"))
+BACKOFF_BASE = float(os.environ.get("FITGRAB_BACKOFF_BASE", "3.0"))
+BACKOFF_CAP = float(os.environ.get("FITGRAB_BACKOFF_CAP", "60.0"))
+
+# Concurrency settings
+DEFAULT_CONCURRENCY = int(os.environ.get("FITGRAB_CONCURRENCY", "2"))
+
+# aria2c configuration
+ARIA2_CONCURRENT = int(os.environ.get("FITGRAB_ARIA2_CONCURRENT", "15"))
+ARIA2_SPLIT = int(os.environ.get("FITGRAB_ARIA2_SPLIT", "1"))
+ARIA2_MIN_SPLIT = os.environ.get("FITGRAB_ARIA2_MIN_SPLIT", "1M")
+ARIA2_FILE_ALLOCATION = os.environ.get("FITGRAB_ARIA2_FILE_ALLOCATION", "none")
+ARIA2_RETRY_WAIT = int(os.environ.get("FITGRAB_ARIA2_RETRY_WAIT", "5"))
+ARIA2_MAX_TRIES = int(os.environ.get("FITGRAB_ARIA2_MAX_TRIES", "6"))
+ARIA2_TIMEOUT = int(os.environ.get("FITGRAB_ARIA2_TIMEOUT", "60"))
+ARIA2_CONNECT_TIMEOUT = int(os.environ.get("FITGRAB_ARIA2_CONNECT_TIMEOUT", "15"))
+
+# Playwright browser path
+PLAYWRIGHT_BROWSERS_PATH = os.environ.get(
+    "PLAYWRIGHT_BROWSERS_PATH",
+    str(Path.home() / ".local" / "share" / "playwright-browsers")
+)
+
+# Rate limit detection signals
+RATE_LIMIT_SIGNALS = [
+    "rate limit",
+    "too many requests",
+    "429",
+    "please slow down",
+    "try again later",
+    "access denied",
+]
+
+# ── Custom Exceptions ───────────────────────────────────────────────────────────
+
+class FitgrabError(Exception):
+    """Base exception for fitgrab."""
+    pass
+
+class DependencyError(FitgrabError):
+    """Required dependency not found."""
+    pass
+
+class BrowserNotFoundError(FitgrabError):
+    """Playwright browsers not installed."""
+    pass
+
 try:
     from playwright.async_api import async_playwright, TimeoutError as PWTimeout
 except ImportError:
-    print("\n  ✗ pip install playwright --break-system-packages")
-    print("  ✗ playwright install chromium\n")
-    sys.exit(1)
+    raise DependencyError(
+        "Playwright not installed. Run: pip install playwright --break-system-packages\n"
+        "Then install browsers: playwright install chromium"
+    )
 
 # ── Playwright browser persistence check ──────────────────────────────────────
 # ~/.cache/ is often cleaned by system services. Use ~/.local/share/ for persistence.
@@ -86,14 +159,14 @@ def _check_playwright_browsers() -> bool:
     return len(chromium_dirs) > 0
 
 # Set persistent browser path if not already set
-if "PLAYWRIGHT_BROWSERS_PATH" not in os.environ:
-    os.environ["PLAYWRIGHT_BROWSERS_PATH"] = str(Path.home() / ".local" / "share" / "playwright-browsers")
+os.environ.setdefault("PLAYWRIGHT_BROWSERS_PATH", PLAYWRIGHT_BROWSERS_PATH)
 
 if not _check_playwright_browsers():
-    print("\n  ✗ Playwright browsers not found.")
-    print("  → Run: playwright install chromium")
-    print("  → Or set PLAYWRIGHT_BROWSERS_PATH to your browser location.\n")
-    sys.exit(1)
+    raise BrowserNotFoundError(
+        "Playwright browsers not found.\n"
+        "Run: playwright install chromium\n"
+        "Or set PLAYWRIGHT_BROWSERS_PATH to your browser location."
+    )
 
 try:
     from playwright_stealth import stealth_async
@@ -135,45 +208,6 @@ USER_AGENTS = [
 
 # Fallback UA used outside of Stage 3 (scraping stages that don't need rotation)
 DEFAULT_USER_AGENT = USER_AGENTS[0]
-
-# ── Rate-limit bypass constants ────────────────────────────────────────────────
-# These values tune the backoff strategy when FuckingFast throttles requests.
-# The CDN uses a sliding window - we back off to let it clear before retrying.
-
-MAX_ATTEMPTS        = 5     # maximum total attempts per URL across the retry queue
-COOLDOWN_AFTER_429  = 60    # base seconds a worker pauses after detecting a hard limit
-BACKOFF_BASE        = 3.0   # seconds; doubles each attempt
-BACKOFF_CAP         = 60.0  # maximum ceiling for a single backoff draw
-
-# HTML substrings that indicate we've hit a rate limit (case-insensitive checked)
-RATE_LIMIT_SIGNALS = [
-    "rate limit",
-    "too many requests",
-    "429",
-    "please slow down",
-    "try again later",
-    "access denied",
-]
-
-# Parallel browser contexts used during Stage 3 URL resolution.
-DEFAULT_CONCURRENCY = 2
-
-# ── aria2c configuration ─────────────────────────────────────────────────────────
-# aria2c handles the actual file downloads. These settings are tuned for:
-# - Single connection per file (ARIA2_SPLIT=1) to avoid HTTP Range header issues
-#   with FuckingFast's CDN which doesn't properly support partial content.
-# - Resume support (--continue=true) so re-running picks up where it left off.
-# - Reasonable timeouts to detect stalled connections quickly.
-
-ARIA2_CONCURRENT = 15
-ARIA2_SPLIT = 1
-ARIA2_MIN_SPLIT = "1M"
-ARIA2_FILE_ALLOCATION = "none"
-ARIA2_RETRY_WAIT = 5
-ARIA2_MAX_TRIES = 6
-ARIA2_TIMEOUT = 60
-ARIA2_CONNECT_TIMEOUT = 15
-
 
 # ── Signal handling ──────────────────────────────────────────────────────────────
 # Graceful Ctrl+C handling - important because downloads can be long-running.
@@ -291,7 +325,7 @@ def format_time(seconds: float) -> str:
 
 # --- TUI Rendering Functions -------------------------------------------------
 
-def print_header(game_name: str, total_parts: int, dest_dir: Path, start_time: float):
+def print_header(game_name: str, total_parts: int, dest_dir: Path, start_time: float) -> None:
     """Print rich header panel with game info."""
     if RICH_AVAILABLE and console:
         elapsed = time.time() - start_time
@@ -302,7 +336,7 @@ def print_header(game_name: str, total_parts: int, dest_dir: Path, start_time: f
         info_table.add_row("Parts", str(total_parts))
         info_table.add_row("Dest", str(dest_dir))
         info_table.add_row("Time", format_time(elapsed))
-        
+
         console.print(Panel(
             info_table,
             title=f"[bold green]fitgrab[/bold green] [dim]v{__version__}[/dim]",
@@ -315,7 +349,7 @@ def print_header(game_name: str, total_parts: int, dest_dir: Path, start_time: f
         print(f"  Game: {game_name}  |  Parts: {total_parts}  |  Dest: {dest_dir}\n")
 
 
-def print_stage(stage: int, message: str):
+def print_stage(stage: int, message: str) -> None:
     """Print stage header with styling."""
     if RICH_AVAILABLE and console:
         stage_colors = {1: "blue", 2: "magenta", 3: "yellow", 4: "green", 5: "cyan"}
@@ -325,83 +359,7 @@ def print_stage(stage: int, message: str):
         print(f"\n  Stage {stage}: {message}")
 
 
-def print_status(success: bool, message: str):
-    """Print status message with checkmark or X."""
-    if RICH_AVAILABLE and console:
-        symbol = "[green]OK[/green]" if success else "[red]FAIL[/red]"
-        console.print(f"  {symbol}  {message}")
-    else:
-        symbol = "OK" if success else "FAIL"
-        print(f"  [{symbol}]  {message}")
-
-
-def format_size(bytes_val: int) -> str:
-    """Format bytes as human-readable size (MiB, GiB)."""
-    if bytes_val >= 1024 * 1024 * 1024:
-        return f"{bytes_val / (1024 * 1024 * 1024):.2f} GiB"
-    elif bytes_val >= 1024 * 1024:
-        return f"{bytes_val / (1024 * 1024):.1f} MiB"
-    elif bytes_val >= 1024:
-        return f"{bytes_val / 1024:.1f} KiB"
-    return f"{bytes_val} B"
-
-
-def format_speed(bytes_per_sec: float) -> str:
-    """Format bytes/sec as human-readable speed."""
-    if bytes_per_sec >= 1024 * 1024:
-        return f"{bytes_per_sec / (1024 * 1024):.1f} MiB/s"
-    elif bytes_per_sec >= 1024:
-        return f"{bytes_per_sec / 1024:.1f} KiB/s"
-    return f"{bytes_per_sec:.0f} B/s"
-
-
-def format_time(seconds: float) -> str:
-    """Format seconds as MM:SS or HH:MM:SS."""
-    if seconds < 0:
-        return "--:--"
-    seconds = int(seconds)
-    if seconds >= 3600:
-        return f"{seconds // 3600:02d}:{(seconds % 3600) // 60:02d}:{seconds % 60:02d}"
-    return f"{seconds // 60:02d}:{seconds % 60:02d}"
-
-
-# --- TUI Rendering Functions -------------------------------------------------
-
-def print_header(game_name: str, total_parts: int, dest_dir: Path, start_time: float):
-    """Print rich header panel with game info."""
-    if RICH_AVAILABLE and console:
-        elapsed = time.time() - start_time
-        info_table = Table(show_header=False, box=None, padding=(0, 2))
-        info_table.add_column("key", style="dim")
-        info_table.add_column("value", style="bold cyan")
-        info_table.add_row("Game", game_name)
-        info_table.add_row("Parts", str(total_parts))
-        info_table.add_row("Dest", str(dest_dir))
-        info_table.add_row("Time", format_time(elapsed))
-        
-        console.print(Panel(
-            info_table,
-            title=f"[bold green]fitgrab[/bold green] [dim]v{__version__}[/dim]",
-            subtitle=f"[dim]{ARIA2_CONCURRENT} concurrent[/dim]",
-            border_style="green",
-            expand=False,
-        ))
-    else:
-        print(f"\n  fitgrab v{__version__}  -  FitGirl speed loader")
-        print(f"  Game: {game_name}  |  Parts: {total_parts}  |  Dest: {dest_dir}\n")
-
-
-def print_stage(stage: int, message: str):
-    """Print stage header with styling."""
-    if RICH_AVAILABLE and console:
-        stage_colors = {1: "blue", 2: "magenta", 3: "yellow", 4: "green", 5: "cyan"}
-        color = stage_colors.get(stage, "white")
-        console.print(f"\n[bold {color}]Stage {stage}:[/bold {color}] {message}")
-    else:
-        print(f"\n  Stage {stage}: {message}")
-
-
-def print_status(success: bool, message: str):
+def print_status(success: bool, message: str) -> None:
     """Print status message with checkmark or X."""
     if RICH_AVAILABLE and console:
         symbol = "[green]OK[/green]" if success else "[red]FAIL[/red]"
@@ -1293,4 +1251,14 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except FitgrabError as e:
+        logger.error(str(e))
+        sys.exit(1)
+    except KeyboardInterrupt:
+        logger.info("Interrupted by user")
+        sys.exit(0)
+    except Exception as e:
+        logger.error(f"Unexpected error: {e}")
+        sys.exit(1)

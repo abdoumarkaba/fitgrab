@@ -226,6 +226,37 @@ fitgrab will:
 
 ---
 
+## After Download
+
+### Extracting the Game
+
+FitGirl repacks are split into multiple `.rar` parts. To extract:
+
+**Linux:**
+```bash
+# Install PeaZip (recommended for multi-part archives)
+# Option 1: From package manager
+sudo apt install peazip          # Ubuntu/Debian
+sudo dnf install peazip          # Fedora
+sudo pacman -S peazip            # Arch
+
+# Option 2: From GNOME Software (search for "PeaZip")
+# Option 3: Download from https://github.com/peazip/PeaZip/releases
+
+# Extract (only extract the first .rar file - PeaZip handles the rest)
+peazip ~/Games/<game_name>/part01.rar
+```
+
+**Windows:**
+```powershell
+# Install 7-Zip or WinRAR if not already installed
+# Right-click part01.rar → "Extract Here" or "Extract to <game_name>"
+```
+
+**Important:** Only extract the first `.rar` file (usually `part01.rar`). The archive tool will automatically extract all parts in sequence.
+
+---
+
 ## How It Works
 
 ### Stage 1: FitGirl Page Scraping
