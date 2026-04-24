@@ -51,6 +51,7 @@ import random
 import shutil
 import signal
 import time
+import threading
 from pathlib import Path
 from datetime import datetime
 from typing import Optional
@@ -107,15 +108,62 @@ except ImportError:
 try:
     from rich.console import Console
     from rich.panel import Panel
-    from rich.progress import Progress, BarColumn, DownloadColumn, TransferSpeedColumn, TimeRemainingColumn, TextColumn, TaskProgressColumn
+    from rich.progress import Progress, BarColumn, DownloadColumn, TransferSpeedColumn, TimeRemainingColumn, TextColumn, TaskProgressColumn, SpinnerColumn
     from rich.live import Live
     from rich.table import Table
     from rich.text import Text
+    from rich.style import Style
+    from rich.color import Color
+    from rich.spinner import Spinner
     RICH_AVAILABLE = True
     console = Console()
 except ImportError:
     RICH_AVAILABLE = False
     console = None
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MATRIX THEME — Color System & Styling Constants
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Primary colors (Matrix green dominant)
+MATRIX_GREEN = "#00ff41"
+MATRIX_GREEN_DIM = "#00aa2a"
+MATRIX_GREEN_DARK = "#005518"
+CYAN_ACCENT = "#00d4ff"
+ORANGE_WARN = "#ff6b35"
+RED_ERROR = "#ff2a6d"
+PURPLE_ACCENT = "#bf00ff"
+DIM_TEXT = "#3a5a3a"
+BG_DARK = "#0a0a0a"
+
+# Stage-specific styling
+STAGE_STYLES = {
+    1: {"color": "bright_blue", "icon": "◎", "label": "FETCH"},
+    2: {"color": "bright_magenta", "icon": "◈", "label": "DECRYPT"},
+    3: {"color": "bright_yellow", "icon": "◉", "label": "RESOLVE"},
+    4: {"color": MATRIX_GREEN, "icon": "▼", "label": "DOWNLOAD"},
+    5: {"color": CYAN_ACCENT, "icon": "✓", "label": "VERIFY"},
+}
+
+# Spinner frames for subtle animation (Matrix-style)
+MATRIX_SPINNER = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ASCII ART BANNER
+# ═══════════════════════════════════════════════════════════════════════════════
+
+BANNER = r"""
+    ▄████████ ███    █▄      ███      ▄██████▄  
+   ███    ███ ███    ███ ▀█████████▄ ███    ███ 
+   ███    ███ ███    ███    ▀███▀▀██ ███    ███ 
+   ███    ███ ███    ███     ███   ▀ ███    ███ 
+▀███████████ ███    ███     ███     ███    ███ 
+   ███    ███ ███    ███     ███     ███    ███ 
+   ███    ███ ███    ███     ███     ███    ███ 
+   ███    █▀  ████████▀     ▄████▀    ▀██████▀  
+"""
+
+BANNER_COMPACT = "fitgrab"
 
 # ── User-agent pool ────────────────────────────────────────────────────────────
 # Rotated per browser context so each tab presents a distinct fingerprint.
@@ -174,27 +222,31 @@ ARIA2_TIMEOUT = 60
 ARIA2_CONNECT_TIMEOUT = 15
 
 
-# ── Signal handling ──────────────────────────────────────────────────────────────
-# Graceful Ctrl+C handling - important because downloads can be long-running.
-# We want a clean exit (code 0) rather than a crash, with a helpful message.
+# ═══════════════════════════════════════════════════════════════════════════════
+# SIGNAL HANDLING — Graceful Ctrl+C
+# ═══════════════════════════════════════════════════════════════════════════════
 
 def _signal_handler(sig, frame):
     if RICH_AVAILABLE and console:
         console.print()
         console.print(Panel(
-            "[yellow]Interrupted — re-run to resume[/yellow]",
-            title="[bold red]fitgrab[/bold red]",
-            border_style="red",
+            f"[{ORANGE_WARN}]Interrupted — re-run to resume[/{ORANGE_WARN}]",
+            title=f"[bold {RED_ERROR}]fitgrab[/bold {RED_ERROR}]",
+            border_style=RED_ERROR,
             expand=False,
         ))
     else:
-        print("\n\n  ════════════════════════════════════════╗")
+        print("\n\n  ╔════════════════════════════════════════╗")
         print("  ║  Interrupted — re-run to resume        ║")
-        print("  ════════════════════════════════════════╝\n")
+        print("  ╚════════════════════════════════════════╝\n")
     sys.exit(0)
 
 signal.signal(signal.SIGINT, _signal_handler)
-# ── Utilities ──────────────────────────────────────────────────────────────────
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# UTILITIES
+# ═══════════════════════════════════════════════════════════════════════════════
 
 def slugify(title: str) -> str:
     """Turn a game title into a safe directory name.
@@ -278,127 +330,254 @@ def format_time(seconds: float) -> str:
     return f"{seconds // 60:02d}:{seconds % 60:02d}"
 
 
-# --- TUI Rendering Functions -------------------------------------------------
+def truncate_path(path: str, max_len: int = 40) -> str:
+    """Truncate a path for display, keeping the end visible."""
+    if len(path) <= max_len:
+        return path
+    return "…" + path[-(max_len - 1):]
 
-def print_header(game_name: str, total_parts: int, dest_dir: Path, start_time: float):
-    """Print rich header panel with game info."""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TUI RENDERING FUNCTIONS — Matrix/Hyprland Style
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def print_banner():
+    """Print the Matrix-style ASCII banner."""
     if RICH_AVAILABLE and console:
-        elapsed = time.time() - start_time
-        info_table = Table(show_header=False, box=None, padding=(0, 2))
-        info_table.add_column("key", style="dim")
-        info_table.add_column("value", style="bold cyan")
-        info_table.add_row("Game", game_name)
-        info_table.add_row("Parts", str(total_parts))
-        info_table.add_row("Dest", str(dest_dir))
-        info_table.add_row("Time", format_time(elapsed))
+        # Check terminal width for compact mode
+        if console.width < 60:
+            console.print(f"\n[bold {MATRIX_GREEN}]{BANNER_COMPACT}[/bold {MATRIX_GREEN}] [dim]v{__version__}[/dim]")
+        else:
+            console.print(f"\n[bold {MATRIX_GREEN}]{BANNER}[/bold {MATRIX_GREEN}]")
+        console.print(f"[dim {DIM_TEXT}]{'─' * min(console.width, 60)}[/dim {DIM_TEXT}]")
+    else:
+        print(f"\n  fitgrab v{__version__}")
+        print("  " + "─" * 40)
+
+
+def print_welcome_panel(game_name: str = None, dest_dir: str = None):
+    """Print the welcome/initialization panel with Matrix styling."""
+    if RICH_AVAILABLE and console:
+        content = f"[bold {MATRIX_GREEN}]FitGirl Repacks Downloader[/bold {MATRIX_GREEN}]\n"
+        content += f"[dim]via FuckingFast mirrors[/dim]"
         
         console.print(Panel(
-            info_table,
-            title=f"[bold green]fitgrab[/bold green] [dim]v{__version__}[/dim]",
-            subtitle=f"[dim]{ARIA2_CONCURRENT} concurrent[/dim]",
-            border_style="green",
+            content,
+            title=f"[bold {MATRIX_GREEN}]fitgrab[/bold {MATRIX_GREEN}] [dim]v{__version__}[/dim]",
+            border_style=MATRIX_GREEN,
             expand=False,
         ))
     else:
-        print(f"\n  fitgrab v{__version__}  -  FitGirl speed loader")
-        print(f"  Game: {game_name}  |  Parts: {total_parts}  |  Dest: {dest_dir}\n")
+        print(f"\n  fitgrab v{__version__} — FitGirl speed loader")
+        print("  via FuckingFast mirrors\n")
 
-
-def print_stage(stage: int, message: str):
-    """Print stage header with styling."""
-    if RICH_AVAILABLE and console:
-        stage_colors = {1: "blue", 2: "magenta", 3: "yellow", 4: "green", 5: "cyan"}
-        color = stage_colors.get(stage, "white")
-        console.print(f"\n[bold {color}]Stage {stage}:[/bold {color}] {message}")
-    else:
-        print(f"\n  Stage {stage}: {message}")
-
-
-def print_status(success: bool, message: str):
-    """Print status message with checkmark or X."""
-    if RICH_AVAILABLE and console:
-        symbol = "[green]OK[/green]" if success else "[red]FAIL[/red]"
-        console.print(f"  {symbol}  {message}")
-    else:
-        symbol = "OK" if success else "FAIL"
-        print(f"  [{symbol}]  {message}")
-
-
-def format_size(bytes_val: int) -> str:
-    """Format bytes as human-readable size (MiB, GiB)."""
-    if bytes_val >= 1024 * 1024 * 1024:
-        return f"{bytes_val / (1024 * 1024 * 1024):.2f} GiB"
-    elif bytes_val >= 1024 * 1024:
-        return f"{bytes_val / (1024 * 1024):.1f} MiB"
-    elif bytes_val >= 1024:
-        return f"{bytes_val / 1024:.1f} KiB"
-    return f"{bytes_val} B"
-
-
-def format_speed(bytes_per_sec: float) -> str:
-    """Format bytes/sec as human-readable speed."""
-    if bytes_per_sec >= 1024 * 1024:
-        return f"{bytes_per_sec / (1024 * 1024):.1f} MiB/s"
-    elif bytes_per_sec >= 1024:
-        return f"{bytes_per_sec / 1024:.1f} KiB/s"
-    return f"{bytes_per_sec:.0f} B/s"
-
-
-def format_time(seconds: float) -> str:
-    """Format seconds as MM:SS or HH:MM:SS."""
-    if seconds < 0:
-        return "--:--"
-    seconds = int(seconds)
-    if seconds >= 3600:
-        return f"{seconds // 3600:02d}:{(seconds % 3600) // 60:02d}:{seconds % 60:02d}"
-    return f"{seconds // 60:02d}:{seconds % 60:02d}"
-
-
-# --- TUI Rendering Functions -------------------------------------------------
 
 def print_header(game_name: str, total_parts: int, dest_dir: Path, start_time: float):
-    """Print rich header panel with game info."""
+    """Print rich header panel with game info — HUD style."""
     if RICH_AVAILABLE and console:
         elapsed = time.time() - start_time
-        info_table = Table(show_header=False, box=None, padding=(0, 2))
-        info_table.add_column("key", style="dim")
-        info_table.add_column("value", style="bold cyan")
-        info_table.add_row("Game", game_name)
-        info_table.add_row("Parts", str(total_parts))
-        info_table.add_row("Dest", str(dest_dir))
-        info_table.add_row("Time", format_time(elapsed))
+        
+        # Create compact info display
+        info_lines = [
+            f"[bold {MATRIX_GREEN}]Game:[/bold {MATRIX_GREEN}] [white]{game_name[:35]}{'...' if len(game_name) > 35 else ''}[/white]",
+            f"[bold {MATRIX_GREEN}]Parts:[/bold {MATRIX_GREEN}] [white]{total_parts}[/white]",
+            f"[bold {MATRIX_GREEN}]Dest:[/bold {MATRIX_GREEN}] [dim]{truncate_path(str(dest_dir), 35)}[/dim]",
+            f"[bold {MATRIX_GREEN}]Time:[/bold {MATRIX_GREEN}] [cyan]{format_time(elapsed)}[/cyan]",
+        ]
         
         console.print(Panel(
-            info_table,
-            title=f"[bold green]fitgrab[/bold green] [dim]v{__version__}[/dim]",
-            subtitle=f"[dim]{ARIA2_CONCURRENT} concurrent[/dim]",
-            border_style="green",
+            "\n".join(info_lines),
+            title=f"[bold {MATRIX_GREEN}]◉ TARGET[/bold {MATRIX_GREEN}]",
+            border_style=MATRIX_GREEN_DIM,
+            expand=False,
+            padding=(0, 1),
+        ))
+    else:
+        print(f"\n  fitgrab v{__version__}")
+        print(f"  Game: {game_name}  |  Parts: {total_parts}")
+        print(f"  Dest: {dest_dir}\n")
+
+
+def print_stage(stage: int, message: str, spinner: bool = False):
+    """Print stage header with Matrix cyber styling."""
+    style = STAGE_STYLES.get(stage, {"color": "white", "icon": "●", "label": f"STAGE {stage}"})
+    color = style["color"]
+    icon = style["icon"]
+    label = style["label"]
+    
+    if RICH_AVAILABLE and console:
+        # Animated spinner prefix for active stages
+        spinner_frame = random.choice(MATRIX_SPINNER) if spinner else ""
+        line = f"\n[bold {color}]{icon} {label}[/bold {color}] "
+        if spinner_frame:
+            line += f"[dim]{spinner_frame}[/dim] "
+        line += f"[white]{message}[/white]"
+        console.print(line)
+    else:
+        print(f"\n  [{label}] {message}")
+
+
+def print_status(success: bool, message: str, detail: str = None):
+    """Print status message with Matrix-style indicators."""
+    if RICH_AVAILABLE and console:
+        if success:
+            symbol = f"[{MATRIX_GREEN}]✓[/{MATRIX_GREEN}]"
+            msg_color = "white"
+        else:
+            symbol = f"[{RED_ERROR}]✗[/{RED_ERROR}]"
+            msg_color = RED_ERROR
+        
+        line = f"  {symbol}  [{msg_color}]{message}[/{msg_color}]"
+        if detail:
+            line += f" [dim]{detail}[/dim]"
+        console.print(line)
+    else:
+        symbol = "✓" if success else "✗"
+        line = f"  [{symbol}]  {message}"
+        if detail:
+            line += f" {detail}"
+        print(line)
+
+
+def print_progress_update(idx: int, total: int, message: str, status: str = "working"):
+    """Print a progress update with consistent formatting."""
+    label = f"[{idx:02d}/{total:02d}]"
+    
+    if RICH_AVAILABLE and console:
+        if status == "success":
+            icon = f"[{MATRIX_GREEN}]✓[/{MATRIX_GREEN}]"
+        elif status == "fail":
+            icon = f"[{RED_ERROR}]✗[/{RED_ERROR}]"
+        elif status == "retry":
+            icon = f"[{ORANGE_WARN}]↻[/{ORANGE_WARN}]"
+        elif status == "rate":
+            icon = f"[{ORANGE_WARN}]⚠[/{ORANGE_WARN}]"
+        else:
+            icon = f"[{MATRIX_GREEN_DIM}]◉[/{MATRIX_GREEN_DIM}]"
+        
+        console.print(f"  {label}  {icon}  [dim]{message}[/dim]")
+    else:
+        icons = {"success": "✓", "fail": "✗", "retry": "↻", "rate": "⚠", "working": "◉"}
+        print(f"  {label}  {icons.get(status, '●')}  {message}")
+
+
+def print_worker_message(worker_id: int, message: str, msg_type: str = "info"):
+    """Print worker status message."""
+    if RICH_AVAILABLE and console:
+        if msg_type == "cooldown":
+            icon = f"[{CYAN_ACCENT}]❄[/{CYAN_ACCENT}]"
+        else:
+            icon = f"[{DIM_TEXT}]●[/{DIM_TEXT}]"
+        console.print(f"  [dim]w{worker_id}[/dim]  {icon}  [dim]{message}[/dim]")
+    else:
+        print(f"  [worker-{worker_id}] {message}")
+
+
+def print_aria2_header(file_count: int, dest_dir: Path):
+    """Print the aria2c download stage header."""
+    if RICH_AVAILABLE and console:
+        console.print(Panel(
+            f"[dim]{file_count} files[/dim] → [cyan]{truncate_path(str(dest_dir), 30)}[/cyan]\n"
+            f"[dim]{ARIA2_CONCURRENT} concurrent │ resume: enabled[/dim]",
+            title=f"[bold {MATRIX_GREEN}]▼ DOWNLOAD[/bold {MATRIX_GREEN}]",
+            border_style=MATRIX_GREEN_DIM,
             expand=False,
         ))
     else:
-        print(f"\n  fitgrab v{__version__}  -  FitGirl speed loader")
-        print(f"  Game: {game_name}  |  Parts: {total_parts}  |  Dest: {dest_dir}\n")
+        print(f"\n  aria2c  [{file_count} files → {dest_dir}]")
+        print(f"  {ARIA2_CONCURRENT} concurrent | resume: yes\n")
 
 
-def print_stage(stage: int, message: str):
-    """Print stage header with styling."""
+def print_completion_panel(dest_dir: Path, elapsed: float, success: bool = True):
+    """Print the final completion panel with celebration effect."""
     if RICH_AVAILABLE and console:
-        stage_colors = {1: "blue", 2: "magenta", 3: "yellow", 4: "green", 5: "cyan"}
-        color = stage_colors.get(stage, "white")
-        console.print(f"\n[bold {color}]Stage {stage}:[/bold {color}] {message}")
+        if success:
+            title = f"[bold {MATRIX_GREEN}]◉ COMPLETE[/bold {MATRIX_GREEN}]"
+            border = MATRIX_GREEN
+            content = f"[{MATRIX_GREEN}]All downloads complete![/{MATRIX_GREEN}]\n"
+            content += f"[dim]→[/dim] [cyan]{truncate_path(str(dest_dir), 35)}[/cyan]\n"
+            content += f"[dim]Time: {format_time(elapsed)}[/dim]\n"
+            content += f"[dim]Extract: cd '{dest_dir}' && unrar x *.part01.rar[/dim]"
+        else:
+            title = f"[bold {ORANGE_WARN}]◉ INCOMPLETE[/bold {ORANGE_WARN}]"
+            border = ORANGE_WARN
+            content = f"[{ORANGE_WARN}]Download incomplete.[/{ORANGE_WARN}]\n"
+            content += f"[dim]Re-run fitgrab to resume.[/dim]"
+        
+        console.print(Panel(
+            content,
+            title=title,
+            border_style=border,
+            expand=False,
+        ))
     else:
-        print(f"\n  Stage {stage}: {message}")
+        if success:
+            print(f"\n  ✓ All downloads complete!")
+            print(f"  → {dest_dir}")
+            print(f"  Time: {format_time(elapsed)}")
+            print(f"  Extract: cd '{dest_dir}' && unrar x *.part01.rar\n")
+        else:
+            print("\n  ✗ Download incomplete. Re-run fitgrab to resume.\n")
 
 
-def print_status(success: bool, message: str):
-    """Print status message with checkmark or X."""
+def print_interrupt_panel():
+    """Print the interrupt panel for Ctrl+C."""
     if RICH_AVAILABLE and console:
-        symbol = "[green]OK[/green]" if success else "[red]FAIL[/red]"
-        console.print(f"  {symbol}  {message}")
+        console.print()
+        console.print(Panel(
+            f"[{ORANGE_WARN}]Interrupted — re-run to resume[/{ORANGE_WARN}]",
+            title=f"[bold {RED_ERROR}]◉ STOPPED[/bold {RED_ERROR}]",
+            border_style=RED_ERROR,
+            expand=False,
+        ))
     else:
-        symbol = "OK" if success else "FAIL"
-        print(f"  [{symbol}]  {message}")
+        print("\n\n  ╔════════════════════════════════════════╗")
+        print("  ║  Interrupted — re-run to resume        ║")
+        print("  ╚════════════════════════════════════════╝\n")
 
+
+def print_error(message: str, detail: str = None):
+    """Print an error message with styling."""
+    if RICH_AVAILABLE and console:
+        console.print(f"\n  [{RED_ERROR}]✗ ERROR:[/{RED_ERROR}] [white]{message}[/white]")
+        if detail:
+            console.print(f"         [dim]{detail}[/dim]")
+    else:
+        print(f"\n  ✗ ERROR: {message}")
+        if detail:
+            print(f"         {detail}")
+
+
+def print_dry_run_table(ff_links: list[str], existing_files: set[str]):
+    """Print the dry run status table."""
+    if RICH_AVAILABLE and console:
+        console.print(f"\n[bold {ORANGE_WARN}]◉ DRY RUN — FF page URLs[/bold {ORANGE_WARN}]\n")
+        
+        table = Table(show_header=True, header_style=f"bold {MATRIX_GREEN}", box=None)
+        table.add_column("Part", style=MATRIX_GREEN, width=8)
+        table.add_column("Status", width=15)
+        
+        for url in ff_links:
+            part_match = re.search(r'part(\d+)\.rar', url, re.IGNORECASE)
+            part_num = part_match.group(1) if part_match else "??"
+            found = any(f'part{part_num}.rar' in fname for fname in existing_files) if part_match else False
+            status = f"[{MATRIX_GREEN}]exists[/{MATRIX_GREEN}]" if found else f"[{ORANGE_WARN}]to download[/{ORANGE_WARN}]"
+            table.add_row(f"part{part_num}", status)
+        
+        console.print(table)
+    else:
+        print("\n  [DRY RUN - FF page URLs]\n")
+        for url in ff_links:
+            part_match = re.search(r'part(\d+)\.rar', url, re.IGNORECASE)
+            part_num = part_match.group(1) if part_match else "??"
+            found = any(f'part{part_num}.rar' in fname for fname in existing_files) if part_match else False
+            status = "exists" if found else "to download"
+            print(f"    [{status}] part{part_num}")
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MANIFEST & FILE MANAGEMENT
+# ═══════════════════════════════════════════════════════════════════════════════
 
 def save_ff_manifest(ff_links: list[str], dest_dir: Path, game_name: str) -> Path:
     """Save FF page URLs to a game-specific manifest file.
@@ -614,8 +793,8 @@ def test_archive(dest_dir: Path, game_name: str) -> bool:
     
     log_path = dest_dir / f"{slugify(game_name)}test.log"
     
-    print_stage(5, f"Testing archive integrity: {game_part.name}")
-    print_status(True, f"Log: {log_path}")
+    print_stage(5, f"Testing archive integrity: {game_part.name[:40]}...")
+    print_status(True, f"Log: {log_path.name}")
     
     # Run unrar test and capture output
     cmd = ["unrar", "t", "-idp", str(game_part)]
@@ -633,10 +812,10 @@ def test_archive(dest_dir: Path, game_name: str) -> bool:
         f.write(f"Result: {'PASSED' if result.returncode == 0 else 'FAILED'}\n")
     
     if result.returncode == 0:
-        print_status(True, "Archive test PASSED")
+        print_status(True, "Archive integrity verified")
         return True
     else:
-        print_status(False, f"Archive test FAILED - see {log_path}")
+        print_status(False, f"Archive test FAILED", f"see {log_path.name}")
         return False
 
 
@@ -664,7 +843,10 @@ async def get_ff_links(
         if paste_url:
             title = "fitgirl_download"
         else:
-            print("  → Loading game page…")
+            if RICH_AVAILABLE and console:
+                console.print(f"  [{MATRIX_GREEN_DIM}]→[/{MATRIX_GREEN_DIM}] Loading game page...")
+            else:
+                print("  → Loading game page…")
             await page.goto(game_url, wait_until="domcontentloaded", timeout=30_000)
 
             title_el = (
@@ -691,12 +873,17 @@ async def get_ff_links(
             )
 
             if not paste_url:
-                print("  ✗  No paste.fitgirl-repacks.site link found on game page.")
+                if RICH_AVAILABLE and console:
+                    console.print(f"  [{RED_ERROR}]✗[/{RED_ERROR}] No paste link found on game page.")
+                else:
+                    print("  ✗  No paste.fitgirl-repacks.site link found on game page.")
                 return title, []
 
         # ── Stage 2: load the PrivateBin paste ───────────────────────────────
-        print(f"  → Loading paste (PrivateBin, decrypting via JS)…")
-        print(f"    {paste_url}")
+        if RICH_AVAILABLE and console:
+            console.print(f"  [{MATRIX_GREEN_DIM}]→[/{MATRIX_GREEN_DIM}] Decrypting PrivateBin paste...")
+        else:
+            print("  → Loading paste (PrivateBin, decrypting via JS)…")
         await page.goto(paste_url, wait_until="domcontentloaded", timeout=30_000)
 
         try:
@@ -704,9 +891,13 @@ async def get_ff_links(
                 "a[href*='fuckingfast.co']", timeout=15_000
             )
         except PWTimeout:
-            print("  ✗  Paste page did not render FF links within 15s.")
-            print("     Possible causes: wrong paste URL, PrivateBin JS failed,")
-            print("     or the paste requires a password.")
+            if RICH_AVAILABLE and console:
+                console.print(f"  [{RED_ERROR}]✗[/{RED_ERROR}] Paste page did not render FF links within 15s.")
+                console.print(f"     [dim]Possible: wrong URL, JS failed, password required[/dim]")
+            else:
+                print("  ✗  Paste page did not render FF links within 15s.")
+                print("     Possible causes: wrong paste URL, PrivateBin JS failed,")
+                print("     or the paste requires a password.")
             return title, []
 
         ff_links: list[str] = await page.eval_on_selector_all(
@@ -763,8 +954,7 @@ async def resolve_ff_url(
 
     if attempt > 0:
         wait = jittered_backoff(attempt - 1)
-        print(f"  {label}  ↻  attempt {attempt + 1}/{MAX_ATTEMPTS}  "
-              f"(backing off {wait:.1f}s…)")
+        print_progress_update(idx, total, f"attempt {attempt + 1}/{MAX_ATTEMPTS} (backoff {wait:.1f}s)", "retry")
         await asyncio.sleep(wait)
 
     try:
@@ -772,7 +962,7 @@ async def resolve_ff_url(
 
         html = await page.content()
         if any(sig in html.lower() for sig in RATE_LIMIT_SIGNALS):
-            print(f"  {label}  ⚠  Rate-limit signal detected")
+            print_progress_update(idx, total, "rate-limit signal detected", "rate")
             return "__RATE_LIMITED__"
 
         # Wait for Alpine.js to render — randomised to avoid rhythmic patterns
@@ -792,11 +982,17 @@ async def resolve_ff_url(
                 };
             }""")
             if debug_info["count"] == 0:
-                print(f"  {label}  DEBUG: No buttons found; saving HTML snapshot…")
+                if RICH_AVAILABLE and console:
+                    console.print(f"  {label}  [dim]DEBUG: No buttons found; saving HTML snapshot...[/dim]")
+                else:
+                    print(f"  {label}  DEBUG: No buttons found; saving HTML snapshot…")
                 html = await page.content()
                 snap = Path(f"/tmp/fitgrab_debug_{idx}.html")
                 snap.write_text(html)
-                print(f"  {label}  DEBUG: {snap}")
+                if RICH_AVAILABLE and console:
+                    console.print(f"  {label}  [dim]DEBUG: {snap}[/dim]")
+                else:
+                    print(f"  {label}  DEBUG: {snap}")
 
         async with page.expect_download(timeout=18_000) as dl_info:
             clicked = await page.evaluate("""() => {
@@ -813,8 +1009,7 @@ async def resolve_ff_url(
             }""")
 
         if not clicked.get("found"):
-            print(f"  {label}  ✗  Download button not found "
-                  f"({clicked.get('count', 0)} buttons on page)")
+            print_progress_update(idx, total, f"button not found ({clicked.get('count', 0)} buttons)", "fail")
             return None
 
         dl = await dl_info.value
@@ -822,14 +1017,14 @@ async def resolve_ff_url(
         await dl.cancel()
 
         fname = url.split("/")[-1].split("?")[0] or ff_url.split("#")[-1][:40]
-        print(f"  {label}  ✓  {fname}")
+        print_progress_update(idx, total, fname[:50], "success")
         return url
 
     except PWTimeout:
-        print(f"  {label}  ✗  Timeout (attempt {attempt + 1})")
+        print_progress_update(idx, total, f"timeout (attempt {attempt + 1})", "fail")
         return "__RETRY__"
     except Exception as e:
-        print(f"  {label}  ✗  {e}")
+        print_progress_update(idx, total, str(e)[:40], "fail")
         return "__RETRY__"
 
 
@@ -907,26 +1102,17 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
                     if result == "__RATE_LIMITED__":
                         if attempt < MAX_ATTEMPTS - 1:
                             cooldown = COOLDOWN_AFTER_429 + random.uniform(0, 30)
-                            print(
-                                f"  [worker-{worker_id}]  ❄  "
-                                f"Cooling {cooldown:.0f}s before retry…"
-                            )
+                            print_worker_message(worker_id, f"cooling {cooldown:.0f}s before retry", "cooldown")
                             await asyncio.sleep(cooldown)
                             await queue.put((idx, url, attempt + 1))
                         else:
-                            print(
-                                f"  [{idx+1:02d}/{total:02d}]  ✗  "
-                                f"Gave up after {MAX_ATTEMPTS} attempts (rate limit)"
-                            )
+                            print_progress_update(idx + 1, total, f"gave up after {MAX_ATTEMPTS} attempts (rate limit)", "fail")
 
                     elif result == "__RETRY__":
                         if attempt < MAX_ATTEMPTS - 1:
                             await queue.put((idx, url, attempt + 1))
                         else:
-                            print(
-                                f"  [{idx+1:02d}/{total:02d}]  ✗  "
-                                f"Gave up after {MAX_ATTEMPTS} attempts"
-                            )
+                            print_progress_update(idx + 1, total, f"gave up after {MAX_ATTEMPTS} attempts", "fail")
 
                     elif result:
                         results[idx] = result
@@ -959,12 +1145,7 @@ def aria2c_download(direct_urls: list[str], dest_dir: Path) -> bool:
     Returns True on success, False on failure.
     """
     if not shutil.which("aria2c"):
-        if RICH_AVAILABLE and console:
-            console.print("\n[red]Error:[/red] aria2c not found.")
-            console.print("Install: [bold]sudo apt install aria2[/bold]\n")
-        else:
-            print("\n  aria2c not found.")
-            print("  Install: sudo apt install aria2\n")
+        print_error("aria2c not found", "Install: sudo apt install aria2")
         sys.exit(1)
 
     dest_dir.mkdir(parents=True, exist_ok=True)
@@ -999,19 +1180,7 @@ def aria2c_download(direct_urls: list[str], dest_dir: Path) -> bool:
     ]
 
     # Print download header
-    if RICH_AVAILABLE and console:
-        console.print()
-        console.print(Panel(
-            f"[dim]{len(direct_urls)} files[/dim] -> [cyan]{dest_dir}[/cyan]\n"
-            f"[dim]{ARIA2_CONCURRENT} concurrent | resume: enabled[/dim]",
-            title="[bold green]Stage 4: aria2c[/bold green]",
-            border_style="green",
-            expand=False,
-        ))
-    else:
-        print(f"\n  aria2c  [{len(direct_urls)} files -> {dest_dir}]")
-        print(f"  {ARIA2_CONCURRENT} concurrent | resume: yes")
-        print(f"  log: {log_path}\n")
+    print_aria2_header(len(direct_urls), dest_dir)
 
     # Run aria2c (subprocess.run shows aria2c's own progress output)
     result = subprocess.run(cmd)
@@ -1019,20 +1188,8 @@ def aria2c_download(direct_urls: list[str], dest_dir: Path) -> bool:
     
     if result.returncode == 0:
         input_path.unlink(missing_ok=True)
-        if RICH_AVAILABLE and console:
-            console.print("\n[green]All downloads complete![/green]")
-        else:
-            print("\n  All downloads complete!")
-        if RICH_AVAILABLE and console:
-            console.print("\n[green]All downloads complete![/green]")
-        else:
-            print("\n  All downloads complete!")
         return True
     else:
-        if RICH_AVAILABLE and console:
-            console.print(f"\n[yellow]aria2c exited {result.returncode} - re-run fitgrab to resume.[/yellow]")
-        else:
-            print(f"\n  aria2c exited {result.returncode} - re-run fitgrab to resume.")
         return False
 
 
@@ -1056,23 +1213,14 @@ async def run(args):
     """
     start_time = time.time()
     
-    # Print header
-    if RICH_AVAILABLE and console:
-        console.print(Panel(
-            "[bold]FitGirl Repacks Downloader[/bold]\n"
-            "[dim]via FuckingFast mirrors[/dim]",
-            title=f"[bold green]fitgrab[/bold green] [dim]v{__version__}[/dim]",
-            border_style="green",
-            expand=False,
-        ))
-    else:
-        print(f"\n  fitgrab v{__version__} - FitGirl speed loader\n")
+    # Print Matrix-style banner
+    print_banner()
 
     input_url = args.url
     direct_paste_url = None
     if "paste.fitgirl-repacks.site" in input_url:
         direct_paste_url = input_url
-        print_stage(1, "Detected direct paste URL, skipping game page...")
+        print_stage(1, "Direct paste URL detected, skipping game page")
 
     # ── Determine initial game name and directory ──────────────────────────
     # Use a preliminary name from the URL for manifest lookup.
@@ -1095,8 +1243,8 @@ async def run(args):
     # If found, we skip Stage 1+2 entirely and only resolve missing files.
     ff_links = load_ff_manifest(dest_dir, preliminary_name)
     if ff_links:
-        print_stage(2, "Found existing FF manifest, resuming...")
-        print_status(True, f"Parts: {len(ff_links)}")
+        print_stage(2, f"Found existing manifest, resuming...")
+        print_status(True, f"{len(ff_links)} parts in queue")
     else:
         # Stage 1+2: one lightweight context just for scraping
         async with async_playwright() as pw:
@@ -1112,7 +1260,8 @@ async def run(args):
             await browser.close()
 
         if not ff_links:
-            print_status(False, "No FuckingFast links found. Check the game URL.")
+            print_status(False, "No FuckingFast links found")
+            print_error("Check the game URL or try again later")
             sys.exit(1)
 
         # Use title from get_ff_links (now URL-decoded) as the game name
@@ -1125,7 +1274,7 @@ async def run(args):
         print_status(True, f"Parts: {len(ff_links)}")
         # Only show Dest when we have the real game name (not the fallback)
         if preliminary_name != "fitgirl_download":
-            print_status(True, f"Dest: {dest_dir}")
+            print_status(True, f"Dest: {truncate_path(str(dest_dir), 40)}")
 
         # Save FF manifest immediately for crash recovery
         dest_dir.mkdir(parents=True, exist_ok=True)
@@ -1136,7 +1285,10 @@ async def run(args):
     # "Failed to read from the segment file" errors on resume.
     aria2_cleaned, rar_cleaned = clean_corrupted_resume_state(dest_dir)
     if aria2_cleaned > 0 or rar_cleaned > 0:
-        print(f"  → Cleaned {aria2_cleaned} corrupted resume file(s), {rar_cleaned} broken partial(s)")
+        if RICH_AVAILABLE and console:
+            console.print(f"  [{CYAN_ACCENT}]→[/{CYAN_ACCENT}] Cleaned {aria2_cleaned} corrupted resume file(s), {rar_cleaned} broken partial(s)")
+        else:
+            print(f"  → Cleaned {aria2_cleaned} corrupted resume file(s), {rar_cleaned} broken partial(s)")
 
     # ── Scan existing files and filter ─────────────────────────────────────
     existing_files = scan_existing_files(dest_dir)
@@ -1147,26 +1299,7 @@ async def run(args):
         print_status(True, f"{len(ff_to_resolve)}/{len(ff_links)} files remaining")
 
     if args.dry_run:
-        if RICH_AVAILABLE and console:
-            console.print("\n[bold yellow]DRY RUN - FF page URLs[/bold yellow]\n")
-            table = Table(show_header=True, header_style="bold")
-            table.add_column("Part", style="cyan")
-            table.add_column("Status")
-            for url in ff_links:
-                part_match = re.search(r'part(\d+)\.rar', url, re.IGNORECASE)
-                part_num = part_match.group(1) if part_match else "??"
-                found = any(f'part{part_num}.rar' in fname for fname in existing_files) if part_match else False
-                status = "[green]exists[/green]" if found else "[yellow]to download[/yellow]"
-                table.add_row(f"part{part_num}", status)
-            console.print(table)
-        else:
-            print("\n  [DRY RUN - FF page URLs]\n")
-            for url in ff_links:
-                part_match = re.search(r'part(\d+)\.rar', url, re.IGNORECASE)
-                part_num = part_match.group(1) if part_match else "??"
-                found = any(f'part{part_num}.rar' in fname for fname in existing_files) if part_match else False
-                status = "exists" if found else "to download"
-                print(f"    [{status}] part{part_num}")
+        print_dry_run_table(ff_links, existing_files)
         return
 
     # If all files already complete, skip download and test
@@ -1184,32 +1317,21 @@ async def run(args):
         # Clean up manifest
         ff_manifest_path(dest_dir, preliminary_name).unlink(missing_ok=True)
         elapsed = time.time() - start_time
-        if RICH_AVAILABLE and console:
-            console.print(Panel(
-                f"[green]Done![/green] -> [cyan]{dest_dir}[/cyan]\n"
-                f"[dim]Time: {format_time(elapsed)}[/dim]\n"
-                f"[dim]Extract: cd '{dest_dir}' && unrar x *.part01.rar[/dim]",
-                title="[bold green]Complete[/bold green]",
-                border_style="green",
-                expand=False,
-            ))
-        else:
-            print(f"\n  Done! -> {dest_dir}")
-            print(f"  Time: {format_time(elapsed)}")
+        print_completion_panel(dest_dir, elapsed, success=True)
         return
 
     sys.stdout.flush()
 
     # ----- Stage 3: resolve FF page URLs to CDN links -----
     # Game name already determined in Stage 1+2 (URL-decoded from FF links)
-    print_stage(3, f"Resolving {len(ff_to_resolve)} URLs ({args.concurrency} parallel contexts)...")
+    print_stage(3, f"Resolving {len(ff_to_resolve)} URLs ({args.concurrency} workers)")
 
     direct_urls = await resolve_all(ff_to_resolve, args.concurrency)
 
     print_status(True, f"Resolved: {len(direct_urls)}/{len(ff_to_resolve)}")
     failed = len(ff_to_resolve) - len(direct_urls)
     if failed:
-        print_status(False, f"Failed: {failed} (re-run fitgrab to retry)")
+        print_status(False, f"Failed: {failed}", "re-run fitgrab to retry")
 
     if not direct_urls:
         print_status(False, "Nothing to download.")
@@ -1227,29 +1349,10 @@ async def run(args):
         # Clean up FF manifest on success
         ff_manifest_path(dest_dir, game_name).unlink(missing_ok=True)
         elapsed = time.time() - start_time
-        if RICH_AVAILABLE and console:
-            console.print(Panel(
-                f"[green]Done![/green] -> [cyan]{dest_dir}[/cyan]\n"
-                f"[dim]Time: {format_time(elapsed)}[/dim]\n"
-                f"[dim]Extract: cd '{dest_dir}' && unrar x *.part01.rar[/dim]",
-                title="[bold green]Complete[/bold green]",
-                border_style="green",
-                expand=False,
-            ))
-        else:
-            print(f"\n  Done! -> {dest_dir}")
-            print(f"  Time: {format_time(elapsed)}")
-            print(f"  Extract: cd '{dest_dir}' && unrar x *.part01.rar\n")
+        print_completion_panel(dest_dir, elapsed, success=True)
     else:
-        if RICH_AVAILABLE and console:
-            console.print(Panel(
-                "[yellow]Download incomplete. Re-run fitgrab to resume.[/yellow]",
-                title="[bold red]Incomplete[/bold red]",
-                border_style="red",
-                expand=False,
-            ))
-        else:
-            print("\n  Download incomplete. Re-run fitgrab to resume.\n")
+        elapsed = time.time() - start_time
+        print_completion_panel(dest_dir, elapsed, success=False)
 
 
 def main():
