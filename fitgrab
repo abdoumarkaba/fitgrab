@@ -599,145 +599,136 @@ def format_time(seconds: float) -> str:
 
 
 # --- TUI Rendering Functions -------------------------------------------------
-# Brutalist terminal aesthetic: full-width, bold, stark, owns the terminal
+# Elegant, knightly aesthetic: clean lines, purposeful symbols, minimal color
 
-# Stark indicators - no soft symbols
+# Stage icons - heraldic-inspired but minimal
 STAGE_ICONS = {
-    1: "[1]",   # SCOUT
-    2: "[2]",   # DECRYPT
-    3: "[3]",   # RESOLVE
-    4: "[4]",   # DOWNLOAD
-    5: "[5]",   # VERIFY
+    1: "◈",   # Scout - reconnaissance
+    2: "◇",   # Decrypt - unlock  
+    3: "◆",   # Resolve - precision
+    4: "▣",   # Download - acquisition
+    5: "✓",   # Verify - seal
 }
 
-# ANSI escape codes for terminal control
-ANSI = {
-    'reset': '\033[0m',
-    'bold': '\033[1m',
-    'dim': '\033[2m',
-    'red': '\033[31m',
-    'green': '\033[32m',
-    'yellow': '\033[33m',
-    'blue': '\033[34m',
-    'magenta': '\033[35m',
-    'cyan': '\033[36m',
-    'white': '\033[37m',
-    'bg_black': '\033[40m',
-    'bg_red': '\033[41m',
-    'bg_green': '\033[42m',
-    'bg_yellow': '\033[43m',
-    'bg_blue': '\033[44m',
-    'bg_magenta': '\033[45m',
-    'bg_cyan': '\033[46m',
-    'bg_white': '\033[47m',
+# Color palette: silver/white primary, accent colors for states
+COLORS = {
+    "primary": "white",
+    "accent": "cyan",
+    "success": "green",
+    "warning": "yellow",
+    "error": "red",
+    "muted": "dim",
 }
-
-def term_width() -> int:
-    """Get terminal width, default to 80 if unavailable."""
-    try:
-        import shutil
-        return shutil.get_terminal_size((80, 24)).columns
-    except:
-        return 80
-
-def print_hr(char: str = "═", color: str = None) -> None:
-    """Print full-width horizontal rule."""
-    w = term_width()
-    line = char * w
-    if color and color in ANSI:
-        line = ANSI[color] + line + ANSI['reset']
-    print(line)
-
-def print_centered(text: str, color: str = None, bold: bool = False) -> None:
-    """Print centered text."""
-    w = term_width()
-    padding = (w - len(text)) // 2
-    line = " " * padding + text
-    if bold:
-        line = ANSI['bold'] + line + ANSI['reset']
-    if color and color in ANSI:
-        line = ANSI[color] + line + ANSI['reset']
-    print(line)
 
 
 def print_banner() -> None:
-    """Print brutalist startup banner - full-width, owns the terminal."""
-    w = term_width()
-    print()
-    print_hr("█", 'bg_cyan')
-    print_centered(f"FITGRAB v{__version__}", 'cyan', bold=True)
-    print_centered("FITGIRL REPACKS VIA FUCKINGFAST", 'white')
-    print_hr("█", 'bg_cyan')
-    print()
+    """Print elegant startup banner."""
+    if RICH_AVAILABLE and console:
+        console.print()
+        console.print(Panel(
+            "[white]fitgrab[/white] [dim]v{__version__}[/dim]\n"
+            "[dim]FitGirl Repacks via FuckingFast[/dim]",
+            border_style="white",
+            expand=False,
+            padding=(0, 2),
+        ))
+    else:
+        print(f"\n  fitgrab v{__version__}")
+        print("  FitGirl Repacks via FuckingFast\n")
 
 
 def print_stage_header(stage: int, title: str, subtitle: str = "") -> None:
-    """Print stark stage header."""
-    icon = STAGE_ICONS.get(stage, "[?]")
-    print()
-    line = f"{ANSI['bold']}{ANSI['cyan']}{icon} {title.upper()}{ANSI['reset']}"
-    if subtitle:
-        line += f" {ANSI['dim']}:: {subtitle}{ANSI['reset']}"
-    print(line)
+    """Print elegant stage header with icon and title."""
+    icon = STAGE_ICONS.get(stage, "•")
+    
+    if RICH_AVAILABLE and console:
+        # Single clean line with icon
+        line = f"[white]{icon}[/white] [bold]{title}[/bold]"
+        if subtitle:
+            line += f" [dim]· {subtitle}[/dim]"
+        console.print(f"\n{line}")
+    else:
+        print(f"\n  {icon} {title}" + (f" · {subtitle}" if subtitle else ""))
 
 
 def print_status(message: str, state: str = "info") -> None:
-    """Print stark status message.
+    """Print status message with minimal indicator.
     
     States: success, error, warning, info
     """
-    indicators = {
-        "success": f"{ANSI['green']}[OK]{ANSI['reset']}",
-        "error": f"{ANSI['red']}[FAIL]{ANSI['reset']}",
-        "warning": f"{ANSI['yellow']}[WARN]{ANSI['reset']}",
-        "info": f"{ANSI['dim']}[INFO]{ANSI['reset']}",
-    }
-    indicator = indicators.get(state, indicators["info"])
-    print(f"  {indicator} {message}")
+    if RICH_AVAILABLE and console:
+        indicators = {
+            "success": "[green]→[/green]",
+            "error": "[red]✗[/red]",
+            "warning": "[yellow]![/yellow]",
+            "info": "[dim]·[/dim]",
+        }
+        indicator = indicators.get(state, indicators["info"])
+        console.print(f"  {indicator} {message}")
+    else:
+        indicators = {"success": "→", "error": "✗", "warning": "!", "info": "·"}
+        print(f"  {indicators.get(state, '·')} {message}")
 
 
 def print_progress(prefix: str, current: int, total: int, suffix: str = "") -> None:
-    """Print stark progress bar."""
-    bar_width = 30
-    if total > 0:
-        filled = int(current / total * bar_width)
-        bar = "█" * filled + "░" * (bar_width - filled)
-        pct = f"{current/total*100:.0f}%"
+    """Print minimal progress indicator."""
+    if RICH_AVAILABLE and console:
+        bar_width = 20
+        if total > 0:
+            filled = int(current / total * bar_width)
+            bar = "━" * filled + "╺" + "─" * (bar_width - filled - 1) if filled < bar_width else "━" * bar_width
+            pct = f"{current/total*100:.0f}%".rjust(4)
+        else:
+            bar = "─" * bar_width
+            pct = "    "
+        
+        line = f"  [dim]{prefix}[/dim] [{bar}] {pct}"
+        if suffix:
+            line += f" [dim]{suffix}[/dim]"
+        console.print(line)
     else:
-        bar = "░" * bar_width
-        pct = "---"
-    
-    line = f"  {ANSI['dim']}{prefix}{ANSI['reset']} [{ANSI['cyan']}{bar}{ANSI['reset']}] {pct}"
-    if suffix:
-        line += f" {ANSI['dim']}{suffix}{ANSI['reset']}"
-    print(line)
+        pct = f"{current}/{total}" if total > 0 else "..."
+        print(f"  {prefix}: {pct} {suffix}")
 
 
 def print_game_header(game_name: str, total_parts: int, dest_dir: Path) -> None:
-    """Print brutalist game header - full-width, bold."""
-    print()
-    print_hr("═", 'cyan')
-    print_centered(game_name.upper(), 'white', bold=True)
-    print_centered(f"{total_parts} PARTS :: {dest_dir}", 'dim')
-    print_hr("═", 'cyan')
-    print()
+    """Print game info header - clean and informative."""
+    if RICH_AVAILABLE and console:
+        console.print()
+        console.print(f"  [bold white]{game_name}[/bold white]")
+        console.print(f"  [dim]{total_parts} parts → {dest_dir}[/dim]")
+        console.print()
+    else:
+        print(f"\n  {game_name}")
+        print(f"  {total_parts} parts → {dest_dir}\n")
 
 
 def print_completion(success: bool, dest_dir: Path, elapsed: float) -> None:
-    """Print brutalist completion banner."""
-    print()
-    if success:
-        print_hr("█", 'bg_green')
-        print_centered("COMPLETE", 'green', bold=True)
-        print_centered(str(dest_dir), 'white')
-        print_centered(format_time(elapsed), 'dim')
-        print_hr("█", 'bg_green')
+    """Print completion banner."""
+    if RICH_AVAILABLE and console:
+        if success:
+            console.print()
+            console.print(Panel(
+                f"[green]✓[/green] [white]Complete[/white]\n"
+                f"[dim]{dest_dir}[/dim]\n"
+                f"[dim]{format_time(elapsed)}[/dim]",
+                border_style="green",
+                expand=False,
+            ))
+        else:
+            console.print()
+            console.print(Panel(
+                f"[yellow]![/yellow] [white]Incomplete[/white]\n"
+                f"[dim]Re-run to resume[/dim]",
+                border_style="yellow",
+                expand=False,
+            ))
     else:
-        print_hr("█", 'bg_yellow')
-        print_centered("INCOMPLETE", 'yellow', bold=True)
-        print_centered("RE-RUN TO RESUME", 'white')
-        print_hr("█", 'bg_yellow')
-    print()
+        if success:
+            print(f"\n  ✓ Complete → {dest_dir}")
+            print(f"  Time: {format_time(elapsed)}\n")
+        else:
+            print("\n  ! Incomplete - re-run to resume\n")
 
 
 # Legacy compatibility - these redirect to new functions
@@ -2246,7 +2237,7 @@ async def run(args):
     game_name = preliminary_name
 
     # ----- Stage 4: download via aria2c -----
-    success = await aria2c_download_async(direct_urls, dest_dir, game_name)
+    success = aria2c_download(direct_urls, dest_dir, game_name)
 
     if success:
         # Stage 5: test archive integrity
