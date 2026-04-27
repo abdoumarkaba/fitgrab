@@ -903,12 +903,35 @@ def detect_missing_files(dest_dir: Path) -> list[str]:
     if not expected:
         return []
     
+    # Get all existing files (both complete and incomplete)
     existing = set()
     for f in dest_dir.iterdir():
         if f.suffix in [".rar", ".bin"]:
             existing.add(f.name)
     
-    missing = sorted(expected - existing)
+    # First try exact match
+    missing_exact = sorted(expected - existing)
+    
+    if not missing_exact:
+        return []
+    
+    # If we have missing files, try to match by part number
+    # (aria2c might rename files or URLs might have query params)
+    missing = []
+    for expected_fname in missing_exact:
+        # Extract part number from expected filename
+        part_match = re.search(r'part(\d+)\.rar', expected_fname, re.IGNORECASE)
+        if not part_match:
+            # Can't determine part number, consider it missing
+            missing.append(expected_fname)
+            continue
+        
+        part_num = part_match.group(1)
+        # Check if any existing file has this part number
+        found = any(f'part{part_num}.rar' in fname.lower() for fname in existing)
+        if not found:
+            missing.append(expected_fname)
+    
     return missing
 
 
@@ -1071,26 +1094,24 @@ def prompt_optional_exclusion(optional_files: list[tuple[str, str]]) -> list[str
         return [url for url, _ in optional_files]
 
 
-def test_archive(dest_dir: Path, game_name: str) -> bool:
+def test_archive(dest_dir: Path, game_name: str) -> tuple[bool, str | None]:
     """Test archive integrity using unrar on part01.rar.
     
     Only tests the first GAME part (part1.rar), not optional files.
     Looks for files ending in part1.rar that don't start with fg- (selective files).
     Saves output to <game_name>test.log in the game directory.
-    Returns True if test passed, False otherwise.
+    Returns (success, tested_filename) tuple.
     """
-    # Find first game part: matches part1, part01, part001, part0001 (ends with 1, next char is 0 or nothing)
+    # Find first game part: matches part1, part01, part001, part0001
     # Exclude fg-* files (optional/selective packs)
-    # Must contain the game name (extracted from filename using _--_ pattern)
     game_part = None
-    # Extract game name pattern from game_name for matching (e.g., "Nier Automata" -> "nier" or "nier_automata")
     game_name_pattern = game_name.lower().replace(' ', '_')
-    game_name_simple = game_name.split()[0].lower()  # First word only (e.g., "nier")
+    game_name_simple = game_name.split()[0].lower()  # First word only
     for f in dest_dir.iterdir():
         # Check: not fg-, matches part1/01/001/0001
         if (not f.name.startswith("fg-") 
-            and re.search(r'\.part(1|01|001|0001)\.rar$', f.name)):
-            # Check if filename contains game name (either with underscores or as first word)
+            and re.search(r'\.part(1|01|001|0001)\.rar$', f.name, re.IGNORECASE)):
+            # Check if filename contains game name
             fname_lower = f.name.lower()
             if game_name_pattern in fname_lower or game_name_simple in fname_lower.split('_')[0]:
                 game_part = f
@@ -1098,7 +1119,7 @@ def test_archive(dest_dir: Path, game_name: str) -> bool:
     
     if not game_part:
         print_status(False, f"No game part1.rar found in {dest_dir}")
-        return False
+        return False, None
     
     # Check if unrar is available
     if not shutil.which("unrar"):
@@ -1127,10 +1148,10 @@ def test_archive(dest_dir: Path, game_name: str) -> bool:
     
     if result.returncode == 0:
         print_status(True, "Archive test PASSED")
-        return True
+        return True, game_part.name
     else:
         print_status(False, f"Archive test FAILED - see {log_path}")
-        return False
+        return False, game_part.name if game_part else None
 
 
 # ── Stage 1+2: fitgirl page → PrivateBin paste → FF link list ─────────────────
@@ -1312,17 +1333,22 @@ async def resolve_ff_url(
 
         dl = await dl_info.value
         url = dl.url
-        await dl.cancel()
+        try:
+            await dl.cancel()
+        except Exception:
+            pass  # Best effort cancel, ignore if already failed
 
-        fname = url.split("/")[-1].split("?")[0] or ff_url.split("#")[-1][:40]
-        print(f"  {label}  ✓  {fname}")
+        print(f"  {label}  ✓")
         return url
 
     except PWTimeout:
         print(f"  {label}  ✗  Timeout (attempt {attempt + 1})")
         return "__RETRY__"
+    except asyncio.TimeoutError:
+        print(f"  {label}  ✗  Async timeout (attempt {attempt + 1})")
+        return "__RETRY__"
     except Exception as e:
-        print(f"  {label}  ✗  {e}")
+        print(f"  {label}  ✗  {type(e).__name__}: {e}")
         return "__RETRY__"
 
 
@@ -1348,7 +1374,6 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
 
     results: list[str | None] = [None] * len(ff_links)
     total = len(ff_links)
-    sem = asyncio.Semaphore(concurrency)
 
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(
@@ -1393,7 +1418,9 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
                 except asyncio.QueueEmpty:
                     break
 
-                async with sem:
+                context = None
+                page = None
+                try:
                     # Distinct context per attempt: different UA, viewport, cookies
                     ua = random.choice(USER_AGENTS)
                     
@@ -1479,35 +1506,45 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
 
                     result = await resolve_ff_url(page, url, idx + 1, total, attempt)
 
-                    await page.close()
-                    await context.close()
+                finally:
+                    # Ensure cleanup even on exceptions
+                    if page:
+                        try:
+                            await page.close()
+                        except Exception:
+                            pass
+                    if context:
+                        try:
+                            await context.close()
+                        except Exception:
+                            pass
 
-                    if result == "__RATE_LIMITED__":
-                        if attempt < MAX_ATTEMPTS - 1:
-                            cooldown = COOLDOWN_AFTER_429 + random.uniform(0, 30)
-                            print(
-                                f"  [worker-{worker_id}]  ❄  "
-                                f"Cooling {cooldown:.0f}s before retry…"
-                            )
-                            await asyncio.sleep(cooldown)
-                            await queue.put((idx, url, attempt + 1))
-                        else:
-                            print(
-                                f"  [{idx+1:02d}/{total:02d}]  ✗  "
-                                f"Gave up after {MAX_ATTEMPTS} attempts (rate limit)"
-                            )
+                if result == "__RATE_LIMITED__":
+                    if attempt < MAX_ATTEMPTS - 1:
+                        cooldown = COOLDOWN_AFTER_429 + random.uniform(0, 30)
+                        print(
+                            f"  [worker-{worker_id}]  ❄  "
+                            f"Cooling {cooldown:.0f}s before retry…"
+                        )
+                        await asyncio.sleep(cooldown)
+                        await queue.put((idx, url, attempt + 1))
+                    else:
+                        print(
+                            f"  [{idx+1:02d}/{total:02d}]  ✗  "
+                            f"Gave up after {MAX_ATTEMPTS} attempts (rate limit)"
+                        )
 
-                    elif result == "__RETRY__":
-                        if attempt < MAX_ATTEMPTS - 1:
-                            await queue.put((idx, url, attempt + 1))
-                        else:
-                            print(
-                                f"  [{idx+1:02d}/{total:02d}]  ✗  "
-                                f"Gave up after {MAX_ATTEMPTS} attempts"
-                            )
+                elif result == "__RETRY__":
+                    if attempt < MAX_ATTEMPTS - 1:
+                        await queue.put((idx, url, attempt + 1))
+                    else:
+                        print(
+                            f"  [{idx+1:02d}/{total:02d}]  ✗  "
+                            f"Gave up after {MAX_ATTEMPTS} attempts"
+                        )
 
-                    elif result:
-                        results[idx] = result
+                elif result:
+                    results[idx] = result
 
                 queue.task_done()
 
@@ -1585,70 +1622,59 @@ async def monitor_aria2_progress(
     total_files: int,
     stop_event: asyncio.Event,
     progress_data: dict,
+    dest_dir: Path,
 ) -> None:
-    """Monitor aria2c log file and update progress data dict.
+    """Monitor aria2c progress by scanning directory for completed files.
+    
+    This is more reliable than parsing aria2c logs which may not contain
+    the expected structured events.
     
     progress_data is a shared dict updated with:
-    - files: {gid: {filename, total, completed, speed, status}}
+    - files: {filename: {status, size}}
     - completed_count: int
-    - total_bytes: int
-    - completed_bytes: int
-    - current_speed: int
     """
     progress_data['files'] = {}
     progress_data['completed_count'] = 0
-    progress_data['total_bytes'] = 0
-    progress_data['completed_bytes'] = 0
-    progress_data['current_speed'] = 0
     
-    # Wait for log file to be created
-    while not log_path.exists() and not stop_event.is_set():
-        await asyncio.sleep(0.1)
+    # Track previously seen files to detect new completions
+    seen_files = set()
     
-    if stop_event.is_set():
-        return
-    
-    # Tail the log file
-    with open(log_path, 'r') as f:
-        # Seek to end initially (skip existing content)
-        f.seek(0, 2)
+    while not stop_event.is_set():
+        await asyncio.sleep(2.0)  # Update every 2 seconds as requested
         
-        while not stop_event.is_set():
-            line = f.readline()
-            if not line:
-                await asyncio.sleep(0.1)
-                continue
-            
-            parsed = parse_aria2_log_line(line)
-            if not parsed:
-                continue
-            
-            gid = parsed['gid']
-            if not gid:
-                continue
-            
-            if parsed['event'] == 'complete':
-                if gid in progress_data['files']:
-                    progress_data['files'][gid]['status'] = 'complete'
-                    progress_data['completed_count'] += 1
-            elif parsed['event'] == 'error':
-                if gid in progress_data['files']:
-                    progress_data['files'][gid]['status'] = 'error'
-            elif parsed['event'] == 'progress':
-                if gid not in progress_data['files']:
-                    progress_data['files'][gid] = {
-                        'filename': parsed['filename'] or f'file_{gid[:6]}',
-                        'total': parsed['total'],
-                        'completed': 0,
-                        'speed': 0,
-                        'status': 'downloading',
-                    }
+        if not dest_dir.exists():
+            continue
+        
+        # Scan for .rar files
+        current_files = set()
+        completed_count = 0
+        
+        for f in dest_dir.iterdir():
+            if f.suffix == ".rar":
+                current_files.add(f.name)
                 
-                progress_data['files'][gid]['completed'] = parsed['completed']
-                progress_data['files'][gid]['speed'] = parsed['speed']
+                # Check if file has .aria2 control file (in progress) or not (complete)
+                aria2_file = Path(str(f) + ".aria2")
+                is_complete = not aria2_file.exists()
                 
-                if parsed['total'] > 0:
-                    progress_data['files'][gid]['total'] = parsed['total']
+                if is_complete:
+                    completed_count += 1
+                    status = "Complete"
+                else:
+                    status = "In Progress"
+                
+                # Update progress data
+                progress_data['files'][f.name] = {
+                    'status': status,
+                    'size': f.stat().st_size,
+                }
+        
+        seen_files = current_files
+        progress_data['completed_count'] = completed_count
+        
+        # Stop if all files are complete
+        if completed_count >= total_files and len(current_files) >= total_files:
+            break
 
 
 def render_progress_display(progress_data: dict, total_files: int) -> str:
@@ -1656,21 +1682,21 @@ def render_progress_display(progress_data: dict, total_files: int) -> str:
     lines = []
     lines.append(f"\n  Downloads: {progress_data['completed_count']}/{total_files} complete")
     
-    total_bytes = 0
-    completed_bytes = 0
-    speed = 0
-    
-    for gid, info in progress_data.get('files', {}).items():
-        if info['status'] == 'downloading':
-            total_bytes += info['total']
-            completed_bytes += info['completed']
-            speed += info['speed']
-            pct = (info['completed'] / info['total'] * 100) if info['total'] > 0 else 0
-            fname = info['filename'][:40]
-            lines.append(f"    {fname}: {pct:.1f}% ({format_size(info['completed'])}/{format_size(info['total'])})")
-    
-    if speed > 0:
-        lines.append(f"  Speed: {format_speed(speed)}")
+    for fname, info in progress_data.get('files', {}).items():
+        status = info.get('status', 'In Progress')
+        size = info.get('size', 0)
+        
+        # Show only last section of filename (e.g., ...part098.rar)
+        if '_' in fname:
+            short_name = '...' + fname.split('_')[-1]
+        else:
+            short_name = fname
+        short_name = short_name[:30]
+        
+        if status == "Complete":
+            lines.append(f"    ✓ {short_name} ({format_size(size)})")
+        else:
+            lines.append(f"    ↓ {short_name} ({format_size(size)})")
     
     return '\n'.join(lines)
 
@@ -1757,7 +1783,7 @@ async def aria2c_download_async(
     
     # Start log monitor
     monitor_task = asyncio.create_task(
-        monitor_aria2_progress(log_path, total_files, stop_event, progress_data)
+        monitor_aria2_progress(log_path, total_files, stop_event, progress_data, dest_dir)
     )
     
     # Progress display loop
@@ -1773,44 +1799,25 @@ async def aria2c_download_async(
                     
                     # Build progress table
                     table = Table(show_header=True, header_style="bold", box=None, padding=(0, 1))
-                    table.add_column("File", style="cyan", width=45)
-                    table.add_column("Progress", width=20)
-                    table.add_column("Speed", style="green")
+                    table.add_column("File", style="cyan", width=20)
+                    table.add_column("Status", width=12)
+                    table.add_column("Size", style="dim", width=15)
                     
-                    total_completed = 0
-                    total_bytes = 0
-                    total_speed = 0
-                    
-                    for gid, info in progress_data.get('files', {}).items():
-                        fname = info.get('filename', 'unknown')[:42]
-                        status = info.get('status', 'downloading')
+                    for fname, info in progress_data.get('files', {}).items():
+                        status = info.get('status', 'In Progress')
+                        size = info.get('size', 0)
                         
-                        if status == 'complete':
-                            table.add_row(fname, "[green]✓ Complete[/green]", "")
-                            total_completed += 1
-                        elif status == 'error':
-                            table.add_row(fname, "[red]✗ Error[/red]", "")
+                        # Show only last section of filename (e.g., ...part098.rar)
+                        if '_' in fname:
+                            short_name = '...' + fname.split('_')[-1]
                         else:
-                            completed = info.get('completed', 0)
-                            total = info.get('total', 0)
-                            speed = info.get('speed', 0)
-                            
-                            if total > 0:
-                                pct = completed / total * 100
-                                bar_width = 12
-                                filled = int(pct / 100 * bar_width)
-                                bar = "█" * filled + "░" * (bar_width - filled)
-                                progress_str = f"{bar} {pct:.1f}%"
-                                total_bytes += total
-                            else:
-                                progress_str = "░░░░░░░░░░░░ ...%"
-                            
-                            table.add_row(
-                                fname, 
-                                progress_str,
-                                format_speed(speed) if speed > 0 else "-"
-                            )
-                            total_speed += speed
+                            short_name = fname
+                        short_name = short_name[:25]
+                        
+                        if status == "Complete":
+                            table.add_row(short_name, "[green]Complete[/green]", f"{format_size(size)}")
+                        else:
+                            table.add_row(short_name, "[yellow]In Progress[/yellow]", f"{format_size(size)}")
                     
                     # Overall stats
                     completed_count = progress_data.get('completed_count', 0)
@@ -1819,7 +1826,6 @@ async def aria2c_download_async(
                     panel = Panel(
                         table,
                         title=f"[bold]{game_name}[/bold] - {completed_count}/{total_files} files ({overall_pct:.0f}%)",
-                        subtitle=f"Speed: {format_speed(total_speed)}" if total_speed > 0 else "Starting...",
                         border_style="green",
                     )
                     live.update(panel)
@@ -1867,9 +1873,13 @@ async def aria2c_download_async(
         return False
 
 
-def aria2c_download(direct_urls: list[str], dest_dir: Path, game_name: str = "download") -> bool:
-    """Synchronous wrapper for aria2c_download_async."""
-    return asyncio.run(aria2c_download_async(direct_urls, dest_dir, game_name))
+async def aria2c_download(direct_urls: list[str], dest_dir: Path, game_name: str = "download") -> bool:
+    """Download files using aria2c with real-time Rich progress display.
+    
+    Runs aria2c as async subprocess, monitors log file, displays progress.
+    Returns True on success, False on failure.
+    """
+    return await aria2c_download_async(direct_urls, dest_dir, game_name)
 
 
 def aria2c_resume(dest_dir: Path, concurrency: int = 8) -> bool:
@@ -1981,15 +1991,24 @@ async def run(args):
     """
     start_time = time.time()
     
-    # Print header
+    # Print header with ASCII art logo
+    FITGIRL_LOGO = '''
+      █████▒██▓▄▄▄█████▓  ▄████  ██▀███   ▄▄▄       ▄▄▄▄   
+    ▓██   ▒▓██▒▓  ██▒ ▓▒ ██▒ ▀█▒▓██ ▒ ██▒▒████▄    ▓█████▄ 
+    ▒████ ░▒██▒▒ ▓██░ ▒░▒██░▄▄▄░▓██ ░▄█ ▒▒██  ▀█▄  ▒██▒ ▄██
+    ░▓█▒  ░░██░░ ▓██▓ ░ ░▓█  ██▓▒██▀▀█▄  ░██▄▄▄▄██ ▒██░█▀  
+    ░▒█░   ░██░  ▒██▒ ░ ░▒▓███▀▒░██▓ ▒██▒ ▓█   ▓██▒░▓█  ▀█▓
+     ▒ ░   ░▓    ▒ ░░    ░▒   ▒ ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░░▒▓███▀▒
+     ░      ▒ ░    ░      ░   ░   ░▒ ░ ▒░  ▒   ▒▒ ░▒░▒   ░ 
+     ░ ░    ▒ ░  ░      ░ ░   ░   ░░   ░   ░   ▒    ░    ░ 
+            ░                 ░    ░           ░  ░ ░      
+                                                         ░ 
+
+'''
     if RICH_AVAILABLE and console:
-        console.print(Panel(
-            "[bold]FitGirl Repacks Downloader[/bold]\n"
-            "[dim]via FuckingFast mirrors[/dim]",
-            title=f"[bold green]fitgrab[/bold green] [dim]v{__version__}[/dim]",
-            border_style="green",
-            expand=False,
-        ))
+        console.print(f"[bold green]{FITGIRL_LOGO}[/bold green]")
+        console.print(f"[dim]fitgrab v{__version__}[/dim] [cyan]FitGirl Repacks Downloader[/cyan]")
+        console.print(f"[dim]via FuckingFast mirrors[/dim]\n")
     else:
         print(f"\n  fitgrab v{__version__} - FitGirl speed loader\n")
 
@@ -2030,6 +2049,7 @@ async def run(args):
         if success:
             # Extract game name from existing files
             game_name = "fitgirl_download"
+            tested_file = None
             for f in dest_dir.iterdir():
                 if f.suffix == ".rar" and not f.name.endswith(".aria2") and not f.name.startswith("fg-"):
                     match = re.match(r'^(.+?)_--_', f.name)
@@ -2038,14 +2058,15 @@ async def run(args):
                         break
             
             # Test archive
-            test_archive(dest_dir, game_name)
+            success, tested_file = test_archive(dest_dir, game_name)
             
             elapsed = time.time() - start_time
+            extract_file = tested_file if tested_file else "*.part01.rar"
             if RICH_AVAILABLE and console:
                 console.print(Panel(
                     f"[green]Done![/green] -> [cyan]{dest_dir}[/cyan]\n"
                     f"[dim]Time: {format_time(elapsed)}[/dim]\n"
-                    f"[dim]Extract: cd '{dest_dir}' && unrar x *.part01.rar[/dim]",
+                    f"[dim]Extract: cd '{dest_dir}' && unrar x {extract_file}[/dim]",
                     title="[bold green]Complete[/bold green]",
                     border_style="green",
                     expand=False,
@@ -2053,7 +2074,7 @@ async def run(args):
             else:
                 print(f"\n  Done! -> {dest_dir}")
                 print(f"  Time: {format_time(elapsed)}")
-                print(f"  Extract: cd '{dest_dir}' && unrar x *.part01.rar\n")
+                print(f"  Extract: cd '{dest_dir}' && unrar x {extract_file}\n")
         else:
             if RICH_AVAILABLE and console:
                 console.print(Panel(
@@ -2186,15 +2207,16 @@ async def run(args):
                 if match:
                     game_name = match.group(1).replace('_', ' ')
                     break
-        test_archive(dest_dir, game_name)
+        success, tested_file = test_archive(dest_dir, game_name)
         # Clean up manifest
         ff_manifest_path(dest_dir, preliminary_name).unlink(missing_ok=True)
         elapsed = time.time() - start_time
+        extract_file = tested_file if tested_file else "*.part01.rar"
         if RICH_AVAILABLE and console:
             console.print(Panel(
                 f"[green]Done![/green] -> [cyan]{dest_dir}[/cyan]\n"
                 f"[dim]Time: {format_time(elapsed)}[/dim]\n"
-                f"[dim]Extract: cd '{dest_dir}' && unrar x *.part01.rar[/dim]",
+                f"[dim]Extract: cd '{dest_dir}' && unrar x {extract_file}[/dim]",
                 title="[bold green]Complete[/bold green]",
                 border_style="green",
                 expand=False,
@@ -2202,6 +2224,7 @@ async def run(args):
         else:
             print(f"\n  Done! -> {dest_dir}")
             print(f"  Time: {format_time(elapsed)}")
+            print(f"  Extract: cd '{dest_dir}' && unrar x {extract_file}")
         return
 
     sys.stdout.flush()
@@ -2222,22 +2245,23 @@ async def run(args):
         sys.exit(1)
 
     # Game name is already determined as preliminary_name from Stage 1+2
-    game_name = preliminary_name
+    game_name = preliminary_name if preliminary_name != "fitgirl_download" else "download"
 
     # ----- Stage 4: download via aria2c -----────────────────────────────────────────
-    success = aria2c_download(direct_urls, dest_dir, game_name)
+    success = await aria2c_download(direct_urls, dest_dir, game_name)
 
     if success:
         # Stage 5: test archive integrity
-        test_archive(dest_dir, game_name)
+        success, tested_file = test_archive(dest_dir, game_name)
         # Clean up FF manifest on success
         ff_manifest_path(dest_dir, game_name).unlink(missing_ok=True)
         elapsed = time.time() - start_time
+        extract_file = tested_file if tested_file else "*.part01.rar"
         if RICH_AVAILABLE and console:
             console.print(Panel(
                 f"[green]Done![/green] -> [cyan]{dest_dir}[/cyan]\n"
                 f"[dim]Time: {format_time(elapsed)}[/dim]\n"
-                f"[dim]Extract: cd '{dest_dir}' && unrar x *.part01.rar[/dim]",
+                f"[dim]Extract: cd '{dest_dir}' && unrar x {extract_file}[/dim]",
                 title="[bold green]Complete[/bold green]",
                 border_style="green",
                 expand=False,
@@ -2245,7 +2269,7 @@ async def run(args):
         else:
             print(f"\n  Done! -> {dest_dir}")
             print(f"  Time: {format_time(elapsed)}")
-            print(f"  Extract: cd '{dest_dir}' && unrar x *.part01.rar\n")
+            print(f"  Extract: cd '{dest_dir}' && unrar x {extract_file}\n")
     else:
         if RICH_AVAILABLE and console:
             console.print(Panel(
@@ -2327,7 +2351,7 @@ def run_resume_mode():
         success = aria2c_resume(dest_dir, concurrency=8)
         
         if success:
-            test_archive(dest_dir, game_name)
+            success, tested_file = test_archive(dest_dir, game_name)
             ff_manifest_path(dest_dir, game_name).unlink(missing_ok=True)
             if RICH_AVAILABLE and console:
                 console.print(f"[green]✓ {game_name} complete![/green]")
@@ -2422,7 +2446,43 @@ def main():
     if not args.url:
         parser.error("URL is required (use --resume to scan for incomplete downloads)")
     
-    asyncio.run(run(args))
+    import signal
+    import os
+    import sys
+    
+    # Suppress stderr to hide asyncio error messages
+    devnull = open(os.devnull, 'w')
+    old_stderr = sys.stderr
+    sys.stderr = devnull
+    
+    # Install signal handler before asyncio.run()
+    interrupted = False
+    
+    def handle_sigint(signum, frame):
+        nonlocal interrupted
+        if interrupted:
+            return  # Prevent double execution
+        interrupted = True
+        sys.stderr = old_stderr
+        devnull.close()
+        if RICH_AVAILABLE and console:
+            console.print(Panel(
+                "Interrupted — re-run to resume",
+                title="fitgrab",
+                border_style="yellow",
+            ))
+        else:
+            print("\n  Interrupted — re-run to resume")
+        os._exit(0)
+    
+    original_handler = signal.signal(signal.SIGINT, handle_sigint)
+    
+    try:
+        asyncio.run(run(args))
+    finally:
+        signal.signal(signal.SIGINT, original_handler)
+        sys.stderr = old_stderr
+        devnull.close()
 
 
 if __name__ == "__main__":
