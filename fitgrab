@@ -190,7 +190,7 @@ except ImportError:
 try:
     from rich.console import Console
     from rich.panel import Panel
-    from rich.progress import Progress, BarColumn, DownloadColumn, TransferSpeedColumn, TimeRemainingColumn, TextColumn, TaskProgressColumn
+    from rich.progress import Progress, BarColumn, DownloadColumn, TransferSpeedColumn, TimeRemainingColumn, TextColumn, TaskProgressColumn, SpinnerColumn, TimeElapsedColumn
     from rich.live import Live
     from rich.table import Table
     from rich.text import Text
@@ -1108,9 +1108,10 @@ def test_archive(dest_dir: Path, game_name: str) -> tuple[bool, str | None]:
     game_name_pattern = game_name.lower().replace(' ', '_')
     game_name_simple = game_name.split()[0].lower()  # First word only
     for f in dest_dir.iterdir():
-        # Check: not fg-, matches part1/01/001/0001
-        if (not f.name.startswith("fg-") 
-            and re.search(r'\.part(1|01|001|0001)\.rar$', f.name, re.IGNORECASE)):
+        # Check: not fg- (optional), matches part1/01/001/0001
+        # Also handle fg-optional-* files - those are optional, not game parts
+        if (not f.name.startswith("fg-optional")
+            and re.search(r'\.part0*\d+\.rar$', f.name, re.IGNORECASE)):
             # Check if filename contains game name
             fname_lower = f.name.lower()
             if game_name_pattern in fname_lower or game_name_simple in fname_lower.split('_')[0]:
@@ -1374,6 +1375,12 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
 
     results: list[str | None] = [None] * len(ff_links)
     total = len(ff_links)
+    completed = 0
+    failed = 0
+    
+    # Progress tracking for Rich display
+    progress_lock = asyncio.Lock()
+    start_time = time.time()
 
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(
@@ -1411,7 +1418,9 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
             ],
         )
 
-        async def worker(worker_id: int):
+        async def worker(worker_id: int, progress: Progress | None = None, task_id: int | None = None):
+            nonlocal completed, failed
+            
             while True:
                 try:
                     idx, url, attempt = queue.get_nowait()
@@ -1519,37 +1528,65 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
                         except Exception:
                             pass
 
-                if result == "__RATE_LIMITED__":
-                    if attempt < MAX_ATTEMPTS - 1:
-                        cooldown = COOLDOWN_AFTER_429 + random.uniform(0, 30)
-                        print(
-                            f"  [worker-{worker_id}]  ❄  "
-                            f"Cooling {cooldown:.0f}s before retry…"
-                        )
-                        await asyncio.sleep(cooldown)
-                        await queue.put((idx, url, attempt + 1))
-                    else:
-                        print(
-                            f"  [{idx+1:02d}/{total:02d}]  ✗  "
-                            f"Gave up after {MAX_ATTEMPTS} attempts (rate limit)"
-                        )
+                async with progress_lock:
+                    if result == "__RATE_LIMITED__":
+                        if attempt < MAX_ATTEMPTS - 1:
+                            cooldown = COOLDOWN_AFTER_429 + random.uniform(0, 30)
+                            if RICH_AVAILABLE and progress and task_id is not None:
+                                progress.update(task_id, description=f"[yellow]⚡ Rate-limited, cooling {cooldown:.0f}s...[/yellow]")
+                            await asyncio.sleep(cooldown)
+                            await queue.put((idx, url, attempt + 1))
+                        else:
+                            failed += 1
+                            if RICH_AVAILABLE and progress and task_id is not None:
+                                progress.update(task_id, completed=completed, description=f"[red]✗ Rate-limited ({failed} failed)[/red]")
 
-                elif result == "__RETRY__":
-                    if attempt < MAX_ATTEMPTS - 1:
-                        await queue.put((idx, url, attempt + 1))
-                    else:
-                        print(
-                            f"  [{idx+1:02d}/{total:02d}]  ✗  "
-                            f"Gave up after {MAX_ATTEMPTS} attempts"
-                        )
+                    elif result == "__RETRY__":
+                        if attempt < MAX_ATTEMPTS - 1:
+                            await queue.put((idx, url, attempt + 1))
+                        else:
+                            failed += 1
+                            if RICH_AVAILABLE and progress and task_id is not None:
+                                progress.update(task_id, completed=completed, description=f"[red]✗ Failed ({failed} failed)[/red]")
 
-                elif result:
-                    results[idx] = result
+                    elif result:
+                        results[idx] = result
+                        completed += 1
+                        if RICH_AVAILABLE and progress and task_id is not None:
+                            elapsed = time.time() - start_time
+                            rate = completed / elapsed if elapsed > 0 else 0
+                            eta = (total - completed) / rate if rate > 0 else 0
+                            progress.update(
+                                task_id,
+                                completed=completed,
+                                description=f"[green]✓ Resolving URLs[/green] · {failed} failed · ETA: {format_time(eta)}"
+                            )
 
                 queue.task_done()
 
-        workers = [asyncio.create_task(worker(i)) for i in range(concurrency)]
-        await asyncio.gather(*workers)
+        # Rich progress display for Stage 3
+        if RICH_AVAILABLE and console:
+            with Progress(
+                SpinnerColumn(style="cyan"),
+                TextColumn("[bold cyan]{task.description}"),
+                BarColumn(bar_width=40),
+                TextColumn("[cyan]{task.completed}/{task.total}"),
+                TimeElapsedColumn(),
+                console=console,
+                transient=False,
+            ) as progress:
+                task_id = progress.add_task(
+                    "Resolving URLs",
+                    total=total,
+                )
+                
+                workers = [asyncio.create_task(worker(i, progress, task_id)) for i in range(concurrency)]
+                await asyncio.gather(*workers)
+        else:
+            # Fallback: simple progress without Rich
+            workers = [asyncio.create_task(worker(i)) for i in range(concurrency)]
+            await asyncio.gather(*workers)
+            
         await browser.close()
 
     return [r for r in results if r]
@@ -1755,14 +1792,17 @@ async def aria2c_download_async(
     ]
 
     total_files = len(direct_urls)
+    start_time = time.time()
+    last_completed = 0
+    last_time = start_time
     
     # Print download header
     if RICH_AVAILABLE and console:
         console.print()
         console.print(Panel(
-            f"[dim]{total_files} files[/dim] -> [cyan]{dest_dir}[/cyan]\n"
-            f"[dim]{ARIA2_CONCURRENT} concurrent | resume: enabled[/dim]",
-            title="[bold green]Stage 4: aria2c[/bold green]",
+            f"[dim]{total_files} files[/dim] → [cyan]{dest_dir}[/cyan]\n"
+            f"[dim]{ARIA2_CONCURRENT} concurrent · resume: enabled[/dim]",
+            title="[bold green]↓ Stage 4: Downloading[/bold green]",
             border_style="green",
             expand=False,
         ))
@@ -1789,46 +1829,54 @@ async def aria2c_download_async(
     # Progress display loop
     try:
         if RICH_AVAILABLE and console:
-            from rich.progress import Progress, BarColumn, TextColumn, TaskProgressColumn
-            from rich.live import Live
-            from rich.layout import Layout
-            
-            with Live(console=console, refresh_per_second=2) as live:
+            with Progress(
+                SpinnerColumn(style="cyan"),
+                TextColumn("[bold cyan]{task.description}"),
+                BarColumn(bar_width=32, complete_style="green", finished_style="bold green"),
+                TextColumn("[cyan]{task.completed}/{task.total}"),
+                TimeElapsedColumn(),
+                console=console,
+                transient=False,
+            ) as progress:
+                task_id = progress.add_task(
+                    f"[green]{game_name[:40]}[/green]",
+                    total=total_files,
+                )
+                
                 while process.returncode is None:
                     await asyncio.sleep(0.5)
                     
-                    # Build progress table
-                    table = Table(show_header=True, header_style="bold", box=None, padding=(0, 1))
-                    table.add_column("File", style="cyan", width=20)
-                    table.add_column("Status", width=12)
-                    table.add_column("Size", style="dim", width=15)
-                    
-                    for fname, info in progress_data.get('files', {}).items():
-                        status = info.get('status', 'In Progress')
-                        size = info.get('size', 0)
-                        
-                        # Show only last section of filename (e.g., ...part098.rar)
-                        if '_' in fname:
-                            short_name = '...' + fname.split('_')[-1]
-                        else:
-                            short_name = fname
-                        short_name = short_name[:25]
-                        
-                        if status == "Complete":
-                            table.add_row(short_name, "[green]Complete[/green]", f"{format_size(size)}")
-                        else:
-                            table.add_row(short_name, "[yellow]In Progress[/yellow]", f"{format_size(size)}")
-                    
-                    # Overall stats
                     completed_count = progress_data.get('completed_count', 0)
-                    overall_pct = (completed_count / total_files * 100) if total_files > 0 else 0
                     
-                    panel = Panel(
-                        table,
-                        title=f"[bold]{game_name}[/bold] - {completed_count}/{total_files} files ({overall_pct:.0f}%)",
-                        border_style="green",
-                    )
-                    live.update(panel)
+                    # Calculate speed and ETA
+                    current_time = time.time()
+                    time_diff = current_time - last_time
+                    if time_diff >= 1.0 and completed_count > last_completed:
+                        files_per_sec = (completed_count - last_completed) / time_diff
+                        # Estimate: each file is ~500MB, estimate speed from completion rate
+                        # Better: calculate from actual file sizes
+                        total_size = sum(info.get('size', 0) for info in progress_data.get('files', {}).values())
+                        bytes_per_sec = total_size / (current_time - start_time) if current_time > start_time else 0
+                        speed_str = format_speed(bytes_per_sec) if bytes_per_sec > 0 else "--"
+                        
+                        remaining = total_files - completed_count
+                        eta = remaining / files_per_sec if files_per_sec > 0 else 0
+                        
+                        progress.update(
+                            task_id,
+                            completed=completed_count,
+                        )
+                        last_completed = completed_count
+                        last_time = current_time
+                    else:
+                        progress.update(task_id, completed=completed_count)
+                    
+                    # Check if download is complete
+                    if completed_count >= total_files:
+                        break
+                    
+                # Mark as complete
+                progress.update(task_id, completed=total_files)
         else:
             # Simple progress for non-Rich terminals
             while process.returncode is None:
@@ -1861,7 +1909,7 @@ async def aria2c_download_async(
     if process.returncode == 0:
         input_path.unlink(missing_ok=True)
         if RICH_AVAILABLE and console:
-            console.print("\n[green]All downloads complete![/green]")
+            console.print("\n[green]✓ All downloads complete![/green]")
         else:
             print("\n  All downloads complete!")
         return True
@@ -2062,17 +2110,33 @@ async def run(args):
             
             elapsed = time.time() - start_time
             extract_file = tested_file if tested_file else "*.part01.rar"
+            
+            # Calculate total size
+            total_size = 0
+            file_count = 0
+            for f in dest_dir.iterdir():
+                if f.suffix == ".rar" and not f.name.endswith(".aria2"):
+                    total_size += f.stat().st_size
+                    file_count += 1
+            
             if RICH_AVAILABLE and console:
+                info_table = Table(show_header=False, box=None, padding=(0, 2))
+                info_table.add_column("key", style="dim")
+                info_table.add_column("value", style="cyan")
+                info_table.add_row("Files", f"{file_count} parts")
+                info_table.add_row("Size", format_size(total_size))
+                info_table.add_row("Time", format_time(elapsed))
+                info_table.add_row("Extract", f"[dim]cd '{dest_dir}' && unrar x {extract_file}[/dim]")
+                
                 console.print(Panel(
-                    f"[green]Done![/green] -> [cyan]{dest_dir}[/cyan]\n"
-                    f"[dim]Time: {format_time(elapsed)}[/dim]\n"
-                    f"[dim]Extract: cd '{dest_dir}' && unrar x {extract_file}[/dim]",
-                    title="[bold green]Complete[/bold green]",
+                    info_table,
+                    title="[bold green]✓ Resume Complete[/bold green]",
                     border_style="green",
                     expand=False,
                 ))
             else:
                 print(f"\n  Done! -> {dest_dir}")
+                print(f"  Files: {file_count} parts, Size: {format_size(total_size)}")
                 print(f"  Time: {format_time(elapsed)}")
                 print(f"  Extract: cd '{dest_dir}' && unrar x {extract_file}\n")
         else:
@@ -2212,18 +2276,32 @@ async def run(args):
         ff_manifest_path(dest_dir, preliminary_name).unlink(missing_ok=True)
         elapsed = time.time() - start_time
         extract_file = tested_file if tested_file else "*.part01.rar"
+        
+        # Calculate total size
+        total_size = 0
+        file_count = 0
+        for f in dest_dir.iterdir():
+            if f.suffix == ".rar" and not f.name.endswith(".aria2"):
+                total_size += f.stat().st_size
+                file_count += 1
+        
         if RICH_AVAILABLE and console:
+            info_table = Table(show_header=False, box=None, padding=(0, 2))
+            info_table.add_column("key", style="dim")
+            info_table.add_column("value", style="cyan")
+            info_table.add_row("Files", f"{file_count} parts")
+            info_table.add_row("Size", format_size(total_size))
+            info_table.add_row("Extract", f"[dim]cd '{dest_dir}' && unrar x {extract_file}[/dim]")
+            
             console.print(Panel(
-                f"[green]Done![/green] -> [cyan]{dest_dir}[/cyan]\n"
-                f"[dim]Time: {format_time(elapsed)}[/dim]\n"
-                f"[dim]Extract: cd '{dest_dir}' && unrar x {extract_file}[/dim]",
-                title="[bold green]Complete[/bold green]",
+                info_table,
+                title="[bold green]✓ Already Downloaded[/bold green]",
                 border_style="green",
                 expand=False,
             ))
         else:
             print(f"\n  Done! -> {dest_dir}")
-            print(f"  Time: {format_time(elapsed)}")
+            print(f"  Files: {file_count} parts, Size: {format_size(total_size)}")
             print(f"  Extract: cd '{dest_dir}' && unrar x {extract_file}")
         return
 
@@ -2257,18 +2335,37 @@ async def run(args):
         ff_manifest_path(dest_dir, game_name).unlink(missing_ok=True)
         elapsed = time.time() - start_time
         extract_file = tested_file if tested_file else "*.part01.rar"
+        
+        # Calculate total size downloaded
+        total_size = 0
+        file_count = 0
+        for f in dest_dir.iterdir():
+            if f.suffix == ".rar" and not f.name.endswith(".aria2"):
+                total_size += f.stat().st_size
+                file_count += 1
+        
+        avg_speed = total_size / elapsed if elapsed > 0 else 0
+        
         if RICH_AVAILABLE and console:
+            info_table = Table(show_header=False, box=None, padding=(0, 2))
+            info_table.add_column("key", style="dim")
+            info_table.add_column("value", style="cyan")
+            info_table.add_row("Files", f"{file_count} parts")
+            info_table.add_row("Size", format_size(total_size))
+            info_table.add_row("Time", format_time(elapsed))
+            info_table.add_row("Avg Speed", format_speed(avg_speed))
+            info_table.add_row("Extract", f"[dim]cd '{dest_dir}' && unrar x {extract_file}[/dim]")
+            
             console.print(Panel(
-                f"[green]Done![/green] -> [cyan]{dest_dir}[/cyan]\n"
-                f"[dim]Time: {format_time(elapsed)}[/dim]\n"
-                f"[dim]Extract: cd '{dest_dir}' && unrar x {extract_file}[/dim]",
-                title="[bold green]Complete[/bold green]",
+                info_table,
+                title="[bold green]✓ Download Complete[/bold green]",
                 border_style="green",
                 expand=False,
             ))
         else:
             print(f"\n  Done! -> {dest_dir}")
-            print(f"  Time: {format_time(elapsed)}")
+            print(f"  Files: {file_count} parts, Size: {format_size(total_size)}")
+            print(f"  Time: {format_time(elapsed)}, Avg: {format_speed(avg_speed)}")
             print(f"  Extract: cd '{dest_dir}' && unrar x {extract_file}\n")
     else:
         if RICH_AVAILABLE and console:
