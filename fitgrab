@@ -1353,7 +1353,7 @@ async def resolve_ff_url(
         return "__RETRY__"
 
 
-async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
+async def resolve_all(ff_links: list[str], concurrency: int, dest_dir: Path | None = None) -> list[str]:
     """Resolve all FuckingFast URLs to direct CDN links using parallel workers.
     
     Architecture:
@@ -1364,6 +1364,7 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
     - Retry logic: rate-limited URLs get cooldown before re-queue, timeouts
       retry immediately with backoff applied on next attempt
     - Result filtering: None values (failed after MAX_ATTEMPTS) are filtered out
+    - Streaming: If dest_dir provided, immediately send resolved URLs to aria2c RPC
     
     The retry queue is persistent in memory - if the process crashes mid-way,
     re-running will re-resolve everything. For true crash recovery, we'd need
@@ -1377,6 +1378,13 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
     total = len(ff_links)
     completed = 0
     failed = 0
+    added_to_aria2 = 0
+    
+    # Start aria2c RPC server if dest_dir provided
+    aria2_process = None
+    if dest_dir:
+        aria2_process = start_aria2_rpc(dest_dir)
+        time.sleep(1)  # Give aria2c time to start
     
     # Progress tracking for Rich display
     progress_lock = asyncio.Lock()
@@ -1418,8 +1426,8 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
             ],
         )
 
-        async def worker(worker_id: int, progress: Progress | None = None, task_id: int | None = None):
-            nonlocal completed, failed
+        async def worker(worker_id: int, progress: Progress | None = None, task_id: int | None = None, dest_dir: Path | None = None):
+            nonlocal completed, failed, added_to_aria2
             
             while True:
                 try:
@@ -1552,14 +1560,21 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
                     elif result:
                         results[idx] = result
                         completed += 1
+                        
+                        # Stream to aria2c if dest_dir provided
+                        if dest_dir:
+                            if add_uri_to_aria2(result, dest_dir):
+                                added_to_aria2 += 1
+                        
                         if RICH_AVAILABLE and progress and task_id is not None:
                             elapsed = time.time() - start_time
                             rate = completed / elapsed if elapsed > 0 else 0
                             eta = (total - completed) / rate if rate > 0 else 0
+                            aria2_info = f" · ↓{added_to_aria2}" if dest_dir else ""
                             progress.update(
                                 task_id,
                                 completed=completed,
-                                description=f"[green]✓ Resolving URLs[/green] · {failed} failed · ETA: {format_time(eta)}"
+                                description=f"[green]✓ Resolving URLs[/green]{aria2_info} · {failed} failed · ETA: {format_time(eta)}"
                             )
 
                 queue.task_done()
@@ -1580,14 +1595,22 @@ async def resolve_all(ff_links: list[str], concurrency: int) -> list[str]:
                     total=total,
                 )
                 
-                workers = [asyncio.create_task(worker(i, progress, task_id)) for i in range(concurrency)]
+                workers = [asyncio.create_task(worker(i, progress, task_id, dest_dir)) for i in range(concurrency)]
                 await asyncio.gather(*workers)
         else:
             # Fallback: simple progress without Rich
-            workers = [asyncio.create_task(worker(i)) for i in range(concurrency)]
+            workers = [asyncio.create_task(worker(i, None, None, dest_dir)) for i in range(concurrency)]
             await asyncio.gather(*workers)
             
         await browser.close()
+
+    # Wait for aria2c downloads to complete if using streaming
+    if aria2_process and dest_dir:
+        if RICH_AVAILABLE and console:
+            console.print(f"\n[cyan]Waiting for {added_to_aria2} downloads to complete...[/cyan]")
+        wait_for_aria2_completion()
+        aria2_process.terminate()
+        aria2_process.wait()
 
     return [r for r in results if r]
 
@@ -1605,6 +1628,67 @@ ARIA2_PROGRESS_PATTERN = re.compile(
     r'(?:downloadSpeed=(\d+))?'
 )
 ARIA2_FILENAME_PATTERN = re.compile(r'filename=([^\s,]+)')
+
+
+# -- aria2c RPC for streaming downloads ---------------------------------------
+
+def start_aria2_rpc(dest_dir: Path) -> subprocess.Popen:
+    """Start aria2c in RPC server mode for streaming downloads."""
+    cmd = [
+        "aria2c",
+        "--enable-rpc",
+        "--rpc-listen-port=6800",
+        "--rpc-allow-origin-all=true",
+        f"--dir={dest_dir}",
+        f"--max-concurrent-downloads={ARIA2_CONCURRENT}",
+        "--max-connection-per-server=16",
+        "--split=16",
+        "--min-split-size=10M",
+        "--continue=true",
+        "--retry-wait=5",
+        "--max-tries=3",
+        "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "--console-log-level=warn",
+        "--summary-interval=0",
+    ]
+    return subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+
+def add_uri_to_aria2(url: str, dest_dir: Path) -> bool:
+    """Add a single URI to aria2c via JSON-RPC."""
+    import xmlrpc.client
+    try:
+        s = xmlrpc.client.ServerProxy("http://localhost:6800/rpc")
+        s.aria2.addUri([url], {"dir": str(dest_dir), "split": "16", "max-connection-per-server": "16"})
+        return True
+    except Exception:
+        return False
+
+
+def get_aria2_stats() -> dict:
+    """Get aria2c download statistics via RPC."""
+    import xmlrpc.client
+    try:
+        s = xmlrpc.client.ServerProxy("http://localhost:6800/rpc")
+        global_stats = s.aria2.getGlobalStat()
+        return {
+            "num_active": int(global_stats.get("numActive", 0)),
+            "num_waiting": int(global_stats.get("numWaiting", 0)),
+            "num_stopped": int(global_stats.get("numStoppedTotal", 0)),
+        }
+    except Exception:
+        return {"num_active": 0, "num_waiting": 0, "num_stopped": 0}
+
+
+def wait_for_aria2_completion(timeout: int = 3600) -> bool:
+    """Wait for all aria2c downloads to complete."""
+    start = time.time()
+    while time.time() - start < timeout:
+        stats = get_aria2_stats()
+        if stats["num_active"] == 0 and stats["num_waiting"] == 0:
+            return True
+        time.sleep(2)
+    return False
 
 
 def parse_aria2_log_line(line: str) -> dict | None:
@@ -2307,11 +2391,12 @@ async def run(args):
 
     sys.stdout.flush()
 
-    # ----- Stage 3: resolve FF page URLs to CDN links -----
+    # ----- Stage 3+4: resolve URLs and stream to aria2c -----
     # Game name already determined in Stage 1+2 (URL-decoded from FF links)
-    print_stage(3, f"Resolving {len(ff_to_resolve)} URLs ({args.concurrency} parallel contexts)...")
+    print_stage(3, f"Resolving {len(ff_to_resolve)} URLs + streaming downloads...")
 
-    direct_urls = await resolve_all(ff_to_resolve, args.concurrency)
+    # Pass dest_dir to enable streaming - downloads start immediately as URLs resolve
+    direct_urls = await resolve_all(ff_to_resolve, args.concurrency, dest_dir)
 
     print_status(True, f"Resolved: {len(direct_urls)}/{len(ff_to_resolve)}")
     failed = len(ff_to_resolve) - len(direct_urls)
@@ -2325,8 +2410,19 @@ async def run(args):
     # Game name is already determined as preliminary_name from Stage 1+2
     game_name = preliminary_name if preliminary_name != "fitgirl_download" else "download"
 
-    # ----- Stage 4: download via aria2c -----────────────────────────────────────────
-    success = await aria2c_download(direct_urls, dest_dir, game_name)
+    # Downloads already completed via streaming in resolve_all
+    # Check for missing files and re-download if needed
+    missing_files = detect_missing_files(dest_dir)
+    if missing_files:
+        if RICH_AVAILABLE and console:
+            console.print(f"\n[yellow]Detected {len(missing_files)} missing file(s), re-downloading...[/yellow]")
+        else:
+            print(f"\n  Detected {len(missing_files)} missing file(s), re-downloading...")
+        # Fall back to batch download for missing files
+        missing_urls = [url for url in direct_urls if any(mf in url for mf in missing_files)]
+        success = await aria2c_download(missing_urls, dest_dir, game_name)
+    else:
+        success = True
 
     if success:
         # Stage 5: test archive integrity
