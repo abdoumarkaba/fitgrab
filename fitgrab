@@ -2006,7 +2006,7 @@ async def run(args):
 
 '''
     if RICH_AVAILABLE and console:
-        console.print(f"[bold green]{FITGIRL_LOGO}[/bold green]")
+        console.print(f"[bold red]{FITGIRL_LOGO}[/bold red]")
         console.print(f"[dim]fitgrab v{__version__}[/dim] [cyan]FitGirl Repacks Downloader[/cyan]")
         console.print(f"[dim]via FuckingFast mirrors[/dim]\n")
     else:
