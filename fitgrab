@@ -1611,7 +1611,7 @@ async def resolve_all(ff_links: list[str], concurrency: int, dest_dir: Path | No
     if aria2_process and dest_dir:
         if RICH_AVAILABLE and console:
             console.print(f"\n[cyan]Waiting for {added_to_aria2} downloads to complete...[/cyan]")
-        wait_for_aria2_completion()
+        wait_for_aria2_completion(total_files=added_to_aria2)
         aria2_process.terminate()
         aria2_process.wait()
 
@@ -1674,24 +1674,91 @@ def get_aria2_stats() -> dict:
     try:
         s = xmlrpc.client.ServerProxy("http://localhost:6800/rpc")
         global_stats = s.aria2.getGlobalStat()
+        
+        # Get active downloads with progress info
+        active_downloads = []
+        try:
+            downloads = s.aria2.getJobs()
+            for d in downloads:
+                if d.get("status") == "active":
+                    total = int(d.get("totalLength", 0))
+                    completed = int(d.get("completedLength", 0))
+                    speed = int(d.get("downloadSpeed", 0))
+                    filename = d.get("files", [{}])[0].get("path", "").split("/")[-1] if d.get("files") else "unknown"
+                    active_downloads.append({
+                        "filename": filename[:30],
+                        "total": total,
+                        "completed": completed,
+                        "speed": speed,
+                        "progress": (completed / total * 100) if total > 0 else 0,
+                    })
+        except Exception:
+            pass
+        
         return {
             "num_active": int(global_stats.get("numActive", 0)),
             "num_waiting": int(global_stats.get("numWaiting", 0)),
             "num_stopped": int(global_stats.get("numStoppedTotal", 0)),
+            "download_speed": int(global_stats.get("downloadSpeed", 0)),
+            "active_downloads": active_downloads,
         }
     except Exception:
-        return {"num_active": 0, "num_waiting": 0, "num_stopped": 0}
+        return {"num_active": 0, "num_waiting": 0, "num_stopped": 0, "download_speed": 0, "active_downloads": []}
 
 
-def wait_for_aria2_completion(timeout: int = 3600) -> bool:
-    """Wait for all aria2c downloads to complete."""
+def wait_for_aria2_completion(timeout: int = 3600, total_files: int = 0) -> bool:
+    """Wait for all aria2c downloads to complete with progress display."""
     start = time.time()
-    while time.time() - start < timeout:
-        stats = get_aria2_stats()
-        if stats["num_active"] == 0 and stats["num_waiting"] == 0:
-            return True
-        time.sleep(2)
-    return False
+    completed_total = 0
+    
+    if RICH_AVAILABLE and console:
+        with Progress(
+            SpinnerColumn(style="cyan"),
+            TextColumn("[bold cyan]{task.description}"),
+            BarColumn(bar_width=32, complete_style="green"),
+            TextColumn("[cyan]{task.completed}/{task.total}"),
+            TimeElapsedColumn(),
+            console=console,
+            transient=False,
+        ) as progress:
+            task_id = progress.add_task(
+                "Downloading",
+                total=total_files,
+            )
+            
+            while time.time() - start < timeout:
+                stats = get_aria2_stats()
+                completed = stats["num_stopped"]
+                active = stats["num_active"]
+                waiting = stats["num_waiting"]
+                speed = stats["download_speed"]
+                
+                if active == 0 and waiting == 0:
+                    progress.update(task_id, completed=total_files)
+                    return True
+                
+                speed_str = format_speed(speed) if speed > 0 else "--"
+                progress.update(
+                    task_id,
+                    completed=completed,
+                    description=f"[green]Downloading[/green] · {speed_str} · {active} active · {waiting} queued"
+                )
+                
+                time.sleep(1)
+            
+            return False
+    else:
+        # Fallback without Rich
+        while time.time() - start < timeout:
+            stats = get_aria2_stats()
+            if stats["num_active"] == 0 and stats["num_waiting"] == 0:
+                return True
+            completed = stats["num_stopped"]
+            speed = stats["download_speed"]
+            print(f"\r  Downloading: {completed}/{total_files} | {format_speed(speed)}", end="", flush=True)
+            time.sleep(2)
+        print()
+        return False
 
 
 def parse_aria2_log_line(line: str) -> dict | None:
